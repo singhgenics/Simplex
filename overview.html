@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Simplex · Betalbatim Pub</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one narrow column on drafting paper; two link cards, then the key numbers */
+:root{--paper:#fbf7ef;--ink:#2a2420;--muted:#6a5d4e;--rule:#d9cbb3;--accent:#b23a1e;--card:#fffdf8;
+  --display:'Bricolage Grotesque','Avenir Next','Segoe UI',sans-serif;--body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;color-scheme:light}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);margin:0;line-height:1.55}
+main{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:40px 56px;display:flex;flex-direction:column;gap:28px}
+.eyebrow{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+h1{font:700 clamp(30px,6vw,46px)/1.02 var(--display);margin:0 0 10px;text-wrap:balance}
+p{margin:0;max-width:64ch}.muted{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.cards a{display:flex;flex-direction:column;gap:6px;padding:18px;background:var(--card);border:1px solid var(--rule);border-radius:10px;color:var(--ink);text-decoration:none}
+.cards a:hover,.cards a:focus-visible{border-color:var(--accent);outline:none}
+.cards b{font:700 20px/1.15 var(--display)}.cards span{font-size:14px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14.5px}
+td{padding:7px 0;border-bottom:1px solid var(--rule)}td:last-child{text-align:right;font-family:var(--mono)}
+tr.t td{font-weight:600;border-bottom:0}
+h2{font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+</style></head><body>
+<main>
+<header>
+<p class="eyebrow">Simplex · Betalbatim, South Goa</p>
+<h1>The pub without the loft</h1>
+<p class="muted">Dim sum, cabin-style Chinese, bao and Korean bar food with craft beer and cocktails, in a 4.5 × 4.5 × 10.5 m shell. No loft and no stair: one double-height room, with the kitchen sized to the 22-dish menu.</p>
+</header>
+<nav class="cards" aria-label="Pages">
+<a href="./"><b>3D model</b><span>Walk through every zone: bar, window tables, left-wall seating, kitchen, washroom, garden. Click a zone to explore.</span></a>
+<a href="plan.html"><b>Floor plan</b><span>Dimensioned ground-floor plan, vector, with a 3430 px PNG.</span></a>
+</nav>
+<section>
+<h2>Covers</h2>
+<table>
+<tr><td>Bar stools</td><td>4</td></tr>
+<tr><td>Window tables, right (4 + 2)</td><td>6</td></tr>
+<tr><td>Window tables, left (4 + 2)</td><td>6</td></tr>
+<tr><td>Bench facing the bar (2 + 2)</td><td>4</td></tr>
+<tr><td>Beer garden (two tables for 4)</td><td>8</td></tr>
+<tr class="t"><td>Total</td><td>28</td></tr>
+</table>
+</section>
+<p class="muted">Concept drawings for briefing an architect and a kitchen consultant, not for construction. Pillar and beam positions are estimates until measured on site.</p>
+</main>
+</body></html>
