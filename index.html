@@ -199,7 +199,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <tr class="g"><td>Ground</td><td>Washroom (1.1 × 1.75 m)</td><td class="n">1.9</td></tr>
         <tr class="g"><td>Ground</td><td>Kitchen (4.5 × 2.9 m)</td><td class="n">13.1</td></tr>
         <tr class="g"><td>Ground</td><td>Aisles, entry, electrical board and partitions (the rest)</td><td class="n">~12.4</td></tr>
-        <tr class="o"><td>Garden</td><td>Beer garden (7.2 × 3.3 m), 18.4 m² under the pergola</td><td class="n">23.8</td></tr>
+        <tr class="o"><td>Garden</td><td>Beer garden (4.9 × 2.0 m, all under the pergola)</td><td class="n">9.5</td></tr>
         <tr class="g"><td>Store</td><td>Storage deck over the kitchen, +2.7 m (staff only)</td><td class="n">12.6</td></tr>
         <tr class="total"><td></td><td>Indoor floor total (ground)</td><td class="n">47.3</td></tr>
       </table>
@@ -311,15 +311,16 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <tr><td>Ceiling hatch + fold-down ladder</td><td class="d">0.6 × 0.8 m, to the storage deck</td></tr>
         <tr><td>Storage deck racking</td><td class="d">3 runs, 3 tiers, 1.2 H · dry stock, packaging, spare CO₂, CCTV recorder</td></tr>
       </table></details>
-      <details class="dims" id="sz-garden"><summary>Beer garden · 8 covers · 23.8 m²</summary><table>
-        <tr><td>Gravel court</td><td class="d">7.2 × 3.3 m</td></tr>
-        <tr><td>Pergola (between posts)</td><td class="d">6.8 × 2.7 m · posts 0.16 m sq · 2.95 H</td></tr>
-        <tr><td>Polycarbonate roof</td><td class="d">7.2 × 2.9 m at 3.06 m</td></tr>
-        <tr><td>Tables for 4 (2)</td><td class="d">1.3 × 0.76 m · 0.78 H</td></tr>
-        <tr><td>Benches with backs (4)</td><td class="d">1.3 L × 0.36 D m · seat 0.47 · back 0.95 H</td></tr>
-        <tr><td>Centre path</td><td class="d">1.1 m wide</td></tr>
-        <tr><td>Mist fans (2)</td><td class="d">~1.65 H m, Ø 0.6 m head</td></tr>
-        <tr><td>PVC monsoon curtains</td><td class="d">3 sides: 6.8 m front, 2 × 2.7 m sides, 2.64 m drop</td></tr>
+      <details class="dims" id="sz-garden"><summary>Beer garden · 8 covers · 9.5 m²</summary><table>
+        <tr><td>Footprint</td><td class="d">4.9 W (in line with the side walls) × 2.0 D m</td></tr>
+        <tr><td>Pergola</td><td class="d">2 posts 0.16 m sq at the front corners · ledger on the facade · beams 2.75–2.97 m</td></tr>
+        <tr><td>Polycarbonate roof</td><td class="d">5.0 × 2.0 m at 3.06 m</td></tr>
+        <tr><td>Tables for 4 (2)</td><td class="d">1.2 × 0.76 m · 0.78 H</td></tr>
+        <tr><td>Benches with backs (4)</td><td class="d">1.2 L × 0.36 D m · seat 0.47 · back 0.95 H</td></tr>
+        <tr><td>Centre path</td><td class="d">1.18 m clear between bench backs</td></tr>
+        <tr><td>Mist fans (2)</td><td class="d">compact, on the front posts at 2.25 m</td></tr>
+        <tr><td>PVC monsoon curtains</td><td class="d">3 sides: 4.9 m front, 2 × 1.9 m sides, 2.64 m drop</td></tr>
+        <tr><td>Front planters</td><td class="d">2 × 1.85 L × 0.18 D × 0.45 H m, brick</td></tr>
       </table></details>
       <details class="dims" id="sz-lighting"><summary>Lighting schedule · warm throughout</summary>
       <p style="margin:6px 0 4px;font-size:12px;color:var(--muted)">Everything guests see is 2700 K or warmer, CRI 90+, on dimmers tied to the Lunch / Evening / Late scenes. Only the kitchen work light is 4000 K.</p><table>
@@ -332,7 +333,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <tr><td>Neon accents · <b>6 pieces</b></td><td class="d">LED neon flex, ~15 W each</td></tr>
         <tr><td>Washroom globes + ring-light mirrors · <b>4</b></td><td class="d">3000 K</td></tr>
         <tr><td>Kitchen 600 × 600 panels + hood lights · <b>6</b></td><td class="d">4000 K</td></tr>
-        <tr><td>Garden festoon strings · <b>3 strings</b></td><td class="d">2200 K, outdoor IP65</td></tr>
+        <tr><td>Garden festoon strings · <b>2 strings</b></td><td class="d">2200 K, outdoor IP65</td></tr>
         <tr><td>Emergency lights · EXIT signs</td><td class="d">4 · 2, battery 90 min</td></tr>
       </table></details>
       <details class="dims" id="sz-services"><summary>Services, safety &amp; security</summary><table>
@@ -983,48 +984,50 @@ function speaker(side,y,z,parent){const s2=side<0?1:-1,wx=side<0?X0:X1;const g=n
 speaker(-1,2.78,0.2,G.ground); speaker(1,3.6,2.25,G.ground); speaker(-1,1.95,6.0,G.ground);
 speaker(1,3.2,4.75,G.ground); // four speakers: front right, left front, left by the bar, back right
 
-// ---------- outside: beer garden (~7 × 3 m, 6 covers) ----------
-const out=G.outside;
+// ---------- outside: beer garden, as wide as the shell (4.9 m outside the walls) and 2.0 m deep, 8 covers ----------
+const out=G.outside;const GW=2.45,GD=-2.0; // garden runs x −2.45 → 2.45 (in line with the side walls), z −2.0 → shopfront
 bx(-16,16,-0.1,-0.06,-16,18,M.laterite,out,false);
-bx(-3.6,3.6,-0.06,-0.02,-3.4,-0.1,M.gravel,out,false);
+bx(-GW,GW,-0.06,-0.02,GD,-0.1,M.gravel,out,false);
 bx(-0.55,0.55,-0.02,0.0,-6.3,-0.1,M.concrete,out,false);
 bx(-16,16,-0.06,-0.04,-11,-7.6,M.road,out,false);
-const PX=[-3.4,3.4],PZ=[-0.35,-3.05];
-PX.forEach(x=>PZ.forEach(z=>bx(x-0.08,x+0.08,0,2.95,z-0.08,z+0.08,M.timber,out)));
-// MONSOON CURTAINS: roll-down clear PVC on the pergola's three open sides (rolled up here, one side shown lowered)
+// PERGOLA: two front posts in line with the side walls; a ledger fixed to the facade carries the back ends of the rafters
+const PX=[-2.35,2.35],PZ=[-1.92];
+PX.forEach(x=>bx(x-0.08,x+0.08,0,2.95,-2.0,-1.84,M.timber,out));
+bx(-GW,GW,2.75,2.97,-2.0,-1.84,M.timber,out);                 // front beam on the posts
+bx(-GW,GW,2.75,2.97,-0.26,-0.1,M.timber,out);                 // ledger bolted to the facade
+PX.forEach(x=>bx(x-0.08,x+0.08,2.75,2.97,-1.84,-0.26,M.timber,out)); // side beams
+for(let x=-2.25;x<=2.26;x+=0.45) bx(x-0.04,x+0.04,2.97,3.05,-2.05,-0.1,M.timber,G.pergTop);
+bx(-GW-0.05,GW+0.05,3.06,3.07,-2.1,-0.1,M.poly,G.pergTop,false);
+// MONSOON CURTAINS: roll-down clear PVC on the three open sides (rolled up; the left side shown lowered)
 M.pvcC=S({color:'#eef6f8',transparent:true,opacity:0.22,roughness:0.1,side:THREE.DoubleSide,depthWrite:false});
 {const roll=(a,b,y,along)=>{const L2=along==='x'?Math.abs(b[0]-a[0]):Math.abs(b[2]-a[2]);const c=new THREE.Mesh(new THREE.CylinderGeometry(0.055,0.055,L2,12),M.porcelain);
    if(along==='x')c.rotation.z=Math.PI/2;else c.rotation.x=Math.PI/2;c.position.set((a[0]+b[0])/2,y,(a[2]+b[2])/2);out.add(c);};
- roll([-3.4,0,-3.2],[3.4,0,-3.2],2.68,'x'); roll([-3.5,0,-3.05],[-3.5,0,-0.35],2.68,'z'); roll([3.5,0,-3.05],[3.5,0,-0.35],2.68,'z');
- bx(3.49,3.51,0.05,2.64,-3.05,-0.35,M.pvcC,out,false); bx(3.47,3.53,0.02,0.06,-3.05,-0.35,M.porcelain,out);}
-
-PX.forEach(x=>bx(x-0.1,x+0.1,2.75,2.97,-3.15,-0.25,M.timber,out));
-for(let z=-3.05;z<=-0.3;z+=0.45) bx(-3.6,3.6,2.97,3.05,z-0.04,z+0.04,M.timber,G.pergTop);
-bx(-3.6,3.6,3.06,3.07,-3.15,-0.25,M.poly,G.pergTop,false);
-{const r=rng(99);for(let i=0;i<50;i++){const e=r();let x,z;if(e<0.5){x=(r()<.5?-1:1)*(3.0+r()*0.5);z=-3.0+r()*2.7;}else if(e<0.7){x=-3.5+r()*7;z=-3.05+r()*0.25;}else{x=-3.4+r()*6.8;z=-3+r()*2.7;}trail(x,2.97,z,0.2+r()*(e<0.7?1.1:0.4),out);}}
-[-0.8,-1.7,-2.6].forEach(z=>{const pts=[];for(let i=0;i<=20;i++){const x=-3.4+i*6.8/20;const t=x/3.4;pts.push(V(x,2.92-0.38*(1-t*t),z));}
+ roll([-GW,0,-2.06],[GW,0,-2.06],2.68,'x'); roll([-GW-0.06,0,-1.84],[-GW-0.06,0,-0.12],2.68,'z'); roll([GW+0.06,0,-1.84],[GW+0.06,0,-0.12],2.68,'z');
+ bx(GW+0.05,GW+0.07,0.05,2.64,-1.84,-0.12,M.pvcC,out,false); bx(GW+0.03,GW+0.09,0.02,0.06,-1.84,-0.12,M.porcelain,out);}
+// trailing vines along the front beam and the side beams
+{const r=rng(99);for(let i=0;i<34;i++){const e=r();let x,z;if(e<0.55){x=-GW+r()*2*GW;z=-1.98+r()*0.12;}else{x=(r()<.5?-1:1)*(2.3+r()*0.12);z=-1.8+r()*1.6;}trail(x,2.75,z,0.2+r()*(e<0.55?0.7:0.5),out);}}
+// festoon strings: two runs across the full width
+[-0.7,-1.4].forEach(z=>{const pts=[];for(let i=0;i<=14;i++){const x=-2.3+i*4.6/14;const t=x/2.3;pts.push(V(x,2.9-0.3*(1-t*t),z));}
   out.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:'#3a3a3a'})));
-  pts.forEach((p,i)=>{if(i>0&&i<20)sph(0.04,p.x,p.y-0.06,p.z,M.globe,out);});});
-[-1.9,1.9].forEach(x=>{const za=-2.35,zb=-1.05;bx(x-0.38,x+0.38,0.72,0.78,za,zb,M.timber,out);[[-0.3,za+0.1],[0.3,za+0.1],[-0.3,zb-0.1],[0.3,zb-0.1]].forEach(([a2,b2])=>bx(x+a2-0.04,x+a2+0.04,0,0.72,b2-0.04,b2+0.04,M.timberDark,out));
+  pts.forEach((p,i)=>{if(i>0&&i<14)sph(0.04,p.x,p.y-0.06,p.z,M.globe,out);});});
+// TWO TABLES FOR 4, each with two benches with backrests (1.2 × 0.76 m tables), either side of the 1.1 m path to the doors
+[-1.4,1.4].forEach(x=>{const za=-1.68,zb=-0.48;bx(x-0.38,x+0.38,0.72,0.78,za,zb,M.timber,out);[[-0.3,za+0.1],[0.3,za+0.1],[-0.3,zb-0.1],[0.3,zb-0.1]].forEach(([a2,b2])=>bx(x+a2-0.04,x+a2+0.04,0,0.72,b2-0.04,b2+0.04,M.timberDark,out));
   [-1,1].forEach(s2=>{const bxs=x+s2*0.62;bx(bxs-0.18,bxs+0.18,0.42,0.47,za,zb,M.timber,out);bx(bxs-0.16,bxs+0.16,0.47,0.52,za+0.05,zb-0.05,cush[2],out);
     [za+0.1,(za+zb)/2,zb-0.1].forEach(b2=>{bx(bxs-0.12,bxs+0.12,0,0.42,b2-0.04,b2+0.04,M.timberDark,out);bx(bxs+s2*0.15,bxs+s2*0.19,0.42,0.95,b2-0.04,b2+0.04,M.timberDark,out);});
     [0.62,0.8].forEach(y=>bx(bxs+s2*0.16,bxs+s2*0.2,y,y+0.12,za,zb,M.timber,out));});
-  [-2.0,-1.4].forEach(z=>cyl(0.04,0.04,0.09,x,0.78,z,M.glow,out,10));});
-[-3.3,3.3].forEach(x=>[-2.7,-1.0].forEach(z=>plant(x,0,z,0.9,out)));
-{const ch=new THREE.Group();bx(-0.32,0.32,0.05,1.05,-0.02,0.02,M.chalk,ch);ch.position.set(1.05,0,-3.75);ch.rotation.x=0.12;ch.rotation.y=Math.PI;out.add(ch);}
-bx(-3.7,-0.6,0,0.5,-3.55,-3.4,M.brick,out); bx(0.6,3.7,0,0.5,-3.55,-3.4,M.brick,out);
-// pedestal MIST FANS aimed at the tables
-function mistFan(x,z,tx,tz){const g=new THREE.Group();cyl(0.26,0.3,0.05,0,0,0,M.black,g,20);cyl(0.03,0.03,1.45,0,0.05,0,M.black,g,10);
-  const motor=bx(-0.16,0.0,1.42,1.62,-0.09,0.09,M.black,g);
-  const cage=new THREE.Mesh(new THREE.TorusGeometry(0.3,0.012,6,28),M.ss);cage.rotation.y=Math.PI/2;cage.position.set(0.06,1.52,0);g.add(cage);
-  for(let i=0;i<4;i++){const bl=new THREE.Mesh(new THREE.BoxGeometry(0.01,0.24,0.08),M.ss);bl.position.set(0.04,1.52,0);bl.rotation.x=i*Math.PI/2;bl.translateY(0.13);g.add(bl);}
-  const nz=new THREE.Mesh(new THREE.TorusGeometry(0.22,0.01,6,24),M.brass);nz.rotation.y=Math.PI/2;nz.position.set(0.1,1.52,0);g.add(nz);
-  const mist=new THREE.Mesh(new THREE.CylinderGeometry(0.75,0.18,1.6,20,1,true),M.mist);mist.rotation.z=-Math.PI/2;mist.position.set(0.95,1.42,0);mist.castShadow=false;g.add(mist);
-  const mist2=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.12,1.1,16,1,true),M.mist);mist2.rotation.z=-Math.PI/2;mist2.position.set(0.7,1.48,0);mist2.castShadow=false;g.add(mist2);
-  g.position.set(x,0,z);g.rotation.y=Math.atan2(-(tz-z),tx-x);out.add(g);}
-mistFan(-2.9,-1.7,-1.9,-1.7); mistFan(2.95,-2.95,1.9,-1.7);
-// misting line along both pergola beams, with fine-mist nozzles
-[-3.28,3.28].forEach(x=>{rod(V(x,2.72,-3.05),V(x,2.72,-0.35),0.012,M.ss,out);for(let z=-2.9;z<-0.4;z+=0.5){cyl(0.012,0.02,0.05,x,2.66,z,M.brass,out,8);const m=new THREE.Mesh(new THREE.CylinderGeometry(0.02,0.22,0.55,12,1,true),M.mist);m.position.set(x,2.36,z);m.castShadow=false;out.add(m);}});
+  [-1.35,-0.8].forEach(z=>cyl(0.04,0.04,0.09,x,0.78,z,M.glow,out,10));});
+// low brick planters along the front edge, open in the middle for the path
+bx(-GW,-0.6,0,0.45,-2.2,-2.02,M.brick,out); bx(0.6,GW,0,0.45,-2.2,-2.02,M.brick,out);
+{const r=rng(17);[[-GW,-0.6],[0.6,GW]].forEach(([a,b])=>{for(let x=a+0.2;x<b-0.1;x+=0.3){const l=new THREE.Mesh(new THREE.SphereGeometry(0.17,8,6),M.leaf);l.scale.set(1,0.7+r()*0.4,0.7);l.position.set(x,0.55+r()*0.08,-2.11);out.add(l);}});}
+{const ch=new THREE.Group();bx(-0.32,0.32,0.05,1.05,-0.02,0.02,M.chalk,ch);ch.position.set(0.95,0,-2.55);ch.rotation.x=0.12;ch.rotation.y=Math.PI;out.add(ch);}
+// MIST FANS: compact wall-type fans on the two front posts, angled in at the tables, plus a misting line along the front beam
+function postFan(x){const s2=x<0?1:-1;const g=new THREE.Group();bx(-0.07,0.07,-0.09,0.09,-0.06,0.06,M.black,g);
+  const cage=new THREE.Mesh(new THREE.TorusGeometry(0.2,0.01,6,24),M.ss);cage.position.set(0,0,0.14);g.add(cage);
+  for(let i=0;i<4;i++){const bl=new THREE.Mesh(new THREE.BoxGeometry(0.16,0.012,0.05),M.ss);bl.position.set(0,0,0.12);bl.rotation.z=i*Math.PI/2;bl.translateX(0.08);g.add(bl);}
+  const mist=new THREE.Mesh(new THREE.CylinderGeometry(0.55,0.12,1.2,18,1,true),M.mist);mist.rotation.x=Math.PI/2;mist.position.set(0,-0.1,0.8);mist.castShadow=false;g.add(mist);
+  g.position.set(x+s2*0.12,2.25,-1.92);g.rotation.y=s2*0.9;g.rotation.x=0.35;out.add(g);}
+postFan(-2.35); postFan(2.35);
+rod(V(-2.3,2.72,-1.92),V(2.3,2.72,-1.92),0.012,M.ss,out);for(let x=-2.1;x<2.2;x+=0.6){cyl(0.012,0.02,0.05,x,2.66,-1.92,M.brass,out,8);const m=new THREE.Mesh(new THREE.CylinderGeometry(0.02,0.2,0.5,12,1,true),M.mist);m.position.set(x,2.38,-1.92);m.castShadow=false;out.add(m);}
 function palm(x,z,h,lean){const g=new THREE.Group();const pts=[];for(let i=0;i<=8;i++){const t=i/8;pts.push(V(lean*t*t,h*t,0));}
   const tube=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),12,0.13,7,false),M.trunk);tube.castShadow=true;g.add(tube);
   for(let i=0;i<9;i++){const leaf=new THREE.Mesh(new THREE.PlaneGeometry(0.5,2.6),M.leafSolid);leaf.position.copy(pts[8]);leaf.rotation.set(0,i/9*Math.PI*2,0);leaf.rotateX(-1.05);leaf.translateY(1.2);leaf.castShadow=true;g.add(leaf);}
@@ -1203,7 +1206,7 @@ function cctv(x,y,z,yaw,parent){const g=new THREE.Group();bx(-0.04,0.04,-0.04,0.
 extinguisher(1.25,0.12,4.74,gr); extinguisher(1.45,0.12,4.74,gr,true); bx(1.15,1.55,0.75,1.0,4.812,4.82,M.fRed,gr,false); // on the niche side wall, at the end of the bench
 extinguisher(X0+0.1,0.12,7.25,gr,true);
 extinguisher(-0.55,0.02,7.95,G.kitchen); extinguisher(-0.3,0.02,7.95,G.kitchen,true);
-extinguisher(-3.28,0.12,-0.45,G.outside);
+extinguisher(-2.2,0.12,-1.78,G.outside);
 // main electrical board (RCCB + MCBs) + fire alarm panel, on the right wall past the keg cooler
 bx(X0,X0+0.15,1.15,1.75,7.03,7.45,M.ssDark,gr); bx(X0+0.15,X0+0.16,1.2,1.7,7.08,7.4,M.steel,gr,false);
 bx(X0,X0+0.1,1.86,2.14,7.06,7.42,M.porcelain,gr); sph(0.012,X0+0.105,2.05,7.12,M.fRedGlow,gr);
@@ -1224,7 +1227,7 @@ exitSign(0,2.75,0.12,0,gr); rod(V(0,H,0.12),V(0,2.82,0.12),0.005,M.black,gr);
 exitSign(1.55,2.13,D-0.03,Math.PI,G.kitchen);
 // CCTV: entrance, POS/till, loft, rear exit, garden (recorder in the locked under-stair store)
 cctv(X0+0.12,3.3,0.25,0.9,gr); cctv(X0+0.2,2.42,3.1,Math.PI,gr); // under the ledge, looking at the POS nook
-cctv(X0+0.12,3.0,7.0,Math.PI-0.5,gr); cctv(1.55,2.55,D+0.25,0,G.ext); cctv(3.3,2.6,-0.42,-2.3,G.outside); // back of the room, rear exit, garden
+cctv(X0+0.12,3.0,7.0,Math.PI-0.5,gr); cctv(1.55,2.55,D+0.25,0,G.ext); cctv(2.3,2.6,-0.3,-2.3,G.outside); // back of the room, rear exit, garden
 // POS NOOK recessed into the back bar's door end (z 2.36–2.84): timber cheeks and a top shelf; tablet on a stand facing the bartender,
 // card machine and receipt printer inside; cash drawer + small safe in the cabinet below. The bar top stays clear for guests.
 {const n0=2.36,n1=2.84,nx=X0+0.4;
@@ -1272,7 +1275,7 @@ bx(X0+PD,X1,2.45,2.65,D-0.15,D,M.plaster,G.wallB); bx(X1-0.15,X1,2.45,2.65,5.7,D
  [[0.42,M.leaf],[0.65,S({color:'#2f5f9a',roughness:0.6})],[0.88,M.steel]].forEach(([x,m])=>{cyl(0.1,0.09,0.55,x,0.06,c+0.35,m,G.ext,14);});}
 // ---------- labels ----------
 const LBL=[
- ['Mist fan',-2.9,1.95,-1.7,'o'],['Mist fan',2.95,1.95,-2.95,'o'],['Misting line on the pergola',3.28,2.95,-1.6,'o'],['Chalkboard',1.05,1.3,-3.75,'o'],
+ ['Mist fan on the post',-2.3,2.55,-1.92,'o'],['Mist fan on the post',2.3,2.55,-1.92,'o'],['Misting line on the front beam',0,2.95,-1.92,'o'],['Chalkboard',0.95,1.3,-2.55,'o'],['Pergola: 2 posts in line with the side walls + ledger on the facade',-1.4,3.25,-1.92,'o'],['Brick planters, open for the path',-1.6,0.75,-2.1,'o'],
  ['POS nook in the back bar · tablet, card machine, printer, cash drawer',-1.95,1.5,2.6,'g'],['"settle up here" neon',X0+0.05,2.8,2.95,'g','R'],['Window tables · 4 + 2 (join into 6)',-1.3,1.25,1.2,'g'],['Reclaimed-wood wall · vintage signs',X0+0.05,3.9,1.2,'g','R'],['Spiral duct + brass lanterns',0.4,4.05,1.6,'g'],
  ['Bar · 4 stools · 6 taps',-0.1,1.45,3.8,'g'],['Backlit onyx bar · emerald tile',-0.45,1.25,3.3,'g'],['Brass gantry, amber-lit',-0.75,3.05,3.0,'g'],['TV',X0+0.1,3.6,2.95,'g'],
  ['Big framed print',X1-0.05,4.25,3.25,'g','L'],['Keg cooler · 8 × 20 L kegs',-1.6,1.0,6.0,'g'],['CO₂ bay · chained · vented',-1.55,0.7,7.15,'g'],['Empty-keg cage (outside)',2.05,1.45,D+1.4,'g'],['Urinal',1.95,1.85,6.02,'g'],['Server station',-1.9,1.55,6.4,'g'],['Washroom · one door · WC + urinal',1.65,2.25,6.4,'g'],['WC',1.95,1.2,7.1,'g'],
@@ -1291,10 +1294,10 @@ LBL.push(['CO₂ extinguisher + main electrical board (RCCB/MCB)',X0+0.1,1.9,7.2
  ['Emergency light',X0+0.06,3.05,0.25,'s'],['Emergency light (aisle)',SX0-0.06,2.05,7.2,'s'],
  ['EXIT sign',0,2.95,0.12,'s'],['EXIT sign (rear door)',1.55,2.15,D-0.03,'s'],
  
- ['CCTV · entrance',X0+0.12,3.45,0.25,'s'],['CCTV · till (POS nook)',X0+0.2,2.3,3.1,'s'],['CCTV · rear exit',1.55,2.75,D+0.25,'s'],['CCTV · garden',3.3,2.75,-0.42,'s'],
- ['ABC extinguisher (garden)',-3.28,0.75,-0.45,'s'],['LPG cage · leak detector · auto shut-off',-1.7,1.85,D+0.7,'s'],['Front: glass doors open outward inside the shutter',0,1.2,0.05,'s']);
+ ['CCTV · entrance',X0+0.12,3.45,0.25,'s'],['CCTV · till (POS nook)',X0+0.2,2.3,3.1,'s'],['CCTV · rear exit',1.55,2.75,D+0.25,'s'],['CCTV · garden',2.3,2.75,-0.3,'s'],
+ ['ABC extinguisher (garden)',-2.2,0.75,-1.78,'s'],['LPG cage · leak detector · auto shut-off',-1.7,1.85,D+0.7,'s'],['Front: glass doors open outward inside the shutter',0,1.2,0.05,'s']);
 LBL.push(['Fresh-air (make-up) supply grille',-0.3,KC-0.1,9.2,'k'],['Fresh-air intake fan',1.6,3.95,D+0.3,'k'],['U/C freezer · dumplings + bao',-1.15,0.55,8.32,'k'],
- ['Acoustic fabric ceiling clouds',-0.5,H-0.15,1.2,'g'],['Roll-down clear PVC monsoon curtains',3.4,2.4,-1.7,'o']);
+ ['Acoustic fabric ceiling clouds',-0.5,H-0.15,1.2,'g'],['Roll-down clear PVC monsoon curtains',2.5,2.4,-1.0,'o']);
 LBL.push(['Gallery track · 4 spots',1.75,H-0.25,2.5,'g']);
 LBL.push(['Batch coffee brewer · 2 warming jugs (no barista)',X0+0.5,1.65,5.67,'g'],['Cups + milk warmer',X0+0.5,1.3,6.05,'g']);
 LBL.push(['Pillar P1 · 0.30 × 0.23 m · z 4.8',X0+0.24,1.2,4.8,'g','R'],['Pillar P2 · z 6.8',X0+0.24,1.2,6.8,'g','R'],['Ledge 2.45–2.65 m (shell)',X0+0.24,2.75,1.6,'g','R'],
@@ -1334,11 +1337,11 @@ tag('0.9 × 0.45',0.32,1.57,0.76+U,3.1,'up','z'); tag('0.9 × 0.45',0.32,1.57,0.
 tag('aisle 1.05 m',0.4,0.82,U,3.6,'up','z'); tag('entry 1.2 m clear',0.55,0.1,U,1.45,'up');
 tag('hand-wash niche 1.2 × 0.75',0.6,1.6,U,5.27,'up','z'); tag('storage deck +2.70 · 12.6 m² · 1.7 clear',1.3,-0.6,KC+0.08+U,8.0,'up');
 // garden
-tag('GARDEN 7.2 × 3.3 m · 23.8 m²',1.5,0,0.002,-0.55,'up');
-tag('1.3 × 0.76 · h 0.78',0.55,-1.9,0.78+U,-1.7,'up','z'); tag('1.3 × 0.76 · h 0.78',0.55,1.9,0.78+U,-1.7,'up','z');
+tag('GARDEN 4.9 × 2.0 m · 9.5 m²',1.1,0,0.002,-1.85,'up');
+tag('1.2 × 0.76 · h 0.78',0.55,-1.4,0.78+U,-1.08,'up','z'); tag('1.2 × 0.76 · h 0.78',0.55,1.4,0.78+U,-1.08,'up','z'); tag('path 1.18',0.4,0,0.004,-1.2,'up','z');
 LBL.push(['Ice machine · under-counter, ~50 kg/day',-1.0,0.95,4.47,'g'],['Bartender aisle 0.85 m',-1.5,0.3,3.6,'g'],['Bin store · wet / dry / glass',0.65,1.35,D+1.35,'k']);
 
-LBL.push(['Beer garden · 8 · two tables for 4',0,3.3,-1.7,'o'],['Banquette facing the bar · 2 + 2',1.6,1.35,3.6,'g'],
+LBL.push(['Beer garden · 4.9 × 2.0 m · 8 covers',0,3.4,-1.0,'o'],['Banquette facing the bar · 2 + 2',1.6,1.35,3.6,'g'],
  ['Salon gallery wall',X1-0.05,2.65,2.05,'g','L'],['Hand-wash niche · drum basin · pop-art ring mirrors',1.7,2.45,5.27,'g'],['Booth · 2 banquettes face to face (4 + 2)',0.92,1.3,1.2,'g'],['Storage deck over the kitchen · 1.7 m clear · fold-down ladder',-0.6,3.6,8.8,'g'],['Printed acoustic panels (50 mm fabric)',1.0,3.4,6.6,'g'],['Acoustic clouds in every bay',-0.5,H-0.15,3.35,'g'],['Kitchen wall up to the slab · neon + menu board',-0.35,4.15,KZ-0.05,'g'],
  ['Split AC 2.0 TR (front)',X0+0.12,4.3,1.2,'g'],['Split AC 2.0 TR (back)',-1.17,3.45,KZ-0.15,'g'],['Double height · 4.5 m to the slab',0.2,4.25,5.9,'g'],
  ['Canopy hood 3.4 × 0.95 · baffles · fire suppression',-0.6,2.5,9.8,'k'],['Non-veg prep · open undershelf',X0+0.35,1.3,9.35,'k'],['10 L rice cooker',X0+0.25,1.45,9.4,'k'],
@@ -1367,7 +1370,7 @@ const ZONES={
     l:['Two ways out: the front (glass doors that open outward inside the shutter) and the kitchen’s rear door, which opens outward with a panic bar. Everyone is on one level','Extinguishers: ABC + CO₂ by the bar, CO₂ at the electrical board, wet-chemical (Class K) + CO₂ in the kitchen, ABC in the garden','Smoke detectors across the dining room; a heat detector in the kitchen; a call point and hooter at the entrance','Battery emergency lights and lit EXIT signs on the escape route','Hood fire suppression with a manual pull and an automatic gas cut-off; LPG outside in a ventilated cage (76 kg, under the 100 kg licence limit)','Main electrical board with RCCB and MCBs, fire-retardant cabling and a licensed contractor’s certificate','Security: 5 CCTV cameras (entrance, till, back of the room, rear exit, garden) recording to the locked dry store; a safe under the POS'],
     views:[['Overview','safety'],['Left wall','leftMid'],['Kitchen','kwalk']]},
   washroom:{box:[0.55,X1,0,KC,5.65,KZ],ey:'Washroom · 1.9 m² + 0.5 m² basin · unisex',t:'Washroom: WC + urinal, one door',b:'One room with one door. Inside are a wall-hung urinal behind a timber modesty screen and a WC, all in olive tile. The shared basin is in a niche just in front of the door, off the guest aisle and away from the kitchen door.',l:['Ceiling 2.7 m; the walls run up to the slab','Basin niche: a white drum basin with a black wall tap, 1.2 × 0.75 m, tiled sides','Mirror: a pop-art face mural whose glasses are two LED ring mirrors','The door opens onto the dining room, never into the kitchen','Check that a unisex washroom is accepted locally'],views:[['From above','wash'],['Urinal','washU'],['WC','washWC'],['Hand-wash niche','niche']]},
-  garden:{box:[-3.6,3.6,0,3.0,-3.4,-0.1],ey:'Beer garden · 23.8 m² · 8 covers',t:'Beer garden',b:'About 7 × 3 m under a timber pergola with a clear polycarbonate roof, trailing vines and festoon bulbs.',l:['Headroom about 2.95 m under the pergola rafters','Two tables for 4 on benches with backrests and seat pads, either side of the 1.1 m path','Two pedestal mist fans and a misting line along both pergola beams keep it cool','Monsoon: roll-down clear PVC curtains on three sides keep all 8 covers open June to September'],views:[['View','garden']]}
+  garden:{box:[-2.45,2.45,0,3.0,-2.0,-0.1],ey:'Beer garden · 4.9 × 2.0 m · 9.5 m² · 8 covers',t:'Beer garden',b:'As wide as the building and 2 m deep: a timber pergola with two front posts in line with the side walls and a ledger bolted to the facade, so nothing stands in the way of the doors. Clear polycarbonate roof, trailing vines and two strings of festoon bulbs.',l:['Headroom about 2.75 m under the beams, 2.95 m under the roof','Two tables for 4 (1.2 × 0.76 m), each with two benches with backrests and seat pads','A 1.18 m path from the road to the doors runs between them','Two compact mist fans on the front posts and a misting line along the front beam','Low brick planters along the front edge, open in the middle for the path','Monsoon: roll-down clear PVC curtains on the three open sides keep all 8 covers open June to September'],views:[['View','garden'],['From the road','street']]},
 };
 const hitMat=new THREE.MeshBasicMaterial();const hits=[];
 Object.entries(ZONES).forEach(([k,z])=>{if(z.nohit)return;const [x0,x1,y0,y1,z0,z1]=z.box;const m=new THREE.Mesh(new THREE.BoxGeometry(x1-x0,y1-y0,z1-z0),hitMat);m.position.set((x0+x1)/2,(y0+y1)/2,(z0+z1)/2);m.updateMatrixWorld();m.userData.zone=k;hits.push(m);});
@@ -1396,7 +1399,7 @@ const VIEWS={
   gallery:{p:[-1.0,2.0,2.15],t:[2.25,3.0,2.4]},
   safety:{p:[7.4,13.2,5.0],t:[0,0.6,4.9]},
   washOut:{p:[-0.9,1.7,5.3],t:[1.1,1.35,5.55]},
-  garden:{p:[3.0,1.7,-5.0],t:[-0.6,1.1,-1.3]},
+  garden:{p:[3.3,2.3,-5.2],t:[-0.3,0.9,-1.0]},
   street:{p:[0.4,1.7,-8.8],t:[0,2.0,2.0]},
   plan:{p:[0,27,2.11],t:[0,0,2.1]},
 
