@@ -44,11 +44,14 @@ body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:14px
 .seg button{appearance:none;border:0;background:transparent;color:var(--muted);font:500 12px/1 var(--body);padding:8px 11px;border-radius:9px;cursor:pointer}
 .seg button:hover{color:var(--fg);background:rgba(255,255,255,.05)}
 .seg button[aria-pressed="true"]{background:var(--amber);color:#1b120a}
-.lightctl{flex-direction:column;padding:8px 10px;gap:6px;min-width:250px}
+.lightwrap{position:relative;pointer-events:auto}
+.lightwrap>.seg button .car{display:inline-block;margin-left:6px;transition:transform .15s}
+.lightwrap>.seg button[aria-expanded="true"] .car{transform:rotate(180deg)}
+.lightctl{position:absolute;top:calc(100% + 6px);left:0;z-index:25;flex-direction:column;flex-wrap:nowrap;padding:10px 12px;gap:8px;width:300px;max-width:calc(100vw - 24px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
 .lc-row{display:flex;align-items:center;gap:8px}
 .lc-k{font:600 10.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--amber);width:44px}
 .lc-e{font:500 11px/1 var(--body);color:var(--muted);width:30px}
-.lc-v{font:500 11px/1 var(--mono);color:var(--fg);white-space:nowrap;width:86px;text-align:right}
+.lc-v{font:500 11px/1 var(--mono);color:var(--fg);white-space:nowrap;min-width:92px;text-align:right}
 .lightctl input[type=range]{flex:1;accent-color:var(--amber);min-width:90px;height:18px}
 .lc-pre{gap:2px;flex-wrap:wrap} .lc-pre button{padding:6px 9px}
 .lc-win{align-items:center} .lc-win .lc-k{margin-right:2px} .lc-win button{padding:5px 8px;font-size:11px}
@@ -101,6 +104,7 @@ ol.flow li::before{content:counter(f);font:600 10px/1 var(--mono);width:18px;hei
   .app{grid-template-columns:1fr;grid-template-rows:68vh auto;height:auto}
   .panel{border-left:0;border-top:1px solid var(--line);overflow:visible;padding-inline:16px}
   .toolbar{left:10px;right:10px;top:10px}
+  .lightctl{left:auto;right:0;width:min(300px,calc(100vw - 20px))}
   .seg button{padding:7px 9px;font-size:11.5px}
   .card{right:10px;left:10px;bottom:10px;width:auto;max-height:46%}
   ul.zones li{grid-template-columns:1fr;gap:2px}
@@ -147,11 +151,14 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <button id="t-dims" aria-pressed="false">Sizes</button>
         <button id="t-plans" aria-pressed="false">Floor plans</button>
       </div>
-      <div class="seg lightctl" role="group" aria-label="Lighting">
+      <div class="lightwrap">
+        <div class="seg"><button id="t-light" aria-expanded="false" aria-controls="lightpanel">Lighting · <span id="lc-name">Evening</span><span class="car" aria-hidden="true">▾</span></button></div>
+        <div class="seg lightctl" id="lightpanel" role="group" aria-label="Lighting" hidden>
         <div class="lc-row"><span class="lc-k">Time</span><span class="lc-e">Day</span><input id="lc-time" type="range" min="0" max="100" value="85" aria-label="Time of day, day to night"><span class="lc-e">Night</span></div>
         <div class="lc-row"><span class="lc-k">Lights</span><span class="lc-e">Off</span><input id="lc-dim" type="range" min="0" max="100" value="80" aria-label="Dim all lights"><span class="lc-v" id="lc-read">80% · 2700 K</span></div>
         
         <div class="lc-row lc-pre"><button data-pre="lunch">Lunch</button><button data-pre="dusk">Sunset</button><button data-pre="evening" aria-pressed="true">Evening</button><button data-pre="late">Late</button></div>
+        </div>
       </div>
     </div>
     <div class="htag" id="htag" hidden></div>
@@ -1438,7 +1445,14 @@ toggle('t-cut','cut');toggle('t-lbl','labels');{const tI=document.getElementById
  dI.addEventListener('input',()=>{LIGHT.dim=dI.value/100;pre.forEach(b=>b.setAttribute('aria-pressed','false'));applyLight();});
  const wins=[...document.querySelectorAll('.lc-win button')];
  wins.forEach(b=>b.addEventListener('click',()=>{LIGHT.win=b.dataset.win;wins.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));applyLight();}));
- pre.forEach(b=>b.addEventListener('click',()=>{const [t,d]=PRE[b.dataset.pre];LIGHT.t=t/100;LIGHT.dim=d/100;sync();pre.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));applyLight();}));}
+ pre.forEach(b=>b.addEventListener('click',()=>{const [t,d]=PRE[b.dataset.pre];LIGHT.t=t/100;LIGHT.dim=d/100;sync();pre.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));nm.textContent=b.textContent;applyLight();}));
+ // LIGHTING DROPDOWN: a toolbar button opens the time/dimmer panel; outside click or Escape closes it
+ const lb=document.getElementById('t-light'),lp=document.getElementById('lightpanel'),nm=document.getElementById('lc-name');
+ const openL=on=>{lp.hidden=!on;lb.setAttribute('aria-expanded',String(on));};
+ lb.addEventListener('click',e=>{e.stopPropagation();openL(lp.hidden);});
+ document.addEventListener('pointerdown',e=>{if(!lp.hidden&&!e.target.closest('.lightwrap'))openL(false);});
+ window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lp.hidden){openL(false);lb.focus();}});
+ [tI,dI].forEach(el=>el.addEventListener('input',()=>{nm.textContent='Custom';}));}
 controls.addEventListener('start',()=>{anim=null;});
 controls.addEventListener('change',()=>{dirty=true;});
 
