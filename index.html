@@ -798,7 +798,7 @@ const barG=new THREE.Group();barG.position.x=0.15;gr.add(barG);
 for(let i=0;i<8;i++) bottle(KINDS[[3,2,4,6,3,1,9,2][i]],-1.05,0.55,2.85+i*0.12,barG);
 bx(X0+0.03,X0+0.09,2.78,3.46,2.35,3.55,M.black,gr); plane(1.14,0.62,M.tv,X0+0.095,3.12,2.95,Math.PI/2,gr);
 [[bb0+0.05,3.3],[bb1-0.04,1.4]].forEach(([z,h])=>cyl(0.022,0.022,h,X0+0.07,0.96,z,M.neonRed,gr,8));
-bx(-0.53,-0.47,0.06,0.96,c0,c1,M.onyxGlow,barG); // onyx front now edge-lit by a slim LED panel, so the body can hold the keg cooler bx(-0.95,-0.45,0,0.06,c0,c1,M.black,barG); bx(-1.05,-0.3,0.98,1.04,c0,c1,M.marble,barG);
+bx(-0.53,-0.47,0.06,0.96,c0,c1,M.onyxGlow,barG); bx(-0.95,-0.45,0,0.06,c0,c1,M.black,barG); bx(-1.05,-0.3,0.98,1.04,c0,c1,M.marble,barG); // onyx front now edge-lit by a slim LED panel, so the body can hold the keg cooler
 bx(-0.47,-0.445,0.96,0.98,c0,c1,M.black,barG,false); plane(c1-c0,0.9,M.meshWire,-0.44,0.51,(c0+c1)/2,Math.PI/2,barG);
 for(let z=c0;z<=c1+0.01;z+=0.55) bx(-0.45,-0.42,0.06,0.96,z-0.015,z+0.015,M.black,barG);
 {const e=new THREE.Mesh(new THREE.CylinderGeometry(0.25,0.25,0.9,24,1,false,Math.PI/2,Math.PI),M.onyxGlow);e.position.set(-0.7,0.51,c0);barG.add(e);const em=new THREE.Mesh(new THREE.CylinderGeometry(0.262,0.262,0.9,24,1,true,Math.PI/2,Math.PI),M.meshWire);em.position.set(-0.7,0.51,c0);barG.add(em);const eb=new THREE.Mesh(new THREE.CylinderGeometry(0.26,0.26,0.06,24,1,false,Math.PI/2,Math.PI),M.black);eb.position.set(-0.7,0.03,c0);barG.add(eb);
@@ -918,7 +918,7 @@ bx(-1.0,-0.2,0,0.8,9.85,D,M.ss,kt);
 bx(-0.15,0.45,0,0.9,9.85,D,M.ss,kt); bx(-0.11,0.13,0.86,0.905,9.95,10.35,M.oil,kt,false); bx(0.17,0.41,0.86,0.905,9.95,10.35,M.oil,kt,false);
 [0.01,0.29].forEach(x=>{bx(x-0.09,x+0.09,0.92,1.04,10.05,10.3,M.ssDark,kt);rod(V(x,1.0,10.05),V(x,1.1,9.85),0.008,M.black,kt);});
 bx(0.5,1.05,0,0.85,9.85,D,M.ss,kt); [0.65,0.9].forEach(x=>cyl(0.11,0.11,0.02,x,0.85,10.15,M.black,kt)); cyl(0.15,0.15,0.3,0.9,0.87,10.15,M.ss,kt,20);
-bx(X0+0.02,1.1,2.05,2.6,9.55,D-0.02,M.ss,kt); // canopy hood 3.4 × 0.95 × 0.55 m, bottom 2.05 m, under the 2.7 m ceiling // bx(-2.25,1.05,1.89,1.91,9.62,10.45,M.ssDark,kt,false);
+bx(X0+0.02,1.1,2.05,2.6,9.55,D-0.02,M.ss,kt); bx(-2.25,1.05,2.04,2.06,9.62,10.45,M.ssDark,kt,false); // canopy hood 3.4 × 0.95 × 0.55 m, bottom 2.05 m, under the 2.7 m ceiling; baffle filters underneath
 rod(V(-2.2,2.01,9.62),V(1.0,2.01,9.62),0.014,M.red,kt); [-1.65,-0.6,0.15,0.78].forEach(x=>rod(V(x,2.01,9.62),V(x,1.93,9.75),0.01,M.red,kt));
 [-1.3,0.3].forEach(x=>bx(x-0.15,x+0.15,2.035,2.045,9.7,9.9,M.panelLight,kt,false));
 bx(-0.9,-0.4,2.35,2.6,10.1,D+0.7,M.ss,G.ext);
@@ -928,7 +928,7 @@ bx(X0,X0+0.75,0,2.0,7.65,8.85,M.ss,kt); bx(X0+0.75,X0+0.76,0.15,1.95,8.24,8.26,M
 bx(X0,X0+0.7,0.84,0.9,8.95,9.75,M.ss,kt); bx(X0,X0+0.7,0.15,0.18,8.97,9.73,M.ss,kt); [[X0+0.03,8.98],[X0+0.67,8.98],[X0+0.03,9.72],[X0+0.67,9.72]].forEach(([x,z])=>bx(x-0.02,x+0.02,0,0.84,z-0.02,z+0.02,M.ss,kt));
 bx(X0+0.15,X0+0.55,0.9,0.92,9.1,9.55,M.boardRed,kt); bx(X0,X0+0.35,1.8,1.83,8.95,9.5,M.ss,kt); [9.05,9.25,9.42].forEach(z=>bx(X0+0.06,X0+0.3,1.83,1.98,z-0.07,z+0.07,M.porcelain,kt)); bx(X0,X0+0.35,1.45,1.48,8.95,9.75,M.ss,kt);
 cyl(0.17,0.17,0.3,X0+0.2,0.9,9.4,M.ss,kt,20); cyl(0.17,0.15,0.04,X0+0.2,1.2,9.4,M.ssDark,kt,20); // 10 L commercial rice cooker
-bx(-1.5,-0.8,0,0.9,KZ+0.115,8.3,M.ss,kt); [-1.32,-0.98].forEach(x=>{bx(x-0.16,x+0.16,0.1,0.78,8.3,8.31,M.ssDark,kt,false);bx(x-0.1,x+0.1,0.7,0.72,8.31,8.34,M.ss,kt);}); // u/c freezer: dumplings + bao bx(-1.42,-0.88,0.9,0.92,7.75,8.2,M.board,kt);
+bx(-1.5,-0.8,0,0.9,KZ+0.115,8.3,M.ss,kt); [-1.32,-0.98].forEach(x=>{bx(x-0.16,x+0.16,0.1,0.78,8.3,8.31,M.ssDark,kt,false);bx(x-0.1,x+0.1,0.7,0.72,8.31,8.34,M.ss,kt);}); bx(-1.42,-0.88,0.9,0.92,7.75,8.2,M.board,kt); // u/c freezer: dumplings + bao; cutting board on top
 for(let x=-1.38;x<=-0.92;x+=0.07)for(let z=7.8;z<=8.15;z+=0.07){const d=sph(0.022,x,0.935,z,M.dough,kt);d.scale.y=0.7;}
 cyl(0.14,0.14,0.4,-1.15,0,8.0,M.porcelain,kt,14);
 bx(-1.5,-0.85,1.5,1.53,KZ+0.115,7.95,M.ss,kt); bx(-1.5,-0.85,1.85,1.88,KZ+0.115,7.95,M.ss,kt);
