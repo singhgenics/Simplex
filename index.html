@@ -267,7 +267,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
       </table></details>
       <details class="dims" id="sz-washroom"><summary>Washroom &amp; hand-wash · right wall</summary><table>
         <tr><td>Hand-wash alcove</td><td class="d">1.25 W × 1.15 L m, open to the aisle · 2.7 m ceiling</td></tr>
-        <tr><td>Basin</td><td class="d">one drum basin Ø 0.5 × 0.86 H m · one tap · pop-art face with LED ring mirrors</td></tr>
+        <tr><td>Basin</td><td class="d">one compact drum basin Ø 0.36 × 0.86 H m · one tap · wall soap dispenser · pop-art face with LED ring mirrors</td></tr>
         <tr><td>Washroom (inside)</td><td class="d">1.15 × 1.5 m · 2.7 m ceiling · walls to the slab</td></tr>
         <tr><td>Door</td><td class="d">0.7 × 2.1 m, opens inward on lift-off hinges</td></tr>
         <tr><td>Fittings</td><td class="d">WC against the kitchen wall · health faucet · exhaust fan straight out · no urinal</td></tr>
@@ -804,17 +804,17 @@ cafeTable(1.25,1.95,0.15,1.35); cafeTable(1.25,1.95,1.8,2.4);
 [0.45,1.05,2.1].forEach(z=>{chair(0.92,z,gr,-Math.PI/2);chair(2.2,z,gr,Math.PI/2);});
 lantern(1.6,0.75); lantern(1.6,2.1);
 
-// HAND-WASH (right wall, z 3.55–4.7): an open alcove 1.25 wide × 1.15 long off the aisle with one drum basin and one tap,
+// HAND-WASH (right wall, z 3.55–4.7): an open alcove 1.25 wide × 1.15 long off the aisle with one compact drum basin (Ø 0.36 m) and one tap,
 // under the pop-art face with its LED ring-mirror glasses. Its drain goes straight out through the right wall
 const HW0=3.55,HW1=4.7,WX=-1.2,WZ0=4.8; // alcove front / back, aisle face of the block, washroom front
 bx(X0,WX,0,KC,HW0-0.1,HW0,M.partition,gr); bx(X0,WX,KC,H,HW0-0.1,HW0,M.partition,G.kceil); bx(WX-0.1,WX,KC,H,HW0,HW1,M.partition,G.kceil); // walls run to the slab
 bx(X0,WX,KC-0.045,KC-0.005,HW0,HW1,M.pvc,G.kceil,false);
 bx(X0,WX,0,0.005,HW0,HW1,M.epoxy,gr,false); bx(X0,WX,0,1.2,HW0,HW0+0.02,M.sage,gr,false); bx(X0,WX,0,1.2,HW1-0.02,HW1,M.sage,gr,false); bx(X0,X0+0.02,0,1.2,HW0,HW1,M.sage,gr,false);
 plane(0.72,2.1,M.popFace,X0+0.025,1.12,4.12,Math.PI/2,gr);
-{const bz=4.12,bxx=X0+0.3;cyl(0.25,0.25,0.84,bxx,0,bz,M.porcelain,gr,24);[0.2,0.42,0.64].forEach(y=>{const rg=new THREE.Mesh(new THREE.TorusGeometry(0.252,0.012,6,24),M.ssDark);rg.rotation.x=Math.PI/2;rg.position.set(bxx,y,bz);gr.add(rg);});
- cyl(0.22,0.19,0.05,bxx,0.82,bz,M.porcelain,gr,24);cyl(0.18,0.18,0.01,bxx,0.86,bz,M.ssDark,gr,24);
- rod(V(X0+0.01,1.08,bz),V(X0+0.13,1.08,bz),0.014,M.black,gr);rod(V(X0+0.13,1.08,bz),V(X0+0.13,1.0,bz),0.012,M.black,gr);
- cyl(0.03,0.03,0.12,bxx+0.12,0.86,bz-0.14,M.porcelain,gr,10);} // one drum basin, one tap
+{const bz=4.12,bxx=X0+0.22;cyl(0.18,0.18,0.84,bxx,0,bz,M.porcelain,gr,24);[0.2,0.42,0.64].forEach(y=>{const rg=new THREE.Mesh(new THREE.TorusGeometry(0.182,0.01,6,24),M.ssDark);rg.rotation.x=Math.PI/2;rg.position.set(bxx,y,bz);gr.add(rg);});
+ cyl(0.16,0.14,0.05,bxx,0.82,bz,M.porcelain,gr,24);cyl(0.13,0.13,0.01,bxx,0.86,bz,M.ssDark,gr,24);
+ rod(V(X0+0.01,1.06,bz),V(X0+0.16,1.06,bz),0.012,M.black,gr);rod(V(X0+0.16,1.06,bz),V(X0+0.16,0.99,bz),0.01,M.black,gr);
+ bx(X0,X0+0.06,1.0,1.16,bz+0.24,bz+0.32,M.porcelain,gr);} // one compact drum basin Ø 0.36, one tap, wall soap dispenser
 [3.95,4.29].forEach(z=>{const ring=new THREE.Mesh(new THREE.TorusGeometry(0.14,0.02,10,36),M.led);ring.rotation.y=Math.PI/2;ring.position.set(X0+0.03,1.62,z);gr.add(ring);
   const m=new THREE.Mesh(new THREE.CircleGeometry(0.128,36),M.mirrorGlow);m.rotation.y=Math.PI/2;m.position.set(X0+0.022,1.62,z);gr.add(m);});
 rod(V(X0+0.03,1.62,4.09),V(X0+0.03,1.62,4.15),0.012,M.black,gr);
@@ -1186,7 +1186,7 @@ const LBL=[
  ['Keg cooler under the bar · 8 × 20 L kegs',0.95,1.15,3.57,'g'],['CO₂ cylinder in the cabinet under the jars · low CO₂ alarm',2.1,0.75,3.54,'g'],['Built-in glasswasher · opposite the bar sink',1.92,1.15,4.8,'g'],['Built-in cooler: mixers, water, soft drinks',1.92,1.0,4.17,'g'],['Soju display + ON TAP board',2.15,2.45,5.12,'g'],['Ice machine · under-counter',1.15,0.95,4.89,'g'],['Bartender aisle 0.85 m',1.65,0.3,3.72,'g'],
  ['Server station · water, glasses, cutlery, coffee',2.2,1.75,5.85,'g'],
  ['Window tables · 2 × 4, 0.45 m apart',-1.65,1.3,1.58,'g'],['Salon gallery wall',X1-0.05,2.65,1.5,'g','L'],['BAO mural',-1.83,3.0,3.4,'g'],
- ['Hand-wash · drum basin · pop-art ring mirrors',-1.85,2.45,4.12,'g'],['Washroom · unisex WC · door opens inward on lift-off hinges',-1.85,2.25,5.4,'g'],['WC',-2.0,1.2,5.95,'g'],
+ ['Hand-wash · compact drum basin Ø 0.36 · pop-art ring mirrors',-1.85,2.45,4.12,'g'],['Washroom · unisex WC · door opens inward on lift-off hinges',-1.85,2.25,5.4,'g'],['WC',-2.0,1.2,5.95,'g'],
  ['Kitchen · click to explore',-0.6,1.9,7.4,'g cta'],['Kitchen wall up to the slab · neon + menu board',-0.55,4.15,KZ-0.05,'g'],['Storage deck over the kitchen · 1.7 m clear · fold-down ladder',-0.6,3.6,7.6,'g'],
  ['Split AC 2.0 TR (front)',X0+0.12,4.3,1.2,'g'],['Split AC 2.0 TR (back)',-1.0,3.45,KZ-0.15,'g'],['Double height · 4.5 m to the slab',0.2,4.25,5.6,'g'],['Acoustic clouds in every bay',-0.5,H-0.15,3.35,'g'],['Printed acoustic panels (50 mm fabric)',-1.1,3.4,5.6,'g'],
  ['Wall speaker',X0+0.25,3.1,0.2,'g'],['Wall speaker',X1-0.25,3.95,2.25,'g'],
@@ -1227,7 +1227,7 @@ tag('back bar 2.65 × 0.4 · h 0.96',0.8,X1-0.404,0.5,3.37,'-x'); tag('keg coole
 tag('station 0.8 × 0.5 · top 0.94',0.5,X1-0.25,0.94+U,5.85,'up','z'); tag('1.1 clear at the kitchen door',0.6,0.45,U,5.75,'up'); tag('fridge doors swing clear: 0.47 m each',0.7,1.45,U,6.92,'up','z');
 tag('1.2 × 0.74 · h 0.76',0.5,-1.65,0.76+U,0.75,'up'); tag('1.2 × 0.74 · h 0.76',0.5,-1.65,0.76+U,2.4,'up'); tag('gap 0.45',0.35,-1.65,U,1.575,'up'); tag('end 0.45',0.35,-1.65,U,3.225,'up');
 tag('aisle 1.5 from the bar edge',0.6,-0.45,U,4.0,'up','z');
-tag('hand-wash 1.25 × 1.15 · basin Ø0.5',0.75,-1.6,U,4.12,'up','z'); tag('washroom 1.15 × 1.5 · ceiling 2.7',0.85,-1.6,U,5.35,'up','z');
+tag('hand-wash 1.25 × 1.15 · basin Ø0.36',0.75,-1.6,U,4.12,'up','z'); tag('washroom 1.15 × 1.5 · ceiling 2.7',0.85,-1.6,U,5.35,'up','z');
 tag('KITCHEN 4.9 × 2.4 m · ceiling 2.7 · canopy hood',1.9,-0.4,U+0.002,7.55,'up'); tag('storage deck +2.70 · 11.8 m² · 1.7 clear',1.3,-0.6,KC+0.08+U,6.9,'up');
 tag('beam T1 0.25 × 0.45 · underside 4.05',1.3,-0.7,H-0.225,4.672,'-z'); tag('beam A 0.23 × 0.38 · underside 4.12',1.3,BMA-0.117,H-0.19,3.0,'-x'); tag('slab soffit 4.50 m',0.7,0.6,H-0.012,2.3,'down');
 tag('GARDEN 5.3 × 2.0 m · 10.6 m²',1.1,0,0.002,-1.85,'up');
@@ -1257,7 +1257,7 @@ const ZONES={
   lounge:{box:[0.6,X1,0,1.4,0.1,2.45],ey:'Window tables · left · 6 covers',t:'Left window tables',b:'A table for 4 and a table for 2, 0.45 m apart, with cane chairs on both sides, under two brass lanterns, below the salon gallery wall.',l:['Table for 4 (1.2 × 0.7) and table for 2 (0.6 × 0.7), 0.45 m apart so guests and servers get in between them','Cane chairs 0.44 × 0.44 m: wall side and walkway side','0.62 m walkway from the last chair to the bar’s end','A 1.6 m entry path runs between these chairs and the right-hand tables'],views:[['View','lounge'],['Gallery wall','gallery']]},
   booth:{box:[X0,-0.85,0,1.6,0.1,3.05],ey:'Window tables · right · 8 covers',t:'Right window tables',b:'Two tables for 4 (1.2 × 0.74 m), 0.45 m apart, with cane chairs on the wall side and the aisle side, against the reclaimed-wood wall with vintage beer signs.',
     l:['Tables 1.2 × 0.74 m, deep enough for steamer baskets','0.45 m between the tables and 0.45 m clear at the far end','Cane chairs 0.44 × 0.44 m; the aisle-side chair backs line the 1.6 m entry path','The electricity meter is behind the hinged portrait above the wall-side chairs'],views:[['View','booth'],['Hand-wash','niche']]},
-  washroom:{box:[X0,WX,0,KC,HW0-0.1,KZ],ey:'Washroom 1.15 × 1.5 m + hand-wash alcove · right wall',t:'Washroom and hand-wash',b:'Both moved to the right wall so the WC and the basin drain straight out to the side. A hand-wash alcove (1.25 × 1.15 m) with one drum basin, then a unisex WC behind its own door.',l:['Ceilings 2.7 m; the walls run up to the slab','One drum basin Ø 0.5 m with one tap; pop-art face mural with LED ring-mirror glasses','WC against the kitchen wall; door 0.7 m, opening inward on lift-off hinges; exhaust fan straight out','No urinal: there is no room for one now. Check that a single unisex WC is accepted locally'],views:[['From above','wash'],['WC','washWC'],['Hand-wash','niche']]},
+  washroom:{box:[X0,WX,0,KC,HW0-0.1,KZ],ey:'Washroom 1.15 × 1.5 m + hand-wash alcove · right wall',t:'Washroom and hand-wash',b:'Both moved to the right wall so the WC and the basin drain straight out to the side. A hand-wash alcove (1.25 × 1.15 m) with one drum basin, then a unisex WC behind its own door.',l:['Ceilings 2.7 m; the walls run up to the slab','One compact drum basin Ø 0.36 m with one tap and a wall soap dispenser; pop-art face mural with LED ring-mirror glasses','WC against the kitchen wall; door 0.7 m, opening inward on lift-off hinges; exhaust fan straight out','No urinal: there is no room for one now. Check that a single unisex WC is accepted locally'],views:[['From above','wash'],['WC','washWC'],['Hand-wash','niche']]},
   yard:{box:[XS-0.5,XS,0,3.2,1.5,D+T+0.6],ey:'Right side · services · nothing behind (parking)',t:'Gas, bins and the kitchen exhaust',b:'The apartment above rules out a roof stack and the parking behind rules out storage there, so every outdoor service sits along the right side wall.',
     l:['Kitchen exhaust leaves the back wall at 2.35–2.75 m, runs right along the back wall, turns the corner and runs forward along the right side','An electrostatic precipitator with a carbon odour filter and the fan clean the air before it leaves; discharge at about 2.6 m, pointing away from the building','LPG bank: 4 × 19 kg in a locked, ventilated cage, over 2 m from the exhaust outlet; copper line along the wall into the kitchen behind the wok range','Bin store (wet / dry / glass) and the empty-keg cage near the road end for collection','Drains: the WC and hand-wash pipes leave through the right wall below ground into a sealed inspection chamber 2 m past the gas cage; the kitchen and bar run through a grease trap at the back corner; the soil vent pipe runs up the wall','AC outdoor units and the bar cooler’s compressor high on the side wall','Power backup cabinet (inverter + lithium battery) at the front end, 2.7 m from the gas','Everything fits a 0.5 m strip along the wall with slim kit (wall-mounted backup, single-row gas cage, slim bins and keg cage); cars use the pathway beyond, so steel bollards guard it all. Changing gas and emptying bins means a minute on the pathway: do it when it is quiet'],views:[['From the side','yard'],['From the parking','yardBack']]},
   safety:{nohit:true,box:[X0,X1,0,H,0,D],ey:'Fire & life safety · security',t:'Safety layout',b:'Laid out to the National Building Code (Part 4) and the usual Goa Fire NOC checklist. The red labels mark every device.',
