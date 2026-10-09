@@ -3,7 +3,7 @@ X0,X1,D,T,KZ=-2.45,2.45,8.8,0.2,6.3
 XS=X0-T
 S=120; z0,z1=-3.0,D+2.5
 ox=50+0.9*S; oy=150
-W=int(ox+(X1-(-4.5))*S)+380; Hh=int((z1-z0)*S)+300
+W=int(ox+(X1-(-5.2))*S)+380; Hh=int((z1-z0)*S)+300
 out=[]
 def P(x,z): return (ox+(X1-x)*S, oy+(z1-z)*S)
 def rect(xa,xb,za,zb,fill='none',stroke='#3a3128',sw=1.4,dash=None):
@@ -29,7 +29,9 @@ WALL='#4a4038'
 rect(-4.5,X1+T+0.5,D+T,D+2.3,'#e3ddd4','none');
 for x in (-3.6,-1.0,1.6): line(x,D+0.9,x,D+2.3,'#ffffff',3)
 text(-0.6,D+1.9,'PARKING BEHIND · nothing stored here · rear door is the kitchen fire exit',12,'#6a5d4e',weight=600)
-rect(XS-1.5,XS,-0.1,D+T,'#ece6db','none'); text(XS-1.25,1.0,'side passage (measure: needs ~1.2–1.5 m)',10,'#6a5d4e',rot=90)
+rect(XS-2.2,XS-0.8,-0.1,D+T,'#e3ddd4','none'); line(XS-0.8,-0.1,XS-0.8,D+T,'#ffffff',2,'8 6'); text(XS-1.5,2.2,'CAR PATHWAY',11,'#6a5d4e',weight=700,rot=90)
+rect(XS-0.8,XS,-0.1,D+T,'#ece6db','none'); text(XS-0.4,6.6,'usable strip 0.8 m',9,'#6a5d4e',rot=90)
+for z in (0.35,1.25,2.15,3.0,3.9,4.85): circ(XS-0.82,z,0.065,'#e0b030','#2a2420',1)
 # ---- beer garden 5.3 × 2.0
 GW=X1+T
 rect(-GW,GW,-2.0,-0.06,'#efe6d2','#b9a989',1)
@@ -119,37 +121,38 @@ text(0.0,7.35,'KITCHEN 4.9 × 2.4 · ceiling 2.7',11,weight=700); text(-0.45,7.1
 # ---- right side: services
 rect(XS-0.6,XS,2.15,2.75,'#e9e9e9'); text(XS-0.3,2.45,'empties',8.5)
 rect(XS-0.7,XS,2.95,3.85,'#d9c7a8','#8f5634'); text(XS-0.35,3.4,'bins',9)
-rect(XS-0.85,XS-0.05,3.95,4.75,'#f3d6cf','#b23a1e',1.2); text(XS-0.45,4.35,'LPG 4×19 kg',8.5,'#b23a1e',weight=700,rot=90)
+rect(XS-0.75,XS-0.05,3.95,4.75,'#f3d6cf','#b23a1e',1.2); text(XS-0.4,4.35,'LPG 4×19 kg',8.5,'#b23a1e',weight=700,rot=90)
 line(XS-0.06,4.7,XS-0.06,8.45,'#b8862a',2); line(XS-0.06,8.45,X0,8.45,'#b8862a',2); text(XS-0.25,6.0,'gas line',8.5,'#8a6420',rot=90)
 rect(XS-0.62,XS,0.35,1.25,'#d6dde2','#3a4a56',1.3); text(XS-0.31,0.8,'power backup',8.5,'#2a3a46',weight=700,rot=90)
-rect(XS-0.2,XS,1.35,1.9,'#6d7276','#2a3a46',1); text(XS-0.45,1.62,'meter',8.5,'#2a3a46',weight=700,rot=90)
-rect(X0,X0+0.06,0.6,1.0,'none','#b23a1e',1.2,'3 2'); text(X0+0.12,0.35,'existing meter (to shift out)',8,'#b23a1e','end')
+rect(XS-0.15,XS,1.4,1.75,'#6d7276','#2a3a46',1)
+rect(X0,X0+0.06,0.45,1.11,'#c9993f','#8a6420',1.2); text(X0+0.12,0.32,'meter behind hinged portrait',8,'#8a6420','end')
 for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
-text(XS-0.8,1.6,'AC units above',8.5,'#6a5d4e',rot=90)
+text(XS-0.55,2.0,'AC above',8,'#6a5d4e',rot=90)
 # exhaust (at 2.35–2.75 m, drawn dashed)
 for xa,xb,za,zb in ((-1.6,-1.1,D,D+T),(XS-0.45,-1.1,D+T,D+T+0.4),(XS-0.45,XS-0.05,D-0.35,D+T+0.4)): rect(xa,xb,za,zb,'#f3e0dc','#c4442a',1.3,'6 3')
 rect(XS-0.6,XS+0.02,D-1.35,D-0.35,'#e8c9c2','#b23a1e',1.4); text(XS-0.3,D-0.85,'ESP',9,'#b23a1e',weight=700)
 circ(XS-0.25,D-1.55,0.18,'#f3e0dc','#c4442a',1.3); text(XS-0.25,D-1.55,'fan',8,'#b23a1e')
-rect(XS-1.0,XS-0.05,D-1.95,D-1.75,'#f3e0dc','#c4442a',1.3,'6 3')
-a,b=P(XS-1.0,D-1.85);out.append(f'<path d="M{a} {b} l-26 0 m0 0 l9 -7 m-9 7 l9 7" stroke="#b23a1e" stroke-width="2" fill="none"/>')
-text(XS-1.25,D-1.45,'smoke out at 2.6 m',9,'#b23a1e','end',700)
+rect(XS-0.75,XS-0.05,D-1.95,D-1.75,'#f3e0dc','#c4442a',1.3,'6 3')
+a,b=P(XS-0.75,D-1.85);out.append(f'<path d="M{a} {b} l-26 0 m0 0 l9 -7 m-9 7 l9 7" stroke="#b23a1e" stroke-width="2" fill="none"/>')
+text(XS-0.9,D-2.3,'smoke out at 2.6 m',9,'#b23a1e','end',700)
 text(-0.6,D+0.75,'kitchen exhaust: out the back, right along the wall, round the corner',9.5,'#b23a1e')
 # ---- dimensions
 hdim(X1,X0,D+0.2,'4.90 (inside)')
 vdim(X1+T,0,D,'8.80 (inside)',-46)
-vdim(XS-1.65,0,2.25,'2.25',0); vdim(XS-1.65,2.3,4.95,'bar 2.65',0); vdim(XS-1.65,KZ+0.1,D,'kitchen 2.40',0)
+vdim(XS-2.35,0,2.25,'2.25',0); vdim(XS-2.35,2.3,4.95,'bar 2.65',0); vdim(XS-2.35,KZ+0.1,D,'kitchen 2.40',0)
 vdim(X1+T,0.15,2.25,'2.10',-18); vdim(X1+T,2.4,3.55,'1.15',-18); vdim(X1+T,3.68,4.43,'0.75',-18); vdim(X1+T,4.53,KZ,'WC 1.77',-18)
 title='Ground floor plan · 4.9 × 8.8 m'
 sub='Betalbatim pub · Concept 25 · from the shop drawing (47 m² super built-up) · 20 covers inside + 8 in the garden · 28 covers in all'
 rows=[('Bar stools','4'),('Window tables, right','6'),('Window booth, left','6'),('Bench facing the bar','2'),('Table by the pass','2'),('Beer garden, 5.3 × 2.0 m','8'),('Total','28')]
 lx=W-330; ly=170
-leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+215}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
+NOTES=['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup on the right side, front end;','meter stays inside behind a portrait.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust in','a 0.8 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']
+leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''
     if a2=='Total': leg.append(f'<line x1="{lx}" y1="{y-20}" x2="{lx+274}" y2="{y-20}" stroke="#2a2420"/>')
     leg.append(f'<text x="{lx}" y="{y}" font-size="14" fill="#2a2420"{bold}>{a2}</text><text x="{lx+274}" y="{y}" font-size="14" text-anchor="end" fill="#2a2420"{bold}>{b2}</text>')
 y=ly+22+len(rows)*30+8
-for t in ['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup + shifted meter on the','right side, front end.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust','on the right side; parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']:
+for t in NOTES:
     leg.append(f'<text x="{lx}" y="{y}" font-size="12.5" fill="#6a5d4e">{t}</text>'); y+=19
 svg=f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{Hh}" viewBox="0 0 {W} {Hh}" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">
 <rect width="100%" height="100%" fill="#fbf7ef"/>
