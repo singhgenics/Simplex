@@ -101,12 +101,13 @@ rect(-2.2,-1.4,KZ+0.1,7.05,'#c3c8cc'); text(-1.8,6.72,'non-veg prep',9)
 rect(-1.4,-0.45,KZ+0.1,7.05,'#c3c8cc'); text(-1.05,6.62,'dumpling / veg',9); text(-1.05,6.85,'+ u/c freezer',8.5,'#4a4038'); circ(-0.62,6.75,0.13,'#e9e9e9','#6d7276',1)
 rect(-0.45,0.3,KZ+0.1,7.05,'#c3c8cc'); text(-0.08,6.72,'pass + lamps',9)
 rect(1.15,1.6,KZ+0.1,6.85,'#c3c8cc'); text(1.37,6.62,'hand',8.5); text(1.37,6.78,'wash',8.5)
-rect(X0,-1.7,7.05,8.05,'#c3c8cc'); text(-2.07,7.55,'2-door reach-in 1.0',9,rot=90)
+rect(X0,X0+0.3,7.15,8.05,'none','#6d7276',1,'4 3'); text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.3,7.6,'sauce shelf',8,'#6a5d4e',rot=90)
 for xa,xb,t in ((X0,-1.25,'wok ×2'),(-1.2,-0.6,'steamer'),(-0.55,0.05,'fryer ×2'),(0.1,0.7,'stock ×2')):
     rect(xa,xb,8.1,D,'#9aa0a5'); text((xa+xb)/2,8.45,t,9.5,'#fff',weight=700)
 rect(X0+0.02,0.8,7.85,D-0.02,'none','#c4442a',1.3,'8 4'); text(-0.8,7.75,'canopy hood 3.25×0.95 (bottom 2.05 m)',9.5,'#b23a1e')
-rect(1.8,X1,6.95,7.6,'#c3c8cc'); text(2.12,7.27,'dishwasher',8.5,rot=90)
-rect(1.8,X1,7.6,8.6,'#c3c8cc'); text(2.12,8.1,'2-bowl sink',8.5,rot=90)
+rect(1.7,X1,6.45,7.4,'#c3c8cc'); text(2.07,6.92,'2-door reach-in 1.0',8.5,rot=90)
+rect(1.8,X1,7.4,8.0,'#c3c8cc'); text(2.12,7.7,'dishwasher',8.5,rot=90)
+rect(1.8,X1,8.0,D,'#c3c8cc'); text(2.12,8.4,'2-bowl sink',8.5,rot=90)
 rect(0.35,0.95,7.15,7.95,'none','#2a6f8f',1.3,'5 3'); text(0.65,7.55,'hatch',9,'#2a6f8f',weight=700)
 text(0.0,7.35,'KITCHEN 4.9 × 2.4 · ceiling 2.7',11,weight=700); text(-0.45,7.17,'deck above (+2.7 m)',9,'#2a6f8f')
 # ---- right side: services
@@ -114,8 +115,9 @@ rect(XS-0.6,XS,2.15,2.75,'#e9e9e9'); text(XS-0.3,2.45,'empties',8.5)
 rect(XS-0.7,XS,2.95,3.85,'#d9c7a8','#8f5634'); text(XS-0.35,3.4,'bins',9)
 rect(XS-0.85,XS-0.05,3.95,4.75,'#f3d6cf','#b23a1e',1.2); text(XS-0.45,4.35,'LPG 4×19 kg',8.5,'#b23a1e',weight=700,rot=90)
 line(XS-0.06,4.7,XS-0.06,8.45,'#b8862a',2); line(XS-0.06,8.45,X0,8.45,'#b8862a',2); text(XS-0.25,6.0,'gas line',8.5,'#8a6420',rot=90)
-for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'#ffffff','#6a5d4e',1,'3 2')
-text(XS-0.55,1.5,'AC units (high)',8.5,'#6a5d4e',rot=90)
+rect(XS-0.62,XS,0.35,1.25,'#d6dde2','#3a4a56',1.3); text(XS-0.31,0.8,'power backup',8.5,'#2a3a46',weight=700,rot=90)
+for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
+text(XS-0.8,1.6,'AC units above',8.5,'#6a5d4e',rot=90)
 # exhaust (at 2.35–2.75 m, drawn dashed)
 for xa,xb,za,zb in ((-1.6,-1.1,D,D+T),(XS-0.45,-1.1,D+T,D+T+0.4),(XS-0.45,XS-0.05,D-0.35,D+T+0.4)): rect(xa,xb,za,zb,'#f3e0dc','#c4442a',1.3,'6 3')
 rect(XS-0.6,XS+0.02,D-1.35,D-0.35,'#e8c9c2','#b23a1e',1.4); text(XS-0.3,D-0.85,'ESP',9,'#b23a1e',weight=700)
@@ -139,7 +141,7 @@ for k,(a2,b2) in enumerate(rows):
     if a2=='Total': leg.append(f'<line x1="{lx}" y1="{y-20}" x2="{lx+274}" y2="{y-20}" stroke="#2a2420"/>')
     leg.append(f'<text x="{lx}" y="{y}" font-size="14" fill="#2a2420"{bold}>{a2}</text><text x="{lx+274}" y="{y}" font-size="14" text-anchor="end" fill="#2a2420"{bold}>{b2}</text>')
 y=ly+22+len(rows)*30+8
-for t in ['One double-height room, no loft.','Kitchen sized to the 22-dish menu.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust','on the right side; parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']:
+for t in ['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup: inverter + lithium cabinet.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust','on the right side; parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']:
     leg.append(f'<text x="{lx}" y="{y}" font-size="12.5" fill="#6a5d4e">{t}</text>'); y+=19
 svg=f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{Hh}" viewBox="0 0 {W} {Hh}" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">
 <rect width="100%" height="100%" fill="#fbf7ef"/>
