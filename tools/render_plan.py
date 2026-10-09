@@ -1,5 +1,5 @@
 import subprocess,sys,re,os,time
-d=sys.argv[1]  # folder holding plan_noloft_render.html; writes plans/ground-floor-plan-noloft.png
+d=os.path.abspath(sys.argv[1])  # folder holding plan_noloft_render.html; writes plans/ground-floor-plan-noloft.png
 src=open(f'{d}/plan_noloft_render.html').read()
 W,H=map(int,re.search(r'width="(\d+)" height="(\d+)"',src).groups())
 CH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
@@ -13,7 +13,8 @@ for i in range(n):
     for attempt in range(5):
         if os.path.exists(png): os.remove(png)
         subprocess.run([CH,'--headless','--hide-scrollbars','--force-device-scale-factor=2.5',f'--window-size={W},{h}',f'--screenshot={png}','file://'+f],capture_output=True)
-        got=int(re.search(r'pixelHeight: (\d+)',subprocess.run(['sips','-g','pixelHeight',png],capture_output=True,text=True).stdout).group(1))
+        m=re.search(r'pixelHeight: (\d+)',subprocess.run(['sips','-g','pixelHeight',png],capture_output=True,text=True).stdout) if os.path.exists(png) else None
+        got=int(m.group(1)) if m else 0
         if abs(got-round(h*2.5))<=3: break
         time.sleep(1)
     else: sys.exit(f'tile {i} failed: {got} vs {h*2.5}')
