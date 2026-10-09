@@ -787,12 +787,21 @@ bx(-1.15,-0.95,0,0.85,3.74,c1,M.ss,barG); bx(-1.13,-0.97,0.7,0.86,3.8,4.18,M.por
 // CO₂ for the taps: 6 kg cylinder chained in the back-bar cabinet under the infusion jars, low vent grille and a low-mounted CO₂ alarm (CO₂ sinks)
 {cyl(0.075,0.075,0.67,X0+0.2,0.06,3.12,M.steel,gr,14); for(let y=0.1;y<0.3;y+=0.04)bx(BBF-0.01,BBF,y,y+0.015,2.97,3.27,M.black,gr,false); bx(BBF-0.02,BBF,0.36,0.46,3.05,3.19,M.porcelain,gr); sph(0.012,BBF-0.022,0.42,3.08,M.fRedGlow,gr);}
 bx(-1.17,-1.15,0.06,0.8,4.22,4.72,M.ss,barG); bx(-1.18,-1.17,0.62,0.72,4.3,4.64,M.ssDark,barG,false); for(let y=0.12;y<0.4;y+=0.05)bx(-1.18,-1.17,y,y+0.02,4.28,4.66,M.black,barG,false); // ice machine
-bx(-1.15,-0.35,2.63,2.65,c0+0.1,BZ-0.1,M.shelfGlass,barG,false); [-1.15,-0.35].forEach(x=>{[2.62,2.86].forEach(y=>rod(V(x,y,c0+0.1),V(x,y,BZ-0.1),0.014,M.brass,barG));bx(x-0.012,x+0.012,2.6,2.615,c0+0.1,BZ-0.1,M.greenLed,barG,false);[c0+0.1,BZ-0.1].forEach(z=>rod(V(x,2.62,z),V(x,2.86,z),0.012,M.brass,barG));});
-[c0+0.1,BZ-0.1].forEach(z=>[2.62,2.86].forEach(y=>rod(V(-1.15,y,z),V(-0.35,y,z),0.012,M.brass,barG)));
-[[-1.1,c0+0.2],[-1.1,BZ-0.2],[-0.4,c0+0.2],[-0.4,BZ-0.2]].forEach(([x,z])=>rod(V(x,2.67,z),V(x,H-0.2,z),0.008,M.black,barG));
-[[2.95,3.35]].forEach(([za,zb])=>{for(let x=-1.0;x<=-0.5;x+=0.16)for(let z=za;z<=zb;z+=0.13){const g=cyl(0.038,0.01,0.1,x,2.5,z,M.shelfGlass,barG,8);g.castShadow=false;}});
-[2.85,3.3].forEach(z=>{rod(V(-0.75,2.62,z),V(-0.75,2.26,z),0.005,M.black,barG);sph(0.11,-0.75,2.18,z,M.globe,barG);});
-[3.95,4.4].forEach(z=>{rod(V(-1.0,H,z),V(-1.0,2.62,z),0.005,M.black,barG);sph(0.11,-1.0,2.52,z,M.globe,barG);});
+// FLOATING GLASS RACK over the whole bar island (z c0+0.1 → c1-0.1, 2.0 m): a brass frame hung from the slab on four black rods.
+// Lower tier at 2.3 m: stemware hangs upside down by its foot from paired brass rails. Upper tier at 2.58 m: a glass shelf of pints and highballs.
+// Warm 2200 K LED strips run under both long sides and four warm downlights wash the marble; trailing ivy spills off the top
+M.warmLed=S({color:'#ffd49a',emissive:'#ffa040',emissiveIntensity:2.2});
+{const rx0=-1.12,rx1=-0.38,rz0=c0+0.1,rz1=c1-0.1,yl=2.3,yu=2.58;
+ [yl,yu].forEach(y=>{[rx0,rx1].forEach(x=>rod(V(x,y,rz0),V(x,y,rz1),0.014,M.brass,barG));[rz0,rz1,(rz0+rz1)/2].forEach(z=>rod(V(rx0,y,z),V(rx1,y,z),0.012,M.brass,barG));});
+ [[rx0,rz0],[rx1,rz0],[rx0,rz1],[rx1,rz1]].forEach(([x,z])=>{rod(V(x,yl,z),V(x,yu,z),0.012,M.brass,barG);rod(V(x,yu,z),V(x,H,z),0.008,M.black,barG);});
+ bx(rx0,rx1,yu+0.012,yu+0.024,rz0,rz1,M.shelfGlass,barG,false);
+ [rx0-0.012,rx1+0.012].forEach(x=>bx(x-0.012,x+0.012,yl-0.035,yl-0.02,rz0,rz1,M.warmLed,barG,false));
+ const wine=new THREE.LatheGeometry([[0,0],[0.034,0],[0.034,0.004],[0.004,0.01],[0.004,0.085],[0.02,0.095],[0.042,0.14],[0.04,0.18],[0.036,0.2]].map(([x,y])=>new THREE.Vector2(x,y)),12);
+ const coupe=new THREE.LatheGeometry([[0,0],[0.032,0],[0.032,0.004],[0.004,0.01],[0.004,0.09],[0.03,0.1],[0.05,0.125],[0.052,0.135]].map(([x,y])=>new THREE.Vector2(x,y)),12);
+ [-1.02,-0.86,-0.64,-0.48].forEach((x,row)=>{[-0.04,0.04].forEach(o=>rod(V(x+o,yl-0.01,rz0),V(x+o,yl-0.01,rz1),0.005,M.brass,barG));
+   for(let z=rz0+0.08;z<rz1-0.05;z+=row%2?0.13:0.11){const m=new THREE.Mesh(row%2?coupe:wine,M.shelfGlass);m.rotation.x=Math.PI;m.position.set(x,yl-0.02,z);barG.add(m);}});
+ for(let x=-1.04;x<=-0.44;x+=0.12)for(let z=rz0+0.08;z<rz1-0.05;z+=0.12){const g=cyl(0.036,0.03,(Math.round(z*10)%2)?0.15:0.12,x,yu+0.024,z,M.shelfGlass,barG,10);g.castShadow=false;}
+ [rz0+0.35,rz0+0.85,rz1-0.85,rz1-0.35].forEach(z=>{cyl(0.035,0.035,0.03,-0.75,yl-0.05,z,M.black,barG,12);cyl(0.026,0.026,0.006,-0.75,yl-0.056,z,M.warmLed,barG,12);});}
 // POS NOOK recessed into the back bar's door end (z 2.36–2.84): tablet, card machine, receipt printer; cash drawer + small safe below
 {const n0=2.36,n1=2.84,nx=X0+0.4;
  [n0,n1-0.025].forEach(z=>bx(X0+0.03,nx,0.96,1.34,z,z+0.025,M.timber,gr)); bx(X0+0.03,nx,1.32,1.35,n0,n1,M.timber,gr); bx(X0+0.03,X0+0.05,0.96,1.32,n0,n1,M.timberDark,gr,false);
@@ -800,7 +809,7 @@ bx(-1.15,-0.35,2.63,2.65,c0+0.1,BZ-0.1,M.shelfGlass,barG,false); [-1.15,-0.35].f
  bx(X0+0.22,X0+0.34,0.96,0.99,2.75,2.82,M.black,gr); bx(X0+0.06,X0+0.28,0.96,1.08,2.39,2.47,M.porcelain,gr);
  bx(BBF-0.01,BBF+0.01,0.62,0.86,2.4,2.8,M.timber,gr); bx(BBF+0.01,BBF+0.03,0.72,0.75,2.52,2.68,M.brass,gr);}
 plane(0.9,0.2,M.neonPay,X0+0.04,2.55,2.95,Math.PI/2,gr); // "settle up here" neon over the POS nook
-{const r=rng(77);for(let i=0;i<30;i++){const side=r()<.5?-1.17:-0.33;trail(side+(r()-.5)*0.05,2.72,c0+0.2+r()*0.75,0.25+r()*0.45,barG);}for(let z=c0+0.3;z<BZ-0.2;z+=0.5){const p=new THREE.Mesh(new THREE.SphereGeometry(0.16,8,6),M.leaf);p.scale.set(1.4,0.5,1);p.position.set(-0.75,2.75,z);barG.add(p);}}
+{const r=rng(77);for(let i=0;i<14;i++){const sx=(r()<.5?-1.14:-0.36)+(r()-.5)*0.03,sz=c0+0.2+r()*(c1-c0-0.4),len=0.15+r()*0.35;rod(V(sx,2.6,sz),V(sx,2.6-len,sz),0.0025,M.ivy,barG);for(let y=2.62;y>2.6-len;y-=0.05)ivyAt(sx+(r()-.5)*0.04,y,sz+(r()-.5)*0.04,barG);}for(let z=c0+0.3;z<c1-0.2;z+=0.5){const p=new THREE.Mesh(new THREE.SphereGeometry(0.16,8,6),M.leaf);p.scale.set(1.2,0.35,0.8);p.position.set(-0.75,2.66,z);barG.add(p);}}
 
 // MIRROR: the washroom needs the right wall (its drains and the WC go straight out that side), so the bar built above flips onto the left wall and moves 0.42 m back.
 // Positions flip x → −x and rotations flip; partial cylinders (stool backs, bottle labels) get their arc reversed so they still face the right way
@@ -1125,8 +1134,9 @@ pl(0.2,2.1,5.2,'#ffc884',0.9,4.5); pl(-0.2,2.2,7.6,'#f4f8ff',1.4,5.0); pl(0,2.5,
 const loftL=[]; pl(-0.4,3.6,5.4,'#ffcf94',1.3,6.5); pl(-0.9,3.95,4.2,'#ffd6b8',1.3,3.2); pl(1.7,2.0,3.0,'#ffb468',0.9,3.4);
 // ---------- LIGHTING ENGINE: time of day (sky, sun, ambient) × master dimmer (every fixture, all warm 2700 K / 2200 K) ----------
 pl(-0.8,2.0,5.6,'#ffae5c',0.8,3.2);
+[3.45,4.75].forEach(z=>pl(0.8,2.15,z,'#ffb066',0.7,2.6)); // warm light under the floating glass rack over the bar island
 const KITCHEN_L=warm[6][0];
-const EMI=[['filament',1.7],['bulbGlass',0.45],['jute',0.35],['glow',1.2],['globe',1.3],['led',2.4],['onyx',0.9],['greenLed',1.4],['lanternGlass',1.5],['whiteGlobe',1.1],['paper',1.0],['onyxGlow',0.95],['mirrorGlow',0.3]].filter(([k])=>M[k]);
+const EMI=[['warmLed',2.2],['filament',1.7],['bulbGlass',0.45],['jute',0.35],['glow',1.2],['globe',1.3],['led',2.4],['onyx',0.9],['greenLed',1.4],['lanternGlass',1.5],['whiteGlobe',1.1],['paper',1.0],['onyxGlow',0.95],['mirrorGlow',0.3]].filter(([k])=>M[k]);
 const NEONS=['neonBao','neonPay','neonSign','neonPink','neonSay','neonDraught','neonDim'].filter(k=>M[k]);
 const C=h=>new THREE.Color(h);const SKY=[[0,C('#d6e8ec')],[0.5,C('#f0b48a')],[0.7,C('#6a4a62')],[1,C('#1c1824')]];
 function skyAt(t){for(let i=1;i<SKY.length;i++)if(t<=SKY[i][0]){const [a0,c0]=SKY[i-1],[a1,c1]=SKY[i];return c0.clone().lerp(c1,(t-a0)/(a1-a0));}return SKY[SKY.length-1][1].clone();}
@@ -1273,7 +1283,7 @@ const ZONES={
     b:'Every piece of equipment earns its place against the 22 dishes. Food moves one way: stored, prepped, cooked on the back line, plated at the pass. Dirty plates come back through the door to the dish line on the left.',
     l:['Back line under one 3.25 m canopy hood: 2-burner wok range, 2-hole dim sum steamer, twin-tank fryer (veg / non-veg oil), 2-burner stock range','Slim 2-door reach-in on the left wall just inside the door, away from the heat; one under-counter freezer under the dumpling bench','Two prep benches so raw meat and seafood never share a surface with veg and dumpling folding','Pass with heat lamps and a hatch; the server station is a few steps away on the left wall, past the bar','Dish line on the left wall behind the reach-in: under-counter dishwasher and a 2-bowl sink with a pre-rinse spray. Hand-wash sink at the door','The right wall in front of the wok range stays clear for the wok cook, with a sauce and oil shelf above','Ceiling 2.7 m; storage deck above. The exhaust leaves through the back wall and runs to the right side; the gas comes in from the right'],
     views:[['Top view','kitchen'],['Walk in','kwalk'],['Dish side','kdish']]},
-  bar:{box:[0.3,X1,0,2.8,2.67,5.37],ey:'Bar · 4 stools · 6 taps · left wall',t:'The bar',b:'A glowing bar on the left wall: backlit amber onyx behind a black mesh frame, a marble top with a square end facing the door, emerald tile behind and a brass gantry overhead. It starts 0.6 m past the window tables.',
+  bar:{box:[0.3,X1,0,2.8,2.67,5.37],ey:'Bar · 4 stools · 6 taps · left wall',t:'The bar',b:'A glowing bar on the left wall: backlit amber onyx behind a black mesh frame, a marble top with a square end facing the door, emerald tile behind, and a floating brass glass rack hung over the whole island: stemware upside down on rails, pints on a glass shelf, warm LED strips and downlights, with ivy trailing off the top. It starts 0.6 m past the window tables.',
     l:['Headroom 4.5 m over the counter and stools','4 velvet high-back bar chairs, 0.6 m apart, plus a brass foot rail','6 craft taps on two brass fonts; the kegs sit in a cooler right under them','Back bar: infusion jars and glassware at the door end, the lit spirit altar in the middle, a soju riser and the ON TAP board at the far end','The bartender comes and goes at the far end, past the server station and the kitchen door; the door end is closed off by the window table for 2','Built into the back bar opposite the sink: an under-counter glasswasher and a glass-door cooler for mixers, water and soft drinks','Planned for one bartender: everything is within one or two steps'],views:[['Down the bar','bar'],['Back bar','backbar'],['Bartender side','barback']]},
   kegs:{box:[0.55,1.25,0,1.0,3.02,4.17],ey:'Keg cooler under the bar · 6 taps',t:'Keg cooler in the bar counter',b:'The kegs live inside the bar counter, right under the taps.',
     l:['1.1 × 0.63 × 0.9 m cooler at 2–4 °C with two glass doors and a roll-out base','8 × 20 L kegs: 6 on tap plus 2 spares','Beer lines under 1 m','Its compressor sits outside, high on the right side wall; the refrigerant lines cross the room high along beam T1','CO₂ cylinder in the back-bar cabinet under the jars, with a low vent and a low-mounted CO₂ alarm'],views:[['Cooler','kegs']]},
