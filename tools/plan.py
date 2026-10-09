@@ -93,14 +93,20 @@ hdim(0.1,1.25,4.25,'aisle 1.15')
 rect(X0,-1.95,5.0,6.25,'#d8c2a2'); rect(-1.98,-1.46,5.05,6.2,'#c69c6d'); text(-1.72,5.62,'1.15×0.52',9.5,rot=90)
 for z in (5.35,5.9): circ(-2.2,z,0.12,'#efe2c8','#8f6a4a',1)
 text(-1.2,5.3,'TABLE · 2',10,weight=700,rot=90)
-rect(-1.4,-0.5,5.8,6.3,'#cfd7b2'); text(-0.95,6.05,'server station',9,weight=700)
+rect(-1.55,-0.65,5.8,6.3,'#cfd7b2'); text(-1.1,6.05,'server station',9,weight=700)
 # ---- kitchen
-rect(X0,X1,KZ,KZ+0.1,'#d8c6ac','#d8c6ac',1); rect(-0.45,0.3,KZ,KZ+0.1,'#cfe3ea','#7a9aaa',1); rect(0.35,1.05,KZ,KZ+0.1,'#fbf7ef','#fbf7ef',1)
-text(-0.08,KZ-0.15,'pass',9,'#4a6070'); text(0.7,KZ-0.15,'door',9,'#6a5d4e')
+rect(X0,X1,KZ,KZ+0.1,'#d8c6ac','#d8c6ac',1); rect(-0.6,0.05,KZ,KZ+0.1,'#cfe3ea','#7a9aaa',1); rect(0.1,0.8,KZ,KZ+0.1,'#fbf7ef','#fbf7ef',1)
+text(-0.28,KZ-0.15,'pass',9,'#4a6070'); text(0.45,KZ-0.15,'door',9,'#6a5d4e')
 rect(-2.2,-1.4,KZ+0.1,7.05,'#c3c8cc'); text(-1.8,6.72,'non-veg prep',9)
-rect(-1.4,-0.45,KZ+0.1,7.05,'#c3c8cc'); text(-1.05,6.62,'dumpling / veg',9); text(-1.05,6.85,'+ u/c freezer',8.5,'#4a4038'); circ(-0.62,6.75,0.13,'#e9e9e9','#6d7276',1)
-rect(-0.45,0.3,KZ+0.1,7.05,'#c3c8cc'); text(-0.08,6.72,'pass + lamps',9)
-rect(1.15,1.6,KZ+0.1,6.85,'#c3c8cc'); text(1.37,6.62,'hand',8.5); text(1.37,6.78,'wash',8.5)
+rect(-1.4,-0.6,KZ+0.1,7.05,'#c3c8cc'); text(-1.08,6.62,'veg / dumpling',8.5); text(-1.08,6.85,'+ u/c freezer',8,'#4a4038'); circ(-0.75,6.75,0.12,'#e9e9e9','#6d7276',1)
+rect(-0.6,0.05,KZ+0.1,7.05,'#c3c8cc'); text(-0.28,6.72,'pass',9)
+rect(0.85,1.18,KZ+0.1,6.8,'#c3c8cc'); text(1.015,6.6,'HW',8.5,weight=700)
+# fridge door swings (two 0.47 m doors) and the kitchen door swing, dashed
+for hz,sg in ((6.45,1),(7.4,-1)):
+    a,b=P(1.7,hz);r=0.47*S;ex,ey=P(1.23,hz)
+    out.append(f'<path d="M{ex:.1f} {ey:.1f} A{r:.1f} {r:.1f} 0 0 {0 if sg>0 else 1} {a:.1f} {b-sg*r:.1f}" fill="none" stroke="#2a6f8f" stroke-width="1" stroke-dasharray="3 3"/>')
+    line(1.7,hz,1.23,hz,'#2a6f8f',1,'3 3')
+line(0.8,KZ+0.1,0.8,KZ+0.8,'#6a5d4e',1,'3 3')
 rect(X0,X0+0.3,7.15,8.05,'none','#6d7276',1,'4 3'); text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.3,7.6,'sauce shelf',8,'#6a5d4e',rot=90)
 for xa,xb,t in ((X0,-1.25,'wok ×2'),(-1.2,-0.6,'steamer'),(-0.55,0.05,'fryer ×2'),(0.1,0.7,'stock ×2')):
     rect(xa,xb,8.1,D,'#9aa0a5'); text((xa+xb)/2,8.45,t,9.5,'#fff',weight=700)
@@ -116,6 +122,8 @@ rect(XS-0.7,XS,2.95,3.85,'#d9c7a8','#8f5634'); text(XS-0.35,3.4,'bins',9)
 rect(XS-0.85,XS-0.05,3.95,4.75,'#f3d6cf','#b23a1e',1.2); text(XS-0.45,4.35,'LPG 4×19 kg',8.5,'#b23a1e',weight=700,rot=90)
 line(XS-0.06,4.7,XS-0.06,8.45,'#b8862a',2); line(XS-0.06,8.45,X0,8.45,'#b8862a',2); text(XS-0.25,6.0,'gas line',8.5,'#8a6420',rot=90)
 rect(XS-0.62,XS,0.35,1.25,'#d6dde2','#3a4a56',1.3); text(XS-0.31,0.8,'power backup',8.5,'#2a3a46',weight=700,rot=90)
+rect(XS-0.2,XS,1.35,1.9,'#6d7276','#2a3a46',1); text(XS-0.45,1.62,'meter',8.5,'#2a3a46',weight=700,rot=90)
+rect(X0,X0+0.06,0.6,1.0,'none','#b23a1e',1.2,'3 2'); text(X0+0.12,0.35,'existing meter (to shift out)',8,'#b23a1e','end')
 for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
 text(XS-0.8,1.6,'AC units above',8.5,'#6a5d4e',rot=90)
 # exhaust (at 2.35–2.75 m, drawn dashed)
@@ -141,7 +149,7 @@ for k,(a2,b2) in enumerate(rows):
     if a2=='Total': leg.append(f'<line x1="{lx}" y1="{y-20}" x2="{lx+274}" y2="{y-20}" stroke="#2a2420"/>')
     leg.append(f'<text x="{lx}" y="{y}" font-size="14" fill="#2a2420"{bold}>{a2}</text><text x="{lx+274}" y="{y}" font-size="14" text-anchor="end" fill="#2a2420"{bold}>{b2}</text>')
 y=ly+22+len(rows)*30+8
-for t in ['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup: inverter + lithium cabinet.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust','on the right side; parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']:
+for t in ['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup + shifted meter on the','right side, front end.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust','on the right side; parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']:
     leg.append(f'<text x="{lx}" y="{y}" font-size="12.5" fill="#6a5d4e">{t}</text>'); y+=19
 svg=f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{Hh}" viewBox="0 0 {W} {Hh}" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">
 <rect width="100%" height="100%" fill="#fbf7ef"/>
