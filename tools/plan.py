@@ -51,12 +51,12 @@ line(1.75,D+T,1.75-0.62,D+T+0.5,'#2a2420',1,'3 3'); text(1.35,D+0.45,'rear exit'
 rect(X0,X1,-0.06,0,'#9fb4c2','#4a6070',1); text(0,-0.37,'glazed shopfront · doors open outward',10,'#4a6070')
 for z,n in ((4.8,'P1'),(6.8,'P2')): rect(X0,X0+0.23,z-0.15,z+0.15,WALL,WALL,1)
 for xa,xb,za,zb in ((1.335,1.565,0,D),(X0,X1,4.675,4.925),(X0,1.335,6.675,6.925),(0.325,0.475,4.925,6.675)): rect(xa,xb,za,zb,'none','#8a7a62',1,'6 4')
-# ---- RIGHT: window booth, two tables for 4, 0.45 m apart; aisle-side banquette split at the gap
-rect(X0,-1.95,0.15,3.0,'#d8c2a2'); text(-2.2,1.58,'banquette 2.85×0.5',9.5,rot=90)
-for za,zb in ((0.15,1.35),(1.8,3.0)): rect(-1.35,-0.9,za,zb,'#d8c2a2'); rect(-0.98,-0.9,za,zb,'#8f6a4a','#8f6a4a',1)
+# ---- RIGHT: window tables, two tables for 4, 0.45 m apart, cane chairs on both sides
 rect(-2.02,-1.28,0.15,1.35,'#c69c6d'); text(-1.65,0.75,'1.2×0.74',10,rot=90)
 rect(-2.02,-1.28,1.8,3.0,'#c69c6d'); text(-1.65,2.4,'1.2×0.74',10,rot=90)
-text(-0.62,1.95,'BOOTH · 4 + 4',10,weight=700,rot=90); vdim(-1.9,1.35,1.8,'0.45',0); vdim(-1.9,3.0,3.45,'0.45',0)
+for z in (0.45,1.05,2.1,2.7):
+    for x in (-2.2,-1.12): rect(x-0.22,x+0.22,z-0.22,z+0.22,'#efe2c8')
+text(-0.62,1.2,'WINDOW TABLES · 4 + 4',10,weight=700,rot=90); vdim(-1.9,1.35,1.8,'0.45',0); vdim(-1.9,3.0,3.45,'0.45',0)
 # ---- RIGHT: hand-wash alcove (one basin) + washroom (drain straight out through the right wall)
 rect(X0,-1.2,3.45,3.55,'#d8c6ac','#d8c6ac',1); rect(X0,-1.2,3.55,4.7,'#e9efe4','#8a9a7a',1); rect(-1.3,-1.2,3.55,4.7,'none','#8a9a7a',1,'4 3')
 circ(X0+0.3,4.12,0.25,'#ffffff'); circ(X0+0.3,4.12,0.18,'#e6ecef','#8a9a7a',1); circ(X0+0.07,4.12,0.03,'#2a2420','#2a2420',1)
@@ -67,10 +67,10 @@ rect(-2.16,-1.84,5.64,6.27,'#ffffff'); line(-1.25,5.0,-1.8,5.43,'#2a2420',1,'3 3
 rect(1.0,1.42,KZ-0.15,KZ,'#6d7276'); text(1.21,5.98,'DB + fire panel',8.5,'#4a4038')
 for x in (X1-0.1,X1-0.3): circ(x,2.56,0.07,'#c8231b','#c8231b',1)
 # ---- LEFT: window table for 4
-rect(1.95,X1,0.15,2.4,'#d8c2a2'); text(2.2,1.27,'banquette 2.25×0.5',9.5,rot=90)
 rect(1.25,1.95,0.15,1.35,'#c69c6d'); text(1.6,0.75,'1.2×0.7',10,rot=90)
 rect(1.25,1.95,1.8,2.4,'#c69c6d'); text(1.6,2.1,'0.6×0.7',10,rot=90); vdim(1.4,1.35,1.8,'0.45',0)
-for z in (0.45,1.05,2.1): rect(0.7,1.14,z-0.22,z+0.22,'#efe2c8')
+for z in (0.45,1.05,2.1):
+    for x in (0.92,2.2): rect(x-0.22,x+0.22,z-0.22,z+0.22,'#efe2c8')
 text(0.45,1.2,'WINDOW TABLES · 4 + 2',10,weight=700,rot=90)
 hdim(-0.9,0.7,2.1,'entry 1.60 clear')
 # ---- LEFT: bar, mirrored from Concept 25 and moved 0.42 m back
@@ -166,11 +166,11 @@ vdim(-1.45,7.05,8.1,'aisle 1.05',0); hdim(0.95,1.75,D-0.15,'rear door 0.80'); hd
 # ---- dimensions
 hdim(X1,X0,D+0.2,'4.90 (inside)')
 vdim(X1+T,0,D,'8.80 (inside)',-46)
-vdim(XS-3.45,0.15,3.0,'booth 2.85',0); vdim(XS-3.45,3.55,4.7,'hand-wash 1.15',0); vdim(XS-3.45,4.8,KZ,'WC 1.50',0); vdim(XS-3.45,KZ+0.1,D,'kitchen 2.40',0)
-vdim(X1+T,0.15,2.4,'2.25',-18); vdim(X1+T,2.72,5.37,'back bar 2.65',-18); vdim(X1+T,5.45,6.25,'0.80',-18)
+vdim(XS-3.45,0.15,3.0,'tables 2.85',0); vdim(XS-3.45,3.55,4.7,'hand-wash 1.15',0); vdim(XS-3.45,4.8,KZ,'WC 1.50',0); vdim(XS-3.45,KZ+0.1,D,'kitchen 2.40',0)
+vdim(X1+T,0.15,2.4,'2.25 tables',-18); vdim(X1+T,2.72,5.37,'back bar 2.65',-18); vdim(X1+T,5.45,6.25,'0.80',-18)
 title='Ground floor plan · 4.9 × 8.8 m'
 sub='Betalbatim pub · Concept 27 (mirrored: washroom right, bar left; 0.45 m min between tables) · from the shop drawing (47 m² super built-up) · 18 covers inside + 8 in the garden · 26 in all'
-rows=[('Bar stools','4'),('Window tables, left (4 + 2)','6'),('Window booth, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
+rows=[('Bar stools','4'),('Window tables, left (4 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
 lx=W-330; ly=170
 NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the 22-dish menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
