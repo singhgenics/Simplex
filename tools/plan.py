@@ -95,32 +95,31 @@ hdim(0.1,1.25,4.25,'aisle 1.15')
 rect(X0,-1.95,5.0,6.25,'#d8c2a2'); rect(-1.98,-1.46,5.05,6.2,'#c69c6d'); text(-1.72,5.62,'1.15×0.52',9.5,rot=90)
 for z in (5.35,5.9): circ(-2.2,z,0.12,'#efe2c8','#8f6a4a',1)
 text(-1.2,5.3,'TABLE · 2',10,weight=700,rot=90)
-rect(-1.55,-0.65,5.8,6.3,'#cfd7b2'); text(-1.1,6.05,'server station',9,weight=700)
+rect(-1.25,-0.65,5.9,6.3,'#cfd7b2'); text(-0.95,6.05,'server stn',8.5,weight=700); text(-0.95,6.2,'0.60 × 0.40',7.5); hdim(-1.46,-1.25,5.75,'0.21')
 # ---- kitchen
 rect(X0,X1,KZ,KZ+0.1,'#d8c6ac','#d8c6ac',1); rect(-0.6,0.05,KZ,KZ+0.1,'#cfe3ea','#7a9aaa',1); rect(0.1,0.8,KZ,KZ+0.1,'#fbf7ef','#fbf7ef',1)
 text(-0.28,KZ-0.15,'pass',9,'#4a6070'); text(0.45,KZ-0.15,'door',9,'#6a5d4e')
-rect(-2.2,-1.4,KZ+0.1,7.05,'#c3c8cc'); text(-1.8,6.72,'non-veg prep',9)
-rect(-1.4,-0.6,KZ+0.1,7.05,'#c3c8cc'); text(-1.08,6.62,'veg / dumpling',8.5); text(-1.08,6.85,'+ u/c freezer',8,'#4a4038'); circ(-0.75,6.75,0.12,'#e9e9e9','#6d7276',1)
-rect(-0.6,0.05,KZ+0.1,7.05,'#c3c8cc'); text(-0.28,6.72,'pass',9)
-rect(0.85,1.18,KZ+0.1,6.8,'#c3c8cc'); text(1.015,6.6,'HW',8.5,weight=700)
+rect(-2.2,-1.4,KZ+0.1,7.05,'#c3c8cc'); text(-1.8,6.62,'non-veg prep',8.5,weight=600); text(-1.8,6.84,'0.80 × 0.65 · h 0.90',7.5,'#4a4038')
+rect(-1.4,-0.6,KZ+0.1,7.05,'#c3c8cc'); text(-1.08,6.55,'veg / dumpling',8.5,weight=600); text(-1.08,6.74,'+ u/c freezer',7.5,'#4a4038'); text(-1.08,6.92,'0.80 × 0.65',7.5,'#4a4038'); circ(-0.75,6.62,0.1,'#e9e9e9','#6d7276',1)
+rect(-0.6,0.05,KZ+0.1,7.05,'#c3c8cc'); text(-0.28,6.62,'pass + lamps',8.5,weight=600); text(-0.28,6.84,'0.65 × 0.65',7.5,'#4a4038')
+rect(0.85,1.18,KZ+0.1,6.8,'#c3c8cc'); text(1.015,6.52,'HW',8,weight=700); text(1.015,6.68,'0.33×0.40',6.5,'#4a4038')
 # fridge door swings (two 0.47 m doors) and the kitchen door swing, dashed
 for hz,sg in ((6.45,1),(7.4,-1)):
     a,b=P(1.7,hz);r=0.47*S;ex,ey=P(1.23,hz)
     out.append(f'<path d="M{ex:.1f} {ey:.1f} A{r:.1f} {r:.1f} 0 0 {0 if sg>0 else 1} {a:.1f} {b-sg*r:.1f}" fill="none" stroke="#2a6f8f" stroke-width="1" stroke-dasharray="3 3"/>')
     line(1.7,hz,1.23,hz,'#2a6f8f',1,'3 3')
 line(0.8,KZ+0.1,0.8,KZ+0.8,'#6a5d4e',1,'3 3')
-rect(X0,X0+0.3,7.15,8.05,'none','#6d7276',1,'4 3'); text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.3,7.6,'sauce shelf',8,'#6a5d4e',rot=90)
-for xa,xb,t in ((X0,-1.25,'wok ×2'),(-1.2,-0.6,'steamer'),(-0.55,0.05,'fryer ×2'),(0.1,0.7,'stock ×2')):
-    rect(xa,xb,8.1,D,'#9aa0a5'); text((xa+xb)/2,8.45,t,9.5,'#fff',weight=700)
-rect(X0+0.02,0.8,7.85,D-0.02,'none','#c4442a',1.3,'8 4'); text(-0.8,7.75,'canopy hood 3.25×0.95 (bottom 2.05 m)',9.5,'#b23a1e')
-rect(1.7,X1,6.45,7.4,'#c3c8cc'); text(2.07,6.92,'2-door reach-in 1.0',8.5,rot=90)
-rect(1.8,X1,7.4,8.0,'#c3c8cc'); text(2.12,7.7,'dishwasher',8.5,rot=90)
-rect(1.8,X1,8.0,D,'#c3c8cc'); text(2.12,8.4,'2-bowl sink',8.5,rot=90)
-rect(0.35,0.95,7.15,7.95,'none','#2a6f8f',1.3,'5 3'); text(0.65,7.55,'hatch',9,'#2a6f8f',weight=700)
+rect(X0,X0+0.3,7.15,8.05,'none','#6d7276',1,'4 3'); text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.3,7.6,'sauce shelf 0.9 × 0.3',7.5,'#6a5d4e',rot=90)
+for xa,xb,t,dim in ((X0,-1.25,'wok range ×2','1.20 × 0.70 · h 0.80'),(-1.2,-0.6,'steamer','0.60 × 0.70'),(-0.55,0.05,'fryer ×2','0.60 × 0.70'),(0.1,0.7,'stock ×2','0.60 × 0.70')):
+    rect(xa,xb,8.1,D,'#9aa0a5'); text((xa+xb)/2,8.36,t,9,'#fff',weight=700); text((xa+xb)/2,8.58,dim,7.5,'#fff')
+rect(X0+0.02,0.8,7.85,D-0.02,'none','#c4442a',1.3,'8 4'); text(-0.25,7.95,'hood 3.25 × 0.95 × 0.55 · bottom 2.05 m',8.5,'#b23a1e')
+rect(1.7,X1,6.45,7.4,'#c3c8cc'); text(2.0,6.92,'2-door reach-in',8.5,weight=600,rot=90); text(2.2,6.92,'1.0 × 0.75 · h 2.0',7.5,'#4a4038',rot=90)
+rect(1.8,X1,7.4,8.0,'#c3c8cc'); text(2.03,7.7,'u/c dishwasher',8,weight=600,rot=90); text(2.23,7.7,'0.60 × 0.65',7.5,'#4a4038',rot=90)
+rect(1.8,X1,8.0,D,'#c3c8cc'); text(2.03,8.4,'2-bowl sink',8,weight=600,rot=90); text(2.23,8.4,'0.80 × 0.65',7.5,'#4a4038',rot=90)
+rect(0.35,0.95,7.15,7.95,'none','#2a6f8f',1.3,'5 3'); text(0.65,7.5,'hatch',9,'#2a6f8f',weight=700); text(0.65,7.68,'0.6 × 0.8',7.5,'#2a6f8f')
 text(0.0,7.35,'KITCHEN 4.9 × 2.4 · ceiling 2.7',11,weight=700); text(-0.45,7.17,'deck above (+2.7 m)',9,'#2a6f8f')
 # ---- right side: 0.5 m service strip, every fit-out dimensioned (D = depth from the wall, L = length along the wall, H = height)
 rect(XS-0.35,XS,0.35,1.15,'#d6dde2','#3a4a56',1.3); text(XS-0.17,0.75,'UPS',8,'#2a3a46',weight=700,rot=90)
-rect(XS-0.15,XS,1.2,1.45,'#6d7276','#2a3a46',1)
 rect(XS-0.45,XS,1.55,2.15,'#e9e9e9'); text(XS-0.22,1.85,'kegs',8,rot=90)
 rect(XS-0.45,XS,2.25,3.15,'#d9c7a8','#8f5634'); text(XS-0.22,2.7,'bins',8.5,rot=90)
 rect(XS-0.4,XS-0.05,3.3,4.7,'#f3d6cf','#b23a1e',1.2); text(XS-0.22,4.0,'LPG',8.5,'#b23a1e',weight=700,rot=90)
@@ -141,8 +140,7 @@ def call(z,t,col='#2a2420',zi=None):
     zi=z if zi is None else zi
     line(XS-0.5,zi,XS-0.9,z,'#8a7a62',0.8); text(XS-0.94,z,t,9.5,col,'start',600)
 call(0.15,'AC outdoor units (2) · 0.30 D × 0.80 L × 0.55 H · high, at 3.0 m','#6a5d4e',1.0)
-call(0.75,'Power backup cabinet · 0.35 D × 0.80 L × 1.60 H · wall-mounted','#2a3a46')
-call(1.33,'Changeover box · 0.15 D × 0.25 L × 0.45 H · at 1.3 m','#2a3a46')
+call(0.75,'Power backup cabinet · 0.35 D × 0.80 L × 1.60 H · wall-mounted, changeover inside','#2a3a46')
 call(1.85,'Empty-keg cage · 0.45 D × 0.60 L × 1.20 H · 2 kegs')
 call(2.3,'Keg-cooler compressor · 0.33 D × 0.45 L × 0.45 H · high, at 2.25 m','#6a5d4e',2.45)
 call(2.75,'Bin store · 0.45 D × 0.90 L × 1.00 H · 3 × 60 L bins')
@@ -158,6 +156,7 @@ for za,zb,t in ((0.35,1.15,'0.80'),(1.55,2.15,'0.60'),(2.25,3.15,'0.90'),(3.3,4.
 vdim(XS-0.68,4.7,D-1.95,'2.15 gas to outlet',0)
 hdim(XS-0.5,XS,6.35,'0.50')
 text(2.15,D+0.55,'Fresh-air intake · 0.50 × 0.48 · high, at 3.3 m',9,'#6a5d4e',weight=600)
+vdim(-1.45,7.05,8.1,'aisle 1.05',0); hdim(0.95,1.75,D-0.15,'rear door 0.80'); hdim(0.1,0.8,KZ+0.25,'door 0.70')
 # ---- dimensions
 hdim(X1,X0,D+0.2,'4.90 (inside)')
 vdim(X1+T,0,D,'8.80 (inside)',-46)
@@ -167,7 +166,7 @@ title='Ground floor plan · 4.9 × 8.8 m'
 sub='Betalbatim pub · Concept 25 · from the shop drawing (47 m² super built-up) · 20 covers inside + 8 in the garden · 28 covers in all'
 rows=[('Bar stools','4'),('Window tables, right','6'),('Window booth, left','6'),('Bench facing the bar','2'),('Table by the pass','2'),('Beer garden, 5.3 × 2.0 m','8'),('Total','28')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup on the right side, front end;','meter stays inside behind a portrait.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust in','a 0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']
+NOTES=['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup cabinet (changeover inside)','meter stays inside behind a portrait.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust in','a 0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''

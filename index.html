@@ -203,7 +203,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <tr class="g"><td>Ground</td><td>Left window booth</td><td class="n">3.2</td></tr>
         <tr class="g"><td>Ground</td><td>Bench facing the bar</td><td class="n">1.1</td></tr>
         <tr class="g"><td>Ground</td><td>Bar: back bar, bartender aisle, counter, stool zone</td><td class="n">7.4</td></tr>
-        <tr class="g"><td>Ground</td><td>Table for 2 by the pass + server station</td><td class="n">1.6</td></tr>
+        <tr class="g"><td>Ground</td><td>Table for 2 by the pass + server station</td><td class="n">1.5</td></tr>
         <tr class="g"><td>Ground</td><td>Hand-wash niche (1.1 × 0.75)</td><td class="n">0.8</td></tr>
         <tr class="g"><td>Ground</td><td>Washroom (1.1 × 1.77)</td><td class="n">1.9</td></tr>
         <tr class="g"><td>Ground</td><td>Kitchen (4.9 × 2.4)</td><td class="n">11.8</td></tr>
@@ -262,7 +262,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
       <details class="dims" id="sz-bay"><summary>Table for 2 by the pass · server station</summary><table>
         <tr><td>Banquette (right wall, P1 to the kitchen wall)</td><td class="d">1.25 × 0.5 m</td></tr>
         <tr><td>Table</td><td class="d">1.15 × 0.52 m, bench-side seating for 2</td></tr>
-        <tr><td>Server station (kitchen wall, beside the pass)</td><td class="d">0.9 × 0.5 m · top 0.94 · batch coffee brewer, water dispenser, glasses, cutlery</td></tr>
+        <tr><td>Server station (kitchen wall, beside the pass)</td><td class="d">0.6 × 0.4 m · top 0.94 · 0.21 m clear of the table · compact coffee brewer, water dispenser, glasses, cutlery</td></tr>
       </table></details>
       <details class="dims" id="sz-washroom"><summary>Washroom &amp; hand-wash niche</summary><table>
         <tr><td>Hand-wash niche</td><td class="d">1.1 D × 0.75 W m · drum basin · pop-art face with LED ring mirrors</td></tr>
@@ -283,13 +283,14 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <tr><td>Pass + heat lamps</td><td class="d">0.65 × 0.65 m · hatch 0.65 × 0.6 m</td></tr>
         <tr><td>Hand-wash sink</td><td class="d">0.33 × 0.4 m, compact, at the door · clear of the fridge doors</td></tr>
         <tr><td>Fridge door swing</td><td class="d">two 0.47 m doors open into the aisle; the dish line sits beside the fridge, 0.1 m back, and the hand-wash basin stops short of the swing</td></tr>
-        <tr><td>Dish line (left wall)</td><td class="d">u/c dishwasher + drainboard 0.6 m · 2-bowl sink with pre-rinse spray 0.8 m in the back corner · 2 shelves over</td></tr>
+        <tr><td>Under-counter dishwasher</td><td class="d">0.6 × 0.65 × 0.9 m, drainboard on top · left wall</td></tr>
+        <tr><td>2-bowl sink + pre-rinse spray</td><td class="d">0.8 × 0.65 × 0.9 m, back left corner · 2 shelves over the dish line</td></tr>
+        <tr><td>Cooks’ aisle</td><td class="d">1.05 m between the hot line and the prep benches</td></tr>
         <tr><td>Doors</td><td class="d">0.7 m from the dining room · 0.8 m rear exit</td></tr>
       </table></details>
       <details class="dims" id="sz-yard"><summary>Right side · 0.5 m service strip</summary><table>
         <tr><td>Usable strip</td><td class="d">0.5 m along the right wall · car pathway beyond · 6 steel bollards (Ø 0.13 × 0.9 m) on its edge</td></tr>
-        <tr><td>Power backup (front end)</td><td class="d">slim wall-mounted cabinet 0.35 D × 0.8 L × 1.6 H m, from 0.35 m to 1.15 m along the wall · 7.5 kVA online inverter + ~10 kWh wall-mount lithium</td></tr>
-        <tr><td>Backup changeover box</td><td class="d">0.15 D × 0.25 L × 0.45 H m, wall-mounted at 1.3 m</td></tr>
+        <tr><td>Power backup (front end)</td><td class="d">slim wall-mounted cabinet 0.35 D × 0.8 L × 1.6 H m, from 0.35 m to 1.15 m along the wall · 7.5 kVA online inverter + ~10 kWh wall-mount lithium · changeover switch inside the cabinet, no separate box</td></tr>
         <tr><td>Empty-keg cage</td><td class="d">0.45 D × 0.6 L × 1.2 H m (2 kegs) · 1.55–2.15 m along the wall</td></tr>
         <tr><td>Bin store</td><td class="d">0.45 D × 0.9 L × 1.0 H m · three 60 L bins, emptied daily · 2.25–3.15 m</td></tr>
         <tr><td>LPG cage</td><td class="d">0.35 D × 1.4 L × 1.6 H m · 4 × 19 kg in one row · 3.3–4.7 m · over 2 m from the exhaust outlet</td></tr>
@@ -765,18 +766,17 @@ bx(-1.15,-0.35,2.63,2.65,c0+0.1,BZ-0.1,M.shelfGlass,barG,false); [-1.15,-0.35].f
 // TABLE FOR 2 between pillar P1 and the kitchen wall (z 5.0–6.25): bench-side seating only, so nothing sticks into the servers' route from the pass
 banquette(X0,-1.95,5.0,6.25,[[5.35,M.floral],[5.9,M.orange]],[5.35,5.9]);
 cafeTable(-1.98,-1.46,5.05,6.2); lantern(-1.7,5.62);
-// SERVER STATION on the kitchen's front wall, right beside the pass (x −1.4 → −0.5): water, glasses, cutlery, batch coffee
-{const s0=-1.55,s1=-0.65,z0=KZ-0.5,z1=KZ;
+// SERVER STATION on the kitchen's front wall, right beside the pass (x −1.25 → −0.65, 0.6 × 0.4 m, 0.21 m clear of the table): water, glasses, cutlery, compact coffee brewer
+{const s0=-1.25,s1=-0.65,z0=KZ-0.4,z1=KZ;
  bx(s0,s1,0,0.06,z0,z1,M.black,gr); bx(s0,s1,0.06,0.9,z0+0.02,z1,M.oliveWood,gr); bx(s0-0.01,s1+0.01,0.9,0.94,z0-0.01,z1,M.marble,gr);
  bx((s0+s1)/2-0.005,(s0+s1)/2+0.005,0.1,0.86,z0+0.015,z0+0.02,M.black,gr,false);
  [1.4,1.8].forEach(y=>bx(s0,s1,y,y+0.03,z1-0.3,z1,M.timber,gr));
- for(let x=s0+0.1;x<s1-0.05;x+=0.12) cyl(0.035,0.03,0.11,x,1.43,z1-0.15,M.shelfGlass,gr,8);
- [[s0+0.2,M.terracotta],[s0+0.5,M.porcelain],[s0+0.75,M.oliveWood]].forEach(([x,m],i)=>cyl(0.06+0.02*(i%2),0.05,0.16+0.08*(i%3),x,1.83,z1-0.15,m,gr,12));
+ for(let x=s0+0.08;x<s1-0.05;x+=0.12) cyl(0.035,0.03,0.11,x,1.43,z1-0.15,M.shelfGlass,gr,8);
+ [[s0+0.12,M.terracotta],[s0+0.32,M.porcelain],[s0+0.5,M.oliveWood]].forEach(([x,m],i)=>cyl(0.06+0.02*(i%2),0.05,0.16+0.08*(i%3),x,1.83,z1-0.15,m,gr,12));
  cyl(0.12,0.12,0.4,s1-0.15,0.94,z1-0.25,M.ss,gr,16); // water dispenser
- [s1-0.35,s1-0.45].forEach(x=>cyl(0.05,0.05,0.14,x,0.94,z0+0.12,M.porcelain,gr,10));
- const x0=s0+0.03,x1=s0+0.41,cz0=KZ-0.45,cz1=KZ-0.07,y=0.94; // batch coffee brewer
- bx(x0,x1,y,y+0.05,cz0,cz1,M.ssDark,gr); bx(x0,x0+0.14,y+0.05,y+0.52,cz0,cz1,M.ss,gr); bx(x0,x1,y+0.44,y+0.56,cz0,cz1,M.ss,gr);
- [cz0+0.1,cz1-0.1].forEach(z=>{cyl(0.075,0.075,0.012,x0+0.28,y+0.05,z,M.black,gr,16);cyl(0.07,0.065,0.16,x0+0.28,y+0.062,z,M.shelfGlass,gr,16);cyl(0.066,0.06,0.1,x0+0.28,y+0.065,z,glassT.dark,gr,16);});}
+ const x0=s0+0.03,x1=s0+0.3,cz0=KZ-0.37,cz1=KZ-0.05,y=0.94; // compact coffee brewer
+ bx(x0,x1,y,y+0.05,cz0,cz1,M.ssDark,gr); bx(x0,x0+0.1,y+0.05,y+0.52,cz0,cz1,M.ss,gr); bx(x0,x1,y+0.44,y+0.56,cz0,cz1,M.ss,gr);
+ [cz0+0.08,cz1-0.08].forEach(z=>{cyl(0.06,0.06,0.012,x0+0.19,y+0.05,z,M.black,gr,16);cyl(0.055,0.05,0.15,x0+0.19,y+0.062,z,M.shelfGlass,gr,16);cyl(0.051,0.046,0.09,x0+0.19,y+0.065,z,glassT.dark,gr,16);});}
 
 // LEFT WALL. Window booth: two cane-backed banquettes face to face across a 1.2 m table for 4 and a table for 2 (0.74 m deep, tops overhang both seat fronts)
 banquette(X1,1.95,0.15,2.25,[[0.45,M.orange],[1.05,M.floral],[1.95,M.df0]],[0.45,1.05,1.95]);
@@ -981,7 +981,6 @@ bx(-6,6,-0.06,-0.045,D+T,D+6.5,M.road,out,false); [-4.2,-1.6,1.0,3.6].forEach(x=
 {const a=XS-0.35,b=XS,c=0.35,d=1.15,y0=0.3,h=1.9;bx(a,b,y0,h,c,d,M.ssDark,G.ext); bx(a-0.01,a,y0+0.08,h-0.08,c+0.05,(c+d)/2-0.01,M.steel,G.ext,false); bx(a-0.01,a,y0+0.08,h-0.08,(c+d)/2+0.01,d-0.05,M.steel,G.ext,false);
  [0.5,1.6].forEach(y=>{for(let z=c+0.1;z<d-0.08;z+=0.06)bx(a-0.015,a-0.01,y,y+0.12,z,z+0.03,M.black,G.ext,false);}); bx(a-0.03,a-0.01,1.0,1.2,(c+d)/2-0.06,(c+d)/2-0.04,M.ss,G.ext);
  bx(a-0.04,b,h,h+0.04,c-0.04,d+0.04,M.ssDark,G.ext); sph(0.012,a-0.012,1.75,c+0.12,M.glow,G.ext); [c+0.1,d-0.1].forEach(z=>bx(a+0.05,b,y0-0.05,y0,z-0.03,z+0.03,M.black,G.ext));}
-bx(XS-0.15,XS,1.3,1.75,1.2,1.45,M.ssDark,G.ext); // backup changeover box
 // FRESH-AIR intake fan high on the back wall (far from the exhaust discharge)
 bx(1.9,2.4,3.3,3.78,D+T,D+T+0.3,M.ssDark,G.ext); for(let y=3.36;y<3.74;y+=0.06) bx(1.93,2.37,y,y+0.02,D+T+0.3,D+T+0.32,M.steel,G.ext,false);
 
@@ -1161,7 +1160,7 @@ const LBL=[
  ['POS nook in the back bar · tablet, card machine, printer, cash drawer',-2.15,1.5,2.6,'g'],['"settle up here" neon',X0+0.05,2.8,2.95,'g','R'],['Window tables · 4 + 2 (join into 6)',-1.55,1.25,1.2,'g'],['Hinged portrait over the electricity meter',X0+0.08,2.2,0.78,'g','R'],['Reclaimed-wood wall · vintage signs',X0+0.05,3.9,1.2,'g','R'],['Spiral duct + brass lanterns',0.4,4.05,1.6,'g'],
  ['Bar · 4 stools · 6 taps',-0.2,1.45,3.8,'g'],['Backlit onyx bar · emerald tile',-0.55,1.25,3.3,'g'],['Brass gantry, amber-lit',-0.85,3.05,3.0,'g'],['TV',X0+0.1,3.6,2.95,'g'],
  ['Keg cooler under the bar · 8 × 20 L kegs',-0.95,1.15,3.15,'g'],['CO₂ cylinder in the cabinet under the jars · low CO₂ alarm',-2.1,0.75,3.12,'g'],['Built-in glasswasher · opposite the bar sink',-1.92,1.15,4.38,'g'],['Built-in cooler: mixers, water, soft drinks',-1.92,1.0,3.75,'g'],['Soju display + ON TAP board',-2.15,2.45,4.75,'g'],['Ice machine · under-counter',-1.15,0.95,4.47,'g'],['Bartender aisle 0.85 m',-1.65,0.3,3.0,'g'],
- ['Table for 2 by the pass · bench side',-1.75,1.3,5.6,'g'],['Server station by the pass · water, glasses, cutlery, batch coffee',-1.1,1.6,KZ-0.3,'g'],
+ ['Table for 2 by the pass · bench side',-1.75,1.3,5.6,'g'],['Server station by the pass · water, glasses, cutlery, coffee',-0.95,1.6,KZ-0.25,'g'],
  ['Window booth · 2 banquettes face to face (4 + 2)',1.15,1.3,1.2,'g'],['Bench facing the bar · table for 2',1.75,1.35,2.97,'g'],['Salon gallery wall',X1-0.05,2.65,1.5,'g','L'],
  ['Hand-wash niche · drum basin · pop-art ring mirrors',1.85,2.45,4.05,'g'],['Washroom · one door · WC + urinal',1.85,2.25,5.2,'g'],['Urinal',2.15,1.85,4.85,'g'],['WC',2.05,1.2,5.95,'g'],
  ['Kitchen · click to explore',-0.6,1.9,7.4,'g cta'],['Kitchen wall up to the slab · neon + menu board',-0.55,4.15,KZ-0.05,'g'],['Storage deck over the kitchen · 1.7 m clear · fold-down ladder',-0.6,3.6,7.6,'g'],
@@ -1176,7 +1175,7 @@ const LBL=[
  ['Rear exit · opens outward · panic bar',1.35,2.3,D,'k'],['Fresh-air (make-up) grille',-0.3,KC-0.1,7.6,'k'],
  // outside, right side + back
  ['Parking behind: nothing stored here',0,0.6,D+3.0,'o'],['Kitchen exhaust: out the back, round the corner, low side discharge',-2.2,3.05,D+0.4,'k'],['ESP + carbon odour filter · fan',XS-0.3,3.15,D-0.85,'k'],['Discharge at ~2.6 m, pointing away from the building',XS-0.5,3.0,D-1.85,'k'],
- ['LPG bank · 4 × 19 kg in one row · locked, ventilated',XS-0.22,1.85,4.0,'k'],['Slim bin store · 3 × 60 L, emptied daily',XS-0.22,1.25,2.7,'k'],['Slim empty-keg cage',XS-0.22,1.45,1.85,'k'],['AC outdoor units',XS-0.15,3.75,1.5,'k'],['Compressor for the bar keg cooler',XS-0.17,2.85,2.45,'k'],['0.5 m service strip · cars pass beyond',XS-0.25,0.4,6.0,'k'],['Steel bollards',XS-0.52,1.05,3.0,'k'],['Power backup · slim wall cabinet · 7.5 kVA inverter + 10 kWh lithium',XS-0.18,2.15,0.75,'k'],['Backup changeover box',XS-0.08,1.95,1.32,'k'],['Fresh-air intake (high, away from the exhaust)',2.15,3.95,D+T+0.15,'k']
+ ['LPG bank · 4 × 19 kg in one row · locked, ventilated',XS-0.22,1.85,4.0,'k'],['Slim bin store · 3 × 60 L, emptied daily',XS-0.22,1.25,2.7,'k'],['Slim empty-keg cage',XS-0.22,1.45,1.85,'k'],['AC outdoor units',XS-0.15,3.75,1.5,'k'],['Compressor for the bar keg cooler',XS-0.17,2.85,2.45,'k'],['0.5 m service strip · cars pass beyond',XS-0.25,0.4,6.0,'k'],['Steel bollards',XS-0.52,1.05,3.0,'k'],['Power backup · slim wall cabinet · 7.5 kVA inverter + 10 kWh lithium',XS-0.18,2.15,0.75,'k'],['Fresh-air intake (high, away from the exhaust)',2.15,3.95,D+T+0.15,'k']
 ];
 LBL.push(['CO₂ extinguisher + main electrical board (RCCB/MCB)',1.17,1.9,5.95,'s'],['Fire alarm panel',1.17,2.25,5.95,'s'],
  ['Kitchen: wet-chemical (Class K) + CO₂',X0+0.1,1.2,7.38,'s'],['Fire blanket',-1.98,1.75,KZ+0.15,'s'],['Hood suppression pull + gas cut-off',0.84,1.65,D-0.05,'s'],['Heat detector',-0.6,KC-0.05,7.6,'s'],['First-aid box',X0+0.05,2.05,7.88,'s'],
@@ -1201,7 +1200,7 @@ tag('1.2 × 0.7 · h 0.76',0.5,-1.6,0.76+U,0.75,'up'); tag('0.6 × 0.7',0.35,-1.
 tag('entry 1.6 m clear',0.6,0.1,U,1.45,'up');
 tag('bar counter 2.2 × 0.75 · top 1.04',0.68,-0.72,1.04+U,3.75,'up','z'); tag('bartender aisle 0.85',0.45,-1.7,U,3.0,'up','z');
 tag('back bar 2.65 × 0.4 · h 0.96',0.8,BBF+0.004,0.5,2.95,'+x'); tag('keg cooler 1.1 × 0.63 · 8 kegs',0.75,-1.235,0.5,3.17,'-x');
-tag('table 1.15 × 0.52 · bench side',0.6,-1.72,0.76+U,5.62,'up','z'); tag('station 0.9 × 0.5 · top 0.94',0.55,-1.1,0.94+U,KZ-0.25,'up'); tag('fridge doors swing clear: 0.47 m each',0.7,1.45,U,6.92,'up','z');
+tag('table 1.15 × 0.52 · bench side',0.6,-1.72,0.76+U,5.62,'up','z'); tag('station 0.6 × 0.4',0.4,-0.95,0.94+U,KZ-0.2,'up'); tag('fridge doors swing clear: 0.47 m each',0.7,1.45,U,6.92,'up','z');
 tag('1.2 × 0.74 · h 0.76',0.5,1.65,0.76+U,0.75,'up'); tag('0.6 × 0.74',0.35,1.65,0.76+U,1.95,'up');
 tag('1.05 × 0.55 · table for 2',0.55,1.78,0.76+U,2.97,'up','z'); tag('aisle 1.15 m',0.4,0.7,U,4.0,'up','z');
 tag('hand-wash niche 1.1 × 0.75',0.6,1.85,U,4.05,'up','z'); tag('washroom 1.1 × 1.77 · ceiling 2.7',0.95,1.9,U,5.4,'up','z');
@@ -1209,6 +1208,10 @@ tag('KITCHEN 4.9 × 2.4 m · ceiling 2.7 · canopy hood',1.9,-0.4,U+0.002,7.55,'
 tag('beam T1 0.25 × 0.45 · underside 4.05',1.3,-0.7,H-0.225,4.672,'-z'); tag('beam A 0.23 × 0.38 · underside 4.12',1.3,BMA-0.117,H-0.19,3.0,'-x'); tag('slab soffit 4.50 m',0.7,0.6,H-0.012,2.3,'down');
 tag('GARDEN 5.3 × 2.0 m · 10.6 m²',1.1,0,0.002,-1.85,'up');
 tag('1.2 × 0.76 · h 0.78',0.55,-1.5,0.78+U,-1.08,'up','z'); tag('1.2 × 0.76 · h 0.78',0.55,1.5,0.78+U,-1.08,'up','z'); tag('path 1.38',0.4,0,0.004,-1.2,'up','z');
+// kitchen equipment sizes, on each unit's working face
+tag('wok range ×2 · 1.2 × 0.7 · h 0.8',0.62,-1.85,0.5,8.094,'-z'); tag('steamer 0.6 × 0.7',0.5,-0.9,0.5,8.094,'-z'); tag('fryer ×2 0.6 × 0.7',0.52,-0.25,0.5,8.094,'-z'); tag('stock ×2 0.6 × 0.7',0.52,0.4,0.5,8.094,'-z');
+tag('non-veg prep 0.8 × 0.65 · h 0.9',0.66,-1.8,0.6,7.056,'+z'); tag('veg prep + freezer 0.8 × 0.65',0.66,-1.0,0.4,7.096,'+z'); tag('pass 0.65 × 0.65',0.5,-0.275,0.6,7.056,'+z'); tag('HW 0.33 × 0.4',0.28,1.015,0.82,6.806,'+z');
+tag('2-door reach-in 1.0 × 0.75 · h 2.0',0.8,1.684,1.25,6.92,'-x'); tag('dishwasher 0.6 × 0.65',0.5,1.778,0.45,7.7,'-x'); tag('2-bowl sink 0.8 × 0.65',0.6,1.794,0.5,8.4,'-x'); tag('cooks’ aisle 1.05',0.45,-1.85,U,7.58,'up','z');
 tag('LPG cage 0.35 × 1.4 · h 1.6',0.6,XS-0.22,1.63,4.0,'up','z'); tag('usable strip 0.5 m',0.6,XS-0.25,0.01,6.5,'up','z'); tag('exhaust 0.5 × 0.4 · discharge h 2.6',0.9,-1.9,2.76,D+T+0.2,'up');
 const labelsEl=document.getElementById('labels');
 const labels=LBL.map(([t,x,y,z,f,w])=>{const d=document.createElement('div');d.className='lbl '+f;d.innerHTML='<i></i>'+t;d.hidden=true;labelsEl.appendChild(d);return{el:d,p:V(x,y,z),f:f.split(' ')[0],w,shown:false};});
