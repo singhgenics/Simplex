@@ -51,51 +51,50 @@ line(1.75,D+T,1.75-0.62,D+T+0.5,'#2a2420',1,'3 3'); text(1.35,D+0.45,'rear exit'
 rect(X0,X1,-0.06,0,'#9fb4c2','#4a6070',1); text(0,-0.37,'glazed shopfront · doors open outward',10,'#4a6070')
 for z,n in ((4.8,'P1'),(6.8,'P2')): rect(X0,X0+0.23,z-0.15,z+0.15,WALL,WALL,1)
 for xa,xb,za,zb in ((1.335,1.565,0,D),(X0,X1,4.675,4.925),(X0,1.335,6.675,6.925),(0.325,0.475,4.925,6.675)): rect(xa,xb,za,zb,'none','#8a7a62',1,'6 4')
-# ---- right window tables
-rect(X0,-1.95,0.15,2.25,'#d8c2a2'); text(-2.2,1.2,'banquette 2.1×0.5',9.5,rot=90)
-rect(-1.95,-1.25,0.15,1.35,'#c69c6d'); text(-1.6,0.75,'1.2×0.7',10,rot=90)
-rect(-1.95,-1.25,1.65,2.25,'#c69c6d'); text(-1.6,1.95,'0.6×0.7',10,rot=90)
-for z in (0.45,1.05,1.95): rect(-1.14,-0.7,z-0.22,z+0.22,'#efe2c8')
-text(-1.45,2.33,'WINDOW TABLES · 4 + 2',10,weight=700)
-# ---- left booth + bench
-rect(1.95,X1,0.15,2.25,'#d8c2a2'); text(2.2,1.2,'banquette 2.1×0.5',9.5,rot=90)
-rect(0.9,1.35,0.15,2.25,'#d8c2a2'); rect(0.9,0.98,0.15,2.25,'#8f6a4a','#8f6a4a',1)
-rect(1.28,2.02,0.15,1.35,'#c69c6d'); text(1.65,0.75,'1.2×0.74',10,rot=90)
-rect(1.28,2.02,1.65,2.25,'#c69c6d'); text(1.65,1.95,'0.6×0.74',10,rot=90)
-text(1.25,2.33,'BOOTH · 4 + 2',10,weight=700)
-hdim(-0.7,0.9,1.5,'entry 1.60 clear')
-rect(2.0,X1,2.4,3.55,'#d8c2a2'); rect(1.5,2.05,2.45,3.5,'#c69c6d'); text(1.78,2.97,'1.05×0.55',9.5,rot=90)
-for z in (2.7,3.25): circ(2.22,z,0.12,'#efe2c8','#8f6a4a',1)
-text(1.3,2.97,'BENCH · 2',11,weight=700,rot=90)
-# ---- niche + washroom
-rect(1.25,X1,3.6,3.68,'#d8c6ac','#d8c6ac',1); rect(1.35,X1,3.68,4.43,'#e9efe4','#8a9a7a',1); circ(2.15,4.055,0.25,'#ffffff'); text(1.7,4.055,'HAND-WASH',9,weight=700)
-rect(1.25,X1,4.43,4.53,'#d8c6ac','#d8c6ac',1); rect(1.25,1.35,4.53,4.85,'#d8c6ac','#d8c6ac',1); rect(1.25,1.35,5.55,KZ,'#d8c6ac','#d8c6ac',1)
-rect(1.35,X1,4.53,KZ,'#e9efe4','#8a9a7a',1); text(1.85,5.25,'WC 1.1×1.77',10,weight=700)
-rect(X1-0.24,X1,4.7,5.0,'#ffffff'); rect(1.9,X1,5.2,5.23,'#8f5634','#8f5634',1); rect(1.89,2.21,5.7,6.27,'#ffffff')
-line(1.3,4.85,1.3-0.62,5.35,'#2a2420',1,'3 3')
-rect(1.1,1.25,5.75,6.17,'#6d7276'); text(0.75,5.96,'DB + fire panel',9,'#4a4038')
-for x in (1.45,1.65): circ(x,3.52,0.07,'#c8231b','#c8231b',1)
-# ---- bar
-BBF,BDX=X0+0.4,X0+0.55
-rect(X0,BBF,2.3,4.95,'#cfd7b2'); rect(BBF,BDX,3.35,4.62,'#cfd7b2','#4a4038',1)
-rect(X0,BDX,4.15,4.6,'#9aa0a5','#4a4038',1.2); text(-2.12,4.38,'GW',8.5,'#fff',weight=700)
-rect(X0,BDX,3.4,4.1,'#dff0f6','#2a6f8f',1.2); text(-2.12,3.75,'mixers',8.5,'#2a6f8f',weight=700,rot=90)
-rect(X0,BBF,2.36,2.84,'#e6d6bc'); text(-2.25,2.6,'POS',8.5,weight=700)
-rect(X0,BBF,2.95,3.3,'#e6d6bc','#8f6a4a',1); text(-2.25,3.12,'CO₂',8.5,weight=700)
-rect(-1.1,-0.35,2.6,4.8,'#efe7da'); text(-0.6,4.3,'bar 2.2×0.75',10,rot=90)
-rect(-1.22,-0.59,2.62,3.72,'#dff0f6','#2a6f8f',1.2)
-for x in (-1.05,-0.77):
-    for z in (2.76,3.03,3.3,3.57): circ(x,z,0.11,'none','#2a6f8f',1)
-rect(-1.2,-1.0,3.74,4.8,'#c3c8cc'); rect(-1.22,-0.67,4.22,4.72,'none','#2a6f8f',1,'4 3'); text(-0.95,4.47,'ice',9,'#2a6f8f',weight=700)
-for z in (2.85,3.45,4.05,4.65): circ(-0.13,z,0.21,'#efe2c8')
-text(-1.5,3.17,'KEG COOLER · 8 kegs',9,'#2a6f8f',weight=700,rot=90)
-hdim(BBF,-1.2,2.5,'0.85'); text(0.3,3.3,'4 stools · 0.6 apart',10,'#6a5d4e',rot=90)
-hdim(0.1,1.25,4.25,'aisle 1.15')
-# ---- table for 2 by the pass + server station
-rect(X0,-1.95,5.0,6.25,'#d8c2a2'); rect(-1.98,-1.46,5.05,6.2,'#c69c6d'); text(-1.72,5.62,'1.15×0.52',9.5,rot=90)
-for z in (5.35,5.9): circ(-2.2,z,0.12,'#efe2c8','#8f6a4a',1)
-text(-1.2,5.3,'TABLE · 2',10,weight=700,rot=90)
-rect(-1.25,-0.65,5.9,6.3,'#cfd7b2'); text(-0.95,6.05,'server stn',8.5,weight=700); text(-0.95,6.2,'0.60 × 0.40',7.5); hdim(-1.46,-1.25,5.75,'0.21')
+# ---- RIGHT: window booth (4 + 2), aisle-side banquette split at the step-in gap
+rect(X0,-1.95,0.15,2.55,'#d8c2a2'); text(-2.2,1.35,'banquette 2.4×0.5',9.5,rot=90)
+for za,zb in ((0.15,1.35),(1.95,2.55)): rect(-1.35,-0.9,za,zb,'#d8c2a2'); rect(-0.98,-0.9,za,zb,'#8f6a4a','#8f6a4a',1)
+rect(-2.02,-1.28,0.15,1.35,'#c69c6d'); text(-1.65,0.75,'1.2×0.74',10,rot=90)
+rect(-2.02,-1.28,1.95,2.55,'#c69c6d'); text(-1.65,2.25,'0.6×0.74',10,rot=90)
+text(-1.12,1.65,'BOOTH · 4 + 2',10,weight=700); vdim(-1.9,1.35,1.95,'0.60',0); vdim(-1.9,2.55,3.0,'0.45',0)
+# ---- RIGHT: hand-wash alcove + washroom (drain straight out through the right wall)
+rect(X0,-1.2,3.0,3.1,'#d8c6ac','#d8c6ac',1); rect(X0,-1.2,3.1,4.7,'#e9efe4','#8a9a7a',1); rect(-1.3,-1.2,3.1,4.7,'none','#8a9a7a',1,'4 3')
+rect(X0,X0+0.5,3.3,4.5,'#ffffff'); rect(X0+0.08,X0+0.46,3.36,4.44,'#e6ecef','#8a9a7a',1)
+for z in (3.6,4.2): circ(X0+0.2,z,0.03,'#2a2420','#2a2420',1)
+text(-1.62,3.75,'HAND-WASH',9.5,weight=700); text(-1.62,3.95,'1.25 × 1.60',8,'#4a4038'); text(-1.62,4.12,'trough 1.2 × 0.5',8,'#4a4038'); text(-1.62,4.29,'2 taps',8,'#4a4038')
+rect(X0,-1.2,4.7,4.8,'#d8c6ac','#d8c6ac',1); rect(-1.3,-1.2,4.8,5.0,'#d8c6ac','#d8c6ac',1); rect(-1.3,-1.2,5.7,KZ,'#d8c6ac','#d8c6ac',1)
+rect(X0,-1.3,4.8,KZ,'#e9efe4','#8a9a7a',1); text(-1.75,5.05,'WC 1.15×1.50',9.5,weight=700)
+rect(-2.16,-1.84,5.64,6.27,'#ffffff'); line(-1.25,5.0,-1.8,5.43,'#2a2420',1,'3 3'); text(-1.62,5.25,'door 0.70',8,'#4a4038')
+rect(1.0,1.42,KZ-0.15,KZ,'#6d7276'); text(1.21,5.98,'DB + fire panel',8.5,'#4a4038')
+for z in (2.18,2.42): circ(X1-0.1,z,0.07,'#c8231b','#c8231b',1)
+# ---- LEFT: window tables, a 4 + a 2 butted (join into a 6)
+rect(1.95,X1,0.15,1.95,'#d8c2a2'); text(2.2,1.05,'banquette 1.8×0.5',9.5,rot=90)
+rect(1.25,1.95,0.15,1.35,'#c69c6d'); text(1.6,0.75,'1.2×0.7',10,rot=90)
+rect(1.25,1.95,1.36,1.95,'#c69c6d'); text(1.6,1.65,'0.6×0.7',10,rot=90)
+for z in (0.45,1.05,1.65): rect(0.7,1.14,z-0.22,z+0.22,'#efe2c8')
+text(0.45,1.5,'WINDOW TABLES · 4 + 2',10,weight=700,rot=90)
+hdim(-0.9,0.7,0.45,'entry 1.60 clear')
+# ---- LEFT: bar, mirrored from Concept 25 and moved 0.3 m back
+BBF,BDX=X1-0.4,X1-0.55
+rect(BBF,X1,2.6,5.25,'#cfd7b2'); rect(BDX,BBF,3.65,4.92,'#cfd7b2','#4a4038',1)
+rect(BDX,X1,4.45,4.9,'#9aa0a5','#4a4038',1.2); text(2.12,4.68,'GW',8.5,'#fff',weight=700)
+rect(BDX,X1,3.7,4.4,'#dff0f6','#2a6f8f',1.2); text(2.12,4.05,'mixers',8.5,'#2a6f8f',weight=700,rot=90)
+rect(BBF,X1,2.66,3.14,'#e6d6bc'); text(2.25,2.9,'POS',8.5,weight=700)
+rect(BBF,X1,3.25,3.6,'#e6d6bc','#8f6a4a',1); text(2.25,3.42,'CO₂',8.5,weight=700)
+rect(0.35,1.2,2.82,5.1,'#efe7da'); text(0.6,4.6,'bar 2.2×0.75',10,rot=90)
+rect(0.59,1.22,2.92,4.02,'#dff0f6','#2a6f8f',1.2)
+for x in (1.05,0.77):
+    for z in (3.06,3.33,3.6,3.87): circ(x,z,0.11,'none','#2a6f8f',1)
+rect(1.0,1.2,4.04,5.1,'#c3c8cc'); rect(0.67,1.22,4.52,5.02,'none','#2a6f8f',1,'4 3'); text(0.95,4.77,'ice',9,'#2a6f8f',weight=700)
+for z in (3.15,3.75,4.35,4.95): circ(0.13,z,0.21,'#efe2c8')
+text(1.5,3.47,'KEG COOLER · 8 kegs',9,'#2a6f8f',weight=700,rot=90)
+hdim(1.22,BBF,5.18,'0.85'); text(-0.3,4.05,'4 stools · 0.6 apart',10,'#6a5d4e',rot=90)
+vdim(0.95,1.87,2.82,'1.00',0); text(0.62,2.35,'walkway',8.5,'#b23a1e',weight=600)
+vdim(1.8,1.95,2.6,'0.65',0); text(1.5,2.27,'way in',8,'#b23a1e',weight=600)
+hdim(-1.2,0.35,4.65,'1.55 to the bar edge')
+# ---- LEFT: server station + 1.2 m landing at the kitchen door
+rect(X1-0.5,X1,5.35,6.25,'#cfd7b2'); text(2.12,5.8,'server stn',8.5,weight=700,rot=90); text(2.32,5.8,'0.90 × 0.50',7.5,'#4a4038',rot=90)
+vdim(0.45,5.1,KZ,'1.20',0)
 # ---- kitchen
 rect(X0,X1,KZ,KZ+0.1,'#d8c6ac','#d8c6ac',1); rect(-0.6,0.05,KZ,KZ+0.1,'#cfe3ea','#7a9aaa',1); rect(0.1,0.8,KZ,KZ+0.1,'#fbf7ef','#fbf7ef',1)
 text(-0.28,KZ-0.15,'pass',9,'#4a6070'); text(0.45,KZ-0.15,'door',9,'#6a5d4e')
@@ -127,6 +126,12 @@ for z in (3.47,3.81,4.15,4.49): circ(XS-0.22,z,0.15,'none','#b23a1e',1)
 line(XS-0.06,4.7,XS-0.06,8.45,'#b8862a',2); line(XS-0.06,8.45,X0,8.45,'#b8862a',2)
 for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
 rect(XS-0.33,XS,2.225,2.675,'none','#6a5d4e',1,'2 2')
+rect(XS-0.45,XS-0.05,6.75,7.2,'#e6ecef','#4a6070',1.2); text(XS-0.25,6.97,'IC',8,'#4a6070',weight=700)
+rect(XS-0.45,XS-0.05,8.15,8.6,'#e6ecef','#4a6070',1.2); text(XS-0.25,8.37,'GT',8,'#4a6070',weight=700)
+line(XS-0.3,3.9,XS-0.3,6.75,'#4a6070',1.2,'5 3'); line(XS,3.9,XS-0.3,3.9,'#4a6070',1.2,'5 3'); line(XS,6.0,XS-0.3,6.0,'#4a6070',1.2,'5 3'); line(XS-0.3,7.2,XS-0.3,8.15,'#4a6070',1.2,'5 3'); line(XS-0.3,8.6,XS-0.3,D+T+0.7,'#4a6070',1.2,'5 3')
+line(X1-0.3,8.4,X1-0.3,D-0.05,'#4a6070',1,'5 3'); line(X1-0.3,D-0.05,X0+0.1,D-0.05,'#4a6070',1,'5 3')
+circ(XS-0.16,6.05,0.055,'#ffffff','#4a6070',1.2)
+text(XS-0.25,D+T+0.85,'drain line on to the treatment tank (under the pathway or parking, with consent)',9.5,'#4a6070','start',600)
 rect(X0,X0+0.06,0.45,1.11,'#c9993f','#8a6420',1.2); text(X0+0.12,0.32,'meter behind hinged portrait',8,'#8a6420','end')
 # exhaust (at 2.35–2.75 m, drawn dashed)
 for xa,xb,za,zb in ((-1.6,-1.1,D,D+T),(XS-0.45,-1.1,D+T,D+T+0.4),(XS-0.45,XS-0.05,D-0.35,D+T+0.4)): rect(xa,xb,za,zb,'#f3e0dc','#c4442a',1.3,'6 3')
@@ -147,6 +152,9 @@ call(2.75,'Bin store · 0.45 D × 0.90 L × 1.00 H · 3 × 60 L bins')
 call(4.0,'LPG cage · 0.35 D × 1.40 L × 1.60 H · 4 × 19 kg in one row','#b23a1e')
 call(5.15,'Steel bollards · Ø 0.13 × 0.90 H · 6 no., on the strip edge','#8a6420',4.7)
 call(5.75,'Copper gas line along the wall at 1.3 m, into the kitchen','#8a6420')
+call(6.3,'Soil vent pipe Ø 0.11 up the wall · washroom exhaust fan at 2.3 m','#4a6070',6.05)
+call(6.6,'Sealed inspection chamber 0.45 × 0.45 · 2.0 m past the gas','#4a6070',6.97)
+call(8.25,'Grease trap 0.45 × 0.45 · kitchen + bar grey water','#4a6070',8.37)
 call(6.9,'Discharge · 0.40 × 0.40 at 2.4–2.8 m · ends inside the strip','#b23a1e',D-1.85)
 call(7.25,'Inline exhaust fan · Ø 0.44','#b23a1e',D-1.55)
 call(7.95,'ESP + carbon filter · 0.50 D × 1.00 L × 0.90 H · at 2.05–2.95 m','#b23a1e',D-0.85)
@@ -160,13 +168,13 @@ vdim(-1.45,7.05,8.1,'aisle 1.05',0); hdim(0.95,1.75,D-0.15,'rear door 0.80'); hd
 # ---- dimensions
 hdim(X1,X0,D+0.2,'4.90 (inside)')
 vdim(X1+T,0,D,'8.80 (inside)',-46)
-vdim(XS-3.45,0,2.25,'2.25',0); vdim(XS-3.45,2.3,4.95,'bar 2.65',0); vdim(XS-3.45,KZ+0.1,D,'kitchen 2.40',0)
-vdim(X1+T,0.15,2.25,'2.10',-18); vdim(X1+T,2.4,3.55,'1.15',-18); vdim(X1+T,3.68,4.43,'0.75',-18); vdim(X1+T,4.53,KZ,'WC 1.77',-18)
+vdim(XS-3.45,0.15,2.55,'booth 2.40',0); vdim(XS-3.45,3.1,4.7,'hand-wash 1.60',0); vdim(XS-3.45,4.8,KZ,'WC 1.50',0); vdim(XS-3.45,KZ+0.1,D,'kitchen 2.40',0)
+vdim(X1+T,0.15,1.95,'1.80',-18); vdim(X1+T,2.6,5.25,'back bar 2.65',-18); vdim(X1+T,5.35,6.25,'0.90',-18)
 title='Ground floor plan · 4.9 × 8.8 m'
-sub='Betalbatim pub · Concept 25 · from the shop drawing (47 m² super built-up) · 20 covers inside + 8 in the garden · 28 covers in all'
-rows=[('Bar stools','4'),('Window tables, right','6'),('Window booth, left','6'),('Bench facing the bar','2'),('Table by the pass','2'),('Beer garden, 5.3 × 2.0 m','8'),('Total','28')]
+sub='Betalbatim pub · Concept 26 (mirrored: washroom right, bar left) · from the shop drawing (47 m² super built-up) · 16 covers inside + 8 in the garden · 24 in all'
+rows=[('Bar stools','4'),('Window tables, left','6'),('Window booth, right','6'),('Beer garden, 5.3 × 2.0 m','8'),('Total','24')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup cabinet (changeover inside)','meter stays inside behind a portrait.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust in','a 0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']
+NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','Walkways to standard: 1.0 m bar to window','tables, 1.6 m entry, 1.2 m at the kitchen door,','1.55 m from the bar edge to the washroom.','Kitchen sized to the 22-dish menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''
