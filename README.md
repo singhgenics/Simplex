@@ -10,6 +10,6 @@ Live: https://singhgenics.github.io/Simplex/ (opens straight into the 3D model)
 | [`overview.html`](overview.html) | Short overview with the cover count |
 | [`model.html`](model.html) | Redirects to the 3D model (old link) |
 | [`plan.html`](plan.html) | Dimensioned ground-floor plan |
-| [`plans/`](plans/) | The plan as SVG and as a 3430 × 5040 px PNG |
+| [`plans/`](plans/) | The plan as SVG and as a 4060 × 5040 px PNG |
 
 Concept drawings for briefing an architect and a kitchen consultant, not for construction.

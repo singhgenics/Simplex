@@ -3,7 +3,7 @@ X0,X1,D,T,KZ=-2.45,2.45,8.8,0.2,6.3
 XS=X0-T
 S=120; z0,z1=-3.0,D+2.5
 ox=50+0.9*S; oy=150
-W=int(ox+(X1-(-5.2))*S)+380; Hh=int((z1-z0)*S)+300
+W=int(ox+(X1-(-6.6))*S)+380; Hh=int((z1-z0)*S)+300
 out=[]
 def P(x,z): return (ox+(X1-x)*S, oy+(z1-z)*S)
 def rect(xa,xb,za,zb,fill='none',stroke='#3a3128',sw=1.4,dash=None):
@@ -29,9 +29,9 @@ WALL='#4a4038'
 rect(-4.5,X1+T+0.5,D+T,D+2.3,'#e3ddd4','none');
 for x in (-3.6,-1.0,1.6): line(x,D+0.9,x,D+2.3,'#ffffff',3)
 text(-0.6,D+1.9,'PARKING BEHIND · nothing stored here · rear door is the kitchen fire exit',12,'#6a5d4e',weight=600)
-rect(XS-2.2,XS-0.8,-0.1,D+T,'#e3ddd4','none'); line(XS-0.8,-0.1,XS-0.8,D+T,'#ffffff',2,'8 6'); text(XS-1.5,2.2,'CAR PATHWAY',11,'#6a5d4e',weight=700,rot=90)
-rect(XS-0.8,XS,-0.1,D+T,'#ece6db','none'); text(XS-0.4,6.6,'usable strip 0.8 m',9,'#6a5d4e',rot=90)
-for z in (0.35,1.25,2.15,3.0,3.9,4.85): circ(XS-0.82,z,0.065,'#e0b030','#2a2420',1)
+rect(XS-3.3,XS-0.5,-0.1,D+T,'#e3ddd4','none'); line(XS-0.5,-0.1,XS-0.5,D+T,'#ffffff',2,'8 6'); text(XS-2.0,6.45,'CAR PATHWAY',11,'#6a5d4e',weight=700)
+rect(XS-0.5,XS,-0.1,D+T,'#ece6db','none')
+for z in (0.3,1.2,2.1,3.0,3.85,4.7): circ(XS-0.52,z,0.065,'#e0b030','#2a2420',1)
 # ---- beer garden 5.3 × 2.0
 GW=X1+T
 rect(-GW,GW,-2.0,-0.06,'#efe6d2','#b9a989',1)
@@ -118,34 +118,56 @@ rect(1.8,X1,7.4,8.0,'#c3c8cc'); text(2.12,7.7,'dishwasher',8.5,rot=90)
 rect(1.8,X1,8.0,D,'#c3c8cc'); text(2.12,8.4,'2-bowl sink',8.5,rot=90)
 rect(0.35,0.95,7.15,7.95,'none','#2a6f8f',1.3,'5 3'); text(0.65,7.55,'hatch',9,'#2a6f8f',weight=700)
 text(0.0,7.35,'KITCHEN 4.9 × 2.4 · ceiling 2.7',11,weight=700); text(-0.45,7.17,'deck above (+2.7 m)',9,'#2a6f8f')
-# ---- right side: services
-rect(XS-0.6,XS,2.15,2.75,'#e9e9e9'); text(XS-0.3,2.45,'empties',8.5)
-rect(XS-0.7,XS,2.95,3.85,'#d9c7a8','#8f5634'); text(XS-0.35,3.4,'bins',9)
-rect(XS-0.75,XS-0.05,3.95,4.75,'#f3d6cf','#b23a1e',1.2); text(XS-0.4,4.35,'LPG 4×19 kg',8.5,'#b23a1e',weight=700,rot=90)
-line(XS-0.06,4.7,XS-0.06,8.45,'#b8862a',2); line(XS-0.06,8.45,X0,8.45,'#b8862a',2); text(XS-0.25,6.0,'gas line',8.5,'#8a6420',rot=90)
-rect(XS-0.62,XS,0.35,1.25,'#d6dde2','#3a4a56',1.3); text(XS-0.31,0.8,'power backup',8.5,'#2a3a46',weight=700,rot=90)
-rect(XS-0.15,XS,1.4,1.75,'#6d7276','#2a3a46',1)
-rect(X0,X0+0.06,0.45,1.11,'#c9993f','#8a6420',1.2); text(X0+0.12,0.32,'meter behind hinged portrait',8,'#8a6420','end')
+# ---- right side: 0.5 m service strip, every fit-out dimensioned (D = depth from the wall, L = length along the wall, H = height)
+rect(XS-0.35,XS,0.35,1.15,'#d6dde2','#3a4a56',1.3); text(XS-0.17,0.75,'UPS',8,'#2a3a46',weight=700,rot=90)
+rect(XS-0.15,XS,1.2,1.45,'#6d7276','#2a3a46',1)
+rect(XS-0.45,XS,1.55,2.15,'#e9e9e9'); text(XS-0.22,1.85,'kegs',8,rot=90)
+rect(XS-0.45,XS,2.25,3.15,'#d9c7a8','#8f5634'); text(XS-0.22,2.7,'bins',8.5,rot=90)
+rect(XS-0.4,XS-0.05,3.3,4.7,'#f3d6cf','#b23a1e',1.2); text(XS-0.22,4.0,'LPG',8.5,'#b23a1e',weight=700,rot=90)
+for z in (3.47,3.81,4.15,4.49): circ(XS-0.22,z,0.15,'none','#b23a1e',1)
+line(XS-0.06,4.7,XS-0.06,8.45,'#b8862a',2); line(XS-0.06,8.45,X0,8.45,'#b8862a',2)
 for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
-text(XS-0.55,2.0,'AC above',8,'#6a5d4e',rot=90)
+rect(XS-0.33,XS,2.225,2.675,'none','#6a5d4e',1,'2 2')
+rect(X0,X0+0.06,0.45,1.11,'#c9993f','#8a6420',1.2); text(X0+0.12,0.32,'meter behind hinged portrait',8,'#8a6420','end')
 # exhaust (at 2.35–2.75 m, drawn dashed)
 for xa,xb,za,zb in ((-1.6,-1.1,D,D+T),(XS-0.45,-1.1,D+T,D+T+0.4),(XS-0.45,XS-0.05,D-0.35,D+T+0.4)): rect(xa,xb,za,zb,'#f3e0dc','#c4442a',1.3,'6 3')
-rect(XS-0.6,XS+0.02,D-1.35,D-0.35,'#e8c9c2','#b23a1e',1.4); text(XS-0.3,D-0.85,'ESP',9,'#b23a1e',weight=700)
-circ(XS-0.25,D-1.55,0.18,'#f3e0dc','#c4442a',1.3); text(XS-0.25,D-1.55,'fan',8,'#b23a1e')
-rect(XS-0.75,XS-0.05,D-1.95,D-1.75,'#f3e0dc','#c4442a',1.3,'6 3')
-a,b=P(XS-0.75,D-1.85);out.append(f'<path d="M{a} {b} l-26 0 m0 0 l9 -7 m-9 7 l9 7" stroke="#b23a1e" stroke-width="2" fill="none"/>')
-text(XS-0.9,D-2.3,'smoke out at 2.6 m',9,'#b23a1e','end',700)
+rect(XS-0.5,XS+0.02,D-1.35,D-0.35,'#e8c9c2','#b23a1e',1.4); text(XS-0.25,D-0.85,'ESP',8.5,'#b23a1e',weight=700,rot=90)
+circ(XS-0.25,D-1.55,0.18,'#f3e0dc','#c4442a',1.3)
+rect(XS-0.5,XS-0.05,D-1.95,D-1.75,'#f3e0dc','#c4442a',1.3,'6 3')
+a,b=P(XS-0.5,D-1.85);out.append(f'<path d="M{a} {b} l-22 0 m0 0 l8 -6 m-8 6 l8 6" stroke="#b23a1e" stroke-width="2" fill="none"/>')
 text(-0.6,D+0.75,'kitchen exhaust: out the back, right along the wall, round the corner',9.5,'#b23a1e')
+# callouts with sizes, on the car pathway side
+def call(z,t,col='#2a2420',zi=None):
+    zi=z if zi is None else zi
+    line(XS-0.5,zi,XS-0.9,z,'#8a7a62',0.8); text(XS-0.94,z,t,9.5,col,'start',600)
+call(0.15,'AC outdoor units (2) · 0.30 D × 0.80 L × 0.55 H · high, at 3.0 m','#6a5d4e',1.0)
+call(0.75,'Power backup cabinet · 0.35 D × 0.80 L × 1.60 H · wall-mounted','#2a3a46')
+call(1.33,'Changeover box · 0.15 D × 0.25 L × 0.45 H · at 1.3 m','#2a3a46')
+call(1.85,'Empty-keg cage · 0.45 D × 0.60 L × 1.20 H · 2 kegs')
+call(2.3,'Keg-cooler compressor · 0.33 D × 0.45 L × 0.45 H · high, at 2.25 m','#6a5d4e',2.45)
+call(2.75,'Bin store · 0.45 D × 0.90 L × 1.00 H · 3 × 60 L bins')
+call(4.0,'LPG cage · 0.35 D × 1.40 L × 1.60 H · 4 × 19 kg in one row','#b23a1e')
+call(5.15,'Steel bollards · Ø 0.13 × 0.90 H · 6 no., on the strip edge','#8a6420',4.7)
+call(5.75,'Copper gas line along the wall at 1.3 m, into the kitchen','#8a6420')
+call(6.9,'Discharge · 0.40 × 0.40 at 2.4–2.8 m · ends inside the strip','#b23a1e',D-1.85)
+call(7.25,'Inline exhaust fan · Ø 0.44','#b23a1e',D-1.55)
+call(7.95,'ESP + carbon filter · 0.50 D × 1.00 L × 0.90 H · at 2.05–2.95 m','#b23a1e',D-0.85)
+call(8.55,'Exhaust duct · 0.40 × 0.40 · at 2.35–2.75 m','#b23a1e',D-0.1)
+# chain of positions along the strip + strip width + gas-to-outlet distance
+for za,zb,t in ((0.35,1.15,'0.80'),(1.55,2.15,'0.60'),(2.25,3.15,'0.90'),(3.3,4.7,'1.40'),(D-1.35,D-0.35,'1.00')): vdim(XS-0.68,za,zb,t,0)
+vdim(XS-0.68,4.7,D-1.95,'2.15 gas to outlet',0)
+hdim(XS-0.5,XS,6.35,'0.50')
+text(2.15,D+0.55,'Fresh-air intake · 0.50 × 0.48 · high, at 3.3 m',9,'#6a5d4e',weight=600)
 # ---- dimensions
 hdim(X1,X0,D+0.2,'4.90 (inside)')
 vdim(X1+T,0,D,'8.80 (inside)',-46)
-vdim(XS-2.35,0,2.25,'2.25',0); vdim(XS-2.35,2.3,4.95,'bar 2.65',0); vdim(XS-2.35,KZ+0.1,D,'kitchen 2.40',0)
+vdim(XS-3.45,0,2.25,'2.25',0); vdim(XS-3.45,2.3,4.95,'bar 2.65',0); vdim(XS-3.45,KZ+0.1,D,'kitchen 2.40',0)
 vdim(X1+T,0.15,2.25,'2.10',-18); vdim(X1+T,2.4,3.55,'1.15',-18); vdim(X1+T,3.68,4.43,'0.75',-18); vdim(X1+T,4.53,KZ,'WC 1.77',-18)
 title='Ground floor plan · 4.9 × 8.8 m'
 sub='Betalbatim pub · Concept 25 · from the shop drawing (47 m² super built-up) · 20 covers inside + 8 in the garden · 28 covers in all'
 rows=[('Bar stools','4'),('Window tables, right','6'),('Window booth, left','6'),('Bench facing the bar','2'),('Table by the pass','2'),('Beer garden, 5.3 × 2.0 m','8'),('Total','28')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup on the right side, front end;','meter stays inside behind a portrait.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust in','a 0.8 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']
+NOTES=['One double-height room, no loft.','Kitchen sized to the 22-dish menu;','fridge by the door, wok side kept clear.','Power backup on the right side, front end;','meter stays inside behind a portrait.','Kegs under the bar; glasswasher and','mixer cooler built into the back bar.','Gas, bins, AC and the kitchen exhaust in','a 0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust shown dashed (at 2.35–2.75 m).']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''
