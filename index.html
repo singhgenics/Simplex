@@ -99,16 +99,38 @@ ol.flow li::before{content:counter(f);font:600 10px/1 var(--mono);width:18px;hei
 .tag.hi{background:rgba(196,87,60,.2);color:#f08c66}
 .tag.md{background:rgba(229,193,90,.15);color:var(--warn)}
 .note{font-size:12.5px;color:var(--muted)}
+.row2{display:contents}
+.h-touch{display:none}
+@media (hover:none) and (pointer:coarse){.h-desk{display:none}.h-touch{display:inline}}
 @media (max-width:900px){
   html,body{height:auto}
-  .app{grid-template-columns:1fr;grid-template-rows:68vh auto;height:auto}
-  .panel{border-left:0;border-top:1px solid var(--line);overflow:visible;padding-inline:16px}
-  .toolbar{left:10px;right:10px;top:10px}
-  .lightctl{left:auto;right:0;width:min(300px,calc(100vw - 20px))}
-  .seg button{padding:7px 9px;font-size:11.5px}
-  .card{right:10px;left:10px;bottom:10px;width:auto;max-height:46%}
+  .app{grid-template-columns:1fr;grid-template-rows:72vh auto;grid-template-rows:max(420px,74svh) auto;height:auto}
+  .panel{border-left:0;border-top:1px solid var(--line);overflow:visible;padding-inline:16px;padding-bottom:calc(40px + env(safe-area-inset-bottom))}
+  /* toolbar: each group becomes one swipeable row instead of a wall of wrapped buttons */
+  .toolbar{left:0;right:0;top:0;padding:calc(8px + env(safe-area-inset-top)) 8px 0;flex-direction:column;flex-wrap:nowrap;gap:6px}
+  .toolbar>.seg{flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+  .toolbar>.seg::-webkit-scrollbar{display:none}
+  .toolbar>.seg,.toolbar .row2>.seg{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 26px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 26px),transparent);padding-right:22px}
+  .toolbar>.seg button{flex:none;scroll-snap-align:start}
+  .toolbar .row2{display:flex;gap:6px;align-items:flex-start;max-width:100%;pointer-events:none}
+  .toolbar .row2>.seg{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;min-width:0}
+  .toolbar .row2>.seg::-webkit-scrollbar{display:none}
+  .seg button{padding:9px 11px;font-size:12px;white-space:nowrap}
+  .lightwrap{flex:none}
+  .lightctl{left:auto;right:0;width:min(300px,calc(100vw - 16px))}
+  .card{right:8px;left:8px;bottom:8px;width:auto;max-height:52%;padding:14px 14px 12px;border-radius:14px}
+  .card h3{font-size:19px}
+  .card .btns button{padding:10px 12px}
+  .hint{left:8px;right:8px;bottom:8px;text-align:center;font-size:11px}
+  .card:not([hidden])~.hint{display:none}
+  .lbl{font-size:10.5px;padding:4px 7px 4px 6px}
+  .plans-hint{display:none}
+  .plans-bar{padding:10px 10px calc(10px)}
+  .plans-view.zoom img{width:1300px}
   ul.zones li{grid-template-columns:1fr;gap:2px}
-  h1{font-size:32px}
+  h1{font-size:30px}
+  details.dims table td:first-child{width:42%}
+  details.dims td.d{font-size:11.5px}
 }
 td.n{white-space:nowrap}
 details.dims{border-bottom:1px solid rgba(58,43,34,.6);padding:4px 0}
@@ -126,7 +148,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <div class="seg" role="tablist" aria-label="Floor">
           <button data-plan="ground" aria-pressed="true">Ground floor</button>
                   </div>
-        <span class="plans-hint">Click the plan to zoom · scroll to pan</span>
+        <span class="plans-hint">Tap the plan to zoom · drag to pan</span>
         <a id="plan-dl" href="plans/ground-floor-plan-noloft.png" target="_blank" rel="noopener">Open full-size PNG</a>
         <button id="plans-x" aria-label="Close floor plans">✕</button>
       </div>
@@ -146,9 +168,10 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <button data-view="plan" aria-pressed="false">Plan</button>
         <button data-view="safety" aria-pressed="false">Safety</button>
       </div>
+      <div class="row2">
       <div class="seg" role="group" aria-label="Display">
         <button id="t-cut" aria-pressed="true">Cutaway</button>
-        <button id="t-lbl" aria-pressed="true">Labels</button>
+        <button id="t-lbl" aria-pressed="false">Labels</button>
         <button id="t-dims" aria-pressed="false">Sizes</button>
         <button id="t-plans" aria-pressed="false">Floor plans</button>
       </div>
@@ -161,6 +184,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <div class="lc-row lc-pre"><button data-pre="lunch">Lunch</button><button data-pre="dusk">Sunset</button><button data-pre="evening" aria-pressed="true">Evening</button><button data-pre="late">Late</button></div>
         </div>
       </div>
+      </div>
     </div>
     <div class="htag" id="htag" hidden></div>
     <div class="card" id="card" hidden>
@@ -171,7 +195,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
       <ul id="cardL"></ul>
       <div class="btns" id="cardBtns"></div>
     </div>
-    <div class="hint">Click a zone · drag to orbit · scroll to zoom · right-drag to pan · double-click to fly there · WASD/arrows to walk, Q/E down/up · R to reset</div>
+    <div class="hint"><span class="h-desk">Click a zone · drag to orbit · scroll to zoom · right-drag to pan · double-click to fly there · WASD/arrows to walk, Q/E down/up · R to reset</span><span class="h-touch">Tap a zone · drag to turn · pinch to zoom · two fingers to move</span></div>
   </div>
 
   <aside class="panel">
@@ -391,7 +415,7 @@ function shade(hex,f){const n=parseInt(hex.slice(1),16);return 'rgb('+[n>>16,n>>
 function init(){
 let renderer;
 try{renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance',logarithmicDepthBuffer:true});}catch(e){stage.insertAdjacentHTML('beforeend','<div class="err">This device could not start WebGL, so the 3D model cannot show here.</div>');return;}
-renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.75));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,window.matchMedia('(max-width:900px)').matches?1.5:1.75));
 renderer.outputEncoding=THREE.sRGBEncoding;
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
 renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap; renderer.shadowMap.autoUpdate=false;
@@ -1327,7 +1351,7 @@ const VIEWS={
   yardBack:{p:[-1.5,4.2,D+6.0],t:[-2.7,1.8,D-0.6]},
   plan:{p:[-0.3,24,4.2],t:[-0.3,0,4.2]},
 };
-const state={cut:true,labels:true,night:true,loft:false,focus:null};
+const state={cut:true,labels:false,night:true,loft:false,focus:null};
 function goView(k,instant){const v=VIEWS[k];const to={p:V(...v.p),t:V(...v.t)};
   if(instant||window.matchMedia('(prefers-reduced-motion: reduce)').matches){camera.position.copy(to.p);controls.target.copy(to.t);controls.update();dirty=true;return;}
   const dist=camera.position.distanceTo(to.p)+controls.target.distanceTo(to.t);anim={fp:camera.position.clone(),ft:controls.target.clone(),to,t0:performance.now(),dur:Math.min(1500,Math.max(650,500+dist*90))};}
@@ -1385,14 +1409,16 @@ renderer.domElement.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse
   else{htag.hidden=true;renderer.domElement.style.cursor='';}});});
 renderer.domElement.addEventListener('pointerleave',()=>{htag.hidden=true;});
 
-function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();dirty=true;}
+// on tall, narrow screens (phones) widen the vertical field of view so each preset view still shows as much side to side as a square screen would, up to 72°
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;const a=camera.aspect;
+  camera.fov=a<1?Math.min(72,2*Math.atan(Math.tan(25*Math.PI/180)/a)*180/Math.PI):50;camera.updateProjectionMatrix();dirty=true;}
 new ResizeObserver(resize).observe(stage); resize();
 applyLight(); goView('iso',true);
 
 // render only when something changed (camera, toggles, resize): idle frames cost nothing
 
 // ---------- SMOOTH NAVIGATION: lighter rendering while moving, labels fade in motion, double-click to fly, keyboard walk ----------
-const DPR=Math.min(window.devicePixelRatio||1,1.75);let moving=false,restT=null;
+const DPR=Math.min(window.devicePixelRatio||1,window.matchMedia('(max-width:900px)').matches?1.5:1.75);let moving=false,restT=null;
 function setMoving(m){if(m===moving)return;moving=m;labelsEl.classList.toggle('moving',m);renderer.setPixelRatio(m?Math.min(DPR,1.0):DPR);const r=stage.getBoundingClientRect();renderer.setSize(r.width,r.height,false);dirty=true;}
 controls.addEventListener('start',()=>{clearTimeout(restT);setMoving(true);});
 controls.addEventListener('end',()=>{clearTimeout(restT);restT=setTimeout(()=>setMoving(false),350);});
