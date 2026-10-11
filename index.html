@@ -58,7 +58,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:14px
 button:focus-visible{outline:2px solid var(--green);outline-offset:1px}
 .hint{position:absolute;left:16px;bottom:14px;font:400 11.5px/1.3 var(--mono);color:var(--muted);background:rgba(19,15,12,.72);padding:6px 9px;border-radius:8px;pointer-events:none}
 .htag{position:absolute;left:0;top:0;pointer-events:none;font:600 12px/1 var(--body);color:#1b120a;background:var(--amber);padding:6px 9px;border-radius:8px;white-space:nowrap}
-.card{position:absolute;right:16px;bottom:16px;width:min(380px,calc(100% - 32px));max-height:calc(100% - 120px);overflow-y:auto;background:rgba(27,21,18,.96);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.card{position:absolute;right:16px;bottom:16px;width:min(360px,calc(100% - 32px));max-height:min(62%,calc(100% - 120px));overflow-y:auto;background:rgba(27,21,18,.96);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px;box-shadow:0 18px 50px rgba(0,0,0,.45)}
 .card h3{font:700 22px/1.1 var(--display);margin:0 0 6px}
 .card p{color:#e1d3c1;font-size:13px}
 .card ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:12.5px;color:#d7c8b4}
@@ -69,6 +69,13 @@ button:focus-visible{outline:2px solid var(--green);outline-offset:1px}
 .card .btns button:hover{border-color:var(--amber)}
 .card .x{position:absolute;right:10px;top:10px;appearance:none;border:0;background:transparent;color:var(--muted);font-size:20px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
 .card .x:hover{color:var(--fg);background:rgba(255,255,255,.06)}
+.card:not([hidden])~.hint{display:none}
+.card .mini{position:absolute;right:42px;top:10px;appearance:none;border:0;background:transparent;color:var(--muted);font-size:16px;line-height:1;cursor:pointer;padding:6px 8px;border-radius:8px}
+.card .mini:hover{color:var(--fg);background:rgba(255,255,255,.06)}
+/* folded: just the title, so the model stays in view; tap it to open again */
+.card.min{padding:10px 76px 10px 14px;cursor:pointer;max-height:none;overflow:hidden}
+.card.min #cardEy,.card.min #cardB,.card.min #cardL,.card.min .btns{display:none}
+.card.min h3{font-size:15px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .err{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;color:var(--muted)}
 
 .panel{overflow-y:auto;border-left:1px solid var(--line);background:var(--panel);padding-block:26px 40px;padding-inline:24px;display:flex;flex-direction:column;gap:26px}
@@ -118,7 +125,7 @@ ol.flow li::before{content:counter(f);font:600 10px/1 var(--mono);width:18px;hei
   .seg button{padding:9px 11px;font-size:12px;white-space:nowrap}
   .lightwrap{flex:none}
   .lightctl{left:auto;right:0;width:min(300px,calc(100vw - 16px))}
-  .card{right:8px;left:8px;bottom:8px;width:auto;max-height:52%;padding:14px 14px 12px;border-radius:14px}
+  .card{right:8px;left:8px;bottom:8px;width:auto;max-height:42%;padding:14px 14px 12px;border-radius:14px}
   .card h3{font-size:19px}
   .card .btns button{padding:10px 12px}
   .hint{left:8px;right:8px;bottom:8px;text-align:center;font-size:11px}
@@ -189,6 +196,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
     <div class="htag" id="htag" hidden></div>
     <div class="card" id="card" hidden>
       <button class="x" id="cardX" aria-label="Close">×</button>
+      <button class="mini" id="cardMin" aria-label="Hide details" aria-expanded="true">▾</button>
       <p class="eyebrow" id="cardEy"></p>
       <h3 id="cardT"></h3>
       <p id="cardB"></p>
@@ -917,8 +925,8 @@ rod(V(X0+0.02,0.62,6.08),V(X0+0.1,0.62,6.08),0.012,M.brass,gr); // health faucet
  bx(X0+0.02,X0+0.03,1.08,1.52,z0,z1,M.brass,gr,false); bx(X0+0.03,X0+0.038,1.1,1.5,z0+0.02,z1-0.02,M.mirrorGlow,gr,false); bx(X0+0.02,X0+0.07,0.95,1.08,z1+0.03,z1+0.1,M.porcelain,gr);}
 // WC EXHAUST: ceiling grille + inline fan in the void above the washroom, then a 100 mm duct high over the storage deck (under beam T2) to the back wall,
 // about 4 m from the gas cage and 4 m from the fresh-air intake. No fan near the LPG
-bx(-2.05,-1.8,KC-0.07,KC-0.045,5.3,5.55,M.ssDark,G.kceil,false); for(let z=5.33;z<5.53;z+=0.04) bx(-2.03,-1.82,KC-0.075,KC-0.07,z,z+0.015,M.steel,G.kceil,false);
-cyl(0.09,0.09,0.22,-1.92,3.1,5.42,M.ssDark,G.kceil,16); rod(V(-1.92,KC,5.42),V(-1.92,3.95,5.42),0.055,M.duct,G.kceil); rod(V(-1.92,3.95,5.42),V(-1.92,3.95,D+T+0.04),0.055,M.duct,G.kceil);
+bx(-2.05,-1.8,KC-0.07,KC-0.045,5.3,5.55,M.ssDark,gr,false); for(let z=5.33;z<5.53;z+=0.04) bx(-2.03,-1.82,KC-0.075,KC-0.07,z,z+0.015,M.steel,gr,false); // kept in the ground group so the cutaway still shows it
+cyl(0.09,0.09,0.22,-1.92,3.1,5.42,M.ssDark,gr,16); rod(V(-1.92,KC,5.42),V(-1.92,3.95,5.42),0.055,M.duct,gr); rod(V(-1.92,3.95,5.42),V(-1.92,3.95,D+T+0.04),0.055,M.duct,gr);
 [5.2,5.9].forEach(z=>{rod(V(-1.85,KC,z),V(-1.85,2.15,z),0.005,M.black,gr);sph(0.07,-1.85,2.1,z,M.globe,gr);});
 // WC SLIDING DOOR: a two-panel telescopic slider on the lobby side of the wall (each panel 0.39 m), shown closed over the 0.7 m opening (x −2.05 to −1.35).
 // Opening, the two panels stack behind each other against the 0.4 m of wall towards the side wall, clear of the pillar. No swing, so nothing in the WC can be hit
@@ -1293,7 +1301,7 @@ const LBL=[
  ['Rear exit · opens outward · panic bar',1.35,2.3,D,'k'],['Fresh-air (make-up) grille',-0.3,KC-0.1,7.6,'k'],
  // outside, right side + back
  ['Parking behind: nothing stored here',0,0.6,D+3.0,'o'],['Kitchen exhaust: out the back, round the corner, low side discharge',-2.2,3.05,D+0.4,'k'],['ESP + carbon odour filter · fan',XS-0.3,3.15,D-0.85,'k'],['Discharge at ~2.6 m, pointing away from the building',XS-0.5,3.0,D-1.85,'k'],
- ['LPG bank · 4 × 19 kg in one row · locked, ventilated',XS-0.22,1.85,4.0,'k'],['Slim bin store · 3 × 60 L, emptied daily',XS-0.22,1.25,2.7,'k'],['AC outdoor units',XS-0.15,3.75,1.5,'k'],['0.5 m service strip · cars pass beyond',XS-0.25,0.4,6.0,'k'],['Steel bollards',XS-0.52,1.05,3.0,'k'],['Power backup · slim wall cabinet · 7.5 kVA inverter + 10 kWh lithium',XS-0.18,2.15,0.75,'k'],['Fresh-air intake (high, away from the exhaust)',2.15,3.95,D+T+0.15,'k'],['Soil vent pipe up the wall · to the roof, or an air-admittance valve',XS-0.16,3.3,5.95,'k'],['Inspection chamber 1 · WC pipe out of the wall · sealed, gas-tight',XS-0.25,0.45,5.95,'k'],['Grease trap · kitchen + bar',XS-0.25,0.45,8.37,'k'],['WC exhaust · ducted to the back wall, high, away from the gas',-1.92,4.3,D+T+0.1,'k'],['Inspection chamber 2 · the pipe turns in under the garden',XS-0.25,0.45,-0.4,'o'],['Biodigester 2,000 L buried under the garden · 2.1 × 1.1 m · lids by the path',-1.1,0.35,-1.2,'o']
+ ['LPG bank · 4 × 19 kg in one row · locked, ventilated',XS-0.22,1.85,4.0,'k'],['Slim bin store · 3 × 60 L, emptied daily',XS-0.22,1.25,2.7,'k'],['AC outdoor units',XS-0.15,3.75,1.5,'k'],['0.5 m service strip · cars pass beyond',XS-0.25,0.4,6.0,'k'],['Steel bollards',XS-0.52,1.05,3.0,'k'],['Power backup · slim wall cabinet · 7.5 kVA inverter + 10 kWh lithium',XS-0.18,2.15,0.75,'k'],['Fresh-air intake (high, away from the exhaust)',2.15,3.95,D+T+0.15,'k'],['Soil vent pipe up the wall · to the roof, or an air-admittance valve',XS-0.16,3.3,5.95,'k'],['Inspection chamber 1 · WC pipe out of the wall · sealed, gas-tight',XS-0.25,0.45,5.95,'k'],['Grease trap · kitchen + bar',XS-0.25,0.45,8.37,'k'],['WC exhaust · ducted to the back wall, high, away from the gas',-1.92,4.3,D+T+0.1,'k'],['WC exhaust fan · ceiling grille, duct runs over the store to the back wall',-1.92,3.35,5.42,'g'],['Inspection chamber 2 · the pipe turns in under the garden',XS-0.25,0.45,-0.4,'o'],['Biodigester 2,000 L buried under the garden · 2.1 × 1.1 m · lids by the path',-1.1,0.35,-1.2,'o']
 ];
 LBL.push(['CO₂ extinguisher + main electrical board (RCCB/MCB)',1.2,1.9,KZ-0.2,'s'],['Fire alarm panel',1.2,2.3,KZ-0.1,'s'],
  ['Kitchen: wet-chemical (Class K) + CO₂',X0+0.1,1.2,7.38,'s'],['Fire blanket',-1.98,1.75,KZ+0.15,'s'],['Hood suppression pull + gas cut-off',0.84,1.65,D-0.05,'s'],['Heat detector',-0.6,KC-0.05,7.6,'s'],['First-aid box',X0+0.05,2.05,7.88,'s'],
@@ -1398,8 +1406,12 @@ function openZone(k){const z=ZONES[k];state.focus=k;
   document.getElementById('cardL').replaceChildren(...z.l.map(s=>{const li=document.createElement('li');li.textContent=s;return li;}));
   cardBtns.replaceChildren(...z.views.map(([lab,v])=>{const b=document.createElement('button');b.textContent=lab;b.addEventListener('click',()=>goView(v));return b;}));
   {const dz=document.getElementById('sz-'+({understair:'stair',safety:'services'}[k]||k));if(dz){const b=document.createElement('button');b.textContent='All sizes';b.addEventListener('click',()=>{dz.open=true;dz.scrollIntoView({behavior:'smooth',block:'start'});});cardBtns.appendChild(b);}}
-  card.hidden=false;goView(z.views[0][1]);pressView(viewBtns.some(b=>b.dataset.view===k)?k:'');dirty=true;}
+  card.hidden=false;foldCard(false);goView(z.views[0][1]);pressView(viewBtns.some(b=>b.dataset.view===k)?k:'');dirty=true;}
 function closeZone(){state.focus=null;card.hidden=true;dirty=true;}
+const cardMin=document.getElementById('cardMin');
+function foldCard(m){card.classList.toggle('min',m);cardMin.setAttribute('aria-expanded',String(!m));cardMin.setAttribute('aria-label',m?'Show details':'Hide details');cardMin.textContent=m?'▴':'▾';}
+cardMin.addEventListener('click',e=>{e.stopPropagation();foldCard(!card.classList.contains('min'));});
+card.addEventListener('click',e=>{if(card.classList.contains('min')&&!e.target.closest('#cardX'))foldCard(false);});
 document.getElementById('cardX').addEventListener('click',()=>{closeZone();pressView('iso');goView('iso');});
 {const pl=document.getElementById('plans'),img=document.getElementById('plan-img'),dl=document.getElementById('plan-dl'),vw=document.getElementById('plans-view'),bt=document.getElementById('t-plans');
  const SRC={ground:['plans/ground-floor-plan-noloft.png','Ground floor plan with all dimensions']};
@@ -1437,7 +1449,8 @@ function pick(ev){const r=renderer.domElement.getBoundingClientRect();ndc.set(((
   const hs=ray.intersectObjects(hits,false);return hs.length?hs[0].object.userData.zone:null;}
 let down=null,hoverQueued=false,lastMove=null;
 renderer.domElement.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY};});
-renderer.domElement.addEventListener('pointerup',e=>{if(!down)return;const moved=Math.hypot(e.clientX-down.x,e.clientY-down.y);down=null;if(moved>5)return;const z=pick(e);if(z)openZone(z);});
+renderer.domElement.addEventListener('pointerup',e=>{if(!down)return;const moved=Math.hypot(e.clientX-down.x,e.clientY-down.y);down=null;const z=moved>5?null:pick(e);if(z&&z!==state.focus){openZone(z);return;}if(!card.hidden)foldCard(true);}); // dragging, zooming or tapping the model folds the card out of the way
+renderer.domElement.addEventListener('wheel',()=>{if(!card.hidden)foldCard(true);},{passive:true});
 renderer.domElement.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;lastMove=e;if(hoverQueued)return;hoverQueued=true;requestAnimationFrame(()=>{hoverQueued=false;if(lastMove.buttons){htag.hidden=true;return;}
   const z=pick(lastMove);const r=renderer.domElement.getBoundingClientRect();
   if(z&&z!==state.focus){htag.textContent=ZONES[z].t+' · click to explore';htag.hidden=false;htag.style.transform=`translate(${lastMove.clientX-r.left+14}px,${lastMove.clientY-r.top+14}px)`;renderer.domElement.style.cursor='pointer';}
