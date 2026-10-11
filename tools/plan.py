@@ -124,12 +124,15 @@ for z in (3.47,3.81,4.15,4.49): circ(XS-0.22,z,0.15,'none','#b23a1e',1)
 line(XS-0.06,4.7,XS-0.06,8.45,'#b8862a',2); line(XS-0.06,8.45,X0,8.45,'#b8862a',2)
 for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
 rect(XS-0.33,XS,2.225,2.675,'none','#6a5d4e',1,'2 2')
-rect(XS-0.45,XS-0.05,6.75,7.2,'#e6ecef','#4a6070',1.2); text(XS-0.25,6.97,'IC',8,'#4a6070',weight=700)
-rect(XS-0.45,XS-0.05,8.15,8.6,'#e6ecef','#4a6070',1.2); text(XS-0.25,8.37,'GT',8,'#4a6070',weight=700)
-line(XS-0.3,4.2,XS-0.3,6.75,'#4a6070',1.2,'5 3'); line(XS,4.2,XS-0.3,4.2,'#4a6070',1.2,'5 3'); line(XS,6.0,XS-0.3,6.0,'#4a6070',1.2,'5 3'); line(XS-0.3,7.2,XS-0.3,8.15,'#4a6070',1.2,'5 3'); line(XS-0.3,8.6,XS-0.3,D+T+0.7,'#4a6070',1.2,'5 3')
-line(X1-0.3,8.4,X1-0.3,D-0.05,'#4a6070',1,'5 3'); line(X1-0.3,D-0.05,X0+0.1,D-0.05,'#4a6070',1,'5 3')
-circ(XS-0.16,6.05,0.055,'#ffffff','#4a6070',1.2)
-text(XS-0.25,D+T+0.85,'drain line on to the treatment tank (under the pathway or parking, with consent)',9.5,'#4a6070','start',600)
+BW,GY='#7a3f1d','#2f6f9f' # toilet (black water) and grey water lines, buried, drawn dashed
+line(-2.0,5.95,XS-0.3,5.95,BW,2,'6 3'); line(XS-0.3,5.75,XS-0.3,-0.2,BW,2,'6 3'); line(XS-0.3,-0.6,XS-0.3,-1.2,BW,2,'6 3'); line(XS-0.3,-1.2,-2.15,-1.2,BW,2,'6 3')
+for za,zb,t in ((5.75,6.15,'IC1'),(-0.6,-0.2,'IC2')): rect(XS-0.45,XS-0.05,za,zb,'#f3e6dc',BW,1.4); text(XS-0.25,(za+zb)/2,t,7,BW,weight=700)
+rect(XS-0.45,XS-0.05,8.15,8.6,'#e6ecef',GY,1.2); text(XS-0.25,8.37,'GT',8,GY,weight=700)
+line(XS-0.12,8.15,XS-0.12,-0.75,GY,1.4,'5 3'); line(XS,4.2,XS-0.12,4.2,GY,1.4,'5 3'); line(1.1,4.45,X0,4.45,GY,1,'5 3')
+line(X1-0.3,8.4,X1-0.3,D-0.05,GY,1,'5 3'); line(X1-0.3,D-0.05,X0+0.1,D-0.05,GY,1,'5 3'); line(XS-0.25,8.6,XS-0.25,D+T,GY,1,'5 3')
+circ(XS-0.16,5.95,0.055,'#ffffff',BW,1.2)
+rect(-2.15,-0.05,-1.75,-0.65,'none','#2c8a66',2,'7 4'); line(-2.15,-1.5,XS-0.9,-1.5,'#2c8a66',0.8); text(XS-0.94,-1.5,'Biodigester 2,000 L · 2.1 × 1.1 × 1.2 m · buried, top 0.3 m down · 2 lids by the path',9.5,'#2c8a66','start',600)
+for z in (-0.95,-1.45): circ(-0.33,z,0.2,'none','#2c8a66',1.2)
 rect(X0,X0+0.06,0.45,1.11,'#c9993f','#8a6420',1.2); text(X0+0.12,0.32,'meter behind hinged portrait',8,'#8a6420','end')
 # exhaust (at 2.35–2.75 m, drawn dashed)
 for xa,xb,za,zb in ((-1.6,-1.1,D,D+T),(XS-0.45,-1.1,D+T,D+T+0.4),(XS-0.45,XS-0.05,D-0.35,D+T+0.4)): rect(xa,xb,za,zb,'#f3e0dc','#c4442a',1.3,'6 3')
@@ -150,9 +153,11 @@ call(2.75,'Bin store · 0.45 D × 0.90 L × 1.00 H · 3 × 60 L bins')
 call(4.0,'LPG cage · 0.35 D × 1.40 L × 1.60 H · 4 × 19 kg in one row','#b23a1e')
 call(5.15,'Steel bollards · Ø 0.13 × 0.90 H · 6 no., on the strip edge','#8a6420',4.7)
 call(5.75,'Copper gas line along the wall at 1.3 m, into the kitchen','#8a6420')
-call(6.3,'Soil vent pipe Ø 0.11 up the wall · washroom exhaust fan at 2.3 m','#4a6070',6.05)
-call(6.6,'Sealed inspection chamber 0.45 × 0.45 · 2.0 m past the gas','#4a6070',6.97)
-call(8.25,'Grease trap 0.45 × 0.45 · kitchen + bar grey water','#4a6070',8.37)
+call(6.3,'Soil vent pipe Ø 0.11 up the wall · washroom exhaust fan at 2.3 m','#7a3f1d',5.95)
+call(6.6,'Inspection chamber 1 · 0.40 × 0.40 · sealed, gas-tight · WC pipe leaves the wall','#7a3f1d',5.95)
+call(-0.45,'Inspection chamber 2 · toilet pipe turns in to the biodigester','#7a3f1d',-0.4)
+call(-0.95,'Grey water (hand-wash, bar, kitchen) skips the tank · both go on to a soak pit or other outlet','#2f6f9f',-0.75)
+call(8.25,'Grease trap 0.45 × 0.45 · kitchen grey water','#2f6f9f',8.37)
 call(6.9,'Discharge · 0.40 × 0.40 at 2.4–2.8 m · ends inside the strip','#b23a1e',D-1.85)
 call(7.25,'Inline exhaust fan · Ø 0.44','#b23a1e',D-1.55)
 call(7.95,'ESP + carbon filter · 0.50 D × 1.00 L × 0.90 H · at 2.05–2.95 m','#b23a1e',D-0.85)
@@ -172,7 +177,7 @@ title='Ground floor plan · 4.9 × 8.8 m'
 sub='Betalbatim pub · Concept 27 (mirrored: washroom right, bar left; 0.45 m min between tables) · from the shop drawing (47 m² super built-up) · 18 covers inside + 8 in the garden · 26 in all'
 rows=[('Bar stools','4'),('Window tables, left (4 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the 22-dish menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','Exhaust and drains shown dashed.']
+NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the 22-dish menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''

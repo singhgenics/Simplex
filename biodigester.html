@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Biodigester Drain Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; two drawings that scroll sideways on a phone; a short sizing worksheet */
+:root{
+  --paper:#f5f6f2; --sheet:#ffffff; --ink:#1f2a2b; --muted:#5d6b6a; --rule:#d9ddd6;
+  --black:#7a3f1d; --grey:#2f6f9f; --treated:#2c8a66; --gas:#c2412d; --warn:#a8641a;
+  --bldg:#e9ece5; --wall:#3c4646; --wet:#dcebe6; --soil:#ead9c2; --soil2:#d9c2a3; --garden:#e5ecd5; --pave:#e2e1dc; --road:#cfcfca; --tank:#cfe3dc; --ic:#ffffff;
+  --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif; --body:"Atkinson Hyperlegible","Segoe UI",Arial,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#151a1a; --sheet:#1c2222; --ink:#e7ebe6; --muted:#9aa6a3; --rule:#2e3737;
+  --black:#d48a5c; --grey:#6fb0dc; --treated:#5cc79c; --gas:#ef7a63; --warn:#e2a54f;
+  --bldg:#232b2b; --wall:#8d9a98; --wet:#20332f; --soil:#3a3127; --soil2:#4a3d2e; --garden:#243021; --pave:#262a2a; --road:#303434; --tank:#1f3a33; --ic:#2a3232; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#151a1a; --sheet:#1c2222; --ink:#e7ebe6; --muted:#9aa6a3; --rule:#2e3737;
+  --black:#d48a5c; --grey:#6fb0dc; --treated:#5cc79c; --gas:#ef7a63; --warn:#e2a54f;
+  --bldg:#232b2b; --wall:#8d9a98; --wet:#20332f; --soil:#3a3127; --soil2:#4a3d2e; --garden:#243021; --pave:#262a2a; --road:#303434; --tank:#1f3a33; --ic:#2a3232; color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body)}
+main{max-width:880px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:flex;flex-direction:column;gap:30px}
+.eyebrow{font:600 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+h1{font:700 clamp(30px,5vw,42px)/1.05 var(--display);margin:6px 0 10px;text-wrap:balance}
+h2{font:700 24px/1.15 var(--display);margin:0 0 8px;text-wrap:balance}
+p{margin:0;max-width:68ch}
+.answers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.ans{background:var(--sheet);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.ans b{font:600 13px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.ans span{font:700 22px/1.2 var(--display)}
+.ans small{color:var(--muted);font-size:14px;line-height:1.45}
+figure{margin:0;background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+figcaption{display:flex;flex-direction:column;gap:4px}
+.draw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.draw svg{display:block;max-width:100%;height:auto;margin:0 auto}
+.draw.sec svg{min-width:640px}
+.key{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted)}
+.key i{display:inline-block;width:26px;height:0;border-top:4px solid;vertical-align:middle;margin-right:7px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px 22px;margin:0;padding:0;list-style:none}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;min-width:0}
+.steps .n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:600 12px/1 var(--mono);color:var(--sheet);background:var(--black)}
+.steps .n.g{background:var(--grey)} .steps .n.t{background:var(--treated)}
+.steps p{font-size:15px}
+.calc{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:15px}
+.calc td{padding:8px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.calc td:last-child{text-align:right;font-family:var(--mono);white-space:nowrap;padding-left:14px}
+.calc tr.tot td{font-weight:700;border-bottom:0;padding-top:12px}
+.note{font-size:14px;color:var(--muted)}
+ul.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:70ch}
+/* drawing styles, all from tokens */
+svg text{font-family:var(--body)}
+.pave{fill:var(--pave)} .road{fill:var(--road)} .strip{fill:var(--soil2);opacity:.55} .garden{fill:var(--garden)} .plant{fill:var(--soil2)}
+.wall{fill:var(--wall)} .floor{fill:var(--bldg)} .part{fill:var(--wall)} .wet{fill:var(--wet);stroke:var(--wall);stroke-width:1}
+.fix{fill:var(--sheet);stroke:var(--muted);stroke-width:1} .kit{fill:var(--sheet);stroke:var(--muted);stroke-width:1;stroke-dasharray:3 2}
+.gas{fill:none;stroke:var(--gas);stroke-width:1.5}
+.wc,.basin{fill:var(--sheet);stroke:var(--ink);stroke-width:1.2}
+.black{fill:none;stroke:var(--black);stroke-width:4;stroke-linejoin:round}
+.grey{fill:none;stroke:var(--grey);stroke-width:3;stroke-linejoin:round} .greyd{fill:none;stroke:var(--grey);stroke-width:3;stroke-dasharray:6 4}
+.treated{fill:none;stroke:var(--treated);stroke-width:3;stroke-dasharray:7 4}
+.ic{fill:var(--ic);stroke:var(--black);stroke-width:2} .gt{fill:var(--grey)}
+.tank{fill:var(--tank);stroke:var(--treated);stroke-width:2} .lid{fill:var(--sheet);stroke:var(--treated);stroke-width:1.5}
+.join{fill:var(--grey);stroke:var(--sheet);stroke-width:1.5} .tinyg2{font-size:9px;font-weight:700;fill:var(--grey)}
+.pit{fill:none;stroke:var(--treated);stroke-width:2;stroke-dasharray:5 4}
+.lbl{font-size:12px;fill:var(--ink)} .area{font:600 11px var(--mono);letter-spacing:.08em;fill:var(--muted)}
+.room{font:700 13px var(--display);letter-spacing:.06em;fill:var(--muted)} .room2{font:700 10px var(--display);letter-spacing:.06em;fill:var(--muted)}
+.tiny{font-size:9px;fill:var(--muted)} .tinyg{font-size:9px;font-weight:700;fill:var(--gas)} .tinyw{font-size:9px;font-weight:700;fill:var(--sheet)} .tinyd{font-size:9.5px;fill:var(--treated);font-weight:700}
+.tanklbl{font:700 12px var(--display);letter-spacing:.05em;fill:var(--ink)} .tanklbl2{font:600 10.5px var(--mono);fill:var(--muted)} .tanknote{font-size:10.5px;fill:var(--muted)}
+.nb circle{fill:var(--black)} .na circle{fill:var(--grey)} .nb text,.na text{font:600 11px var(--mono);fill:var(--sheet)}
+.nt circle{fill:var(--treated)} .nt text{font:600 11px var(--mono);fill:var(--sheet)}
+.sc rect{fill:var(--ink)} .sc .sc2{fill:none;stroke:var(--ink)} .sc text{font:500 10px var(--mono);fill:var(--muted)}
+/* section */
+.ground{stroke:var(--ink);stroke-width:2} .soil{fill:var(--soil)} .bldg{fill:var(--bldg)} .wallc{fill:var(--wall)}
+.wcs{fill:var(--sheet);stroke:var(--ink)} .blackS{fill:none;stroke:var(--black);stroke-width:5;stroke-linejoin:round}
+.vent{fill:none;stroke:var(--black);stroke-width:3;stroke-dasharray:4 3} .icS{fill:var(--ic);stroke:var(--black);stroke-width:2}
+.tankS{fill:var(--tank);stroke:var(--treated);stroke-width:2.5} .pcc{fill:var(--soil2)} .riser{fill:var(--sheet);stroke:var(--treated);stroke-width:1.5}
+.baffle{stroke:var(--treated);stroke-width:2;stroke-dasharray:6 3;fill:none}
+.treatedS{fill:none;stroke:var(--treated);stroke-width:4} .pitS{fill:var(--soil2);stroke:var(--treated);stroke-width:2;stroke-dasharray:5 4} .pitTop{fill:var(--sheet);stroke:var(--treated);stroke-width:1}
+.wt{stroke:var(--grey);stroke-width:2;stroke-dasharray:10 6} .note{font-size:11px;fill:var(--muted)} .warn{fill:var(--warn);font-weight:700}
+.dim line{stroke:var(--ink);stroke-width:1.2} .tag{font:600 10.5px var(--mono);letter-spacing:.08em;fill:var(--muted)}
+</style>
+<main>
+<header>
+<p class="eyebrow">Betalbatim pub · Shop 4, Tulip Residency · toilet drainage</p>
+<h1>How the washroom drains to a biodigester under the garden</h1>
+<p>Your washroom sits on the right wall, so its pipe goes straight out to the side, runs forward along the 0.5 m side strip under the bins and gas cage, and drops into a sealed tank buried under the right half of the beer garden. Kitchen, bar and hand-wash water take a separate pipe that skips the tank.</p>
+</header>
+
+<section class="answers" aria-label="Short answers">
+<div class="ans"><b>Tank size</b><span>2,000 litres</span><small>About 2.1 × 1.1 × 1.2 m. Go to 3,000 L if you expect 100+ guests on peak days.</small></div>
+<div class="ans"><b>Soak pit?</b><span>Yes, or an alternative</span><small>The tank cleans the waste, but the treated water still has to go somewhere.</small></div>
+<div class="ans"><b>Pipe run</b><span>About 8 m</span><small>100 mm pipe falling 1 in 40, with two inspection chambers.</small></div>
+</section>
+
+<figure>
+<figcaption><h2>Top view</h2><p class="note">Drawn to scale from your floor plan. Road at the bottom; left and right as you walk in.</p></figcaption>
+<div class="draw"><svg viewBox="0 0 419 689" width="419" height="689" role="img" aria-label="Top view of the shop, side strip and beer garden showing the WC drain running along the right side to a biodigester tank under the garden"><rect x="325.0" y="0.0" width="93.6" height="689.0" class="pave" /><text x="374.4" y="338.0" class="area" text-anchor="middle" transform="rotate(-90 374.4 338.0)">CAR PATHWAY</text><rect x="299.0" y="26.0" width="26.0" height="468.0" class="strip" /><rect x="23.4" y="494.0" width="275.6" height="104.0" class="garden" /><text x="67.6" y="574.6" class="area" text-anchor="middle">BEER GARDEN</text><text x="67.6" y="586.6" class="area" text-anchor="middle">5.3 × 2.0 m</text><rect x="192.4" y="599.0" width="106.6" height="9.4" class="plant" /><rect x="23.4" y="599.0" width="106.6" height="9.4" class="plant" /><rect x="0.0" y="611.0" width="361.4" height="78.0" class="road" /><text x="260.0" y="650.0" class="area" text-anchor="middle">FRONT · ROAD SIDE</text><rect x="23.4" y="26.0" width="275.6" height="468.0" class="wall" /><rect x="33.8" y="36.4" width="254.8" height="457.6" class="floor" /><rect x="33.8" y="161.2" width="254.8" height="5.2" class="part" /><text x="161.2" y="98.8" class="room" text-anchor="middle">KITCHEN</text><rect x="223.6" y="166.4" width="65.0" height="83.2" class="wet" /><rect x="236.6" y="249.6" width="52.0" height="52.0" class="wet" /><text x="252.2" y="221.0" class="room" text-anchor="middle">WC</text><text x="262.6" y="286.0" class="room2" text-anchor="middle">HAND</text><text x="262.6" y="297.0" class="room2" text-anchor="middle">WASH</text><rect x="98.8" y="222.6" width="44.2" height="118.6" class="fix" /><text x="120.6" y="286.0" class="room2" text-anchor="middle" transform="rotate(-90 120.6 286.0)">BAR</text><text x="161.2" y="416.0" class="room" text-anchor="middle">DINING</text><rect x="299.0" y="434.2" width="23.4" height="41.6" class="kit" /><text x="310.4" y="458.0" class="tiny" text-anchor="middle" transform="rotate(-90 310.4 458.0)">UPS</text><rect x="299.0" y="382.2" width="23.4" height="31.2" class="kit" /><text x="310.4" y="400.8" class="tiny" text-anchor="middle" transform="rotate(-90 310.4 400.8)">kegs</text><rect x="299.0" y="330.2" width="23.4" height="46.8" class="kit" /><text x="310.4" y="356.6" class="tiny" text-anchor="middle" transform="rotate(-90 310.4 356.6)">bins</text><rect x="301.6" y="249.6" width="18.2" height="72.8" class="gas" /><text x="310.4" y="289.0" class="tinyg" text-anchor="middle" transform="rotate(-90 310.4 289.0)">LPG</text><circle cx="265.2" cy="184.6" r="10.4" class="wc"/><circle cx="277.2" cy="275.6" r="9.4" class="basin"/><rect x="33.8" y="36.4" width="33.8" height="41.6" class="fix" /><text x="51.0" y="60.2" class="tiny" text-anchor="middle" transform="rotate(-90 51.0 60.2)">sink</text><circle cx="104.0" cy="254.8" r="5.2" class="basin"/><polyline class="grey" points="52.0,57.2 52.0,45.8 312.0,45.8"/><rect x="301.6" y="46.8" width="20.8" height="20.8" class="gt" /><text x="312.0" y="60.2" class="tinyw" text-anchor="middle">GT</text><polyline class="grey" points="312.0,67.6 312.0,78.0 305.2,78.0 305.2,533.0"/><polyline class="grey" points="104.0,254.8 104.0,262.6 305.2,262.6"/><polyline class="grey" points="277.2,275.6 305.2,275.6"/><polyline class="black" points="265.2,184.6 316.7,184.6"/><rect x="306.3" y="174.2" width="20.8" height="20.8" class="ic" /><polyline class="black" points="316.7,195.0 316.7,514.8"/><rect x="306.3" y="504.4" width="20.8" height="20.8" class="ic" /><polyline class="black" points="316.7,514.8 316.7,556.4 273.0,556.4"/><rect x="163.8" y="527.8" width="109.2" height="57.2" class="tank" /><text x="223.6" y="554.4" class="tanklbl" text-anchor="middle">BIODIGESTER</text><text x="223.6" y="568.4" class="tanklbl2" text-anchor="middle">2,000 L</text><circle cx="178.4" cy="543.4" r="5.2" class="lid"/><circle cx="178.4" cy="569.4" r="5.2" class="lid"/><polyline class="treated" points="163.8,564.2 114.4,564.2 114.4,644.8"/><polyline class="grey" points="305.2,533.0 305.2,514.8 114.4,514.8 114.4,564.2"/><circle cx="114.4" cy="564.2" r="3.6" class="join"/><text x="109.2" y="543.4" class="tinyg2" text-anchor="end">joins after</text><text x="109.2" y="553.4" class="tinyg2" text-anchor="end">the tank</text><circle cx="114.4" cy="652.6" r="28.6" class="pit"/><text x="114.4" y="655.6" class="tinyd" text-anchor="middle">SOAK PIT</text><text x="114.4" y="666.6" class="tinyd" text-anchor="middle">or sealed sump</text><g class="nb"><circle cx="241.8" cy="174.2" r="10"/><text x="241.8" y="178.2" text-anchor="middle">1</text></g><g class="nb"><circle cx="294.8" cy="169.0" r="10"/><text x="294.8" y="173.0" text-anchor="middle">2</text></g><g class="nb"><circle cx="294.8" cy="390.0" r="10"/><text x="294.8" y="394.0" text-anchor="middle">3</text></g><g class="nb"><circle cx="294.8" cy="512.2" r="10"/><text x="294.8" y="516.2" text-anchor="middle">4</text></g><g class="nb"><circle cx="218.4" cy="538.2" r="10"/><text x="218.4" y="542.2" text-anchor="middle">5</text></g><g class="nt"><circle cx="85.8" cy="626.6" r="10"/><text x="85.8" y="630.6" text-anchor="middle">6</text></g><g class="na"><circle cx="226.2" cy="293.8" r="10"/><text x="226.2" y="297.8" text-anchor="middle">A</text></g><g class="na"><circle cx="85.8" cy="273.0" r="10"/><text x="85.8" y="277.0" text-anchor="middle">B</text></g><g class="na"><circle cx="104.0" cy="62.4" r="10"/><text x="104.0" y="66.4" text-anchor="middle">C</text></g><g class="sc"><rect x="7.8" y="678.6" width="52" height="6"/><rect x="59.8" y="678.6" width="52" height="6" class="sc2"/><text x="7.8" y="673.6">0</text><text x="59.8" y="673.6" text-anchor="middle">1 m</text><text x="111.8" y="673.6" text-anchor="middle">2 m</text></g></svg></div>
+<div class="key"><span><i style="border-color:var(--black)"></i>Toilet waste (black water)</span><span><i style="border-color:var(--grey)"></i>Sinks and hand-wash (grey water)</span><span><i style="border-color:var(--treated);border-top-style:dashed"></i>Treated water out</span></div>
+<ol class="steps">
+<li><span class="n">1</span><p><b>WC.</b> A 100 mm soil pipe leaves through the right wall, just below floor level.</p></li>
+<li><span class="n">2</span><p><b>Inspection chamber 1</b> outside the wall, with a sealed, gas-tight cover because the gas cage is nearby. The vent pipe rises from here up the wall.</p></li>
+<li><span class="n">3</span><p><b>Along the side strip</b>, buried about 30–50 cm deep, under the gas cage, bins, keg cage and backup cabinet, falling towards the front.</p></li>
+<li><span class="n">4</span><p><b>Inspection chamber 2</b> at the front corner, where the pipe turns in under the garden. Rodding access for blockages.</p></li>
+<li><span class="n">5</span><p><b>Biodigester tank</b> under the right half of the garden, 0.65 m clear of the shop front. Its two inspection lids sit at the path end, not under a table or bench.</p></li>
+<li><span class="n t">6</span><p><b>Treated water out</b> to a soak pit, or one of the alternatives below, together with the grey water.</p></li>
+<li><span class="n g">A</span><p><b>Hand-wash.</b> Soap harms the tank's bacteria, so its water joins the grey pipe, which runs round the tank and meets the treated water only after it.</p></li>
+<li><span class="n g">B</span><p><b>Bar sink, glasswasher and ice machine.</b> A pipe under the floor crosses to the right wall and joins the grey pipe.</p></li>
+<li><span class="n g">C</span><p><b>Kitchen sinks</b> drain through the <b>grease trap (GT)</b> at the back corner, then forward along the strip beside the toilet pipe.</p></li>
+</ol>
+</figure>
+
+<figure>
+<figcaption><h2>Side view along the toilet pipe</h2><p class="note">Distances along the pipe to scale; depths drawn 2× taller so they read clearly.</p></figcaption>
+<div class="draw sec"><svg viewBox="0 -10 837 356" width="837" height="356" role="img" aria-label="Side view of the drain: WC, two inspection chambers, pipe falling 1 in 40 to a buried 2,000 litre biodigester, then a soak pit"><rect x="5.2" y="-8.0" width="69.6" height="108.0" class="bldg"/><text x="40.0" y="46.0" class="lbl" text-anchor="middle">WC room</text><rect x="74.8" y="-164.0" width="11.6" height="300.0" class="wallc"/><line x1="5.200000000000003" y1="100" x2="817.2" y2="100" class="ground"/><rect x="86.4" y="100.0" width="730.8" height="234.0" class="soil"/><rect x="19.7" y="49.6" width="23.2" height="50.4" class="wcs"/><polyline class="blackS" points="31.3,100.0 31.3,121.6 74.8,136.0"/><polyline class="vent" points="95.1,137.1 95.1,4.0"/><text x="102.1" y="25.6" class="note" text-anchor="start">soil vent pipe up the wall</text><rect x="82.3" y="100.0" width="25.5" height="55.1" class="icS"/><text x="95.1" y="85.6" class="lbl" text-anchor="middle">IC-1</text><rect x="450.6" y="100.0" width="25.5" height="74.1" class="icS"/><text x="463.4" y="85.6" class="lbl" text-anchor="middle">IC-2</text><polyline class="blackS" points="74.8,136.0 95.1,137.1 463.4,156.1 512.7,158.7"/><text x="279.2" y="175.4" class="note" text-anchor="middle">100 mm pipe along the 0.5 m side strip, under the cages</text><text x="279.2" y="189.8" class="note" text-anchor="middle">falls 1 in 40: about 16 cm over 6.3 m</text><rect x="512.7" y="136.0" width="121.8" height="144.0" class="tankS"/><rect x="506.9" y="280.0" width="133.4" height="12.0" class="pcc"/><rect x="573.6" y="100.0" width="23.2" height="36.0" class="riser"/><rect x="602.6" y="100.0" width="23.2" height="36.0" class="riser"/><polyline class="baffle" points="553.3,150.4 553.3,268.0"/><polyline class="baffle" points="593.9,150.4 593.9,268.0"/><text x="573.6" y="214.0" class="tanklbl" text-anchor="middle">BIODIGESTER 2,000 L</text><text x="573.6" y="232.0" class="tanknote" text-anchor="middle">2.1 × 1.1 × 1.2 m</text><text x="573.6" y="313.6" class="note" text-anchor="middle">dig about 1.6 m · bacteria break the waste down, no emptying in normal use</text><text x="505.7" y="194.7" class="note" text-anchor="end">inlet about</text><text x="505.7" y="209.1" class="note" text-anchor="end">0.5 m deep</text><polyline class="treatedS" points="634.5,174.4 707.0,179.2"/><text x="639.1" y="166.0" class="note" text-anchor="start">treated water out</text><rect x="707.0" y="136.0" width="69.6" height="198.0" class="pitS"/><rect x="707.0" y="100.0" width="69.6" height="36.0" class="pitTop"/><text x="741.8" y="232.0" class="tanklbl" text-anchor="middle">SOAK PIT</text><text x="741.8" y="250.0" class="tanknote" text-anchor="middle">1.2 m Ø</text><text x="741.8" y="265.6" class="tanknote" text-anchor="middle">gravel fill</text><line x1="504.0" y1="334.0" x2="817.2" y2="334.0" class="wt"/><text x="817.2" y="348.4" class="note warn" text-anchor="end">monsoon water table must stay at least 1.5 m below the pit bottom</text><text x="5.2" y="-14.0" class="tag" text-anchor="start">INSIDE</text><text x="98.0" y="-14.0" class="tag" text-anchor="start">OUTSIDE · SIDE STRIP</text><text x="512.7" y="-14.0" class="tag" text-anchor="start">UNDER THE BEER GARDEN</text></svg></div>
+</figure>
+
+<section>
+<h2>Does it need a soak pit?</h2>
+<p>Yes, something has to take the water that comes out. The biodigester breaks the solids down so the tank rarely needs emptying, but what leaves it is still wastewater, not clean water. There are four ways to deal with it, in order of preference for this site:</p>
+<ul class="list">
+<li><b>Join the building's own system.</b> If Tulip Residency has a septic tank, soak pit or sewer connection, send the tank's outflow there with a society NOC. No soak pit of your own.</li>
+<li><b>Soak pit</b>, only if the site passes all three tests: at least 18 m from any well, at least 1.5 m from any foundation, and the monsoon water table at least 1.5 m below the pit's bottom (about 3.5 m down). In the drawing it sits beyond the garden, which only works if that land is yours.</li>
+<li><b>Planted filter.</b> A lined bed of gravel and reeds or canna can polish the water, for example in place of the front brick planters. It still needs an overflow.</li>
+<li><b>Sealed holding tank</b>, pumped out by a tanker when full. Always allowed, but a running cost.</li>
+</ul>
+</section>
+
+<section>
+<h2>Working out the tank size</h2>
+<table class="calc">
+<tr><td>Guests on a busy season day (26 covers, about 3 sittings)</td><td>80</td></tr>
+<tr><td>Toilet visits per guest at a pub</td><td>× 1.2</td></tr>
+<tr><td>Water per flush (dual-flush WC, 3 / 6 L)</td><td>× 5 L</td></tr>
+<tr><td>Guests</td><td>480 L</td></tr>
+<tr><td>Staff: 6 people × 3 visits × 5 L</td><td>+ 90 L</td></tr>
+<tr><td>Toilet waste on a busy day</td><td>≈ 570 L</td></tr>
+<tr><td>Days the tank should hold it (as in standard 1,000 L for 10-user tanks)</td><td>× 3.3</td></tr>
+<tr class="tot"><td>Tank needed</td><td>≈ 1,900 L → 2,000 L</td></tr>
+</table>
+<p class="note">Tanks are sold by "users": a 2,000 L tank is rated for 20 people living in a house. A pub's visitors use the toilet far less than residents, which is why a 2,000 L tank covers 80 guests. Only the toilet goes into the tank; the kitchen, bar and hand-wash water go round it.</p>
+</section>
+
+<section>
+<h2>Before you dig</h2>
+<ul class="list">
+<li>Confirm the front strip under the garden belongs to the shop, or get the society's written consent (title deed clause 9), and check the CRZ position, as for the pergola.</li>
+<li>Find out the monsoon water table (a trial pit, or ask the neighbours) and whether any well lies within 18 m.</li>
+<li>Expect the panchayat and the Goa State Pollution Control Board to ask how sewage is treated; a sealed biodigester is the kind of answer they want.</li>
+<li>In use: no phenyl, acid or bleach down the WC, no sanitary products or wipes. Mild cleaners only, or the bacteria die.</li>
+</ul>
+<p class="note">Concept sketch for briefing a plumber, not a construction drawing. Pipe sizes, depths and the tank model are for the plumber and supplier to confirm on site.</p>
+</section>
+</main>
+</body></html>
