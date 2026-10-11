@@ -64,11 +64,12 @@ def tri(x0,z0,l,k,fill,stroke):
     out.append(f'<path d="M{a:.1f} {b:.1f} L{c:.1f} {d:.1f} Q{e:.1f} {f:.1f} {g:.1f} {h:.1f} Z" fill="{fill}" stroke="{stroke}" stroke-width="1.2"/>')
 tri(X0+0.02,3.72,0.42,0.62,'#ffffff','#3a3128'); tri(X0+0.06,3.76,0.32,0.6,'#e6ecef','#8a9a7a'); circ(X0+0.1,3.8,0.022,'#2a2420','#2a2420',1)
 text(-1.72,3.85,'HAND-WASH',8.5,weight=700); text(-1.72,4.0,'LOBBY 1.0 × 1.0',7.5,'#4a4038'); text(-1.72,4.14,'corner basin 0.42',7.5,'#4a4038')
-rect(X0,-2.15,4.7,4.8,'#d8c6ac','#d8c6ac',1); rect(-1.45,-1.2,4.7,4.8,'#d8c6ac','#d8c6ac',1); rect(-1.3,-1.2,4.8,KZ,'#d8c6ac','#d8c6ac',1)
+rect(X0,-2.05,4.7,4.8,'#d8c6ac','#d8c6ac',1); rect(-1.45,-1.2,4.7,4.8,'#d8c6ac','#d8c6ac',1); rect(-1.3,-1.2,4.8,KZ,'#d8c6ac','#d8c6ac',1)
 rect(X0,-1.3,4.8,KZ,'#e9efe4','#8a9a7a',1); text(-1.55,6.1,'WC room',8.5,weight=700); text(-1.55,6.23,'1.15×1.50',7.5,'#4a4038')
 rect(X0,X0+0.15,5.59,5.91,'#ffffff'); rect(X0+0.15,-1.83,5.5,6.0,'#ffffff'); text(-2.05,5.75,'WC',7.5,'#4a4038')
-a,b=P(-2.13,4.75);c,d=P(-1.45,5.43);r=0.68*S; out.append(f'<path d="M{a:.1f} {b:.1f} A{r:.1f} {r:.1f} 0 0 0 {c:.1f} {d:.1f}" fill="none" stroke="#2a2420" stroke-width="1" stroke-dasharray="3 3"/>')
-line(-1.45,4.75,-1.45,5.43,'#2a2420',2.2); text(-1.8,4.62,'WC door 0.70 · self-closing',7,'#4a4038')
+rect(-2.08,-1.74,4.62,4.65,'#c69c6d','#3a3128',1); rect(-1.77,-1.43,4.58,4.61,'#c69c6d','#3a3128',1) # sliding panels, closed
+rect(-2.43,-2.09,4.52,4.56,'none','#2a2420',0.8,'3 2') # stacked when open
+line(-2.41,4.5,-1.6,4.5,'#2a2420',0.8,'3 2'); text(-1.72,4.4,'WC sliding door · 0.60 clear',7,'#4a4038')
 rect(X0,X0+0.25,4.97,5.3,'#ffffff'); text(X0+0.125,5.135,'basin',6,'#4a4038',rot=90)
 rect(1.0,1.42,KZ-0.15,KZ,'#6d7276'); text(1.21,5.98,'DB + fire panel',8.5,'#4a4038')
 for x in (X1-0.1,X1-0.3): circ(x,2.56,0.07,'#c8231b','#c8231b',1)
