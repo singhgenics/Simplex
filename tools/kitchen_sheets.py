@@ -1,0 +1,369 @@
+"""Two A3 kitchen sheets for vendors, drawn in real millimetres (viewBox 420 x 297) so the printed scales are exact.
+Sheet 1: equipment layout, plan at 1:25 (40 mm per metre), every item named and sized on the drawing, equipment list.
+Sheet 2: services and exhaust, plan at 1:25 with exhaust, gas, water, drains and power; hot-line elevation at 1:40 (25 mm per metre).
+Model coordinates: x from the right wall (X0 = -2.45) to the left wall (X1 = 2.45) as you walk in; z from the shopfront to the back wall (D = 8.8).
+Usage: python3 tools/kitchen_sheets.py build [--page]  ->  build/kitchen-sheet-1.svg, build/kitchen-sheet-2.svg (and kitchen.html with --page).\nPDFs: print the SVGs from Chrome headless with IBM Plex embedded, @page 420 x 297 mm, margin 0.
+"""
+import sys, os
+X0, X1, D, T, KZ, KC, H = -2.45, 2.45, 8.8, 0.2, 6.3, 2.7, 4.5
+XS = X0 - T
+INK, MUT, RED, BLU, GAS, GRN, PWR = '#2a2420', '#6a5d4e', '#b23a1e', '#2f6f9f', '#a8741a', '#3f6a3a', '#6b3fa0'
+WALL, STEEL, HOT, PAPER = '#4a4038', '#c9cdd1', '#9aa0a5', '#fbf7ef'
+FT, FS, FB = 2.6, 2.5, 3.0          # text sizes in mm: ~7.4 pt, ~7.1 pt (minimum), ~8.5 pt
+
+
+class Sheet:
+    def __init__(s, ox, oy, xl, zt, k=40.0):
+        s.o, s.ox, s.oy, s.xl, s.zt, s.k = [], ox, oy, xl, zt, k
+    def P(s, x, z): return (s.ox + (s.xl - x) * s.k, s.oy + (s.zt - z) * s.k)
+    def add(s, t): s.o.append(t)
+    def rect(s, xa, xb, za, zb, fill='none', stroke=INK, sw=0.3, dash=None):
+        (a, b), (c, d) = s.P(max(xa, xb), max(za, zb)), s.P(min(xa, xb), min(za, zb))
+        s.add(f'<rect x="{a:.2f}" y="{b:.2f}" width="{c-a:.2f}" height="{d-b:.2f}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"' + (f' stroke-dasharray="{dash}"' if dash else '') + '/>')
+    def line(s, xa, za, xb, zb, stroke=INK, sw=0.3, dash=None):
+        a, b = s.P(xa, za); c, d = s.P(xb, zb)
+        s.add(f'<line x1="{a:.2f}" y1="{b:.2f}" x2="{c:.2f}" y2="{d:.2f}" stroke="{stroke}" stroke-width="{sw}"' + (f' stroke-dasharray="{dash}"' if dash else '') + '/>')
+    def circ(s, x, z, r, fill='none', stroke=INK, sw=0.3, dash=None):
+        a, b = s.P(x, z); s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="{r*s.k:.2f}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"' + (f' stroke-dasharray="{dash}"' if dash else '') + '/>')
+    def text(s, x, z, t, size=FT, fill=INK, anchor='middle', weight=500, rot=0):
+        a, b = s.P(x, z); tr = f' transform="rotate({rot} {a:.2f} {b:.2f})"' if rot else ''
+        s.add(f'<text x="{a:.2f}" y="{b+size*0.35:.2f}" font-size="{size}" fill="{fill}" text-anchor="{anchor}" font-weight="{weight}"{tr}>{t}</text>')
+    def lines(s, x, z, ls, size=FT, fill=INK, gap=1.25):
+        n = len(ls)
+        for i, (t, w) in enumerate(ls):
+            a, b = s.P(x, z); y = b + (i - (n - 1) / 2) * size * gap
+            s.add(f'<text x="{a:.2f}" y="{y+size*0.35:.2f}" font-size="{size}" fill="{fill}" text-anchor="middle" font-weight="{w}">{t}</text>')
+    def hdim(s, xa, xb, z, t, col=RED, size=FS):
+        a, b = s.P(xa, z); c, _ = s.P(xb, z)
+        s.add(f'<g stroke="{col}" stroke-width="0.25"><line x1="{a:.2f}" y1="{b:.2f}" x2="{c:.2f}" y2="{b:.2f}"/><line x1="{a:.2f}" y1="{b-1.2:.2f}" x2="{a:.2f}" y2="{b+1.2:.2f}"/><line x1="{c:.2f}" y1="{b-1.2:.2f}" x2="{c:.2f}" y2="{b+1.2:.2f}"/></g>')
+        s.add(f'<text x="{(a+c)/2:.2f}" y="{b-0.9:.2f}" font-size="{size}" fill="{col}" text-anchor="middle" font-weight="600">{t}</text>')
+    def vdim(s, x, za, zb, t, col=RED, size=FS):
+        a, b = s.P(x, za); _, d = s.P(x, zb)
+        s.add(f'<g stroke="{col}" stroke-width="0.25"><line x1="{a:.2f}" y1="{b:.2f}" x2="{a:.2f}" y2="{d:.2f}"/><line x1="{a-1.2:.2f}" y1="{b:.2f}" x2="{a+1.2:.2f}" y2="{b:.2f}"/><line x1="{a-1.2:.2f}" y1="{d:.2f}" x2="{a+1.2:.2f}" y2="{d:.2f}"/></g>')
+        s.add(f'<text x="{a-1.0:.2f}" y="{(b+d)/2:.2f}" font-size="{size}" fill="{col}" text-anchor="middle" font-weight="600" transform="rotate(-90 {a-1.0:.2f} {(b+d)/2:.2f})">{t}</text>')
+    def call(s, x, z, px, py, t, col=INK, anchor='start'):
+        """leader from a point on the drawing to text placed at paper position (px, py) in mm"""
+        a, b = s.P(x, z)
+        s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="0.6" fill="{col}"/><polyline points="{a:.2f},{b:.2f} {px-(1.2 if anchor=="start" else -1.2):.2f},{py-0.9:.2f} {px-(0.2 if anchor=="start" else -0.2):.2f},{py-0.9:.2f}" fill="none" stroke="{col}" stroke-width="0.2"/>')
+        s.add(f'<text x="{px:.2f}" y="{py:.2f}" font-size="{FS}" fill="{col}" text-anchor="{anchor}" font-weight="500">{t}</text>')
+    def arc(s, cx, cz, r, x0, z0, x1, z1, sweep, col=INK):
+        a, b = s.P(x0, z0); c, d = s.P(x1, z1)
+        s.add(f'<path d="M{a:.2f} {b:.2f} A{r*s.k:.2f} {r*s.k:.2f} 0 0 {sweep} {c:.2f} {d:.2f}" fill="none" stroke="{col}" stroke-width="0.2" stroke-dasharray="1 0.8"/>')
+        s.line(cx, cz, x1, z1, col, 0.45)
+
+    # ---- shared shell of the kitchen
+    def shell(s, outside_strip=False):
+        s.rect(X0, X1, KZ + 0.1, D, '#eef0ec', 'none')
+        s.rect(XS, X0, KZ - 0.35, D + T, WALL, WALL, 0.2); s.rect(X1, X1 + T, KZ - 0.35, D + T, WALL, WALL, 0.2)
+        s.rect(X0, 0.95, D, D + T, WALL, WALL, 0.2); s.rect(1.75, X1, D, D + T, WALL, WALL, 0.2)
+        for xa, xb in ((X0, -0.6), (0.05, 0.1), (0.8, X1)): s.rect(xa, xb, KZ, KZ + 0.1, '#d8c6ac', '#a8987c', 0.2)
+        s.rect(-0.6, 0.05, KZ, KZ + 0.1, '#cfe3ea', '#7a9aaa', 0.2)
+        s.rect(X0, X0 + 0.23, 6.65, 6.95, WALL, WALL, 0.2); s.text(X0 + 0.115, 6.8, 'P2', FS, '#fff', weight=700)
+        s.arc(0.8, KZ + 0.1, 0.7, 0.1, KZ + 0.1, 0.8, KZ + 0.8, 1)                        # kitchen door, opens in
+        s.arc(1.75, D + T, 0.8, 0.95, D + T, 1.75, D + T + 0.8, 0)                        # rear exit, opens out
+        for hz, sg in ((6.45, 1), (7.4, -1)):                                             # fridge door swings
+            a, b = s.P(1.7, hz); c, d = s.P(1.23, hz); r = 0.47 * s.k
+            s.add(f'<path d="M{c:.2f} {d:.2f} A{r:.2f} {r:.2f} 0 0 {0 if sg>0 else 1} {a:.2f} {b-sg*r:.2f}" fill="none" stroke="{BLU}" stroke-width="0.2" stroke-dasharray="1 0.8"/>')
+
+    def scalebar(s, px, py, label):
+        k = s.k
+        s.add(f'<g transform="translate({px:.2f},{py:.2f})"><rect width="{k}" height="1.6" fill="{INK}"/><rect x="{k}" width="{k}" height="1.6" fill="none" stroke="{INK}" stroke-width="0.2"/>'
+              f'<text y="5" font-size="{FS}" fill="{INK}">0</text><text x="{k}" y="5" font-size="{FS}" text-anchor="middle" fill="{INK}">1 m</text><text x="{2*k}" y="5" font-size="{FS}" text-anchor="middle" fill="{INK}">2 m</text>'
+              f'<text x="{2*k+6}" y="1.8" font-size="{FT}" font-weight="700" fill="{INK}">{label}</text></g>')
+
+
+def frame(title, sub, sheet_no, body):
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">
+<rect width="420" height="297" fill="{PAPER}"/>
+<rect x="5" y="5" width="410" height="287" fill="none" stroke="{INK}" stroke-width="0.35"/>
+<text x="12" y="16" font-size="7" font-weight="700" fill="{INK}">{title}</text>
+<text x="12" y="22.5" font-size="{FT}" fill="{MUT}">{sub}</text>
+<text x="408" y="13" font-size="{FT}" fill="{MUT}" text-anchor="end">Betalbatim pub · Simplex · Concept 27</text>
+<text x="408" y="18" font-size="{FB}" font-weight="700" fill="{INK}" text-anchor="end">Sheet {sheet_no} of 2 · A3</text>
+<text x="408" y="22.5" font-size="{FS}" fill="{MUT}" text-anchor="end">singhgenics.github.io/Simplex/kitchen.html</text>
+<line x1="5" y1="26" x2="415" y2="26" stroke="{INK}" stroke-width="0.25"/>
+{body}
+</svg>'''
+
+
+def table(rows, x, y, cols, head, rowh=4.2, size=FS, zebra='#f3efe6', width=None):
+    o = []; width = width or (cols[-1] - x + 30)
+    o.append(f'<rect x="{x-1.5}" y="{y-3.3}" width="{width}" height="4.6" fill="{INK}"/>')
+    for c, t in zip(cols, head): o.append(f'<text x="{c}" y="{y}" font-size="{size}" font-weight="700" fill="#fff">{t}</text>')
+    y += rowh + 0.6
+    for i, r in enumerate(rows):
+        if i % 2 == 0: o.append(f'<rect x="{x-1.5}" y="{y-3.1}" width="{width}" height="{rowh}" fill="{zebra}"/>')
+        for j, (c, t) in enumerate(zip(cols, r)):
+            col, w = (r[-1] if isinstance(r[-1], str) and r[-1].startswith('#') and j == 0 else INK), (700 if j == 0 else 500)
+            if isinstance(t, str) and t.startswith('#'): continue
+            o.append(f'<text x="{c}" y="{y}" font-size="{size}" fill="{col}" font-weight="{w}">{t}</text>')
+        y += rowh
+    return ''.join(o), y
+
+
+def notes_block(blocks, x, y, width_chars=None, size=FS, lead=3.4):
+    o = []
+    for h, ls in blocks:
+        o.append(f'<text x="{x}" y="{y}" font-size="{size}" font-weight="700" fill="{RED}" letter-spacing="0.15">{h.upper()}</text>'); y += lead + 0.3
+        for l in ls: o.append(f'<text x="{x}" y="{y}" font-size="{size}" fill="{INK}">{l}</text>'); y += lead
+        y += 1.6
+    return ''.join(o), y
+
+
+# ======================================================================= SHEET 1: equipment layout
+s = Sheet(12, 30, X1 + T + 0.3, D + T + 1.05)
+s.shell()
+s.add(f'<text x="12" y="{s.P(0, D+T+0.9)[1]:.2f}" font-size="{FS}" fill="{MUT}">OUTSIDE · back (parking)</text>')
+s.add(f'<text x="12" y="{s.P(0, KZ-0.6)[1]:.2f}" font-size="{FS}" fill="{MUT}">DINING ROOM SIDE</text>')
+# hot line
+for xa, xb, ls in ((X0, -1.25, [('Wok range', 700), ('2 burners', 500), ('1.20 × 0.70 × 0.80', 500)]),
+                   (-1.2, -0.6, [('Dim sum', 700), ('steamer', 700), ('0.60 × 0.70', 500), ('h 0.80', 500)]),
+                   (-0.55, 0.05, [('Twin-tank', 700), ('fryer', 700), ('0.60 × 0.70', 500), ('h 0.90', 500)]),
+                   (0.1, 0.7, [('Stock', 700), ('range', 700), ('0.60 × 0.70', 500), ('h 0.85', 500)])):
+    s.rect(xa, xb, 8.1, D, HOT, INK, 0.3); s.lines((xa + xb) / 2, 8.45, ls, FT, '#fff')
+s.rect(X0 + 0.02, 0.8, 7.85, D - 0.02, 'none', RED, 0.45, '2.2 1.2')
+s.rect(-2.4, 0.75, 7.92, 8.0, '#b9c0c5', '#6d7276', 0.15)
+# front-wall benches
+s.rect(-2.2, -1.4, KZ + 0.115, 7.05, STEEL, INK, 0.3); s.lines(-1.8, 6.86, [('Non-veg prep', 700), ('0.80 × 0.65 · h 0.90', 500)])
+s.rect(-2.18, -1.42, 6.42, 6.68, '#dff0f6', BLU, 0.3)
+s.rect(-1.4, -0.6, KZ + 0.115, 7.05, STEEL, INK, 0.3); s.lines(-1.0, 6.86, [('Veg / dumpling prep', 700), ('0.80 × 0.65 · freezer under', 500)], 2.5)
+s.circ(-0.78, 6.6, 0.15, '#e9e9e9', '#6d7276', 0.25)
+s.rect(-0.6, 0.05, KZ + 0.115, 7.05, STEEL, INK, 0.3); s.lines(-0.275, 6.72, [('Pass', 700), ('0.65 × 0.65', 500)])
+s.rect(-0.6, 0.05, 6.93, 7.05, '#e6ecef', BLU, 0.25)
+s.rect(0.85, 1.18, KZ + 0.115, 6.8, STEEL, INK, 0.3); s.text(1.015, 6.6, 'HW', FS, weight=700)
+# left wall
+s.rect(1.7, X1, 6.45, 7.4, STEEL, INK, 0.3); s.lines(2.08, 6.92, [('2-door', 700), ('reach-in', 700), ('0.95 × 0.75', 500), ('h 2.00', 500)])
+s.rect(1.8, X1, 7.4, 8.0, STEEL, INK, 0.3); s.lines(2.12, 7.7, [('Dish-', 700), ('washer', 700), ('0.60 × 0.65', 500)])
+s.rect(1.8, X1, 8.0, D, STEEL, INK, 0.3); s.lines(2.12, 8.4, [('2-bowl', 700), ('sink', 700), ('0.80 × 0.65', 500)])
+# right wall + small kit
+s.rect(X0, X0 + 0.3, 7.15, 8.05, 'none', MUT, 0.2, '1 0.8'); s.rect(X0, X0 + 0.22, 7.62, 8.06, '#e6ecef', BLU, 0.3)
+for z in (7.25, 7.5): s.circ(X0 + 0.1, z, 0.075, '#c8231b', '#c8231b', 0.2)
+s.rect(-2.1, -1.86, KZ + 0.1, KZ + 0.16, '#d9261c', '#d9261c', 0.2)
+s.circ(-2.32, 6.52, 0.1, '#cfe0bf', GRN, 0.3); s.circ(0.83, 8.62, 0.1, '#d6e2ef', BLU, 0.3)
+s.rect(-2.12, -1.84, 6.5, 6.76, 'none', '#8f6a4a', 0.25, '0.8 0.6')
+for xa, xb in ((-1.84, -1.44), (-1.35, -0.95)): s.line(xa, KZ + 0.13, xb, KZ + 0.13, INK, 0.8)
+s.rect(0.35, 0.95, 7.15, 7.95, 'none', BLU, 0.3, '1.6 0.9'); s.lines(0.65, 7.55, [('Ceiling hatch', 600), ('0.60 × 0.80', 500)], FS, BLU)
+s.text(-1.25, 7.33, 'KITCHEN 4.90 × 2.40 m · ceiling 2.70 m', FB, INK, weight=700)
+s.text(-1.25, 7.72, 'canopy hood above · 3.25 × 0.95 · bottom at 2.05 m', FS, RED, weight=600)
+s.text(-1.05, 7.96, 'floor channel drain 3.15 × 0.08', 2.5, INK, weight=600)
+# dimensions
+for xa, xb, t in ((X0, -1.25, '1.20'), (-1.2, -0.6, '0.60'), (-0.55, 0.05, '0.60'), (0.1, 0.7, '0.60'), (0.95, 1.75, 'rear exit 0.80')): s.hdim(xa, xb, D + T + 0.12, t)
+s.hdim(X1, X0, D + T + 0.45, '4.90 inside')
+for xa, xb, t in ((-2.2, -1.4, '0.80'), (-1.4, -0.6, '0.80'), (-0.6, 0.05, '0.65'), (0.1, 0.8, 'door 0.70'), (0.85, 1.18, '0.33')): s.hdim(xa, xb, KZ - 0.08, t)
+s.vdim(X1 + T + 0.24, KZ + 0.1, D, '2.40 inside')
+s.vdim(-0.3, 7.05, 8.1, "cooks' aisle 1.05")
+for za, zb, t in ((6.45, 7.4, '0.95'), (7.4, 8.0, '0.60'), (8.0, D, '0.80')): s.vdim(X1 + T + 0.1, za, zb, t)
+# callouts. Right margin: items on the right wall, horizontal leaders at the item's own depth.
+R = s.P(XS, 0)[0] + 5
+for x, z, zt, t in ((X0 + 0.25, 8.0, 8.03, 'Back-up sauce + oil shelf above, at 1.45 m'), (X0 + 0.11, 7.84, 7.8, 'Wok seasoning rail at 1.0 m · 0.44 × 0.22'),
+                    (X0 + 0.1, 7.375, 7.375, 'Extinguishers: Class K + CO₂'), (X0 + 0.03, 6.72, 6.8, 'Pillar P2: measure on site'),
+                    (-2.32, 6.52, 6.52, 'Wet bin (pedal) · Ø 0.20')):
+    s.call(x, z, R, s.P(0, zt)[1] + 0.9, t)
+# top: dry bin, straight up past the back wall
+a, b = s.P(0.83, 8.62); ty = s.P(0, D + T + 0.78)[1]
+s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="0.6" fill="{INK}"/><polyline points="{a:.2f},{b:.2f} {a:.2f},{ty-0.9:.2f} {a+1.5:.2f},{ty-0.9:.2f}" fill="none" stroke="{INK}" stroke-width="0.2"/><text x="{a+2:.2f}" y="{ty:.2f}" font-size="{FS}" fill="{INK}">Dry bin (pedal) Ø 0.20 · keeps the rear exit clear</text>')
+# bottom: front-wall items. Stair-stepped rows, rightmost item on the top row, so no leader crosses any text.
+bot = [(-2.05, 6.63, 'Colour-coded board rack in slots under the bench (4 boards)'), (-1.9, KZ + 0.13, 'Fire blanket on the wall'),
+       (-1.6, 6.55, 'Chilled mise-en-place rail on the bench · 0.76 × 0.26'), (-1.2, KZ + 0.13, 'Magnetic knife strips on the wall over both benches · 0.40 each'),
+       (-0.78, 6.6, '10 L rice cooker · Ø 0.30'), (-0.55, 6.99, 'Dip + garnish rail on the pass · ticket rail above the hatch'),
+       (0.2, KZ + 0.1, 'Kitchen door 0.70, opens in · 3 apron hooks inside · insect killer above'), (0.92, 6.6, 'Hand-wash sink 0.33 × 0.40 · hands-free tap')]
+y0 = s.P(0, KZ - 0.42)[1]
+for i, (x, z, t) in enumerate(bot):
+    a, b = s.P(x, z); ty = y0 + i * 4.3
+    s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="0.6" fill="{INK}"/><polyline points="{a:.2f},{b:.2f} {a:.2f},{ty-0.9:.2f} {a+1.5:.2f},{ty-0.9:.2f}" fill="none" stroke="{INK}" stroke-width="0.2"/><text x="{a+2:.2f}" y="{ty:.2f}" font-size="{FS}" fill="{INK}">{t}</text>')
+s.scalebar(12, 252, 'PLAN 1:25 on A3 · dimensions in metres')
+s.add(f'<text x="12" y="263" font-size="{FS}" fill="{MUT}">Back wall at the top, dining room at the bottom; left and right as you walk in from the road. Dashed red: canopy hood above.</text>')
+s.add(f'<text x="12" y="267.5" font-size="{FS}" fill="{MUT}">Dashed blue: ceiling hatch and fridge door swings. Dashed grey: shelves above. Heights, exhaust and services: sheet 2.</text>')
+eq = [('Wok range, 2 burners (Chinese)', '1.20 × 0.70 × 0.80', '1'), ('Dim sum steamer, 2 holes', '0.60 × 0.70 × 0.80', '1'), ('Twin-tank fryer (veg / non-veg)', '0.60 × 0.70 × 0.90', '1'),
+      ('Stock range, 2 burners', '0.60 × 0.70 × 0.85', '1'), ('Canopy hood, baffle filters, suppression', '3.25 × 0.95 × 0.55', '1'), ('Non-veg prep bench, undershelf, shelf over', '0.80 × 0.65 × 0.90', '1'),
+      ('Veg / dumpling bench, 2 shelves over', '0.80 × 0.65 × 0.90', '1'), ('Under-counter freezer (in the veg bench)', '2 doors', '1'), ('Pass bench + 2 heat lamps', '0.65 × 0.65 × 0.90', '1'),
+      ('Hand-wash sink, hands-free tap', '0.33 × 0.40', '1'), ('2-door reach-in fridge', '0.95 × 0.75 × 2.00', '1'), ('Under-counter dishwasher + drainboard', '0.60 × 0.65 × 0.90', '1'),
+      ('2-bowl sink + pre-rinse spray', '0.80 × 0.65 × 0.90', '1'), ('Shelves over the dish line', '1.40 × 0.35', '2'), ('Wok seasoning rail, 8 pots + 8 bottles', '0.44 × 0.22', '1'),
+      ('Back-up sauce + oil shelf', '0.90 × 0.30', '1'), ('Chilled mise-en-place rail, 5 pans', '0.76 × 0.26 × 0.22', '1'), ('Dip + garnish rail (5 inserts)', '0.65 × 0.12', '1'),
+      ('Ticket rail over the pass hatch', '0.65', '1'), ('Magnetic knife strips', '0.40', '2'), ('Colour-coded board rack + boards', '4 boards', '1'),
+      ('10 L rice cooker', 'Ø 0.30', '1'), ('Foot-pedal bins (wet, dry)', 'Ø 0.20 × 0.60', '2'), ('Apron hook rail on the door', '3 hooks', '1'),
+      ('Insect killer', '0.50 × 0.18', '1'), ('Floor channel drain', '3.15 × 0.08', '1'), ('Ceiling hatch + fold-down ladder', '0.60 × 0.80', '1'),
+      ('Extinguishers: Class K 6 L, CO₂ 4.5 kg', 'wall brackets', '2'), ('Fire blanket, first-aid box', '—', '1 each')]
+CX = 300
+t, y = table(eq, CX, 36, (CX, CX + 70, CX + 104), ('EQUIPMENT', 'W × D × H (m)', 'QTY'), 4.15, FS, width=111)
+s.add(f'<text x="{CX-1.5}" y="31.5" font-size="{FB}" font-weight="700" fill="{INK}">Equipment list</text>' + t)
+nb, y = notes_block([('Notes', ['Benches stainless steel 304, 0.90 m high; hot line 0.70 deep.', 'Kitchen 4.90 × 2.40 m inside; PVC ceiling at 2.70 m with a', 'storage deck above (1.7 m clear) reached by the hatch.',
+                                'Sized to the 22-dish menu: Tangra Indo-Chinese wok dishes,', 'dim sum, bao, Korean bar food; about 60–80 covers a day.',
+                                'Positions are from the 3D model; check every wall and', 'pillar P2 on site before fabrication.'])], CX - 1.5, y + 5)
+s.add(nb)
+sheet1 = frame('Kitchen equipment layout', 'For commercial kitchen equipment vendors · plan at 1:25 on A3 · every item named and sized on the drawing', 1, ''.join(s.o))
+
+# ======================================================================= SHEET 2: services + exhaust
+s = Sheet(12, 30, X1 + T + 0.3, D + T + 0.8)
+s.shell()
+s.rect(XS - 0.5, XS, KZ - 0.35, D + T, '#ece6db', 'none')
+s.add(f'<text x="12" y="{s.P(0, D+T+0.62)[1]:.2f}" font-size="{FS}" fill="{MUT}">OUTSIDE · back (parking)</text>')
+# equipment as light outlines with names
+for xa, xb, za, zb, t in ((X0, -1.25, 8.1, D, 'wok range'), (-1.2, -0.6, 8.1, D, 'steamer'), (-0.55, 0.05, 8.1, D, 'fryer'), (0.1, 0.7, 8.1, D, 'stock'),
+                          (-2.2, -1.4, KZ + 0.115, 7.05, 'non-veg prep'), (-1.4, -0.6, KZ + 0.115, 7.05, 'veg prep'), (-0.6, 0.05, KZ + 0.115, 7.05, 'pass'),
+                          (0.85, 1.18, KZ + 0.115, 6.8, ''), (1.7, X1, 6.45, 7.4, 'reach-in'), (1.8, X1, 7.4, 8.0, 'dishwasher'), (1.8, X1, 8.0, D, 'sink')):
+    s.rect(xa, xb, za, zb, '#f4f4f2', '#9aa0a5', 0.25)
+    if t: s.text(((xa + xb) / 2 if xa < 1.6 else xa + 0.2), (8.25 if za > 8 and xa < 1.6 else (za + zb) / 2 + (0.12 if xa < 1.6 else 0)), t, FS, '#7d858b', weight=600, rot=(90 if xa > 1.6 else 0))
+# EXHAUST (red)
+s.rect(X0 + 0.02, 0.8, 7.85, D - 0.02, 'none', RED, 0.45, '2.2 1.2'); s.text(-1.5, 7.72, 'canopy hood above · bottom 2.05 m', FS, RED, weight=600)
+s.rect(-1.6, -1.1, 8.4, D, 'none', RED, 0.35, '1.4 0.8')
+EX = '#c4442a'
+for xa, xb, za, zb in ((-1.6, -1.1, D, D + T), (XS - 0.45, -1.1, D + T, D + T + 0.4), (XS - 0.45, XS - 0.05, D - 0.35, D + T + 0.4)): s.rect(xa, xb, za, zb, '#f3e0dc', EX, 0.3, '1.4 0.8')
+s.rect(XS - 0.5, XS + 0.02, D - 1.35, D - 0.35, '#e8c9c2', RED, 0.4); s.text(XS - 0.24, D - 1.05, 'E3 ESP', FS, RED, weight=700, rot=-90)
+s.circ(XS - 0.25, D - 1.55, 0.18, '#f3e0dc', EX, 0.3); s.text(XS - 0.25, D - 1.55, 'E4', FS, RED, weight=700)
+s.rect(XS - 0.5, XS - 0.05, D - 1.95, D - 1.75, '#f3e0dc', EX, 0.3, '1.4 0.8')
+a, b = s.P(XS - 0.5, D - 1.85); s.add(f'<path d="M{a:.2f} {b:.2f} l6 0 m0 0 l-1.8 -1.2 m1.8 1.2 l-1.8 1.2" stroke="{RED}" stroke-width="0.45" fill="none"/><text x="{a+7.5:.2f}" y="{b+0.9:.2f}" font-size="{FS}" font-weight="700" fill="{RED}">E5 out</text>')
+s.text(-1.35, 8.47, 'E1', FS, RED, weight=700); s.text(-2.0, D + T + 0.2, 'E2 duct outside, 0.40 × 0.40 at 2.35–2.75 m', FS, RED, weight=700)
+s.rect(-0.6, -0.05, 7.42, 7.8, 'none', GRN, 0.35, '1 0.6'); s.text(-0.325, 7.61, 'MA grille', FS, GRN, weight=700)
+s.rect(1.9, 2.4, D + T, D + T + 0.3, '#e1eadc', GRN, 0.3); s.text(2.15, D + T + 0.15, 'F1', FS, GRN, weight=700)
+# GAS (gold): from the cage on the side strip, along the outside wall at 1.3 m, in behind the wok, manifold along the back
+s.line(XS - 0.06, KZ - 0.3, XS - 0.06, 8.45, GAS, 0.7); s.line(XS - 0.06, 8.45, X0 + 0.06, 8.45, GAS, 0.7)
+s.line(X0 + 0.06, 8.45, X0 + 0.06, 8.74, GAS, 0.7); s.line(X0 + 0.06, 8.74, 0.62, 8.74, GAS, 0.55, '1.6 0.8')
+for x in (-2.1, -1.6, -0.9, -0.25, 0.25, 0.55): s.circ(x, 8.74, 0.035, GAS, GAS, 0.2)
+s.rect(X0 + 0.1, X0 + 0.24, 8.67, 8.81, '#fff', GAS, 0.35); s.text(X0 + 0.17, 8.74, 'S', FS, GAS, weight=700)
+s.circ(X0 + 0.32, 8.2, 0.075, '#fff', GAS, 0.3); s.text(X0 + 0.32, 8.2, 'L', FS, GAS, weight=700)
+a, b = s.P(XS - 0.06, KZ - 0.3); s.add(f'<path d="M{a:.2f} {b+3:.2f} l0 -3 m0 0 l-1.1 1.6 m1.1 -1.6 l1.1 1.6" stroke="{GAS}" stroke-width="0.5" fill="none"/>')
+# WATER (blue points) and DRAINS (blue dashed)
+for x, z, t in ((2.2, 8.55, 'HC'), (2.2, 8.25, 'C'), (2.2, 7.85, 'C'), (1.015, 6.45, 'HC'), (-1.85, 8.55, 'C'), (-0.9, 8.55, 'C')):
+    s.circ(x, z, 0.075, '#fff', BLU, 0.35); s.text(x, z, t, FS, BLU, weight=700)
+s.rect(-2.4, 0.75, 7.92, 8.0, '#cfe0ea', BLU, 0.25)
+DZ = D - 0.16
+for (xa, za, xb, zb) in ((2.2, 7.6, X1 - 0.07, 7.6), (X1 - 0.07, 7.6, X1 - 0.07, DZ), (X1 - 0.07, DZ, XS - 0.25, DZ), (XS - 0.25, DZ, XS - 0.25, 8.6),
+                         (-2.4, 7.96, XS - 0.25, 7.96), (XS - 0.25, 7.96, XS - 0.25, 8.15)): s.line(xa, za, xb, zb, BLU, 0.4, '1.2 0.7')
+s.rect(XS - 0.45, XS - 0.05, 8.15, 8.6, '#e6ecef', BLU, 0.35); s.text(XS - 0.25, 8.25, 'GT', FS, BLU, weight=700)
+for x, z in ((2.2, 8.4), (2.2, 7.6), (1.015, 6.62), (-0.9, 8.4), (-1.85, 8.4)):
+    a, b = s.P(x, z); s.add(f'<path d="M{a-1:.2f} {b-0.8:.2f} l2 0 l-1 1.7 z" fill="{BLU}"/>')
+# POWER (purple squares)
+pw = [('1', 2.0, 6.62), ('2', -1.0, 6.55), ('3', -0.55, 6.55), ('4', -1.6, 6.5), ('5', -0.28, 6.55), ('6', 2.05, 7.47), ('7', 0.45, 6.5), ('8', 0.6, 7.7), ('9', 1.25, 8.42)]
+for n, x, z in pw:
+    a, b = s.P(x, z); s.add(f'<rect x="{a-2.2:.2f}" y="{b-2.2:.2f}" width="4.4" height="4.4" fill="#fff" stroke="{PWR}" stroke-width="0.35"/><text x="{a:.2f}" y="{b+0.9:.2f}" font-size="{FS}" font-weight="700" fill="{PWR}" text-anchor="middle">{n}</text>')
+# fire: suppression pull + gas cut-off, heat detector
+s.rect(0.76, 0.92, D - 0.07, D, '#c8231b', '#c8231b', 0.2); s.text(0.88, 8.45, 'SP', FS, RED, weight=700); s.circ(0.3, 7.6, 0.075, '#fff', RED, 0.3); s.text(0.3, 7.6, 'H', FS, RED, weight=700)
+s.text(XS - 0.27, 6.4, 'G gas line at 1.3 m', FS, GAS, weight=700, rot=-90)
+s.scalebar(110, 187, 'PLAN 1:25 on A3 · metres')
+a, b = s.P(XS - 0.06, KZ - 0.3); s.add(f'<text x="{a+2:.2f}" y="{b+2:.2f}" font-size="{FS}" fill="{GAS}" font-weight="600">from the LPG cage (4 × 19 kg)</text>')
+# ---- hot-line elevation at 1:40
+E = 25.0; EOX, EOY = 40, 276     # EOY = floor line
+def Q(x, y): return (EOX + (X1 - x) * E, EOY - y * E)
+def er(xa, xb, ya, yb, fill='none', stroke=INK, sw=0.3, dash=None):
+    (a, b), (c, d) = Q(max(xa, xb), max(ya, yb)), Q(min(xa, xb), min(ya, yb))
+    return f'<rect x="{a:.2f}" y="{b:.2f}" width="{c-a:.2f}" height="{d-b:.2f}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"' + (f' stroke-dasharray="{dash}"' if dash else '') + '/>'
+def et(x, y, t, size=FS, fill=INK, anchor='middle', weight=500):
+    a, b = Q(x, y); return f'<text x="{a:.2f}" y="{b+size*0.35:.2f}" font-size="{size}" fill="{fill}" text-anchor="{anchor}" font-weight="{weight}">{t}</text>'
+def el(xa, ya, xb, yb, stroke=INK, sw=0.3, dash=None):
+    a, b = Q(xa, ya); c, d = Q(xb, yb); return f'<line x1="{a:.2f}" y1="{b:.2f}" x2="{c:.2f}" y2="{d:.2f}" stroke="{stroke}" stroke-width="{sw}"' + (f' stroke-dasharray="{dash}"' if dash else '') + '/>'
+def edim(x, ya, yb, t):
+    a, b = Q(x, ya); _, d = Q(x, yb)
+    return (f'<g stroke="{RED}" stroke-width="0.25"><line x1="{a:.2f}" y1="{b:.2f}" x2="{a:.2f}" y2="{d:.2f}"/><line x1="{a-1:.2f}" y1="{b:.2f}" x2="{a+1:.2f}" y2="{b:.2f}"/><line x1="{a-1:.2f}" y1="{d:.2f}" x2="{a+1:.2f}" y2="{d:.2f}"/></g>'
+            f'<text x="{a-1.2:.2f}" y="{(b+d)/2+0.8:.2f}" font-size="{FS}" fill="{RED}" font-weight="600" text-anchor="end">{t}</text>')
+ev = [f'<text x="{EOX}" y="{EOY - 3.0*E - 4:.2f}" font-size="{FB}" font-weight="700" fill="{INK}">Hot line elevation · back wall seen from inside · 1:40 on A3</text>',
+      er(X0, X1, 0, KC, '#ffffff', 'none'), er(X0, X1, 0, 2.1, '#f2f4f2', 'none'), er(X0, X1, KC, 2.78, '#cdbfa8', 'none'), er(X0, X1, 2.78, 3.0, '#f4efe6', 'none'),
+      et(1.6, 2.89, 'storage deck above', 2.5, MUT), el(X0, 0, X1, 0, INK, 0.6), er(X0 - 0.04, X0, 0, 3.0, WALL, WALL, 0.1), er(X1, X1 + 0.04, 0, 3.0, WALL, WALL, 0.1)]
+for xa, xb, h, t in ((X0, -1.25, 0.8, 'wok range'), (-1.2, -0.6, 0.8, 'steamer'), (-0.55, 0.05, 0.9, 'fryer'), (0.1, 0.7, 0.85, 'stock')):
+    ev += [er(xa, xb, 0, h, HOT, INK, 0.3), et((xa + xb) / 2, h - 0.2, t, FS, '#fff', weight=700)]
+ev += [er(X0 + 0.02, 0.8, 2.05, 2.6, '#e6e3de', RED, 0.45), et(-0.8, 2.25, 'canopy hood 3.25 × 0.95 × 0.55', FS, RED, weight=600),
+       er(-1.6, -1.1, 2.35, 2.75, '#f3e0dc', RED, 0.3, '1.2 0.6'), et(-1.68, 2.89, 'E1 duct out 0.40 × 0.40 at 2.35–2.75 m', 2.5, RED, 'end', 600),
+       el(X0 + 0.05, 0.4, 0.62, 0.4, GAS, 0.5, '1.6 0.8'),
+       el(-1.85, 0.8, -1.85, 1.12, BLU, 0.4), et(-1.85, 1.24, 'wok tap', FS, BLU),
+       er(0.95, 1.75, 0, 2.1, '#fbf7ef', INK, 0.3), et(1.35, 1.1, 'rear exit', FS, MUT), et(1.35, 0.9, '0.80 × 2.10', FS, MUT), el(1.05, 1.0, 1.65, 1.0, INK, 0.5),
+       er(0.76, 0.92, 1.3, 1.5, '#c8231b', '#c8231b', 0.1), er(0.73, 0.93, 0, 0.6, '#d6e2ef', BLU, 0.25),
+       er(1.8, X1, 0, 0.9, STEEL, INK, 0.3), et(2.12, 0.45, 'sink', FS, weight=700), er(2.1, X1, 1.45, 1.48, STEEL, INK, 0.2), er(2.1, X1, 1.85, 1.88, STEEL, INK, 0.2),
+       er(X0, X0 + 0.3, 1.45, 1.48, STEEL, INK, 0.2), er(X0, X0 + 0.22, 0.97, 1.04, '#e6ecef', BLU, 0.25),
+       edim(X1 + 0.3, 0, 0.8, '0.80'), edim(X1 + 0.62, 0, 2.05, '2.05'), edim(X1 + 0.94, 0, KC, '2.70'), et(0.84, 1.62, 'SP', FS, RED, weight=700)]
+a, b = Q(X1, -0.25); ev.append(f'<text x="{a:.2f}" y="{b+1.5:.2f}" font-size="{FS}" fill="{MUT}">left wall</text>')
+a, b = Q(X0, -0.25); ev.append(f'<text x="{a:.2f}" y="{b+1.5:.2f}" font-size="{FS}" fill="{MUT}" text-anchor="end">right wall (wok side)</text>')
+s.add(''.join(ev))
+# ---- legend
+LX, LY = 180, 200
+leg = [f'<text x="{LX}" y="{LY}" font-size="{FB}" font-weight="700" fill="{INK}">Legend</text>']
+items = [('line', RED, '2.2 1.2', 'canopy hood outline (above)'), ('line', EX, '1.4 0.8', 'exhaust duct, outside, at 2.35–2.75 m'), ('line', GAS, None, 'gas line, copper'),
+         ('line', GAS, '1.6 0.8', 'gas manifold at 0.40 m · dot = appliance valve'), ('box', GAS, 'S', 'solenoid shut-off valve'), ('circ', GAS, 'L', 'gas leak detector'),
+         ('circ', BLU, 'HC', 'water point: hot + cold (C = cold only)'), ('tri', BLU, None, 'drain point'), ('line', BLU, '1.2 0.7', 'drain line to the grease trap'),
+         ('box', PWR, '1', 'power point, see the services list'), ('line', GRN, '1 0.6', 'make-up (fresh) air grille in the ceiling'), ('circ', RED, 'H', 'heat detector'),
+         ('sq', RED, None, 'SP suppression pull + gas cut-off')]
+y = LY + 6
+for kind, col, d, t in items:
+    if kind == 'line': leg.append(f'<line x1="{LX}" y1="{y-0.9}" x2="{LX+9}" y2="{y-0.9}" stroke="{col}" stroke-width="0.6"' + (f' stroke-dasharray="{d}"' if d else '') + '/>')
+    elif kind == 'box': leg.append(f'<rect x="{LX+2.3}" y="{y-3.1}" width="4.4" height="4.4" fill="#fff" stroke="{col}" stroke-width="0.35"/><text x="{LX+4.5}" y="{y}" font-size="{FS}" font-weight="700" fill="{col}" text-anchor="middle">{d}</text>')
+    elif kind == 'circ': leg.append(f'<circle cx="{LX+4.5}" cy="{y-0.9}" r="3" fill="#fff" stroke="{col}" stroke-width="0.35"/><text x="{LX+4.5}" y="{y}" font-size="{FS}" font-weight="700" fill="{col}" text-anchor="middle">{d}</text>')
+    elif kind == 'sq': leg.append(f'<rect x="{LX+3.5}" y="{y-2.3}" width="2" height="2.6" fill="{col}"/>')
+    else: leg.append(f'<path d="M{LX+3.5} {y-1.8} l2 0 l-1 1.7 z" fill="{col}"/>')
+    leg.append(f'<text x="{LX+12}" y="{y}" font-size="{FS}" fill="{INK}">{t}</text>'); y += 6.2
+s.add(''.join(leg))
+# ---- services schedule (right column)
+CX = 300
+sv = [('E1', 'Duct through the back wall', '0.40 × 0.40 at 2.35–2.75 m', RED), ('E2', 'Duct along the wall, round the corner', '0.40 × 0.40, outside', RED),
+      ('E3', 'ESP + carbon odour filter', '0.50 × 1.00 × 0.90, 2.05–2.95 m', RED), ('E4', 'Inline exhaust fan', 'Ø 0.44 · on backup', RED),
+      ('E5', 'Side discharge, mesh + rain cowl', '0.40 × 0.40 at ~2.6 m', RED), ('F1', 'Fresh-air intake fan, back wall', '0.50 × 0.48 at 3.3 m', GRN),
+      ('MA', 'Make-up air grille, ceiling', '0.55 × 0.38', GRN), ('G', 'LPG line, copper, from the cage', 'outside wall at 1.3 m', GAS),
+      ('S', 'Solenoid valve on the gas entry', 'interlocked: fan + suppression', GAS), ('SP', 'Hood suppression pull + gas cut-off', 'at the rear exit, 1.3–1.5 m', RED), ('GT', 'Grease trap, outside back corner', '0.45 × 0.45', BLU),
+      ('1', 'Reach-in fridge', '1-ph socket · on backup', PWR), ('2', 'Under-counter freezer', '1-ph socket · on backup', PWR), ('3', 'Rice cooker', '1-ph socket', PWR),
+      ('4', 'Chilled mise-en-place rail', '1-ph socket · on backup', PWR), ('5', 'Heat lamps over the pass', '1-ph, switched', PWR), ('6', 'Dishwasher', '1-ph or 3-ph: confirm model', PWR),
+      ('7', 'Insect killer', '1-ph', PWR), ('8', 'Hood lights', '1-ph, switched', PWR), ('9', 'Exhaust fan + ESP control panel', 'by the rear exit · on backup', PWR)]
+rows = [(a, b, c, col) for a, b, c, col in sv]
+o = [f'<text x="{CX-1.5}" y="31.5" font-size="{FB}" font-weight="700" fill="{INK}">Services list</text>', f'<rect x="{CX-1.5}" y="32.7" width="111" height="4.6" fill="{INK}"/>']
+for c, t in zip((CX, CX + 9, CX + 64), ('TAG', 'ITEM', 'SIZE / NOTE')): o.append(f'<text x="{c}" y="36" font-size="{FS}" font-weight="700" fill="#fff">{t}</text>')
+y = 40.6
+for i, (tg, it, sz, col) in enumerate(rows):
+    if i % 2 == 0: o.append(f'<rect x="{CX-1.5}" y="{y-3.1}" width="111" height="4.15" fill="#f3efe6"/>')
+    o.append(f'<text x="{CX}" y="{y}" font-size="{FS}" font-weight="700" fill="{col}">{tg}</text><text x="{CX+9}" y="{y}" font-size="{FS}" fill="{INK}">{it}</text><text x="{CX+64}" y="{y}" font-size="{FS}" fill="{MUT}">{sz}</text>')
+    y += 4.15
+s.add(''.join(o))
+nb, y2 = notes_block([('Exhaust', ['Allow about 4,000–5,000 m³/h for the whole hood (vendor to', 'size); about 8 m/s in the 0.40 × 0.40 duct. ESP + carbon filter', 'before the fan. No roof stack: apartment above, parking behind.', 'Make-up air about 80% of the exhaust, interlocked.']),
+                      ('Gas', ['4 × 19 kg LPG in a locked, ventilated cage on the right strip.', 'A valve per appliance; solenoid shuts off with the fan or the', 'hood suppression; leak detector at the line entry.']),
+                      ('Water + drains', ['All kitchen drains to the grease trap, then the grey-water line', '(never the biodigester). Epoxy floor falls to the channel drain.']),
+                      ('Power', ['Shop supply: three-phase, about 15–20 kW. Backup 7.5 kVA', 'covers the fridges, rails, fan, ESP, lights. Not the ACs.'])], CX - 1.5, y + 4)
+s.add(nb)
+sheet2 = frame('Kitchen services and exhaust', 'For kitchen equipment, exhaust, gas, plumbing and electrical vendors · plan at 1:25 and elevation at 1:40 on A3', 2, ''.join(s.o))
+
+PAGE = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kitchen Sheets · Betalbatim Pub</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: two drafting-paper sheets, each with its own downloads and zoom; paper look in both themes (drawings for vendors) */
+:root{--paper:#fbf7ef;--ink:#2a2420;--muted:#6a5d4e;--rule:#d9cbb3;--accent:#b23a1e;--chip:#fffdf8;
+  --display:'Bricolage Grotesque','Avenir Next','Segoe UI',sans-serif;--body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;color-scheme:light}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:16px;padding-block:22px 40px;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font:700 clamp(26px,4vw,38px)/1.05 var(--display);margin:4px 0 6px;text-wrap:balance}
+h2{font:700 clamp(19px,2.6vw,24px)/1.15 var(--display);margin:18px 0 2px}
+.lede,.sub{margin:0;max-width:78ch;color:var(--muted);line-height:1.55}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar button,.bar a{appearance:none;font:600 13px/1 var(--body);color:var(--ink);background:var(--chip);border:1px solid var(--rule);border-radius:8px;padding:9px 12px;cursor:pointer;text-decoration:none}
+.bar a.pri{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.bar button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.bar button:focus-visible,.bar a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sheet{overflow:auto;border:1px solid var(--rule);background:var(--paper);max-height:84vh}
+.sheet svg{display:block;width:100%;height:auto}
+.sheet[data-z="2"] svg{width:200%}.sheet[data-z="3"] svg{width:300%}
+</style></head><body>
+<div class="wrap">
+<header>
+<p class="eyebrow">Simplex · Betalbatim pub · for kitchen vendors</p>
+<h1>Kitchen drawings: equipment, services and exhaust</h1>
+<p class="lede">Two A3 sheets drawn to true scale: print at 100% (no “fit to page”) and the plans measure 1:25, the elevation 1:40. Sheet 1 is for the equipment fabricator; sheet 2 is for the exhaust, gas, plumbing and electrical vendors.</p>
+</header>
+<div class="bar"><a class="pri" href="plans/kitchen-sheets-A3.pdf" target="_blank" rel="noopener">Both sheets · 2-page PDF (A3, vector)</a><a href="plan.html">Whole floor plan</a><a href="./">3D model</a></div>
+@@SHEETS@@
+</div>
+<script>
+document.querySelectorAll('.sheet').forEach(sh=>{const bs=[...document.querySelectorAll('button[data-for="'+sh.id+'"]')];
+bs.forEach(b=>b.addEventListener('click',()=>{sh.dataset.z=b.dataset.z;bs.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));}));});
+</script>
+</body></html>
+"""
+def page_block(n, slug, title, sub, svg):
+    z = ''.join(f'<button data-for="s{n}" data-z="{k}" aria-pressed="{str(k == 1).lower()}">{l}</button>' for k, l in ((1, 'Fit'), (2, '2×'), (3, '3×')))
+    return (f'<section><h2>Sheet {n} · {title}</h2><p class="sub">{sub}</p>'
+            f'<div class="bar" role="group" aria-label="Sheet {n} zoom and downloads">{z}<a class="pri" href="plans/kitchen-sheet-{slug}.pdf" target="_blank" rel="noopener">PDF</a>'
+            f'<a href="plans/kitchen-sheet-{slug}.png" target="_blank" rel="noopener">PNG 300 dpi</a></div>'
+            f'<div class="sheet" id="s{n}" data-z="1">{svg}</div></section>')
+
+d = sys.argv[1]; os.makedirs(d, exist_ok=True)
+open(d + '/kitchen-sheet-1.svg', 'w').write(sheet1); open(d + '/kitchen-sheet-2.svg', 'w').write(sheet2)
+print('sheet 1 notes end', round(y, 1), '| sheet 2 notes end', round(y2, 1))
+if '--page' in sys.argv:
+    blocks = page_block(1, '1-equipment', 'Equipment layout', 'Plan 1:25 with every item named and sized, the key dimensions and the equipment list.', sheet1) + \
+             page_block(2, '2-services', 'Services and exhaust', 'Plan 1:25 with the exhaust run, gas, water, drains and power points; hot-line elevation 1:40; legend, services list and vendor notes.', sheet2)
+    open('kitchen.html', 'w').write(PAGE.replace('@@SHEETS@@', blocks)); print('kitchen.html written')
