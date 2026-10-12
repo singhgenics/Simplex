@@ -113,7 +113,12 @@ for hz,sg in ((6.45,1),(7.4,-1)):
     out.append(f'<path d="M{ex:.1f} {ey:.1f} A{r:.1f} {r:.1f} 0 0 {0 if sg>0 else 1} {a:.1f} {b-sg*r:.1f}" fill="none" stroke="#2a6f8f" stroke-width="1" stroke-dasharray="3 3"/>')
     line(1.7,hz,1.23,hz,'#2a6f8f',1,'3 3')
 line(0.8,KZ+0.1,0.8,KZ+0.8,'#6a5d4e',1,'3 3')
-rect(X0,X0+0.3,7.15,8.05,'none','#6d7276',1,'4 3'); text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.3,7.6,'sauce shelf 0.9 × 0.3',7.5,'#6a5d4e',rot=90)
+rect(X0,X0+0.3,7.15,8.05,'none','#6d7276',1,'4 3');
+# working kit: seasoning rail, chilled mise-en-place rail, pass dip rail, board rack, pedal bins, apron hooks
+rect(X0,X0+0.22,7.62,8.06,'#e6ecef','#2a6f8f',1.1); text(X0+0.11,7.84,'seasoning',6.5,'#2a6f8f',rot=-90)
+rect(-2.18,-1.42,6.42,6.68,'none','#2a6f8f',1.1,'4 2'); rect(-0.6,0.05,6.93,7.05,'#e6ecef','#2a6f8f',1); rect(X0,X0+0.3,6.5,6.86,'#efe2c8','#8f6a4a',1)
+circ(-2.32,6.65,0.1,'#cfe0bf','#3f6a3a',1.2); circ(0.83,8.62,0.1,'#d6e2ef','#2f5f9a',1.2); text(0.45,6.98,'apron hooks on door',6.5,'#6a5d4e')
+text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.17,7.45,'back-up shelf 0.9 × 0.3 (high)',6.5,'#6a5d4e',rot=90)
 for xa,xb,t,dim in ((X0,-1.25,'wok range ×2','1.20 × 0.70 · h 0.80'),(-1.2,-0.6,'steamer','0.60 × 0.70'),(-0.55,0.05,'fryer ×2','0.60 × 0.70'),(0.1,0.7,'stock ×2','0.60 × 0.70')):
     rect(xa,xb,8.1,D,'#9aa0a5'); text((xa+xb)/2,8.36,t,9,'#fff',weight=700); text((xa+xb)/2,8.58,dim,7.5,'#fff')
 rect(X0+0.02,0.8,7.85,D-0.02,'none','#c4442a',1.3,'8 4'); text(-0.25,7.95,'hood 3.25 × 0.95 × 0.55 · bottom 2.05 m',8.5,'#b23a1e')
@@ -180,7 +185,7 @@ title='Ground floor plan · 4.9 × 8.8 m'
 sub='Betalbatim pub · Concept 27 (mirrored: washroom right, bar left; 0.45 m min between tables) · from the shop drawing (47 m² super built-up) · 18 covers inside + 8 in the garden · 26 in all'
 rows=[('Bar stools','4'),('Window tables, left (4 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the 22-dish menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Exhaust and drains shown dashed.']
+NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the 22-dish menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: seasoning rail by the wok, chilled','mise-en-place rail, pass dip + ticket rail,','knife strips, board rack, two pedal bins,','apron hooks on the kitchen door.','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''

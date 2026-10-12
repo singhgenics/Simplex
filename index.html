@@ -321,6 +321,12 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <tr><td>Fridge door swing</td><td class="d">two 0.47 m doors open into the aisle; the dish line sits beside the fridge, 0.1 m back, and the hand-wash basin stops short of the swing</td></tr>
         <tr><td>Under-counter dishwasher</td><td class="d">0.6 × 0.65 × 0.9 m, drainboard on top · left wall</td></tr>
         <tr><td>2-bowl sink + pre-rinse spray</td><td class="d">0.8 × 0.65 × 0.9 m, back left corner · 2 shelves over the dish line</td></tr>
+        <tr><td>Wok seasoning rail</td><td class="d">0.44 × 0.22 m at 1.0 m on the right wall beside the wok · 8 lidded pots + 8 squeeze bottles</td></tr>
+        <tr><td>Chilled mise-en-place rail</td><td class="d">counter-top, 0.76 × 0.26 × 0.22 m on the back of the non-veg bench · 5 pans</td></tr>
+        <tr><td>Pass</td><td class="d">dip + garnish rail 0.65 × 0.12 m (5 inserts) · ticket rail above the hatch</td></tr>
+        <tr><td>Knives + boards</td><td class="d">magnetic knife strips over both prep benches · colour-coded board rack (red, blue, green, yellow) on the right wall</td></tr>
+        <tr><td>Bins</td><td class="d">two slim foot-pedal bins, Ø 0.2 × 0.6 m: wet by the non-veg bench, dry by the rear door (exit kept clear)</td></tr>
+        <tr><td>Aprons + linen</td><td class="d">3-hook apron rail on the inside of the kitchen door · clean aprons + towels in a lidded box on the storage deck · dirty-linen bag under the sink</td></tr>
         <tr><td>Cooks’ aisle</td><td class="d">1.05 m between the hot line and the prep benches</td></tr>
         <tr><td>Doors</td><td class="d">0.7 m from the dining room · 0.8 m rear exit</td></tr>
       </table></details>
@@ -958,23 +964,48 @@ rod(V(-2.4,2.01,7.92),V(0.7,2.01,7.92),0.014,M.red,kt); [-1.85,-0.9,-0.25,0.4].f
 [-1.6,0.0].forEach(x=>bx(x-0.15,x+0.15,2.035,2.045,8.0,8.2,M.panelLight,kt,false));
 bx(-1.6,-1.1,2.35,2.6,8.4,D,M.ss,kt); // duct from the hood into the back wall, then outside (see the exhaust run)
 // right wall in front of the wok range: kept clear for the wok cook (1.05 m to the prep benches); sauce and oil shelf on the wall above
-bx(X0,X0+0.3,1.45,1.48,7.15,8.05,M.ss,kt); [7.25,7.42,7.59,7.76,7.93].forEach((z,i)=>cyl(0.045,0.045,0.18,X0+0.15,1.48,z,i%2?M.porcelain:M.ssDark,kt,10)); // sauce + oil shelf
+bx(X0,X0+0.3,1.45,1.48,7.15,8.05,M.ss,kt); [7.25,7.42,7.59,7.76,7.93].forEach((z,i)=>cyl(0.045,0.045,0.18,X0+0.15,1.48,z,i%2?M.porcelain:M.ssDark,kt,10)); // sauce + oil shelf: back-up stock
+// WOK SEASONING RAIL at elbow height, one arm's reach from the wok: 8 lidded pots (salt, sugar, MSG, white pepper, cornflour, chilli flakes, sesame, garlic)
+// and a squeeze-bottle rack above (light + dark soy, vinegar, chilli sauce, Schezwan, oyster, sesame oil, cornflour slurry)
+{bx(X0,X0+0.22,0.97,1.0,7.62,8.06,M.ss,kt); bx(X0+0.2,X0+0.22,1.0,1.04,7.62,8.06,M.ss,kt);
+ const pc=['#f4f1ec','#efe7d6','#f8f8f8','#d9d2c4','#f2efe8','#b8321c','#e9dcb0','#e8e0c8'].map(c=>S({color:c,roughness:0.8}));
+ [X0+0.06,X0+0.15].forEach((x,r)=>[7.68,7.78,7.88,7.98].forEach((z,i)=>{cyl(0.04,0.04,0.07,x,1.0,z,M.ss,kt,12);cyl(0.035,0.035,0.004,x,1.07,z,pc[r*4+i],kt,12);}));
+ bx(X0,X0+0.14,1.12,1.14,7.62,8.06,M.ss,kt); bx(X0+0.12,X0+0.14,1.14,1.2,7.62,8.06,M.ss,kt);
+ ['#3a1a0e','#120a06','#e9e2cf','#c8321e','#a8321e','#4a2a14','#c9993f','#f2efe8'].forEach((c,i)=>{const z=7.66+i*0.052;cyl(0.022,0.022,0.17,X0+0.07,1.14,z,S({color:c,roughness:0.5}),kt,10);cyl(0.006,0.012,0.04,X0+0.07,1.31,z,M.porcelain,kt,8);});}
 // front wall, inside: non-veg prep (open undershelf, red board) · veg/dumpling prep with the under-counter freezer · pass + heat lamps
 bx(-2.2,-1.4,0.84,0.9,KZ+0.115,7.05,M.ss,kt); bx(-2.2,-1.4,0.15,0.18,KZ+0.13,7.03,M.ss,kt); [[-2.17,6.45],[-1.43,6.45],[-2.17,7.02],[-1.43,7.02]].forEach(([x,z])=>bx(x-0.02,x+0.02,0,0.84,z-0.02,z+0.02,M.ss,kt));
-bx(-2.0,-1.6,0.9,0.92,6.55,6.95,M.boardRed,kt); bx(-2.2,-1.4,1.45,1.48,KZ+0.115,6.75,M.ss,kt); [-2.05,-1.8,-1.55].forEach(x=>cyl(0.07,0.07,0.16,x,1.48,6.6,M.porcelain,kt,10));
+bx(-2.0,-1.6,0.9,0.92,6.72,7.02,M.boardRed,kt); bx(-2.2,-1.4,1.45,1.48,KZ+0.115,6.75,M.ss,kt);
+// CHILLED MISE-EN-PLACE RAIL on the back of the non-veg bench, right behind the wok cook (counter-top unit, 0.76 × 0.26 m): chopped garlic, ginger, green chilli, spring onion, capsicum + onion
+{bx(-2.18,-1.42,0.9,1.12,6.42,6.68,M.ss,kt); bx(-2.18,-1.42,0.92,1.02,6.68,6.685,M.black,kt,false);
+ [['#efe6c9',-2.08],['#d9b25a',-1.93],['#3f8a3a',-1.79],['#8cc56a',-1.64],['#c84a2a',-1.5]].forEach(([c,x])=>bx(x-0.065,x+0.065,1.12,1.126,6.45,6.65,S({color:c,roughness:0.9}),kt,false));}
+// MAGNETIC KNIFE STRIPS over both prep benches (red handles over the non-veg bench) and a colour-coded board rack on the right wall at the bench end
+[[-1.84,-1.44,'#a8321e'],[-1.35,-0.95,'#2f7a4a']].forEach(([a,b,c])=>{bx(a,b,1.33,1.37,KZ+0.1,KZ+0.125,M.black,kt);for(let x=a+0.05;x<b-0.03;x+=0.08){bx(x-0.012,x+0.012,1.16,1.33,KZ+0.125,KZ+0.13,M.ss,kt,false);bx(x-0.014,x+0.014,1.33,1.43,KZ+0.125,KZ+0.14,S({color:c,roughness:0.6}),kt,false);}});
+{bx(X0,X0+0.3,1.0,1.03,6.5,6.86,M.ss,kt);[['#a8321e',6.55],['#2f6f9f',6.63],['#2f7a4a',6.71],['#d9b25a',6.79]].forEach(([c,z])=>bx(X0+0.02,X0+0.3,1.03,1.45,z-0.01,z+0.01,S({color:c,roughness:0.7}),kt));}
+// FOOT-PEDAL BINS: wet (slim, at the end of the non-veg bench) and dry (slim, between the stock range and the rear door; the exit stays clear)
+cyl(0.1,0.1,0.58,-2.32,0,6.65,S({color:'#3f6a3a',roughness:0.6}),kt,16); cyl(0.105,0.105,0.03,-2.32,0.58,6.65,M.ss,kt,16);
+cyl(0.1,0.1,0.58,0.83,0,8.62,S({color:'#2f5f9a',roughness:0.6}),kt,16); cyl(0.105,0.105,0.03,0.83,0.58,8.62,M.ss,kt,16);
+// PASS: dip + garnish rail along the kitchen edge of the pass ledge (chilli oil, black vinegar, soy, spring onion, sesame) and a ticket rail above the hatch
+{bx(-0.6,0.05,1.03,1.07,6.93,7.05,M.ss,kt); [['#8a1e10',-0.53],['#1a0e08',-0.41],['#3a1a0e',-0.29],['#8cc56a',-0.17],['#e9dcb0',-0.05]].forEach(([c,x])=>bx(x-0.05,x+0.05,1.07,1.074,6.95,7.03,S({color:c,roughness:0.8}),kt,false));
+ bx(-0.6,0.05,1.9,1.94,KZ+0.1,KZ+0.14,M.ss,kt); [-0.48,-0.28,-0.08].forEach(x=>plane(0.08,0.12,M.porcelain,x,1.83,KZ+0.145,0,kt));} [-2.05,-1.8,-1.55].forEach(x=>cyl(0.07,0.07,0.16,x,1.48,6.6,M.porcelain,kt,10));
 bx(-1.4,-0.6,0,0.9,KZ+0.115,7.05,M.ss,kt); [-1.2,-0.8].forEach(x=>{bx(x-0.2,x+0.2,0.1,0.78,7.05,7.06,M.ssDark,kt,false);bx(x-0.1,x+0.1,0.7,0.72,7.06,7.09,M.ss,kt);}); // u/c freezer doors
 bx(-1.35,-0.95,0.9,0.92,6.5,6.95,M.board,kt); for(let x=-1.3;x<=-1.0;x+=0.07)for(let z=6.55;z<=6.9;z+=0.07){const d=sph(0.022,x,0.935,z,M.dough,kt);d.scale.y=0.7;}
 cyl(0.15,0.15,0.3,-0.78,0.9,6.75,M.ss,kt,20); cyl(0.15,0.13,0.04,-0.78,1.2,6.75,M.ssDark,kt,20); // 10 L rice cooker
 bx(-1.4,-0.6,1.5,1.53,KZ+0.115,6.75,M.ss,kt); bx(-1.4,-0.6,1.85,1.88,KZ+0.115,6.75,M.ss,kt); [-1.25,-1.0,-0.75].forEach(x=>{cyl(0.07,0.07,0.2,x,1.53,6.58,M.porcelain,kt,10);cyl(0.07,0.07,0.18,x,1.88,6.58,M.ssDark,kt,10);});
 bx(-0.6,0.05,0,0.9,KZ+0.115,7.05,M.ss,kt); [-0.42,-0.13].forEach(x=>{bx(x-0.14,x+0.14,1.68,1.74,KZ+0.12,6.8,M.ssDark,kt);bx(x-0.11,x+0.11,1.66,1.68,6.55,6.75,M.heat,kt,false);});
 rod(V(-0.6,1.62,KZ+0.13),V(0.05,1.62,KZ+0.13),0.01,M.brass,kt); [-0.4,-0.14].forEach(x=>cyl(0.12,0.1,0.03,x,0.9,6.85,M.porcelain,kt,16));
-door(0.8,KZ+0.12,0.7,Math.PI+0.75,M.ss,kt);
+// KITCHEN DOOR with a 3-hook apron rail on its kitchen side: aprons on as you walk in (then wash hands at the basin beside the door), off on the way out to the WC
+{const g=new THREE.Group(),apM=['#2b2b2b','#5f6b4a','#9a4a2c'].map(c=>S({color:c,roughness:0.95,side:THREE.DoubleSide}));
+ bx(0,0.7,0,2.05,-0.02,0.02,M.ss,g); bx(0.08,0.62,1.64,1.67,-0.035,-0.02,M.ss,g);
+ [0.15,0.35,0.55].forEach((x,i)=>{bx(x-0.01,x+0.01,1.6,1.66,-0.06,-0.035,M.ss,g);const a=new THREE.Mesh(new THREE.PlaneGeometry(0.26,0.62),apM[i]);a.position.set(x,1.3,-0.065);a.rotation.y=Math.PI;g.add(a);});
+ g.position.set(0.8,0,KZ+0.12);g.rotation.y=Math.PI+0.75;kt.add(g);}
 bx(0.85,1.18,0.75,0.9,KZ+0.115,6.8,M.ss,kt); rod(V(1.015,0.9,6.5),V(1.015,1.1,6.5),0.01,M.ss,kt); bx(0.9,1.13,1.25,1.5,KZ+0.115,6.48,M.porcelain,kt); // compact hand-wash sink at the door, clear of the fridge door's swing (which reaches x 1.22)
 bx(0.2,0.7,2.2,2.38,KZ+0.115,6.48,M.uv,kt,false); // insect killer over the door
 // left wall, front to back: slim 2-door reach-in by the kitchen door · under-counter dishwasher · 2-bowl sink with a pre-rinse spray in the back corner; clean-plate shelves above the dish line
 bx(1.7,X1,0,2.0,6.45,7.4,M.ss,kt); bx(1.69,1.7,0.15,1.95,6.915,6.935,M.black,kt,false); [6.55,7.3].forEach(z=>rod(V(1.65,0.9,z),V(1.65,1.4,z),0.012,M.ss,kt)); // slim 2-door reach-in, doors facing the aisle
 bx(1.8,X1,0,0.9,7.4,8.0,M.ss,kt); bx(1.79,1.8,0.1,0.8,7.43,7.97,M.ssDark,kt,false); bx(1.785,1.79,0.72,0.75,7.5,7.9,M.black,kt,false); // u/c dishwasher + drainboard
-bx(1.8,X1,0,0.9,8.0,D,M.ss,kt); bx(1.95,2.32,0.65,0.91,8.05,8.4,M.ssDark,kt); bx(1.95,2.32,0.65,0.91,8.43,8.76,M.ssDark,kt); // 2-bowl sink
+bx(1.8,X1,0.62,0.9,8.0,D,M.ss,kt); bx(1.95,2.32,0.62,0.91,8.05,8.4,M.ssDark,kt); bx(1.95,2.32,0.62,0.91,8.43,8.76,M.ssDark,kt); // 2-bowl sink on legs
+[[1.83,8.03],[2.42,8.03],[1.83,8.77],[2.42,8.77]].forEach(([x,z])=>bx(x-0.02,x+0.02,0,0.62,z-0.02,z+0.02,M.ss,kt)); bx(1.82,X1-0.02,0.14,0.17,8.02,D-0.02,M.ss,kt); // open undershelf
+{const lb=cyl(0.15,0.13,0.42,2.12,0.17,8.55,S({color:'#cfc6b4',roughness:1}),kt,14);} // dirty-linen bag, lidded
 rod(V(2.38,0.9,8.4),V(2.38,1.7,8.4),0.015,M.ss,kt); rod(V(2.38,1.7,8.4),V(2.15,1.55,8.4),0.012,M.ss,kt);
 [1.45,1.85].forEach(y=>bx(2.1,X1,y,y+0.03,7.4,D,M.ss,kt)); for(let z=7.5;z<8.7;z+=0.22) cyl(0.11,0.11,0.12,2.27,1.48,z,M.porcelain,kt,14);
 // fresh-air (make-up) supply grille in the ceiling in front of the hood, interlocked with the exhaust
@@ -996,7 +1027,7 @@ plane(1.66,0.28,M.neonPink,-0.55,3.75,KZ-0.006,Math.PI,G.kceil); plane(1.4,0.55,
    if(al==='z'){for(let z=c;z<d-0.3;z+=0.38)bx(a,b,y1+yy,y1+yy+0.28+r()*0.1,z,z+0.32,k?M.cane:M.linen,st);}else{for(let x=a;x<b-0.3;x+=0.38)bx(x,x+0.32,y1+yy,y1+yy+0.28+r()*0.1,c,d,k?M.cane:M.linen,st);}});});
  [[-0.8,6.75],[-0.35,6.75],[-0.8,7.2]].forEach(([x,z])=>{const sk=cyl(0.2,0.22,0.45,x,y1,z,M.linen,st,10);sk.scale.z=0.75;});
  cyl(0.075,0.075,0.6,1.9,y1,7.0,M.steel,st,14); bx(X0+0.08,X0+0.38,y1+0.98,y1+1.06,7.2,7.55,M.black,st);
- bx(-0.3,0.3,H-0.06,H-0.02,7.5,7.7,M.glow,st,false);
+ bx(-0.3,0.3,H-0.06,H-0.02,7.5,7.7,M.glow,st,false); bx(1.05,1.5,y1,y1+0.32,7.2,7.55,M.oliveWood,st); bx(1.04,1.51,y1+0.32,y1+0.35,7.19,7.56,M.timber,st); // lidded box: clean aprons + kitchen towels
  bx(hx0,hx1,KC-0.055,KC-0.045,hz0,hz0+0.03,M.black,G.kceil,false); bx(hx0,hx1,KC-0.055,KC-0.045,hz1-0.03,hz1,M.black,G.kceil,false); bx(hx0,hx0+0.03,KC-0.055,KC-0.045,hz0,hz1,M.black,G.kceil,false); bx(hx1-0.03,hx1,KC-0.055,KC-0.045,hz0,hz1,M.black,G.kceil,false);
  rod(V(0.65,KC-0.05,7.9),V(0.65,2.1,7.9),0.004,M.red,G.kitchen); sph(0.025,0.65,2.08,7.9,M.red,G.kitchen);}
 
@@ -1298,7 +1329,7 @@ const LBL=[
  ['Canopy hood 3.25 × 0.95 · baffles · fire suppression',-0.8,2.5,8.2,'k'],['Slim 2-door reach-in (1.0 m) · by the kitchen door',2.08,2.15,6.92,'k'],['Wok cook stands here · clear to the right wall',-1.85,0.6,7.55,'k'],['Sauce + oil shelf',X0+0.15,1.75,7.6,'k'],
  ['Non-veg prep · open undershelf',-1.8,1.3,6.75,'k'],['Dumpling / veg prep · u/c freezer',-1.05,1.05,6.75,'k'],['10 L rice cooker',-0.78,1.4,6.75,'k'],['Pass + heat lamps · hatch to the dining room',-0.28,1.95,6.7,'k'],
  ['Hand-wash sink at the door · clear of the fridge doors',1.0,1.6,6.6,'k'],['Dishwasher + drainboard',2.1,1.15,7.7,'k'],['2-bowl sink · pre-rinse spray',2.1,1.15,8.4,'k'],['Floor drain + grease trap',-0.8,0.25,7.96,'k'],
- ['Rear exit · opens outward · panic bar',1.35,2.3,D,'k'],['Fresh-air (make-up) grille',-0.3,KC-0.1,7.6,'k'],
+ ['Rear exit · opens outward · panic bar',1.35,2.3,D,'k'],['Wok seasoning rail · dry pots + squeeze bottles',X0+0.12,1.45,7.84,'k'],['Chilled mise-en-place rail',-1.8,1.35,6.55,'k'],['Dip + garnish rail · ticket rail above',-0.28,2.15,6.95,'k'],['Knife strips · colour-coded board rack',-1.4,1.6,6.45,'k'],['Wet bin (pedal)',-2.32,0.85,6.65,'k'],['Dry bin (pedal)',0.83,0.85,8.62,'k'],['Apron hooks on the kitchen door',0.45,1.95,6.65,'k'],['Dirty-linen bag under the sink',2.12,0.75,8.55,'k'],['Clean aprons + towels (lidded box)',1.28,3.25,7.38,'k'],['Fresh-air (make-up) grille',-0.3,KC-0.1,7.6,'k'],
  // outside, right side + back
  ['Parking behind: nothing stored here',0,0.6,D+3.0,'o'],['Kitchen exhaust: out the back, round the corner, low side discharge',-2.2,3.05,D+0.4,'k'],['ESP + carbon odour filter · fan',XS-0.3,3.15,D-0.85,'k'],['Discharge at ~2.6 m, pointing away from the building',XS-0.5,3.0,D-1.85,'k'],
  ['LPG bank · 4 × 19 kg in one row · locked, ventilated',XS-0.22,1.85,4.0,'k'],['Slim bin store · 3 × 60 L, emptied daily',XS-0.22,1.25,2.7,'k'],['AC outdoor units',XS-0.15,3.75,1.5,'k'],['0.5 m service strip · cars pass beyond',XS-0.25,0.4,6.0,'k'],['Steel bollards',XS-0.52,1.05,3.0,'k'],['Power backup · slim wall cabinet · 7.5 kVA inverter + 10 kWh lithium',XS-0.18,2.15,0.75,'k'],['Fresh-air intake (high, away from the exhaust)',2.15,3.95,D+T+0.15,'k'],['Soil vent pipe up the wall · to the roof, or an air-admittance valve',XS-0.16,3.3,5.95,'k'],['Inspection chamber 1 · WC pipe out of the wall · sealed, gas-tight',XS-0.25,0.45,5.95,'k'],['Grease trap · kitchen + bar',XS-0.25,0.45,8.37,'k'],['WC exhaust · ducted to the back wall, high, away from the gas',-1.92,4.3,D+T+0.1,'k'],['WC exhaust fan · ceiling grille, duct runs over the store to the back wall',-1.92,3.35,5.42,'g'],['Inspection chamber 2 · the pipe turns in under the garden',XS-0.25,0.45,-0.4,'o'],['Biodigester 2,000 L buried under the garden · 2.1 × 1.1 m · lids by the path',-1.1,0.35,-1.2,'o']
@@ -1348,7 +1379,7 @@ const ZONES={
     l:['Ply deck on steel joists at +2.7 m, about 1.7 m clear (1.34 m under beam A). Rated for storage, not people','Reached by a fold-down loft ladder through a 0.6 × 0.8 m hatch in the kitchen ceiling, used outside service','Steel racking on three walls: rice, flour, sauces, takeaway packaging','Spare CO₂ cylinder and the CCTV recorder live up here','Storage only, so it should not count as a mezzanine floor; confirm with the architect'],views:[['From above','storeTop']]},
   kitchen:{box:[X0,X1,0,KC,KZ,D],ey:'Kitchen · 4.9 × 2.4 m · 11.8 m²',t:'Kitchen sized to the menu',
     b:'Every piece of equipment earns its place against the 22 dishes. Food moves one way: stored, prepped, cooked on the back line, plated at the pass. Dirty plates come back through the door to the dish line on the left.',
-    l:['Back line under one 3.25 m canopy hood: 2-burner wok range, 2-hole dim sum steamer, twin-tank fryer (veg / non-veg oil), 2-burner stock range','Slim 2-door reach-in on the left wall just inside the door, away from the heat; one under-counter freezer under the dumpling bench','Two prep benches so raw meat and seafood never share a surface with veg and dumpling folding','Pass with heat lamps and a hatch; the server station is a few steps away on the left wall, past the bar','Dish line on the left wall behind the reach-in: under-counter dishwasher and a 2-bowl sink with a pre-rinse spray. Hand-wash sink at the door','The right wall in front of the wok range stays clear for the wok cook, with a sauce and oil shelf above','Ceiling 2.7 m; storage deck above. The exhaust leaves through the back wall and runs to the right side; the gas comes in from the right'],
+    l:['Back line under one 3.25 m canopy hood: 2-burner wok range, 2-hole dim sum steamer, twin-tank fryer (veg / non-veg oil), 2-burner stock range','Slim 2-door reach-in on the left wall just inside the door, away from the heat; one under-counter freezer under the dumpling bench','Two prep benches so raw meat and seafood never share a surface with veg and dumpling folding','Pass with heat lamps and a hatch; the server station is a few steps away on the left wall, past the bar','Dish line on the left wall behind the reach-in: under-counter dishwasher and a 2-bowl sink with a pre-rinse spray. Hand-wash sink at the door','The right wall in front of the wok range stays clear for the wok cook: a seasoning rail at elbow height beside the wok, back-up sauces on the shelf above','A chilled mise-en-place rail on the bench right behind the wok cook; knife strips and a colour-coded board rack at the prep benches','Dip + garnish rail and a ticket rail at the pass','Apron hooks on the inside of the kitchen door (aprons off before going to the WC), clean aprons in a box on the storage deck, dirty linen under the sink; two foot-pedal bins','Ceiling 2.7 m; storage deck above. The exhaust leaves through the back wall and runs to the right side; the gas comes in from the right'],
     views:[['Top view','kitchen'],['Walk in','kwalk'],['Dish side','kdish']]},
   bar:{box:[0.3,X1,0,2.8,2.67,5.37],ey:'Bar · 4 stools · 3 taps · left wall',t:'The bar',b:'A glowing bar on the left wall: backlit amber onyx behind a black mesh frame, a marble top with a square end facing the door, emerald tile behind, and a floating brass glass rack hung over the whole island: stemware upside down on rails, pints on a glass shelf, warm LED strips and downlights, with ivy trailing off the top. It starts 0.6 m past the window tables.',
     l:['Headroom 4.5 m over the counter and stools','4 velvet high-back bar chairs, 0.6 m apart, plus a brass foot rail','3 craft taps on one brass font; the 3 kegs sit in a cabinet right under them, through a flash chiller','Back bar: infusion jars and glassware at the door end, the lit spirit altar in the middle, a soju riser and the ON TAP board at the far end','The bartender comes and goes at the far end, past the server station and the kitchen door; the door end is closed off by the window table for 2','Built into the back bar opposite the sink: an under-counter glasswasher and a glass-door cooler for mixers, water and soft drinks','Planned for one bartender: everything is within one or two steps'],views:[['Down the bar','bar'],['Back bar','backbar'],['Bartender side','barback']]},
