@@ -10,6 +10,7 @@ Live: https://singhgenics.github.io/Simplex/ (opens straight into the 3D model)
 | [`overview.html`](overview.html) | Short overview with the cover count |
 | [`model.html`](model.html) | Redirects to the 3D model (old link) |
 | [`plan.html`](plan.html) | Dimensioned ground-floor plan |
+| [`kitchen.html`](kitchen.html) | Kitchen layout for equipment vendors: 1:25 plan, hot-line elevation, exhaust run, equipment schedule (`plans/kitchen-plan.pdf`, A3 vector) |
 | [`biodigester.html`](biodigester.html) | Washroom drainage to a biodigester under the beer garden: diagrams and tank sizing |
 | [`plans/`](plans/) | The plan as SVG, a 4060 × 5040 px PNG and a vector PDF (`ground-floor-plan.pdf`) |
 

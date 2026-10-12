@@ -116,8 +116,8 @@ line(0.8,KZ+0.1,0.8,KZ+0.8,'#6a5d4e',1,'3 3')
 rect(X0,X0+0.3,7.15,8.05,'none','#6d7276',1,'4 3');
 # working kit: seasoning rail, chilled mise-en-place rail, pass dip rail, board rack, pedal bins, apron hooks
 rect(X0,X0+0.22,7.62,8.06,'#e6ecef','#2a6f8f',1.1); text(X0+0.11,7.84,'seasoning',6.5,'#2a6f8f',rot=-90)
-rect(-2.18,-1.42,6.42,6.68,'none','#2a6f8f',1.1,'4 2'); rect(-0.6,0.05,6.93,7.05,'#e6ecef','#2a6f8f',1); rect(X0,X0+0.3,6.5,6.86,'#efe2c8','#8f6a4a',1)
-circ(-2.32,6.65,0.1,'#cfe0bf','#3f6a3a',1.2); circ(0.83,8.62,0.1,'#d6e2ef','#2f5f9a',1.2); text(0.45,6.98,'apron hooks on door',6.5,'#6a5d4e')
+rect(-2.18,-1.42,6.42,6.68,'none','#2a6f8f',1.1,'4 2'); rect(-0.6,0.05,6.93,7.05,'#e6ecef','#2a6f8f',1); rect(-2.12,-1.84,6.5,6.92,'none','#8f6a4a',0.8,'2 2')
+circ(-2.32,6.52,0.1,'#cfe0bf','#3f6a3a',1.2); circ(0.83,8.62,0.1,'#d6e2ef','#2f5f9a',1.2); text(0.45,6.98,'apron hooks on door',6.5,'#6a5d4e')
 text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.17,7.45,'back-up shelf 0.9 × 0.3 (high)',6.5,'#6a5d4e',rot=90)
 for xa,xb,t,dim in ((X0,-1.25,'wok range ×2','1.20 × 0.70 · h 0.80'),(-1.2,-0.6,'steamer','0.60 × 0.70'),(-0.55,0.05,'fryer ×2','0.60 × 0.70'),(0.1,0.7,'stock ×2','0.60 × 0.70')):
     rect(xa,xb,8.1,D,'#9aa0a5'); text((xa+xb)/2,8.36,t,9,'#fff',weight=700); text((xa+xb)/2,8.58,dim,7.5,'#fff')
