@@ -325,6 +325,10 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <tr><td>Chilled mise-en-place rail</td><td class="d">counter-top, 0.76 × 0.26 × 0.22 m on the back of the non-veg bench · 5 pans</td></tr>
         <tr><td>Pass</td><td class="d">dip + garnish rail 0.65 × 0.12 m (5 inserts) · ticket rail above the hatch</td></tr>
         <tr><td>Knives + boards</td><td class="d">magnetic knife strips over both prep benches · colour-coded board rack (red, blue, green, yellow) in slots on the non-veg bench undershelf</td></tr>
+        <tr><td>Wok tools</td><td class="d">rail on the right wall beside the wok at 1.4 m: wok ladle, spatula, spider strainer, bamboo wok brush</td></tr>
+        <tr><td>Steamer baskets</td><td class="d">the top shelf over the dish line is slatted: bamboo baskets (4 stacks of 3 + lids) air-dry there after washing</td></tr>
+        <tr><td>Gas</td><td class="d">copper line in at 1.3 m in the back right corner through a solenoid valve outside (shuts with the exhaust fan or the hood suppression) · manifold at 0.4 m behind the hot line, a ball valve per appliance · LPG leak detector low on the right wall</td></tr>
+        <tr><td>Power + controls</td><td class="d">a socket at each appliance (fridge, freezer, rice cooker, mise-en-place rail, dishwasher, insect killer) and the heat-lamp switch over the pass · exhaust fan / ESP control panel and hood-light switch on the left wall over the dishwasher, by the rear exit</td></tr>
         <tr><td>Bins</td><td class="d">two slim foot-pedal bins, Ø 0.2 × 0.6 m: wet by the non-veg bench, dry by the rear door (exit kept clear)</td></tr>
         <tr><td>Aprons + linen</td><td class="d">3-hook apron rail on the inside of the kitchen door · clean aprons + towels in a lidded box on the storage deck · dirty-linen bag under the sink</td></tr>
         <tr><td>Cooks’ aisle</td><td class="d">1.05 m between the hot line and the prep benches</td></tr>
@@ -369,13 +373,13 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
       <p style="margin:0 0 10px;font-size:12.5px;color:var(--muted)">Checked dish by dish against the 22 dishes on the food menu.</p>
       <ul class="zones">
         <li><b>Wok range ×2</b><span>Chilli chicken, Tangra chilli pork, chilli paneer, the honey chilli potato and fish finger tosses, mixed chowmein, both fried rices, veg Manchurian, hot &amp; sour soup and the chilli chicken bao filling. One burner for proteins and sauces, one for noodles and rice.</span></li>
-        <li><b>Steamer, 2 holes</b><span>Har gow, chouriço siu mai, pork xiao long bao, crystal veg dumplings, all three bao and the Steamer for two, in stacked bamboo baskets.</span></li>
+        <li><b>Steamer, 2 holes</b><span>Har gow, chouriço siu mai, pork xiao long bao, crystal veg dumplings, all three bao and the Steamer for two, in stacked bamboo baskets that air-dry on a slatted shelf over the dish line. It tops up its own water.</span></li>
         <li><b>Twin-tank fryer</b><span>Prawns, chonak fingers, Korean wings, kimchi fries, honey chilli potato, Manchurian balls, the first fry for the chilli dishes and darsaan noodles. Two tanks keep veg and non-veg oil apart.</span></li>
         <li><b>2-burner stock range</b><span>The six-hour chimney soup stock, the three-hour pork belly braise, the jellied stock for xiao long bao and boiling noodles. The chimney pot itself is lit at the table.</span></li>
         <li><b>Rice cooker</b><span>Day-old rice for both fried rices and the combo lunch.</span></li>
         <li><b>Cold</b><span>A slim 2-door reach-in and one under-counter freezer (dumplings, bao, fries, wings, ice cream for darsaan).</span></li>
         <li><b>Taken out</b><span>The 0.8 m steamer (a 2-hole unit is enough), the separate pre-rinse table (the spray is on the sink), the pot-wash shelving, and the wider 1.2 m reach-in.</span></li>
-        <li><b>Required</b><span>Hand-wash sink, insect killer, hood suppression with gas cut-off, floor drain with grease trap and the fresh-air supply.</span></li>
+        <li><b>Required</b><span>Hand-wash sink, insect killer, hood suppression with gas cut-off, a gas solenoid valve and LPG leak detector, a heat detector, floor drain with grease trap and the fresh-air supply.</span></li>
       </ul>
     </section>
 
@@ -657,7 +661,7 @@ function armchair(x,z,rot,parent){const g=new THREE.Group();bx(-0.42,0.42,0.1,0.
 function door(hx,hz,w,rot,mat,parent){const g=new THREE.Group();bx(0,w,0,2.05,-0.02,0.02,mat,g);g.position.set(hx,0,hz);g.rotation.y=rot;parent.add(g);}
 
 // ---------- shell: 4.9 W × 8.8 L × 4.5 H m inside (47 m² super built-up) ----------
-M.fRedGlow=S({color:'#ff3a2a',emissive:'#ff2010',emissiveIntensity:1.4}); M.acWhite=S({color:'#f6f5f1',roughness:0.45});
+M.fRedGlow=S({color:'#ff3a2a',emissive:'#ff2010',emissiveIntensity:1.4}); M.greenGlow=S({color:'#3adf6a',emissive:'#20c050',emissiveIntensity:1.4}); M.gasY=S({color:'#e8b81a',roughness:0.4}); M.blueH=S({color:'#2a6fd0',roughness:0.4}); M.acWhite=S({color:'#f6f5f1',roughness:0.45});
 bx(X0,X1,-0.04,0,0,KZ,M.floor,G.shell,false);
 bx(X0,X1,-0.04,0,KZ,D,M.epoxy,G.shell,false);
 bx(X0-T,X0,0,H,0,D+T,M.plaster,G.wallR);
@@ -1007,9 +1011,36 @@ bx(1.8,X1,0.62,0.9,8.0,D,M.ss,kt); bx(1.95,2.32,0.62,0.91,8.05,8.4,M.ssDark,kt);
 [[1.83,8.03],[2.42,8.03],[1.83,8.77],[2.42,8.77]].forEach(([x,z])=>bx(x-0.02,x+0.02,0,0.62,z-0.02,z+0.02,M.ss,kt)); bx(1.82,X1-0.02,0.14,0.17,8.02,D-0.02,M.ss,kt); // open undershelf
 {const lb=cyl(0.15,0.13,0.42,2.12,0.17,8.55,S({color:'#cfc6b4',roughness:1}),kt,14);} // dirty-linen bag, lidded
 rod(V(2.38,0.9,8.4),V(2.38,1.7,8.4),0.015,M.ss,kt); rod(V(2.38,1.7,8.4),V(2.15,1.55,8.4),0.012,M.ss,kt);
-[1.45,1.85].forEach(y=>bx(2.1,X1,y,y+0.03,7.4,D,M.ss,kt)); for(let z=7.5;z<8.7;z+=0.22) cyl(0.11,0.11,0.12,2.27,1.48,z,M.porcelain,kt,14);
+bx(2.1,X1,1.45,1.48,7.4,D,M.ss,kt); for(let z=7.5;z<8.7;z+=0.22) cyl(0.11,0.11,0.12,2.27,1.48,z,M.porcelain,kt,14);
+// top dish shelf is SLATTED so the bamboo steamer baskets (every dim sum and bao order) air-dry after washing: stacks of 3 + lid
+[2.1,X1-0.02].forEach(x=>bx(x,x+0.02,1.85,1.88,7.4,D,M.ss,kt)); for(let x=2.14;x<X1-0.02;x+=0.05) bx(x,x+0.025,1.86,1.88,7.4,D,M.ss,kt);
+[7.55,7.86,8.17,8.48].forEach(z=>{for(let i=0;i<3;i++)cyl(0.13,0.13,0.085,2.28,1.88+i*0.088,z,M.cane,kt,18);cyl(0.135,0.02,0.07,2.28,2.144,z,M.cane,kt,18);});
 // fresh-air (make-up) supply grille in the ceiling in front of the hood, interlocked with the exhaust
 bx(-0.6,-0.05,KC-0.06,KC-0.04,7.42,7.8,M.ss,G.kceil,false); for(let x=-0.56;x<-0.08;x+=0.05) bx(x,x+0.02,KC-0.065,KC-0.06,7.45,7.77,M.ssDark,G.kceil,false);
+
+// WOK TOOL RAIL on the right wall beside the wok range, under the hood: wok ladle (hoak), wok spatula, spider strainer, bamboo wok brush
+{rod(V(X0+0.03,1.4,8.13),V(X0+0.03,1.4,8.6),0.01,M.ss,kt); [8.13,8.6].forEach(z=>bx(X0,X0+0.03,1.37,1.43,z-0.015,z+0.015,M.ss,kt));
+ const hk=(z,len)=>{rod(V(X0+0.03,1.4,z),V(X0+0.045,1.36,z),0.004,M.ss,kt);rod(V(X0+0.045,1.36,z),V(X0+0.045,1.36-len,z),0.008,M.ssDark,kt);return 1.36-len;};
+ let y=hk(8.19,0.3); cyl(0.055,0.04,0.03,X0+0.045,y-0.03,8.19,M.ss,kt,14); // ladle
+ y=hk(8.29,0.3); bx(X0+0.035,X0+0.055,y-0.1,y,8.255,8.325,M.ss,kt); // spatula
+ y=hk(8.42,0.28); {const w=cyl(0.07,0.07,0.012,X0+0.045,y-0.07,8.42,M.brass,kt,16);w.rotation.z=Math.PI/2;} // spider strainer (brass mesh)
+ y=hk(8.54,0.12); bx(X0+0.03,X0+0.06,y-0.18,y,8.52,8.56,M.cane,kt);} // bamboo wok brush
+// GAS inside the kitchen: the copper line comes through the right wall at 1.3 m in the back corner, drops to a manifold at 0.4 m
+// behind the hot line with a ball valve per appliance; LPG leak detector low on the right wall (LPG is heavier than air)
+{rod(V(X0,1.3,8.7),V(X0+0.06,1.3,8.7),0.015,M.brass,kt); rod(V(X0+0.06,1.3,8.7),V(X0+0.06,0.4,8.7),0.015,M.brass,kt);
+ rod(V(X0+0.06,0.4,8.7),V(X0+0.06,0.4,D-0.04),0.015,M.brass,kt); rod(V(X0+0.06,0.4,D-0.04),V(0.62,0.4,D-0.04),0.015,M.brass,kt);
+ [-2.1,-1.6,-0.9,-0.25,0.25,0.55].forEach(x=>{cyl(0.022,0.022,0.05,x,0.375,D-0.04,M.brass,kt,10);bx(x-0.045,x+0.01,0.43,0.445,D-0.05,D-0.03,M.gasY,kt);}); // appliance ball valves
+ bx(X0,X0+0.04,0.25,0.37,7.66,7.78,M.acWhite,kt); sph(0.01,X0+0.042,0.34,7.72,M.fRedGlow,kt);} // leak detector
+// steamer water feed: isolation valve on the back wall above the steamer (it tops itself up)
+rod(V(-0.9,1.15,D-0.02),V(-0.9,0.95,D-0.02),0.01,M.ss,kt); rod(V(-0.9,0.95,D-0.02),V(-0.9,0.95,D-0.12),0.01,M.ss,kt); bx(-0.94,-0.86,1.06,1.08,D-0.06,D-0.02,M.blueH,kt);
+// POWER POINTS (numbered as on the vendor sheet): 1 fridge, 2 freezer, 3 rice cooker, 4 mise-en-place rail, 5 heat-lamp switch, 6 dishwasher, 7 insect killer;
+// 8 hood-light switch + 9 exhaust fan / ESP control panel on the left wall over the dishwasher, by the rear exit (the front wall by the
+// kitchen door is where the fridge door folds back, so nothing is fixed there)
+{const sk=(x,y,z,ax)=>{if(ax==='z'){bx(x-0.043,x+0.043,y-0.043,y+0.043,z,z+0.012,M.porcelain,kt,false);bx(x-0.02,x+0.02,y-0.012,y+0.012,z+0.012,z+0.014,M.black,kt,false);}
+   else{bx(x-0.012,x,y-0.043,y+0.043,z-0.043,z+0.043,M.porcelain,kt,false);bx(x-0.014,x-0.012,y-0.012,y+0.012,z-0.02,z+0.02,M.black,kt,false);}};
+ sk(2.1,2.15,KZ+0.1,'z'); sk(-0.95,0.45,KZ+0.115,'z'); sk(-0.68,1.2,KZ+0.115,'z'); sk(-1.395,1.25,KZ+0.115,'z'); sk(-0.3,2.05,KZ+0.115,'z'); sk(0.75,2.3,KZ+0.1,'z');
+ sk(X1,1.08,7.92,'x'); sk(X1,1.32,7.92,'x');
+ bx(X1-0.08,X1,1.0,1.38,7.45,7.75,M.ssDark,kt); [[1.25,'fRedGlow'],[1.15,'greenGlow']].forEach(([y,m])=>sph(0.016,X1-0.085,y,7.55,M[m],kt)); bx(X1-0.083,X1-0.08,1.05,1.12,7.62,7.7,M.porcelain,kt,false);}
 
 // ---------- NO LOFT: the whole front of house is double height (4.5 m to the slab) ----------
 const lf=G.loft;
@@ -1107,7 +1138,8 @@ bx(-6,6,-0.06,-0.045,D+T,D+6.5,M.road,out,false); [-4.2,-1.6,1.0,3.6].forEach(x=
 {const a=XS-0.4,b=XS-0.05,c=3.3,d=4.7,h=1.6;[[a,c],[b,c],[a,d],[b,d]].forEach(([x,z])=>rod(V(x,0,z),V(x,h,z),0.02,M.steel,G.ext));
  bx(a,b,h,h+0.02,c,d,M.steel,G.ext); [[a,a+0.005,c,d],[a,b,c,c+0.005],[a,b,d-0.005,d]].forEach(([x0,x1,z0,z1])=>bx(x0,x1,0.05,h,z0,z1,M.meshWire,G.ext,false));
  [3.47,3.81,4.15,4.49].forEach(z=>{cyl(0.15,0.15,1.1,XS-0.22,0,z,M.red,G.ext,14);cyl(0.04,0.04,0.1,XS-0.22,1.1,z,M.steel,G.ext,8);});
- rod(V(XS-0.06,1.3,4.65),V(XS-0.06,1.3,8.45),0.015,M.brass,G.ext); rod(V(XS-0.06,1.3,8.45),V(X0,1.3,8.45),0.015,M.brass,G.ext);}
+ rod(V(XS-0.06,1.3,4.65),V(XS-0.06,1.3,8.7),0.015,M.brass,G.ext); rod(V(XS-0.06,1.3,8.7),V(X0,1.3,8.7),0.015,M.brass,G.ext);
+ bx(XS-0.13,XS-0.01,1.2,1.4,8.55,8.69,M.gasY,G.ext); cyl(0.035,0.035,0.07,XS-0.07,1.4,8.62,M.ssDark,G.ext,12);} // gas SOLENOID valve on the entry, weatherproof: shuts with the exhaust fan or the hood suppression
 // SLIM BIN STORE (0.45 deep; three 60 L bins: wet / dry / glass, emptied daily), near the road end for collection
 {const a=XS-0.45,b=XS,c=2.25,d=3.15;bx(a,b,0,0.06,c,d,M.concrete,G.ext,false);
  [[c,c+0.03],[d-0.03,d]].forEach(([z0,z1])=>bx(a,b,0.06,1.0,z0,z1,M.timberDark,G.ext));
@@ -1289,7 +1321,7 @@ extinguisher(1.65,0.55,KZ-0.08,gr,true);
 extinguisher(X0+0.1,0.5,7.25,G.kitchen); extinguisher(X0+0.1,0.5,7.5,G.kitchen,true); [7.25,7.5].forEach(z=>bx(X0,X0+0.03,0.5,0.6,z-0.04,z+0.04,M.black,G.kitchen,false)); // kitchen: wet-chemical (Class K) + CO₂ on wall brackets, within reach of the hot line
 bx(-2.1,-1.86,1.3,1.6,KZ+0.115,KZ+0.16,M.fbBox,G.kitchen); // fire blanket by the wok side
 bx(0.76,0.92,1.3,1.5,D-0.06,D,M.fRed,G.kitchen); cyl(0.02,0.02,0.04,0.84,1.4,D-0.08,M.porcelain,G.kitchen,8); // hood suppression pull + gas cut-off, beside the rear exit
-detector(-0.6,KC-0.04,7.6,G.kitchen,true);
+detector(-0.85,KC-0.04,7.6,G.kitchen,true); // clear of the make-up air grille and the ceiling panel light
 bx(X0,X0+0.08,1.6,1.9,7.75,8.0,M.aid,G.kitchen);
 [[0,H,1.2],[0.4,H,3.0],[1.95,H,3.0]].forEach(([x,y,z])=>detector(x,y,z,G.ceil));
 detector(-0.6,H,4.3,G.ceil); detector(-0.2,H,5.6,G.ceil);
@@ -1334,8 +1366,10 @@ const LBL=[
  ['Parking behind: nothing stored here',0,0.6,D+3.0,'o'],['Kitchen exhaust: out the back, round the corner, low side discharge',-2.2,3.05,D+0.4,'k'],['ESP + carbon odour filter · fan',XS-0.3,3.15,D-0.85,'k'],['Discharge at ~2.6 m, pointing away from the building',XS-0.5,3.0,D-1.85,'k'],
  ['LPG bank · 4 × 19 kg in one row · locked, ventilated',XS-0.22,1.85,4.0,'k'],['Slim bin store · 3 × 60 L, emptied daily',XS-0.22,1.25,2.7,'k'],['AC outdoor units',XS-0.15,3.75,1.5,'k'],['0.5 m service strip · cars pass beyond',XS-0.25,0.4,6.0,'k'],['Steel bollards',XS-0.52,1.05,3.0,'k'],['Power backup · slim wall cabinet · 7.5 kVA inverter + 10 kWh lithium',XS-0.18,2.15,0.75,'k'],['Fresh-air intake (high, away from the exhaust)',2.15,3.95,D+T+0.15,'k'],['Soil vent pipe up the wall · to the roof, or an air-admittance valve',XS-0.16,3.3,5.95,'k'],['Inspection chamber 1 · WC pipe out of the wall · sealed, gas-tight',XS-0.25,0.45,5.95,'k'],['Grease trap · kitchen + bar',XS-0.25,0.45,8.37,'k'],['WC exhaust · ducted to the back wall, high, away from the gas',-1.92,4.3,D+T+0.1,'k'],['WC exhaust fan · ceiling grille, duct runs over the store to the back wall',-1.92,3.35,5.42,'g'],['Inspection chamber 2 · the pipe turns in under the garden',XS-0.25,0.45,-0.4,'o'],['Biodigester 2,000 L buried under the garden · 2.1 × 1.1 m · lids by the path',-1.1,0.35,-1.2,'o']
 ];
+LBL.push(['Wok tool rail · ladle, spatula, spider, wok brush',X0+0.1,1.62,8.36,'k'],['Bamboo steamer baskets air-dry on the slatted top shelf',2.28,2.4,8.0,'k'],
+ ['Exhaust + ESP control panel · hood-light switch',X1-0.1,1.5,7.6,'k'],['Gas manifold at 0.4 m · a valve per appliance',-0.9,0.55,D-0.1,'k']);
 LBL.push(['CO₂ extinguisher + main electrical board (RCCB/MCB)',1.2,1.9,KZ-0.2,'s'],['Fire alarm panel',1.2,2.3,KZ-0.1,'s'],
- ['Kitchen: wet-chemical (Class K) + CO₂',X0+0.1,1.2,7.38,'s'],['Fire blanket',-1.98,1.75,KZ+0.15,'s'],['Hood suppression pull + gas cut-off',0.84,1.65,D-0.05,'s'],['Heat detector',-0.6,KC-0.05,7.6,'s'],['First-aid box',X0+0.05,2.05,7.88,'s'],
+ ['Kitchen: wet-chemical (Class K) + CO₂',X0+0.1,1.2,7.38,'s'],['Fire blanket',-1.98,1.75,KZ+0.15,'s'],['Hood suppression pull + gas cut-off',0.84,1.65,D-0.05,'s'],['Heat detector',-0.85,KC-0.05,7.6,'s'],['LPG leak detector (low: LPG is heavier than air)',X0+0.1,0.55,7.72,'s'],['Gas solenoid valve on the entry',XS-0.07,1.65,8.62,'s'],['First-aid box',X0+0.05,2.05,7.88,'s'],
  ['Smoke detector',0,H-0.1,1.2,'s'],['Manual call point + hooter',X0+0.05,1.55,0.2,'s'],['Emergency light',X0+0.06,3.05,0.25,'s'],['Emergency light',X1-0.06,2.7,5.8,'s'],['Emergency light (aisle)',-1.1,2.4,4.75,'s'],
  ['EXIT sign',0,2.95,0.12,'s'],['EXIT sign (rear door)',1.35,2.3,D-0.03,'s'],['Extinguishers · ABC 6 kg + CO₂ 4.5 kg',X1-0.2,0.95,2.56,'s'],
  ['CCTV · entrance',X0+0.12,3.45,0.25,'s'],['CCTV · till (POS nook)',X1-0.2,2.3,3.52,'s'],['CCTV · back of the room',X1-0.12,3.15,6.15,'s'],['CCTV · rear exit',1.35,2.75,D+T+0.05,'s'],['CCTV · garden',GW-0.15,2.75,-0.3,'s'],['CCTV · side yard',XS-0.05,3.05,3.4,'s'],
@@ -1379,7 +1413,7 @@ const ZONES={
     l:['Ply deck on steel joists at +2.7 m, about 1.7 m clear (1.34 m under beam A). Rated for storage, not people','Reached by a fold-down loft ladder through a 0.6 × 0.8 m hatch in the kitchen ceiling, used outside service','Steel racking on three walls: rice, flour, sauces, takeaway packaging','Spare CO₂ cylinder and the CCTV recorder live up here','Storage only, so it should not count as a mezzanine floor; confirm with the architect'],views:[['From above','storeTop']]},
   kitchen:{box:[X0,X1,0,KC,KZ,D],ey:'Kitchen · 4.9 × 2.4 m · 11.8 m²',t:'Kitchen sized to the menu',
     b:'Every piece of equipment earns its place against the 22 dishes. Food moves one way: stored, prepped, cooked on the back line, plated at the pass. Dirty plates come back through the door to the dish line on the left.',
-    l:['Back line under one 3.25 m canopy hood: 2-burner wok range, 2-hole dim sum steamer, twin-tank fryer (veg / non-veg oil), 2-burner stock range','Slim 2-door reach-in on the left wall just inside the door, away from the heat; one under-counter freezer under the dumpling bench','Two prep benches so raw meat and seafood never share a surface with veg and dumpling folding','Pass with heat lamps and a hatch; the server station is a few steps away on the left wall, past the bar','Dish line on the left wall behind the reach-in: under-counter dishwasher and a 2-bowl sink with a pre-rinse spray. Hand-wash sink at the door','The right wall in front of the wok range stays clear for the wok cook: a seasoning rail at elbow height beside the wok, back-up sauces on the shelf above','A chilled mise-en-place rail on the bench right behind the wok cook; knife strips over the prep benches and a colour-coded board rack under the non-veg bench','Dip + garnish rail and a ticket rail at the pass','Apron hooks on the inside of the kitchen door (aprons off before going to the WC), clean aprons in a box on the storage deck, dirty linen under the sink; two foot-pedal bins','Ceiling 2.7 m; storage deck above. The exhaust leaves through the back wall and runs to the right side; the gas comes in from the right'],
+    l:['Back line under one 3.25 m canopy hood: 2-burner wok range, 2-hole dim sum steamer, twin-tank fryer (veg / non-veg oil), 2-burner stock range','Slim 2-door reach-in on the left wall just inside the door, away from the heat; one under-counter freezer under the dumpling bench','Two prep benches so raw meat and seafood never share a surface with veg and dumpling folding','Pass with heat lamps and a hatch; the server station is a few steps away on the left wall, past the bar','Dish line on the left wall behind the reach-in: under-counter dishwasher and a 2-bowl sink with a pre-rinse spray. Hand-wash sink at the door','The right wall in front of the wok range stays clear for the wok cook: a seasoning rail at elbow height beside the wok, back-up sauces on the shelf above','A chilled mise-en-place rail on the bench right behind the wok cook; knife strips over the prep benches and a colour-coded board rack under the non-veg bench','Dip + garnish rail and a ticket rail at the pass','Wok tools on a rail beside the wok; bamboo steamer baskets air-dry on the slatted top shelf over the dish line','Apron hooks on the inside of the kitchen door (aprons off before going to the WC), clean aprons in a box on the storage deck, dirty linen under the sink; two foot-pedal bins','Ceiling 2.7 m; storage deck above. The exhaust leaves through the back wall and runs to the right side; the gas comes in from the right through a solenoid valve, to a manifold with a valve per appliance; LPG leak detector and heat detector','A socket at each appliance; the exhaust and ESP controls and the hood-light switch are on the left wall by the rear exit'],
     views:[['Top view','kitchen'],['Walk in','kwalk'],['Dish side','kdish']]},
   bar:{box:[0.3,X1,0,2.8,2.67,5.37],ey:'Bar · 4 stools · 3 taps · left wall',t:'The bar',b:'A glowing bar on the left wall: backlit amber onyx behind a black mesh frame, a marble top with a square end facing the door, emerald tile behind, and a floating brass glass rack hung over the whole island: stemware upside down on rails, pints on a glass shelf, warm LED strips and downlights, with ivy trailing off the top. It starts 0.6 m past the window tables.',
     l:['Headroom 4.5 m over the counter and stools','4 velvet high-back bar chairs, 0.6 m apart, plus a brass foot rail','3 craft taps on one brass font; the 3 kegs sit in a cabinet right under them, through a flash chiller','Back bar: infusion jars and glassware at the door end, the lit spirit altar in the middle, a soju riser and the ON TAP board at the far end','The bartender comes and goes at the far end, past the server station and the kitchen door; the door end is closed off by the window table for 2','Built into the back bar opposite the sink: an under-counter glasswasher and a glass-door cooler for mixers, water and soft drinks','Planned for one bartender: everything is within one or two steps'],views:[['Down the bar','bar'],['Back bar','backbar'],['Bartender side','barback']]},

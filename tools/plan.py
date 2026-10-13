@@ -121,6 +121,7 @@ circ(-2.32,6.52,0.1,'#cfe0bf','#3f6a3a',1.2); circ(0.83,8.62,0.1,'#d6e2ef','#2f5
 text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.17,7.45,'back-up shelf 0.9 × 0.3 (high)',6.5,'#6a5d4e',rot=90)
 for xa,xb,t,dim in ((X0,-1.25,'wok range ×2','1.20 × 0.70 · h 0.80'),(-1.2,-0.6,'steamer','0.60 × 0.70'),(-0.55,0.05,'fryer ×2','0.60 × 0.70'),(0.1,0.7,'stock ×2','0.60 × 0.70')):
     rect(xa,xb,8.1,D,'#9aa0a5'); text((xa+xb)/2,8.36,t,9,'#fff',weight=700); text((xa+xb)/2,8.58,dim,7.5,'#fff')
+line(X0+0.05,8.13,X0+0.05,8.6,'#2a6f8f',3,'5 2'); text(X0+0.14,8.36,'tools',6.5,'#fff',rot=-90) # wok tool rail on the wall, at 1.4 m
 rect(X0+0.02,0.8,7.85,D-0.02,'none','#c4442a',1.3,'8 4'); text(-0.25,7.95,'hood 3.25 × 0.95 × 0.55 · bottom 2.05 m',8.5,'#b23a1e')
 rect(1.7,X1,6.45,7.4,'#c3c8cc'); text(2.0,6.92,'2-door reach-in',8.5,weight=600,rot=90); text(2.2,6.92,'1.0 × 0.75 · h 2.0',7.5,'#4a4038',rot=90)
 rect(1.8,X1,7.4,8.0,'#c3c8cc'); text(2.03,7.7,'u/c dishwasher',8,weight=600,rot=90); text(2.23,7.7,'0.60 × 0.65',7.5,'#4a4038',rot=90)
@@ -132,7 +133,7 @@ rect(XS-0.35,XS,0.35,1.15,'#d6dde2','#3a4a56',1.3); text(XS-0.17,0.75,'UPS',8,'#
 rect(XS-0.45,XS,2.25,3.15,'#d9c7a8','#8f5634'); text(XS-0.22,2.7,'bins',8.5,rot=90)
 rect(XS-0.4,XS-0.05,3.3,4.7,'#f3d6cf','#b23a1e',1.2); text(XS-0.22,4.0,'LPG',8.5,'#b23a1e',weight=700,rot=90)
 for z in (3.47,3.81,4.15,4.49): circ(XS-0.22,z,0.15,'none','#b23a1e',1)
-line(XS-0.06,4.7,XS-0.06,8.45,'#b8862a',2); line(XS-0.06,8.45,X0,8.45,'#b8862a',2)
+line(XS-0.06,4.7,XS-0.06,8.7,'#b8862a',2); line(XS-0.06,8.7,X0,8.7,'#b8862a',2); rect(XS-0.13,XS-0.01,8.46,8.6,'#e8b81a','#8a6420',1) # solenoid valve on the entry
 for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
 BW,GY='#7a3f1d','#2f6f9f' # toilet (black water) and grey water lines, buried, drawn dashed
 line(X0,5.95,XS-0.3,5.95,BW,2,'6 3'); line(XS-0.3,5.75,XS-0.3,-0.2,BW,2,'6 3'); line(XS-0.3,-0.6,XS-0.3,-1.2,BW,2,'6 3'); line(XS-0.3,-1.2,-2.15,-1.2,BW,2,'6 3')
@@ -160,7 +161,7 @@ call(0.75,'Power backup cabinet · 0.35 D × 0.80 L × 1.60 H · wall-mounted, c
 call(2.75,'Bin store · 0.45 D × 0.90 L × 1.00 H · 3 × 60 L bins')
 call(4.0,'LPG cage · 0.35 D × 1.40 L × 1.60 H · 4 × 19 kg in one row','#b23a1e')
 call(5.15,'Steel bollards · Ø 0.13 × 0.90 H · 6 no., on the strip edge','#8a6420',4.7)
-call(5.75,'Copper gas line along the wall at 1.3 m, into the kitchen','#8a6420')
+call(5.75,'Copper gas line along the wall at 1.3 m, solenoid valve, into the kitchen','#8a6420')
 call(6.3,'Soil vent pipe Ø 0.11 up the wall (WC exhaust now ducted to the back wall, high)','#7a3f1d',5.95)
 call(6.6,'Inspection chamber 1 · 0.40 × 0.40 · sealed, gas-tight · WC pipe leaves the wall','#7a3f1d',5.95)
 call(-0.45,'Inspection chamber 2 · toilet pipe turns in to the biodigester','#7a3f1d',-0.4)
@@ -185,7 +186,7 @@ title='Ground floor plan · 4.9 × 8.8 m'
 sub='Betalbatim pub · Concept 27 (mirrored: washroom right, bar left; 0.45 m min between tables) · from the shop drawing (47 m² super built-up) · 18 covers inside + 8 in the garden · 26 in all'
 rows=[('Bar stools','4'),('Window tables, left (4 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the 22-dish menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: seasoning rail by the wok, chilled','mise-en-place rail, pass dip + ticket rail,','knife strips, board rack, two pedal bins,','apron hooks on the kitchen door.','Exhaust and drains shown dashed.']
+NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the 22-dish menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: seasoning rail by the wok, chilled','mise-en-place rail, pass dip + ticket rail,','knife strips, board rack, two pedal bins,','apron hooks on the kitchen door, a wok','tool rail, slatted shelf for the steamer','baskets; gas solenoid + leak detector.','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''
