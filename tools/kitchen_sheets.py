@@ -56,10 +56,11 @@ class Sheet:
         s.rect(X0, X1, KZ + 0.1, D, '#eef0ec', 'none')
         s.rect(XS, X0, KZ - 0.35, D + T, WALL, WALL, 0.2); s.rect(X1, X1 + T, KZ - 0.35, D + T, WALL, WALL, 0.2)
         s.rect(X0, 0.95, D, D + T, WALL, WALL, 0.2); s.rect(1.75, X1, D, D + T, WALL, WALL, 0.2)
-        for xa, xb in ((X0, -0.6), (0.05, 0.1), (0.8, X1)): s.rect(xa, xb, KZ, KZ + 0.1, '#d8c6ac', '#a8987c', 0.2)
+        for xa, xb in ((X0, -0.6), (0.05, 0.1), (0.9, X1)): s.rect(xa, xb, KZ, KZ + 0.1, '#d8c6ac', '#a8987c', 0.2)
         s.rect(-0.6, 0.05, KZ, KZ + 0.1, '#cfe3ea', '#7a9aaa', 0.2)
         s.rect(X0, X0 + 0.23, 6.65, 6.95, WALL, WALL, 0.2); s.text(X0 + 0.115, 6.8, 'P2', FS, '#fff', weight=700)
-        s.arc(0.8, KZ + 0.1, 0.7, 0.1, KZ + 0.1, 0.8, KZ + 0.8, 1)                        # kitchen door, opens in
+        s.arc(0.1, KZ + 0.1, 0.8, 0.9, KZ + 0.1, 0.1, KZ + 0.9, 1)                        # kitchen door: double-acting (shown swung into the kitchen; it also swings into the dining room)
+
         s.arc(1.75, D + T, 0.8, 0.95, D + T, 1.75, D + T + 0.8, 0)                        # rear exit, opens out
         for hz, sg in ((6.45, 1), (7.4, -1)):                                             # fridge door swings
             a, b = s.P(1.7, hz); c, d = s.P(1.23, hz); r = 0.47 * s.k
@@ -113,15 +114,14 @@ def notes_block(blocks, x, y, width_chars=None, size=FS, lead=3.4):
 # ======================================================================= SHEET 1: equipment layout
 s = Sheet(12, 30, X1 + T + 0.3, D + T + 1.05)
 s.shell()
-s.add(f'<text x="12" y="{s.P(0, D+T+0.9)[1]:.2f}" font-size="{FS}" fill="{MUT}">OUTSIDE · back (parking)</text>')
 s.add(f'<text x="12" y="{s.P(0, KZ-0.6)[1]:.2f}" font-size="{FS}" fill="{MUT}">DINING ROOM SIDE</text>')
 # hot line
-for xa, xb, ls in ((X0, -1.25, [('Wok range', 700), ('2 burners', 500), ('1.20 × 0.70 × 0.80', 500)]),
+for xa, xb, ls in ((X0, -1.25, [('Wok range', 700), ('2 burners', 500), ('1.20 × 0.80 × 0.80', 500)]),
                    (-1.2, -0.6, [('Dim sum', 700), ('steamer', 700), ('0.60 × 0.70', 500), ('h 0.80', 500)]),
                    (-0.55, 0.05, [('Twin-tank', 700), ('fryer', 700), ('0.60 × 0.70', 500), ('h 0.90', 500)]),
                    (0.1, 0.7, [('Stock', 700), ('range', 700), ('0.60 × 0.70', 500), ('h 0.85', 500)])):
-    s.rect(xa, xb, 8.1, D, HOT, INK, 0.3); s.lines((xa + xb) / 2, 8.45, ls, FT, '#fff')
-s.rect(X0 + 0.02, 0.8, 7.85, D - 0.02, 'none', RED, 0.45, '2.2 1.2')
+    s.rect(xa, xb, 8.0 if xa == X0 else 8.1, D, HOT, INK, 0.3); s.lines((xa + xb) / 2, 8.45, ls, FT, '#fff')
+s.rect(X0, 0.9, 7.85, D - 0.02, 'none', RED, 0.45, '2.2 1.2')
 s.rect(-2.4, 0.75, 7.92, 8.0, '#b9c0c5', '#6d7276', 0.15)
 # front-wall benches
 s.rect(-2.2, -1.4, KZ + 0.115, 7.05, STEEL, INK, 0.3); s.lines(-1.8, 6.86, [('Non-veg prep', 700), ('0.80 × 0.65 · h 0.90', 500)])
@@ -130,67 +130,77 @@ s.rect(-1.4, -0.6, KZ + 0.115, 7.05, STEEL, INK, 0.3); s.lines(-1.15, 6.8, [('Ve
 [s.circ(-0.75, z, 0.13, '#e9e9e9', '#6d7276', 0.25) for z in (6.56, 6.9)]   # two 5 L rice cookers
 s.rect(-0.6, 0.05, KZ + 0.115, 7.05, STEEL, INK, 0.3); s.lines(-0.275, 6.7, [('Pass', 700), ('0.65 × 0.65', 500), ('u/c fridge', 500)])
 s.rect(-0.6, 0.05, 6.93, 7.05, '#e6ecef', BLU, 0.25)
-s.rect(0.85, 1.18, KZ + 0.115, 6.8, STEEL, INK, 0.3); s.text(1.015, 6.6, 'HW', FS, weight=700)
+s.rect(0.92, 1.2, KZ + 0.115, 6.8, STEEL, INK, 0.3); s.text(1.06, 6.6, 'HW', FS, weight=700)
+s.rect(X0, X0 + 0.25, KZ + 0.115, 6.65, STEEL, INK, 0.3); s.text(X0 + 0.125, 6.53, 'HW', 2.5, weight=700)   # second hand-wash at the prep corner
+s.rect(X0, X0 + 0.45, 7.12, 7.6, STEEL, INK, 0.3); s.lines(X0 + 0.225, 7.5, [('Veg sink', 700), ('0.45 × 0.50', 500)], 2.5)
 # left wall
-s.rect(1.7, X1, 6.45, 7.4, STEEL, INK, 0.3); s.lines(2.08, 6.92, [('2-door', 700), ('reach-in', 700), ('0.95 × 0.75', 500), ('h 2.00', 500)])
+s.rect(1.7, X1, 6.45, 7.4, STEEL, INK, 0.3); s.lines(2.08, 6.92, [('Dual-temp', 700), ('reach-in', 700), ('fridge + freezer', 500), ('0.95 × 0.75', 500), ('h 2.00', 500)], 2.5)
 s.rect(1.8, X1, 7.4, 8.0, STEEL, INK, 0.3); s.lines(2.12, 7.7, [('Dish-', 700), ('washer', 700), ('0.60 × 0.65', 500)])
-s.rect(1.8, X1, 8.0, D, STEEL, INK, 0.3); s.lines(2.12, 8.4, [('2-bowl', 700), ('sink', 700), ('0.80 × 0.65', 500)])
+s.rect(1.8, X1, 8.0, D, STEEL, INK, 0.3); s.lines(2.12, 8.22, [('2-bowl', 700), ('sink', 700), ('0.80 × 0.65', 500)], 2.5)
+s.circ(2.27, 8.62, 0.16, 'none', BLU, 0.3, '1.2 0.8')   # water heater above
 # right wall + small kit
 s.rect(X0, X0 + 0.3, 7.15, 8.05, 'none', MUT, 0.2, '1 0.8'); s.rect(X0, X0 + 0.22, 7.62, 8.06, '#e6ecef', BLU, 0.3)
-for z in (7.25, 7.5): s.circ(X0 + 0.1, z, 0.075, '#c8231b', '#c8231b', 0.2)
 s.rect(-2.1, -1.86, KZ + 0.1, KZ + 0.16, '#d9261c', '#d9261c', 0.2)
-s.circ(-2.32, 6.52, 0.1, '#cfe0bf', GRN, 0.3); s.circ(0.83, 8.62, 0.1, '#d6e2ef', BLU, 0.3)
+s.circ(-2.27, 7.27, 0.085, '#cfe0bf', GRN, 0.3, '0.8 0.6'); s.circ(0.83, 8.62, 0.1, '#d6e2ef', BLU, 0.3); s.circ(0.83, 8.71, 0.07, '#c8231b', '#c8231b', 0.2); s.circ(0.4, 8.74, 0.04, BLU, BLU, 0.2)
 s.rect(-2.12, -1.84, 6.5, 6.76, 'none', '#8f6a4a', 0.25, '0.8 0.6')
 for xa, xb in ((-1.84, -1.44), (-1.35, -0.95)): s.line(xa, KZ + 0.13, xb, KZ + 0.13, INK, 0.8)
-s.rect(0.35, 0.95, 7.15, 7.95, 'none', BLU, 0.3, '1.6 0.9'); s.lines(0.65, 7.55, [('Ceiling hatch', 600), ('0.60 × 0.80', 500)], FS, BLU)
-s.text(-1.25, 7.33, 'KITCHEN 4.90 × 2.40 m · ceiling 2.70 m', FB, INK, weight=700)
-s.text(-1.25, 7.72, 'canopy hood above · 3.25 × 0.95 · bottom at 2.05 m', FS, RED, weight=600)
+s.rect(1.0, 1.6, 7.45, 8.25, 'none', BLU, 0.3, '1.6 0.9'); s.lines(1.3, 7.85, [('Ceiling hatch', 600), ('0.60 × 0.80', 500), ('+ goods hoist', 600)], 2.5, BLU)
+for xa, xb, za, zb in ((-2.4, -1.8, 7.0, 7.5), (-0.95, -0.35, 7.1, 7.6)):
+    s.rect(xa, xb, za, zb, 'none', GRN, 0.3, '1 0.6')
+    if xa > -1.5: s.lines((xa + xb) / 2, (za + zb) / 2, [('Make-up air', 600), ('0.60 × 0.50', 500)], 2.5, GRN)
+s.text(0.62, 7.62, 'KITCHEN', FB, INK, weight=700); s.text(0.62, 7.48, '4.90 × 2.40 m', FS, INK, weight=600); s.text(0.62, 7.36, 'ceiling 2.70 m', FS, MUT)
 s.text(-1.05, 7.96, 'floor channel drain 3.15 × 0.08', 2.5, INK, weight=600)
 # dimensions
 for xa, xb, t in ((X0, -1.25, '1.20'), (-1.2, -0.6, '0.60'), (-0.55, 0.05, '0.60'), (0.1, 0.7, '0.60'), (0.95, 1.75, 'rear exit 0.80')): s.hdim(xa, xb, D + T + 0.12, t)
 s.hdim(X1, X0, D + T + 0.45, '4.90 inside')
-for xa, xb, t in ((-2.2, -1.4, '0.80'), (-1.4, -0.6, '0.80'), (-0.6, 0.05, '0.65'), (0.1, 0.8, 'door 0.70'), (0.85, 1.18, '0.33')): s.hdim(xa, xb, KZ - 0.08, t)
+for xa, xb, t in ((-2.2, -1.4, '0.80'), (-1.4, -0.6, '0.80'), (-0.6, 0.05, '0.65'), (0.1, 0.9, 'door 0.80'), (0.92, 1.2, '0.28')): s.hdim(xa, xb, KZ - 0.08, t)
 s.vdim(X1 + T + 0.24, KZ + 0.1, D, '2.40 inside')
-s.vdim(-0.3, 7.05, 8.1, "cooks' aisle 1.05")
+s.vdim(-0.3, 7.05, 8.1, "cooks' aisle 1.05"); s.vdim(-1.3, 7.05, 8.0, '0.95 at the wok range')
 for za, zb, t in ((6.45, 7.4, '0.95'), (7.4, 8.0, '0.60'), (8.0, D, '0.80')): s.vdim(X1 + T + 0.1, za, zb, t)
 # callouts. Right margin: items on the right wall, horizontal leaders at the item's own depth.
 R = s.P(XS, 0)[0] + 5
 s.line(X0 + 0.05, 8.13, X0 + 0.05, 8.6, BLU, 0.9, '1.4 0.5')   # wok tool rail on the wall at 1.4 m, over the range
 for x, z, zt, t in ((X0 + 0.05, 8.36, 8.3, 'Wok tool rail at 1.4 m · 4 tools'), (X0 + 0.25, 8.0, 8.03, 'Back-up sauce + oil shelf above, at 1.45 m'), (X0 + 0.11, 7.84, 7.8, 'Wok seasoning rail at 1.0 m · 0.44 × 0.22'),
-                    (X0 + 0.1, 7.375, 7.375, 'Extinguishers: Class K + CO₂'), (X0 + 0.03, 6.72, 6.8, 'Pillar P2: measure on site'),
-                    (-2.32, 6.52, 6.52, 'Wet bin (pedal) · Ø 0.20')):
+                    (X0 + 0.2, 7.36, 7.36, 'Veg + herb sink 0.45 × 0.50 · wet bin under'), (X0 + 0.03, 6.72, 6.8, 'Pillar P2: measure on site'),
+                    (X0 + 0.12, 6.52, 6.52, 'Second hand-wash 0.25 · 3 apron hooks')):
     s.call(x, z, R, s.P(0, zt)[1] + 0.9, t)
 # top: dry bin, straight up past the back wall
-a, b = s.P(0.83, 8.62); ty = s.P(0, D + T + 0.78)[1]
-s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="0.6" fill="{INK}"/><polyline points="{a:.2f},{b:.2f} {a:.2f},{ty-0.9:.2f} {a+1.5:.2f},{ty-0.9:.2f}" fill="none" stroke="{INK}" stroke-width="0.2"/><text x="{a+2:.2f}" y="{ty:.2f}" font-size="{FS}" fill="{INK}">Dry bin (pedal) Ø 0.20 · keeps the rear exit clear</text>')
+for (x, z, row, t) in ((2.27, 8.62, 0, 'Water heater 35 L, 3 kW, high on the left wall over the dish sink'), (0.88, 8.74, 1, 'Class K extinguisher on the wall, above the dry bin · suppression pull above it'),
+                       (0.78, 8.62, 2, 'Dry bin (pedal) Ø 0.20 · keeps the rear exit clear'), (0.4, 8.74, 3, 'Pot filler over the stock range · cold, swing arm')):
+    a, b = s.P(x, z); ty = s.P(0, D + T + 0.78)[1] - (2 - row) * 4.3
+    s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="0.6" fill="{INK}"/><polyline points="{a:.2f},{b:.2f} {a:.2f},{ty-0.9:.2f} {a+1.5:.2f},{ty-0.9:.2f}" fill="none" stroke="{INK}" stroke-width="0.2"/><text x="{a+2:.2f}" y="{ty:.2f}" font-size="{FS}" fill="{INK}">{t}</text>')
+s.add(f'<text x="12" y="{s.P(0, D+T+0.35)[1]+13:.2f}" font-size="{FS}" fill="{MUT}">OUTSIDE (parking)</text>')
 # bottom: front-wall items. Stair-stepped rows, rightmost item on the top row, so no leader crosses any text.
 bot = [(-2.05, 6.63, 'Colour-coded board rack in slots under the bench (4 boards)'), (-1.9, KZ + 0.13, 'Fire blanket on the wall'),
        (-1.6, 6.55, 'Chilled mise-en-place rail on the bench · 0.76 × 0.26'), (-1.3, 6.62, 'Shelf over the veg bench: stone mortar, mixer-grinder, kitchen torch'), (-1.2, KZ + 0.13, 'Magnetic knife strips on the wall over both benches · 0.40 each'),
        (-0.75, 6.56, 'Two 5 L rice cookers (jasmine, sticky) · Ø 0.26'), (-0.55, 6.99, 'Dip + garnish rail on the pass · ticket rail above the hatch'),
-       (0.2, KZ + 0.1, 'Kitchen door 0.70, opens in · 3 apron hooks inside · insect killer above'), (0.92, 6.6, 'Hand-wash sink 0.33 × 0.40 · hands-free tap')]
+       (0.5, KZ + 0.1, 'Double-acting door 0.80 with vision panel · insect killer above'), (1.06, 6.6, 'Hand-wash at the door 0.28 × 0.40 · hands-free tap · 6 L heater')]
 y0 = s.P(0, KZ - 0.42)[1]
 for i, (x, z, t) in enumerate(bot):
     a, b = s.P(x, z); ty = y0 + i * 4.3
     s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="0.6" fill="{INK}"/><polyline points="{a:.2f},{b:.2f} {a:.2f},{ty-0.9:.2f} {a+1.5:.2f},{ty-0.9:.2f}" fill="none" stroke="{INK}" stroke-width="0.2"/><text x="{a+2:.2f}" y="{ty:.2f}" font-size="{FS}" fill="{INK}">{t}</text>')
 s.scalebar(12, 252, 'PLAN 1:25 on A3 · dimensions in metres')
-s.add(f'<text x="12" y="263" font-size="{FS}" fill="{MUT}">Back wall at the top, dining room at the bottom; left and right as you walk in from the road. Dashed red: canopy hood above.</text>')
-s.add(f'<text x="12" y="267.5" font-size="{FS}" fill="{MUT}">Dashed blue: ceiling hatch and fridge door swings. Dashed grey: shelves above. Heights, exhaust and services: sheet 2.</text>')
-eq = [('Wok range, 2 burners (Chinese)', '1.20 × 0.70 × 0.80', '1'), ('Dim sum steamer, 2 holes', '0.60 × 0.70 × 0.80', '1'), ('Twin-tank fryer (veg / non-veg)', '0.60 × 0.70 × 0.90', '1'),
-      ('Stock range, 2 burners', '0.60 × 0.70 × 0.85', '1'), ('Canopy hood, baffle filters, suppression', '3.25 × 0.95 × 0.55', '1'), ('Non-veg prep bench, undershelf, shelf over', '0.80 × 0.65 × 0.90', '1'),
+s.add(f'<text x="12" y="263" font-size="{FS}" fill="{MUT}">Back wall at the top, dining room at the bottom; left and right as you walk in from the road. Dashed red: canopy hood above (3.35 × 0.95, bottom 2.05 m).</text>')
+s.add(f'<text x="12" y="267.5" font-size="{FS}" fill="{MUT}">Dashed blue: hatch and fridge doors. Dashed green: make-up air diffusers above (2). Dashed grey: shelves above. Heights and services: sheet 2.</text>')
+eq = [('Wok range, 2 burners (Chinese)', '1.20 × 0.80 × 0.80', '1'), ('Dim sum steamer, 2 holes', '0.60 × 0.70 × 0.80', '1'), ('Twin-tank fryer (veg / non-veg)', '0.60 × 0.70 × 0.90', '1'),
+      ('Stock range, 2 burners', '0.60 × 0.70 × 0.85', '1'), ('Canopy hood, baffle filters, suppression', '3.35 × 0.95 × 0.55', '1'), ('Non-veg prep bench, undershelf, shelf over', '0.80 × 0.65 × 0.90', '1'),
       ('Veg / dumpling bench, 2 shelves over', '0.80 × 0.65 × 0.90', '1'), ('Under-counter freezer (in the veg bench)', '2 doors', '1'), ('Pass bench + 2 heat lamps, u/c fridge under', '0.65 × 0.65 × 0.90', '1'),
-      ('Hand-wash sink, hands-free tap', '0.33 × 0.40', '1'), ('2-door reach-in fridge', '0.95 × 0.75 × 2.00', '1'), ('Under-counter dishwasher + drainboard', '0.60 × 0.65 × 0.90', '1'),
-      ('2-bowl sink + pre-rinse spray', '0.80 × 0.65 × 0.90', '1'), ('Shelves over the dish line (top one slatted)', '1.40 × 0.35', '2'), ('Bamboo steamer stacks (3 baskets + lid)', 'Ø 0.26', '4'),
+      ('Veg + herb wash sink, tall mixer tap', '0.45 × 0.50 × 0.90', '1'), ('Hand-wash basins, hands-free, 6 L heater each', '0.28 × 0.40 · 0.25 × 0.25', '2'),
+      ('Dual-temp reach-in (fridge + freezer)', '0.95 × 0.75 × 2.00', '1'), ('Under-counter dishwasher + drainboard', '0.60 × 0.65 × 0.90', '1'),
+      ('2-bowl sink + pre-rinse spray', '0.80 × 0.65 × 0.90', '1'), ('Storage water heater 35 L, 3 kW', 'Ø 0.33 × 0.50', '1'), ('Shelves over the dish line (top one slatted)', '1.40 × 0.35', '2'),
+      ('Bamboo steamer stacks (3 baskets + lid)', 'Ø 0.26', '3'), ('Pot filler, wall swing arm (cold)', '0.30 reach', '1'), ('Used-oil can 20 L + spill tray', '0.34 × 0.17 × 0.40', '1'),
       ('Wok seasoning rail, 8 pots + 8 bottles', '0.44 × 0.22', '1'), ('Wok tool rail: ladle, spatula, spider, brush', '0.47', '1'),
       ('Back-up sauce + oil shelf', '0.90 × 0.30', '1'), ('Chilled mise-en-place rail, 5 pans', '0.76 × 0.26 × 0.22', '1'), ('Dip + garnish rail (5 inserts)', '0.65 × 0.12', '1'),
       ('Ticket rail over the pass hatch', '0.65', '1'), ('Magnetic knife strips', '0.40', '2'), ('Colour-coded board rack + boards', '4 boards', '1'),
       ('Rice cookers 5 L (jasmine, sticky)', 'Ø 0.26', '2'), ('Stone mortar + pestle, granite', 'Ø 0.22', '1'),
-      ('Mixer-grinder, commercial', '—', '1'), ('Kitchen blowtorch', '—', '1'), ('Foot-pedal bins (wet, dry)', 'Ø 0.20 × 0.60', '2'), ('Apron hook rail on the door', '3 hooks', '1'),
-      ('Insect killer', '0.50 × 0.18', '1'), ('Floor channel drain', '3.15 × 0.08', '1'), ('Ceiling hatch + fold-down ladder', '0.60 × 0.80', '1'),
-      ('Extinguishers: Class K 6 L, CO₂ 4.5 kg', 'wall brackets', '2'), ('Fire blanket, first-aid box', '—', '1 each')]
+      ('Mixer-grinder, commercial', '—', '1'), ('Kitchen blowtorch', '—', '1'), ('Foot-pedal bins (wet under veg sink, dry)', 'Ø 0.20 × 0.60', '2'), ('Apron hook rail at the prep corner', '3 hooks', '1'),
+      ('Double-acting door, vision panel, kick plate', '0.80 × 2.05', '1'), ('Make-up air diffusers, ceiling', '0.60 × 0.50', '2'), ('Insect killer', '0.50 × 0.18', '1'), ('Floor channel drain', '3.15 × 0.08', '1'),
+      ('Ceiling hatch + fold-down ladder', '0.60 × 0.80', '1'), ('Goods hoist 200 kg over the hatch', '—', '1'),
+      ('Extinguisher Class K 6 L (CO₂ at the door)', 'wall bracket', '1'), ('Fire blanket, first-aid box', '—', '1 each')]
 CX = 300
 t, y = table(eq, CX, 36, (CX, CX + 70, CX + 104), ('EQUIPMENT', 'W × D × H (m)', 'QTY'), 4.15, FS, width=111)
 s.add(f'<text x="{CX-1.5}" y="31.5" font-size="{FB}" font-weight="700" fill="{INK}">Equipment list</text>' + t)
-nb, y = notes_block([('Notes', ['Benches stainless steel 304, 0.90 m high; hot line 0.70 deep.', 'Kitchen 4.90 × 2.40 m inside; PVC ceiling at 2.70 m with a', 'storage deck above (1.7 m clear) reached by the hatch.',
+nb, y = notes_block([('Notes', ['Benches stainless steel 304, 0.90 m high; hot line 0.70 deep,', 'wok range 0.80. Cooks\' aisle 1.05 m (0.95 m at the wok range).', 'Kitchen 4.90 × 2.40 m inside; non-combustible cement-board', 'ceiling at 2.70 m, storage deck above (1.7 m clear) by the hatch.',
                                 'Sized to the Pan-Asian menu: about 23 recipes, 40 choices,', 'one chef + one helper, 35–45 covers a service.',
                                 'Shelves over the dish line at 1.45 and 1.85 m: plates below,', 'steamer baskets air-dry on the slatted top shelf.', 'Positions are from the 3D model; check every wall and', 'pillar P2 on site before fabrication.'])], CX - 1.5, y + 5)
 s.add(nb)
@@ -202,13 +212,13 @@ s.shell()
 s.rect(XS - 0.5, XS, KZ - 0.35, D + T, '#ece6db', 'none')
 s.add(f'<text x="12" y="{s.P(0, D+T+0.62)[1]:.2f}" font-size="{FS}" fill="{MUT}">OUTSIDE · back (parking)</text>')
 # equipment as light outlines with names
-for xa, xb, za, zb, t in ((X0, -1.25, 8.1, D, 'wok range'), (-1.2, -0.6, 8.1, D, 'steamer'), (-0.55, 0.05, 8.1, D, 'fryer'), (0.1, 0.7, 8.1, D, 'stock'),
+for xa, xb, za, zb, t in ((X0, -1.25, 8.0, D, 'wok range'), (-1.2, -0.6, 8.1, D, 'steamer'), (-0.55, 0.05, 8.1, D, 'fryer'), (0.1, 0.7, 8.1, D, 'stock'),
                           (-2.2, -1.4, KZ + 0.115, 7.05, 'non-veg prep'), (-1.4, -0.6, KZ + 0.115, 7.05, 'veg prep'), (-0.6, 0.05, KZ + 0.115, 7.05, 'pass'),
-                          (0.85, 1.18, KZ + 0.115, 6.8, ''), (1.7, X1, 6.45, 7.4, 'reach-in'), (1.8, X1, 7.4, 8.0, 'dishwasher'), (1.8, X1, 8.0, D, 'sink')):
+                          (0.92, 1.2, KZ + 0.115, 6.8, ''), (X0, X0 + 0.25, KZ + 0.115, 6.65, ''), (X0, X0 + 0.45, 7.12, 7.6, ''), (1.7, X1, 6.45, 7.4, 'reach-in'), (1.8, X1, 7.4, 8.0, 'dishwasher'), (1.8, X1, 8.0, D, 'sink')):
     s.rect(xa, xb, za, zb, '#f4f4f2', '#9aa0a5', 0.25)
-    if t: s.text(((xa + xb) / 2 if xa < 1.6 else xa + 0.2), (8.25 if za > 8 and xa < 1.6 else (za + zb) / 2 + (0.12 if xa < 1.6 else 0)), t, FS, '#7d858b', weight=600, rot=(90 if xa > 1.6 else 0))
+    if t: s.text(((xa + xb) / 2 if xa < 1.6 else xa + 0.2), (8.25 if za >= 8 and xa < 1.6 else (za + zb) / 2 + (0.12 if xa < 1.6 else 0)), t, FS, '#7d858b', weight=600, rot=(90 if xa > 1.6 else 0))
 # EXHAUST (red)
-s.rect(X0 + 0.02, 0.8, 7.85, D - 0.02, 'none', RED, 0.45, '2.2 1.2'); s.text(-1.6, 7.72, 'canopy hood above · bottom 2.05 m', FS, RED, weight=600)
+s.rect(X0, 0.9, 7.85, D - 0.02, 'none', RED, 0.45, '2.2 1.2'); s.text(-1.6, 7.72, 'canopy hood above · bottom 2.05 m', FS, RED, weight=600)
 s.rect(-1.6, -1.1, 8.4, D, 'none', RED, 0.35, '1.4 0.8')
 EX = '#c4442a'
 for xa, xb, za, zb in ((-1.6, -1.1, D, D + T), (XS - 0.45, -1.1, D + T, D + T + 0.4), (XS - 0.45, XS - 0.05, D - 0.35, D + T + 0.4)): s.rect(xa, xb, za, zb, '#f3e0dc', EX, 0.3, '1.4 0.8')
@@ -217,7 +227,7 @@ s.circ(XS - 0.25, D - 1.55, 0.18, '#f3e0dc', EX, 0.3); s.text(XS - 0.25, D - 1.5
 s.rect(XS - 0.5, XS - 0.05, D - 1.95, D - 1.75, '#f3e0dc', EX, 0.3, '1.4 0.8')
 a, b = s.P(XS - 0.5, D - 1.85); s.add(f'<path d="M{a:.2f} {b:.2f} l6 0 m0 0 l-1.8 -1.2 m1.8 1.2 l-1.8 1.2" stroke="{RED}" stroke-width="0.45" fill="none"/><text x="{a+7.5:.2f}" y="{b+0.9:.2f}" font-size="{FS}" font-weight="700" fill="{RED}">E5 out</text>')
 s.text(-1.35, 8.47, 'E1', FS, RED, weight=700); s.text(-2.0, D + T + 0.2, 'E2 duct outside, 0.40 × 0.40 at 2.35–2.75 m', FS, RED, weight=700)
-s.rect(-0.6, -0.05, 7.42, 7.8, 'none', GRN, 0.35, '1 0.6'); s.text(-0.325, 7.61, 'MA grille', FS, GRN, weight=700)
+for xa, xb, za, zb in ((-2.4, -1.8, 7.0, 7.5), (-0.95, -0.35, 7.1, 7.6)): s.rect(xa, xb, za, zb, 'none', GRN, 0.35, '1 0.6'); s.text((xa + xb) / 2, (za + zb) / 2, 'MA', FS, GRN, weight=700)
 s.rect(1.9, 2.4, D + T, D + T + 0.3, '#e1eadc', GRN, 0.3); s.text(2.15, D + T + 0.15, 'F1', FS, GRN, weight=700)
 # GAS (gold): from the cage on the side strip, along the outside wall at 1.3 m, in behind the wok, manifold along the back
 s.line(XS - 0.06, KZ - 0.3, XS - 0.06, 8.7, GAS, 0.7); s.line(XS - 0.06, 8.7, X0 + 0.06, 8.7, GAS, 0.7)
@@ -226,25 +236,28 @@ for x in (-2.1, -1.6, -0.9, -0.25, 0.25, 0.55): s.circ(x, 8.74, 0.035, GAS, GAS,
 s.circ(X0 + 0.12, 7.72, 0.075, '#fff', GAS, 0.3); s.text(X0 + 0.12, 7.72, 'L', FS, GAS, weight=700)
 a, b = s.P(XS - 0.06, KZ - 0.3); s.add(f'<path d="M{a:.2f} {b+3:.2f} l0 -3 m0 0 l-1.1 1.6 m1.1 -1.6 l1.1 1.6" stroke="{GAS}" stroke-width="0.5" fill="none"/>')
 # WATER (blue points) and DRAINS (blue dashed)
-for x, z, t in ((2.2, 8.55, 'HC'), (2.2, 8.25, 'C'), (2.2, 7.85, 'C'), (1.015, 6.45, 'HC'), (-1.85, 8.55, 'C'), (-0.9, 8.55, 'C')):
+for x, z, t in ((2.2, 8.2, 'HC'), (2.2, 7.7, 'HC'), (1.06, 6.45, 'HC'), (X0 + 0.12, 6.45, 'HC'), (X0 + 0.2, 7.36, 'C'), (-1.85, 8.55, 'C'), (-0.9, 8.55, 'C'), (0.4, 8.55, 'C')):
     s.circ(x, z, 0.075, '#fff', BLU, 0.35); s.text(x, z, t, FS, BLU, weight=700)
+HWC = '#c2571a'
+s.circ(2.27, 8.62, 0.16, '#fbe9dc', HWC, 0.4); s.text(2.27, 8.62, 'W', FS, HWC, weight=700); s.line(2.42, 8.5, 2.42, 7.7, HWC, 0.5, '1.4 0.8')   # 35 L heater and its hot line to the sink + dishwasher
+s.line(XS - 0.2, 8.5, X0 + 0.05, 8.5, '#3b8fd0', 0.6); s.text(XS - 0.2, 8.28, 'WM', FS, '#3b8fd0', weight=700, rot=-90)   # cold water main in through the right wall
 s.rect(-2.4, 0.75, 7.92, 8.0, '#cfe0ea', BLU, 0.25)
 DZ = D - 0.16
 for (xa, za, xb, zb) in ((2.2, 7.6, X1 - 0.07, 7.6), (X1 - 0.07, 7.6, X1 - 0.07, DZ), (X1 - 0.07, DZ, XS - 0.25, DZ), (XS - 0.25, DZ, XS - 0.25, 8.6),
                          (-2.4, 7.96, XS - 0.25, 7.96), (XS - 0.25, 7.96, XS - 0.25, 8.15)): s.line(xa, za, xb, zb, BLU, 0.4, '1.2 0.7')
 s.rect(XS - 0.45, XS - 0.05, 8.15, 8.6, '#e6ecef', BLU, 0.35); s.text(XS - 0.25, 8.25, 'GT', FS, BLU, weight=700)
 s.rect(XS - 0.13, XS + 0.01, 8.55, 8.69, '#fff', GAS, 0.35); s.text(XS - 0.06, 8.62, 'S', FS, GAS, weight=700)   # solenoid valve outside, on the entry
-for x, z in ((2.2, 8.4), (2.2, 7.6), (1.015, 6.62), (-0.9, 8.4), (-1.85, 8.4)):
+for x, z in ((2.2, 8.4), (2.2, 7.6), (1.06, 6.62), (X0 + 0.2, 7.2), (-0.9, 8.4), (-1.85, 8.4)):
     a, b = s.P(x, z); s.add(f'<path d="M{a-1:.2f} {b-0.8:.2f} l2 0 l-1 1.7 z" fill="{BLU}"/>')
 # POWER (purple squares)
-pw = [('1', 2.0, 6.62), ('2', -1.0, 6.55), ('3', -0.72, 6.5), ('10', -0.02, 6.5), ('11', -1.2, 6.5), ('4', -1.6, 6.5), ('5', -0.28, 6.55), ('6', 2.05, 7.42), ('7', 0.45, 6.5), ('8', 1.88, 7.85), ('9', 1.88, 7.58)]
+pw = [('1', 2.0, 6.62), ('2', -1.0, 6.55), ('3', -0.72, 6.5), ('10', -0.02, 6.5), ('11', -1.2, 6.5), ('4', -1.6, 6.5), ('5', -0.28, 6.55), ('6', 2.05, 7.42), ('7', 0.45, 6.5), ('8', 1.88, 7.85), ('9', 1.88, 7.58), ('12', 2.0, 8.05), ('13', 1.14, 6.66), ('13', X0 + 0.2, 6.66), ('14', 1.3, 7.62)]
 for n, x, z in pw:
     a, b = s.P(x, z); s.add(f'<rect x="{a-2.2:.2f}" y="{b-2.2:.2f}" width="4.4" height="4.4" fill="#fff" stroke="{PWR}" stroke-width="0.35"/><text x="{a:.2f}" y="{b+0.9:.2f}" font-size="{FS}" font-weight="700" fill="{PWR}" text-anchor="middle">{n}</text>')
 # fire: suppression pull + gas cut-off, heat detector
-s.rect(0.76, 0.92, D - 0.07, D, '#c8231b', '#c8231b', 0.2); s.text(0.88, 8.45, 'SP', FS, RED, weight=700); s.circ(-0.85, 7.6, 0.075, '#fff', RED, 0.3); s.text(-0.85, 7.6, 'H', FS, RED, weight=700)
+s.rect(0.76, 0.92, D - 0.07, D, '#c8231b', '#c8231b', 0.2); s.text(1.05, 8.45, 'SP', FS, RED, weight=700); s.circ(0.83, 8.6, 0.08, '#c8231b', '#c8231b', 0.2); s.text(0.83, 8.6, 'K', 2.5, '#fff', weight=700); s.circ(-0.2, 7.55, 0.075, '#fff', RED, 0.3); s.text(-0.2, 7.55, 'H', FS, RED, weight=700)
 s.text(XS - 0.27, 6.4, 'G gas line at 1.3 m', FS, GAS, weight=700, rot=-90)
 s.scalebar(110, 187, 'PLAN 1:25 on A3 · metres')
-a, b = s.P(XS - 0.06, KZ - 0.3); s.add(f'<text x="{a+2:.2f}" y="{b+2:.2f}" font-size="{FS}" fill="{GAS}" font-weight="600">from the LPG cage (4 × 19 kg)</text>')
+a, b = s.P(XS - 0.06, KZ - 0.3); s.add(f'<text x="{a+2:.2f}" y="{b+2:.2f}" font-size="{FS}" fill="{GAS}" font-weight="600">from the LPG cage (5 × 19 kg)</text>')
 # ---- hot-line elevation at 1:40
 E = 25.0; EOX, EOY = 40, 276     # EOY = floor line
 def Q(x, y): return (EOX + (X1 - x) * E, EOY - y * E)
@@ -264,13 +277,15 @@ ev = [f'<text x="{EOX}" y="{EOY - 3.0*E - 4:.2f}" font-size="{FB}" font-weight="
       et(1.6, 2.89, 'storage deck above', 2.5, MUT), el(X0, 0, X1, 0, INK, 0.6), er(X0 - 0.04, X0, 0, 3.0, WALL, WALL, 0.1), er(X1, X1 + 0.04, 0, 3.0, WALL, WALL, 0.1)]
 for xa, xb, h, t in ((X0, -1.25, 0.8, 'wok range'), (-1.2, -0.6, 0.8, 'steamer'), (-0.55, 0.05, 0.9, 'fryer'), (0.1, 0.7, 0.85, 'stock')):
     ev += [er(xa, xb, 0, h, HOT, INK, 0.3), et((xa + xb) / 2, h - 0.2, t, FS, '#fff', weight=700)]
-ev += [er(X0 + 0.02, 0.8, 2.05, 2.6, '#e6e3de', RED, 0.45), et(-0.8, 2.25, 'canopy hood 3.25 × 0.95 × 0.55', FS, RED, weight=600),
+ev += [er(X0, 0.9, 2.05, 2.6, '#e6e3de', RED, 0.45), et(-0.8, 2.25, 'canopy hood 3.35 × 0.95 × 0.55', FS, RED, weight=600),
        er(-1.6, -1.1, 2.35, 2.75, '#f3e0dc', RED, 0.3, '1.2 0.6'), et(-1.68, 2.89, 'E1 duct out 0.40 × 0.40 at 2.35–2.75 m', 2.5, RED, 'end', 600),
        el(X0 + 0.05, 0.4, 0.62, 0.4, GAS, 0.5, '1.6 0.8'),
        el(-1.85, 0.8, -1.85, 1.12, BLU, 0.4), et(-1.85, 1.24, 'wok tap', FS, BLU), el(-0.9, 0.8, -0.9, 1.12, BLU, 0.4), et(-0.9, 1.24, 'steamer feed', FS, BLU),
        el(X0 + 0.06, 0.4, X0 + 0.06, 1.3, GAS, 0.6), et(X0 + 0.05, 1.72, 'gas in at 1.3 m', FS, GAS, 'end'),
        er(0.95, 1.75, 0, 2.1, '#fbf7ef', INK, 0.3), et(1.35, 1.1, 'rear exit', FS, MUT), et(1.35, 0.9, '0.80 × 2.10', FS, MUT), el(1.05, 1.0, 1.65, 1.0, INK, 0.5),
-       er(0.76, 0.92, 1.3, 1.5, '#c8231b', '#c8231b', 0.1), er(0.73, 0.93, 0, 0.6, '#d6e2ef', BLU, 0.25),
+       er(0.76, 0.92, 1.3, 1.5, '#c8231b', '#c8231b', 0.1), er(0.73, 0.93, 0, 0.6, '#d6e2ef', BLU, 0.25), er(0.745, 0.915, 0.65, 1.2, '#e8a090', '#c8231b', 0.25), et(0.83, 1.28, '', FS),
+       er(1.0, 1.6, KC, 2.78, '#ffffff', INK, 0.25), el(1.3, KC, 1.3, 1.25, INK, 0.3), et(1.34, 2.42, 'hoist hook', FS, MUT, 'start'),
+       er(2.11, 2.43, 2.14, 2.64, '#fbe9dc', HWC, 0.3), et(2.27, 2.4, 'W', FS, HWC, weight=700), el(0.4, 1.3, 0.4, 1.2, BLU, 0.5), et(0.4, 1.42, 'pot filler', FS, BLU),
        er(1.8, X1, 0, 0.9, STEEL, INK, 0.3), et(2.12, 0.45, 'sink', FS, weight=700), er(2.1, X1, 1.45, 1.48, STEEL, INK, 0.2), er(2.1, X1, 1.85, 1.88, STEEL, INK, 0.2),
        er(X0, X0 + 0.3, 1.45, 1.48, STEEL, INK, 0.2), er(X0, X0 + 0.22, 0.97, 1.04, '#e6ecef', BLU, 0.25),
        edim(X1 + 0.3, 0, 0.8, '0.80'), edim(X1 + 0.62, 0, 2.05, '2.05'), edim(X1 + 0.94, 0, KC, '2.70'), et(0.84, 1.62, 'SP', FS, RED, weight=700)]
@@ -278,13 +293,13 @@ a, b = Q(X1, -0.25); ev.append(f'<text x="{a:.2f}" y="{b+1.5:.2f}" font-size="{F
 a, b = Q(X0, -0.25); ev.append(f'<text x="{a:.2f}" y="{b+1.5:.2f}" font-size="{FS}" fill="{MUT}" text-anchor="end">right wall (wok side)</text>')
 s.add(''.join(ev))
 # ---- legend
-LX, LY = 180, 200
+LX, LY = 180, 198
 leg = [f'<text x="{LX}" y="{LY}" font-size="{FB}" font-weight="700" fill="{INK}">Legend</text>']
 items = [('line', RED, '2.2 1.2', 'canopy hood outline (above)'), ('line', EX, '1.4 0.8', 'exhaust duct, outside, at 2.35–2.75 m'), ('line', GAS, None, 'gas line, copper'),
          ('line', GAS, '1.6 0.8', 'gas manifold at 0.40 m · dot = appliance valve'), ('box', GAS, 'S', 'solenoid shut-off valve'), ('circ', GAS, 'L', 'gas leak detector'),
-         ('circ', BLU, 'HC', 'water point: hot + cold (C = cold only)'), ('tri', BLU, None, 'drain point'), ('line', BLU, '1.2 0.7', 'drain line to the grease trap'),
-         ('box', PWR, '1', 'power point, see the services list'), ('line', GRN, '1 0.6', 'make-up (fresh) air grille in the ceiling'), ('circ', RED, 'H', 'heat detector'),
-         ('sq', RED, None, 'SP suppression pull + gas cut-off')]
+         ('circ', BLU, 'HC', 'water point: hot + cold (C = cold only)'), ('line', HWC, '1.4 0.8', 'hot water from the 35 L heater (W)'), ('line', '#3b8fd0', None, 'cold water main in (WM)'), ('tri', BLU, None, 'drain point'), ('line', BLU, '1.2 0.7', 'drain line to the grease trap'),
+         ('box', PWR, '1', 'power point, see the services list'), ('line', GRN, '1 0.6', 'make-up air diffusers in the ceiling (MA, 2)'), ('circ', RED, 'H', 'heat detector'),
+         ('sq', RED, None, 'SP suppression pull + gas cut-off · K = Class K extinguisher')]
 y = LY + 6
 for kind, col, d, t in items:
     if kind == 'line': leg.append(f'<line x1="{LX}" y1="{y-0.9}" x2="{LX+9}" y2="{y-0.9}" stroke="{col}" stroke-width="0.6"' + (f' stroke-dasharray="{d}"' if d else '') + '/>')
@@ -292,19 +307,20 @@ for kind, col, d, t in items:
     elif kind == 'circ': leg.append(f'<circle cx="{LX+4.5}" cy="{y-0.9}" r="3" fill="#fff" stroke="{col}" stroke-width="0.35"/><text x="{LX+4.5}" y="{y}" font-size="{FS}" font-weight="700" fill="{col}" text-anchor="middle">{d}</text>')
     elif kind == 'sq': leg.append(f'<rect x="{LX+3.5}" y="{y-2.3}" width="2" height="2.6" fill="{col}"/>')
     else: leg.append(f'<path d="M{LX+3.5} {y-1.8} l2 0 l-1 1.7 z" fill="{col}"/>')
-    leg.append(f'<text x="{LX+12}" y="{y}" font-size="{FS}" fill="{INK}">{t}</text>'); y += 6.2
+    leg.append(f'<text x="{LX+12}" y="{y}" font-size="{FS}" fill="{INK}">{t}</text>'); y += 5.35
 s.add(''.join(leg))
 # ---- services schedule (right column)
 CX = 300
 sv = [('E1', 'Duct through the back wall', '0.40 × 0.40 at 2.35–2.75 m', RED), ('E2', 'Duct along the wall, round the corner', '0.40 × 0.40, outside', RED),
       ('E3', 'ESP + carbon odour filter', '0.50 × 1.00 × 0.90, 2.05–2.95 m', RED), ('E4', 'Inline exhaust fan', 'Ø 0.44 · on backup', RED),
       ('E5', 'Side discharge, mesh + rain cowl', '0.40 × 0.40 at ~2.6 m', RED), ('F1', 'Fresh-air intake fan, back wall', '0.50 × 0.48 at 3.3 m', GRN),
-      ('MA', 'Make-up air grille, ceiling', '0.55 × 0.38', GRN), ('G', 'LPG line, copper, from the cage', 'at 1.3 m, in at the back corner', GAS),
-      ('S', 'Solenoid valve on the entry, outside', 'interlocked: fan + suppression', GAS), ('SP', 'Hood suppression pull + gas cut-off', 'at the rear exit, 1.3–1.5 m', RED), ('GT', 'Grease trap, outside back corner', '0.45 × 0.45', BLU),
+      ('MA', 'Make-up air diffusers ×2, ceiling', '0.60 × 0.50 each · ~2.4 m/s', GRN), ('CC', 'Cooling coil in the make-up duct', '1.5 TR · 3rd condenser on the wall', GRN), ('G', 'LPG line, copper, from the cage', 'at 1.3 m, in at the back corner', GAS),
+      ('S', 'Solenoid valve on the entry, outside', 'interlocked: fan + suppression', GAS), ('SP', 'Hood suppression pull + gas cut-off', 'at the rear exit, 1.3–1.5 m', RED), ('GT', 'Grease trap, outside back corner', '0.45 × 0.45', BLU), ('W', 'Storage water heater, 3 kW', '35 L · left wall over the sink', BLU), ('PF', 'Pot filler, cold, swing arm', 'over the stock range', BLU),
+      ('WC', 'Water cabinet: pump, filter, softener', 'outside, 1.2–2.0 m · on backup', BLU), ('SU', 'Water sump, buried', '1,000 L · 1.3 × 1.0 × 0.8 · garden', BLU),
       ('1', 'Reach-in fridge', '1-ph socket · on backup', PWR), ('2', 'Under-counter freezer', '1-ph socket · on backup', PWR), ('3', 'Two rice cookers', 'twin 1-ph socket', PWR),
       ('4', 'Chilled mise-en-place rail', '1-ph socket · on backup', PWR), ('5', 'Heat lamps over the pass', '1-ph, switched', PWR), ('6', 'Dishwasher', '1-ph or 3-ph: confirm model', PWR),
       ('7', 'Insect killer', '1-ph', PWR), ('8', 'Hood-light switch', 'left wall, by panel 9', PWR), ('9', 'Exhaust fan + ESP control panel', 'left wall over the DW · on backup', PWR),
-      ('10', 'Pass under-counter fridge', '1-ph socket · on backup', PWR), ('11', 'Mixer-grinder', '1-ph socket, 16 A', PWR)]
+      ('10', 'Pass under-counter fridge', '1-ph socket · on backup', PWR), ('11', 'Mixer-grinder', '1-ph socket, 16 A', PWR), ('12', 'Water heater isolator', 'own 3 kW MCB', PWR), ('13', 'Hand-wash heaters ×2', '1 kW each, 6 L', PWR), ('14', 'Goods hoist over the hatch', '200 kg · 0.4 kW', PWR)]
 rows = [(a, b, c, col) for a, b, c, col in sv]
 o = [f'<text x="{CX-1.5}" y="31.5" font-size="{FB}" font-weight="700" fill="{INK}">Services list</text>', f'<rect x="{CX-1.5}" y="32.7" width="111" height="4.6" fill="{INK}"/>']
 for c, t in zip((CX, CX + 9, CX + 64), ('TAG', 'ITEM', 'SIZE / NOTE')): o.append(f'<text x="{c}" y="36" font-size="{FS}" font-weight="700" fill="#fff">{t}</text>')
@@ -314,10 +330,10 @@ for i, (tg, it, sz, col) in enumerate(rows):
     o.append(f'<text x="{CX}" y="{y}" font-size="{FS}" font-weight="700" fill="{col}">{tg}</text><text x="{CX+9}" y="{y}" font-size="{FS}" fill="{INK}">{it}</text><text x="{CX+64}" y="{y}" font-size="{FS}" fill="{MUT}">{sz}</text>')
     y += 4.15
 s.add(''.join(o))
-nb, y2 = notes_block([('Exhaust', ['Allow about 4,000–5,000 m³/h for the whole hood (vendor to', 'size); about 8 m/s in the 0.40 × 0.40 duct. ESP + carbon filter', 'before the fan. No roof stack: apartment above, parking behind.', 'Make-up air about 80% of the exhaust, interlocked.']),
-                      ('Gas', ['4 × 19 kg LPG in a locked, ventilated cage on the right strip.', 'A valve per appliance; solenoid shuts off with the fan or the', 'hood suppression; leak detector at the line entry.']),
-                      ('Water + drains', ['All kitchen drains to the grease trap, then the grey-water line', '(never the biodigester). Epoxy floor falls to the channel drain.']),
-                      ('Power', ['Shop supply: three-phase, about 15–20 kW. Backup 7.5 kVA', 'covers the fridges, rails, fan, ESP, lights. Not the ACs.'])], CX - 1.5, y + 4)
+nb, y2 = notes_block([('Exhaust + air', ['Allow about 4,000–5,000 m³/h for the whole hood (vendor to size);', 'about 8 m/s in the 0.40 × 0.40 duct. ESP + carbon filter before', 'the fan. No roof stack: apartment above, parking behind.', 'Hood overhang 0.20 m at the open end, 0.15 m over the wok range.', 'Make-up air about 80% of the exhaust through two low-velocity', 'diffusers (~2.4 m/s), cooled by a 1.5 TR coil, interlocked.']),
+                      ('Gas', ['5 × 19 kg LPG (4 on the manifold + 1 full spare = 95 kg) in a', 'locked cage on the right strip. Typical load: wok 2 × 18, stock', '2 × 8, fryer 18, steamer 11 kW = about 80 kW connected, 55 kW', 'at once; 4 cylinders give about 60–75 kW in Goa: vendor to', 'confirm the burner ratings, add a vaporiser if they are higher.', 'A valve per appliance; solenoid shuts off with the fan or the', 'suppression; leak detector low on the right wall.']),
+                      ('Water + drains', ['Cold: 1,000 L buried sump → pump, filter, softener cabinet', '(on backup) → kitchen. Hot: 35 L heater for the sink and pre-', 'rinse, 6 L heaters under both hand-wash basins, dishwasher', 'with its own booster. All kitchen drains to the grease trap,', 'then the grey-water line (never the biodigester).']),
+                      ('Power', ['Shop supply: three-phase, about 15–20 kW. Backup 7.5 kVA', 'covers the fridges, rails, fan, ESP, lights and the water pump.', 'Not the ACs.'])], CX - 1.5, y + 4)
 s.add(nb)
 sheet2 = frame('Kitchen services and exhaust', 'For kitchen equipment, exhaust, gas, plumbing and electrical vendors · plan at 1:25 and elevation at 1:40 on A3', 2, ''.join(s.o))
 

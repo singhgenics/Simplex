@@ -101,40 +101,47 @@ hdim(-1.2,0.35,4.77,'1.55 to the bar edge')
 rect(X1-0.5,X1,5.45,6.25,'#cfd7b2'); text(2.12,5.85,'server stn',8.5,weight=700,rot=90); text(2.32,5.85,'0.80 × 0.50',7.5,'#4a4038',rot=90)
 vdim(0.45,5.22,KZ,'1.08',0)
 # ---- kitchen
-rect(X0,X1,KZ,KZ+0.1,'#d8c6ac','#d8c6ac',1); rect(-0.6,0.05,KZ,KZ+0.1,'#cfe3ea','#7a9aaa',1); rect(0.1,0.8,KZ,KZ+0.1,'#fbf7ef','#fbf7ef',1)
-text(-0.28,KZ-0.15,'pass',9,'#4a6070'); text(0.45,KZ-0.15,'door',9,'#6a5d4e')
+rect(X0,X1,KZ,KZ+0.1,'#d8c6ac','#d8c6ac',1); rect(-0.6,0.05,KZ,KZ+0.1,'#cfe3ea','#7a9aaa',1); rect(0.1,0.9,KZ,KZ+0.1,'#fbf7ef','#fbf7ef',1)
+text(-0.28,KZ-0.15,'pass',9,'#4a6070'); text(0.5,KZ-0.15,'door',9,'#6a5d4e')
 rect(-2.2,-1.4,KZ+0.1,7.05,'#c3c8cc'); text(-1.8,6.62,'non-veg prep',8.5,weight=600); text(-1.8,6.84,'0.80 × 0.65 · h 0.90',7.5,'#4a4038')
 rect(-1.4,-0.6,KZ+0.1,7.05,'#c3c8cc'); text(-1.12,6.55,'veg prep',8.5,weight=600); text(-1.12,6.74,'+ u/c freezer',7.5,'#4a4038'); text(-1.12,6.92,'0.80 × 0.65',7.5,'#4a4038'); circ(-0.72,6.56,0.1,'#e9e9e9','#6d7276',1); circ(-0.72,6.9,0.1,'#e9e9e9','#6d7276',1) # two rice cookers
 rect(-0.6,0.05,KZ+0.1,7.05,'#c3c8cc'); text(-0.28,6.56,'pass + lamps',8.5,weight=600); text(-0.28,6.72,'+ u/c fridge',7.5,'#4a4038'); text(-0.28,6.88,'0.65 × 0.65',7.5,'#4a4038')
-rect(0.85,1.18,KZ+0.1,6.8,'#c3c8cc'); text(1.015,6.52,'HW',8,weight=700); text(1.015,6.68,'0.33×0.40',6.5,'#4a4038')
+rect(0.92,1.2,KZ+0.1,6.8,'#c3c8cc'); text(1.06,6.52,'HW',8,weight=700); text(1.06,6.68,'0.28×0.40',6.5,'#4a4038')
+rect(X0,X0+0.25,KZ+0.1,6.65,'#c3c8cc'); text(X0+0.125,6.52,'HW',6.5,weight=700) # second hand-wash at the prep corner, apron rail above
+rect(X0,X0+0.45,7.12,7.6,'#c3c8cc'); text(X0+0.225,7.2,'veg sink',6.5,weight=600) # veg + herb wash sink, wet bin under it
 # fridge door swings (two 0.47 m doors) and the kitchen door swing, dashed
 for hz,sg in ((6.45,1),(7.4,-1)):
     a,b=P(1.7,hz);r=0.47*S;ex,ey=P(1.23,hz)
     out.append(f'<path d="M{ex:.1f} {ey:.1f} A{r:.1f} {r:.1f} 0 0 {0 if sg>0 else 1} {a:.1f} {b-sg*r:.1f}" fill="none" stroke="#2a6f8f" stroke-width="1" stroke-dasharray="3 3"/>')
     line(1.7,hz,1.23,hz,'#2a6f8f',1,'3 3')
-line(0.8,KZ+0.1,0.8,KZ+0.8,'#6a5d4e',1,'3 3')
+line(0.1,KZ+0.1,0.1,KZ+0.9,'#6a5d4e',1,'3 3')
+ax,ay=P(0.1,KZ+0.9); bx_,by_=P(0.9,KZ+0.1); r=0.8*S; out.append(f'<path d="M{ax:.1f} {ay:.1f} A{r:.1f} {r:.1f} 0 0 0 {bx_:.1f} {by_:.1f}" fill="none" stroke="#6a5d4e" stroke-width="1" stroke-dasharray="3 3"/>') # double-acting door, into the kitchen
+ax,ay=P(0.1,KZ-0.8); bx_,by_=P(0.9,KZ); out.append(f'<path d="M{ax:.1f} {ay:.1f} A{r:.1f} {r:.1f} 0 0 1 {bx_:.1f} {by_:.1f}" fill="none" stroke="#6a5d4e" stroke-width="1" stroke-dasharray="3 3"/>') # ... and into the dining room
 rect(X0,X0+0.3,7.15,8.05,'none','#6d7276',1,'4 3');
 # working kit: seasoning rail, chilled mise-en-place rail, pass dip rail, board rack, pedal bins, apron hooks
 rect(X0,X0+0.22,7.62,8.06,'#e6ecef','#2a6f8f',1.1); text(X0+0.11,7.84,'seasoning',6.5,'#2a6f8f',rot=-90)
 rect(-2.18,-1.42,6.42,6.68,'none','#2a6f8f',1.1,'4 2'); rect(-0.6,0.05,6.93,7.05,'#e6ecef','#2a6f8f',1); rect(-2.12,-1.84,6.5,6.92,'none','#8f6a4a',0.8,'2 2')
-circ(-2.32,6.52,0.1,'#cfe0bf','#3f6a3a',1.2); circ(0.83,8.62,0.1,'#d6e2ef','#2f5f9a',1.2); text(0.45,6.98,'apron hooks on door',6.5,'#6a5d4e')
-text(-1.75,7.6,'wok cook',9,'#6a5d4e',weight=700); text(-1.75,7.42,'clear space',8.5,'#6a5d4e'); text(-2.17,7.45,'back-up shelf 0.9 × 0.3 (high)',6.5,'#6a5d4e',rot=90)
-for xa,xb,t,dim in ((X0,-1.25,'wok range ×2','1.20 × 0.70 · h 0.80'),(-1.2,-0.6,'steamer','0.60 × 0.70'),(-0.55,0.05,'fryer ×2','0.60 × 0.70'),(0.1,0.7,'stock ×2','0.60 × 0.70')):
-    rect(xa,xb,8.1,D,'#9aa0a5'); text((xa+xb)/2,8.36,t,9,'#fff',weight=700); text((xa+xb)/2,8.58,dim,7.5,'#fff')
+circ(-2.27,7.36,0.1,'#cfe0bf','#3f6a3a',1.2); circ(0.83,8.62,0.1,'#d6e2ef','#2f5f9a',1.2); circ(0.83,8.7,0.07,'#c8231b','#c8231b',1); text(0.83,8.7,'K',5.5,'#fff',weight=700)
+text(-1.82,7.82,'wok cook',9,'#6a5d4e',weight=700); text(-1.82,7.66,'clear space',8.5,'#6a5d4e')
+for xa,xb,za,zb in ((-2.4,-1.8,7.0,7.5),(-0.95,-0.35,7.1,7.6)): rect(xa,xb,za,zb,'none','#3f6a3a',1.1,'3 2')
+text(-0.65,7.35,'make-up air',6.5,'#3f6a3a',weight=600)
+for xa,xb,t,dim,z0 in ((X0,-1.25,'wok range ×2','1.20 × 0.80 · h 0.80',8.0),(-1.2,-0.6,'steamer','0.60 × 0.70',8.1),(-0.55,0.05,'fryer ×2','0.60 × 0.70',8.1),(0.1,0.7,'stock ×2','0.60 × 0.70',8.1)):
+    rect(xa,xb,z0,D,'#9aa0a5'); text((xa+xb)/2,8.36,t,9,'#fff',weight=700); text((xa+xb)/2,8.58,dim,7.5,'#fff')
 line(X0+0.05,8.13,X0+0.05,8.6,'#2a6f8f',3,'5 2'); text(X0+0.14,8.36,'tools',6.5,'#fff',rot=-90) # wok tool rail on the wall, at 1.4 m
-rect(X0+0.02,0.8,7.85,D-0.02,'none','#c4442a',1.3,'8 4'); text(-0.25,7.95,'hood 3.25 × 0.95 × 0.55 · bottom 2.05 m',8.5,'#b23a1e')
-rect(1.7,X1,6.45,7.4,'#c3c8cc'); text(2.0,6.92,'2-door reach-in',8.5,weight=600,rot=90); text(2.2,6.92,'1.0 × 0.75 · h 2.0',7.5,'#4a4038',rot=90)
+rect(X0,0.9,7.85,D-0.02,'none','#c4442a',1.3,'8 4'); text(-0.25,7.95,'hood 3.35 × 0.95 × 0.55 · bottom 2.05 m',8.5,'#b23a1e'); circ(0.4,8.74,0.04,'#2f6f9f','#2f6f9f',1) # pot filler
+rect(1.7,X1,6.45,7.4,'#c3c8cc'); text(2.0,6.92,'dual-temp reach-in',8.5,weight=600,rot=90); text(2.2,6.92,'1.0 × 0.75 · h 2.0',7.5,'#4a4038',rot=90)
 rect(1.8,X1,7.4,8.0,'#c3c8cc'); text(2.03,7.7,'u/c dishwasher',8,weight=600,rot=90); text(2.23,7.7,'0.60 × 0.65',7.5,'#4a4038',rot=90)
-rect(1.8,X1,8.0,D,'#c3c8cc'); text(2.03,8.4,'2-bowl sink',8,weight=600,rot=90); text(2.23,8.4,'0.80 × 0.65',7.5,'#4a4038',rot=90)
-rect(0.35,0.95,7.15,7.95,'none','#2a6f8f',1.3,'5 3'); text(0.65,7.5,'hatch',9,'#2a6f8f',weight=700); text(0.65,7.68,'0.6 × 0.8',7.5,'#2a6f8f')
-text(0.0,7.35,'KITCHEN 4.9 × 2.4 · ceiling 2.7',11,weight=700); text(-0.45,7.17,'deck above (+2.7 m)',9,'#2a6f8f')
+rect(1.8,X1,8.0,D,'#c3c8cc'); text(2.0,8.22,'2-bowl sink',8,weight=600,rot=90); text(2.17,8.22,'0.80 × 0.65',7.5,'#4a4038',rot=90); circ(2.27,8.62,0.16,'none','#b8862a',1.4); text(2.27,8.62,'35 L',6,'#8a6420',weight=700) # water heater above
+rect(1.0,1.6,7.45,8.25,'none','#2a6f8f',1.3,'5 3'); text(1.3,7.78,'hatch + hoist',8.5,'#2a6f8f',weight=700); text(1.3,7.96,'0.6 × 0.8',7.5,'#2a6f8f')
+text(0.47,7.6,'KITCHEN 4.9 × 2.4',11,weight=700); text(0.47,7.42,'ceiling 2.7 · deck above',8.5,'#2a6f8f')
 # ---- right side: 0.5 m service strip, every fit-out dimensioned (D = depth from the wall, L = length along the wall, H = height)
 rect(XS-0.35,XS,0.35,1.15,'#d6dde2','#3a4a56',1.3); text(XS-0.17,0.75,'UPS',8,'#2a3a46',weight=700,rot=90)
-rect(XS-0.45,XS,2.25,3.15,'#d9c7a8','#8f5634'); text(XS-0.22,2.7,'bins',8.5,rot=90)
-rect(XS-0.4,XS-0.05,3.3,4.7,'#f3d6cf','#b23a1e',1.2); text(XS-0.22,4.0,'LPG',8.5,'#b23a1e',weight=700,rot=90)
-for z in (3.47,3.81,4.15,4.49): circ(XS-0.22,z,0.15,'none','#b23a1e',1)
+rect(XS-0.45,XS,1.2,2.0,'#d6e2ef','#2f6f9f',1.3); text(XS-0.22,1.6,'water',8,'#2f6f9f',weight=700,rot=90)
+rect(XS-0.45,XS,2.05,2.95,'#d9c7a8','#8f5634'); text(XS-0.22,2.5,'bins',8.5,rot=90)
+rect(XS-0.4,XS-0.05,3.0,4.7,'#f3d6cf','#b23a1e',1.2); text(XS-0.22,3.85,'LPG',8.5,'#b23a1e',weight=700,rot=90)
+for z in (3.17,3.51,3.85,4.19,4.53): circ(XS-0.22,z,0.15,'none','#b23a1e',1)
 line(XS-0.06,4.7,XS-0.06,8.7,'#b8862a',2); line(XS-0.06,8.7,X0,8.7,'#b8862a',2); rect(XS-0.13,XS-0.01,8.46,8.6,'#e8b81a','#8a6420',1) # solenoid valve on the entry
-for z in (1.0,2.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
+for z in (1.0,2.0,3.0): rect(XS-0.3,XS,z-0.4,z+0.4,'none','#6a5d4e',1,'3 2')
 BW,GY='#7a3f1d','#2f6f9f' # toilet (black water) and grey water lines, buried, drawn dashed
 line(X0,5.95,XS-0.3,5.95,BW,2,'6 3'); line(XS-0.3,5.75,XS-0.3,-0.2,BW,2,'6 3'); line(XS-0.3,-0.6,XS-0.3,-1.2,BW,2,'6 3'); line(XS-0.3,-1.2,-2.15,-1.2,BW,2,'6 3')
 for za,zb,t in ((5.75,6.15,'IC1'),(-0.6,-0.2,'IC2')): rect(XS-0.45,XS-0.05,za,zb,'#f3e6dc',BW,1.4); text(XS-0.25,za+0.1 if t=='IC1' else (za+zb)/2,t,7,BW,weight=700)
@@ -142,6 +149,8 @@ rect(XS-0.45,XS-0.05,8.15,8.6,'#e6ecef',GY,1.2); text(XS-0.25,8.37,'GT',8,GY,wei
 line(XS-0.12,8.15,XS-0.12,-0.75,GY,1.4,'5 3'); line(XS,3.85,XS-0.12,3.85,GY,1.4,'5 3'); line(XS,5.13,XS-0.12,5.13,GY,1,'5 3'); line(1.1,4.45,X0,4.45,GY,1,'5 3')
 line(X1-0.3,8.4,X1-0.3,D-0.05,GY,1,'5 3'); line(X1-0.3,D-0.05,X0+0.1,D-0.05,GY,1,'5 3'); line(XS-0.25,8.6,XS-0.25,D+T,GY,1,'5 3')
 circ(XS-0.16,6.06,0.05,'#ffffff',BW,1.2)
+rect(0.05,1.35,-1.7,-0.7,'none','#2f6f9f',2,'7 4'); text(0.7,-1.12,'water sump',7.5,'#2f6f9f',weight=700); text(0.7,-1.3,'1,000 L',7.5,'#2f6f9f',weight=700); circ(0.33,-1.2,0.2,'none','#2f6f9f',1.2)
+WT='#3b8fd0'; line(0.7,-0.7,0.7,-0.06,WT,1.6); line(0.7,-0.06,XS-0.2,-0.06,WT,1.6); line(XS-0.2,-0.06,XS-0.2,1.2,WT,1.6); line(XS-0.2,2.0,XS-0.2,8.55,WT,1.6); line(XS-0.2,8.55,X0,8.55,WT,1.6) # water: sump to the cabinet, then buried along the strip to the kitchen
 rect(-2.15,-0.05,-1.75,-0.65,'none','#2c8a66',2,'7 4'); line(-2.15,-1.5,XS-0.9,-1.5,'#2c8a66',0.8); text(XS-0.94,-1.5,'Biodigester 2,000 L · 2.1 × 1.1 × 1.2 m · buried, top 0.3 m down · 2 lids by the path',9.5,'#2c8a66','start',600)
 for z in (-0.95,-1.45): circ(-0.33,z,0.2,'none','#2c8a66',1.2)
 rect(X0,X0+0.06,0.45,1.11,'#c9993f','#8a6420',1.2); text(X0+0.12,0.32,'meter behind hinged portrait',8,'#8a6420','end')
@@ -156,10 +165,11 @@ text(-0.6,D+0.75,'kitchen exhaust: out the back, right along the wall, round the
 def call(z,t,col='#2a2420',zi=None):
     zi=z if zi is None else zi
     line(XS-0.5,zi,XS-0.9,z,'#8a7a62',0.8); text(XS-0.94,z,t,9.5,col,'start',600)
-call(0.15,'AC outdoor units (2) · 0.30 D × 0.80 L × 0.55 H · high, at 3.0 m','#6a5d4e',1.0)
+call(0.15,'AC outdoor units (3) · 0.30 D × 0.80 L × 0.55 H · high, at 3.0 m · third = kitchen air coil','#6a5d4e',1.0)
 call(0.75,'Power backup cabinet · 0.35 D × 0.80 L × 1.60 H · wall-mounted, changeover inside','#2a3a46')
-call(2.75,'Bin store · 0.45 D × 0.90 L × 1.00 H · 3 × 60 L bins')
-call(4.0,'LPG cage · 0.35 D × 1.40 L × 1.60 H · 4 × 19 kg in one row','#b23a1e')
+call(1.62,'Water cabinet · 0.45 × 0.80 × 1.50 H · pump, filter, softener','#2f6f9f')
+call(2.62,'Bin store · 0.45 D × 0.90 L × 1.00 H · 3 × 60 L bins')
+call(3.85,'LPG cage · 0.35 D × 1.70 L × 1.60 H · 5 × 19 kg in one row (4 + 1 spare)','#b23a1e')
 call(5.15,'Steel bollards · Ø 0.13 × 0.90 H · 6 no., on the strip edge','#8a6420',4.7)
 call(5.75,'Copper gas line along the wall at 1.3 m, solenoid valve, into the kitchen','#8a6420')
 call(6.3,'Soil vent pipe Ø 0.11 up the wall (WC exhaust now ducted to the back wall, high)','#7a3f1d',5.95)
@@ -172,11 +182,11 @@ call(7.25,'Inline exhaust fan · Ø 0.44','#b23a1e',D-1.55)
 call(7.95,'ESP + carbon filter · 0.50 D × 1.00 L × 0.90 H · at 2.05–2.95 m','#b23a1e',D-0.85)
 call(8.55,'Exhaust duct · 0.40 × 0.40 · at 2.35–2.75 m','#b23a1e',D-0.1)
 # chain of positions along the strip + strip width + gas-to-outlet distance
-for za,zb,t in ((0.35,1.15,'0.80'),(2.25,3.15,'0.90'),(3.3,4.7,'1.40'),(D-1.35,D-0.35,'1.00')): vdim(XS-0.68,za,zb,t,0)
+for za,zb,t in ((0.35,1.15,'0.80'),(1.2,2.0,'0.80'),(2.05,2.95,'0.90'),(3.0,4.7,'1.70'),(D-1.35,D-0.35,'1.00')): vdim(XS-0.68,za,zb,t,0)
 vdim(XS-0.68,4.7,D-1.95,'2.15 gas to outlet',0)
 hdim(XS-0.5,XS,6.35,'0.50')
 text(2.15,D+0.55,'Fresh-air intake · 0.50 × 0.48 · high, at 3.3 m',9,'#6a5d4e',weight=600)
-vdim(-1.45,7.05,8.1,'aisle 1.05',0); hdim(0.95,1.75,D-0.15,'rear door 0.80'); hdim(0.1,0.8,KZ+0.25,'door 0.70')
+vdim(-1.45,7.05,8.1,'aisle 1.05',0); hdim(0.95,1.75,D-0.15,'rear door 0.80'); hdim(0.1,0.9,KZ+0.25,'door 0.80')
 # ---- dimensions
 hdim(X1,X0,D+0.2,'4.90 (inside)')
 vdim(X1+T,0,D,'8.80 (inside)',-46)
@@ -186,7 +196,7 @@ title='Ground floor plan · 4.9 × 8.8 m'
 sub='Betalbatim pub · Concept 27 (mirrored: washroom right, bar left; 0.45 m min between tables) · from the shop drawing (47 m² super built-up) · 18 covers inside + 8 in the garden · 26 in all'
 rows=[('Bar stools','4'),('Window tables, left (4 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the Pan-Asian menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: seasoning rail by the wok, chilled','mise-en-place rail, pass dip + ticket rail,','knife strips, board rack, two pedal bins,','apron hooks on the kitchen door, a wok','tool rail, slatted shelf for the steamer','baskets, two rice cookers, a pass fridge;','gas solenoid + leak detector.','Exhaust and drains shown dashed.']
+NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the Pan-Asian menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust, water and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: veg sink and two hand-washes (aprons','at the prep corner), 0.8 m double-acting door,','dual-temp reach-in, 35 L water heater, pot','filler, make-up air, cement-board ceiling,','goods hoist at the hatch, seasoning rail,','mise-en-place rail, pass fridge, rice cookers,','gas solenoid + leak detector, Class K at the','end of the hot line.','Water: 1,000 L sump under the left garden →','pump, filter, softener on the strip → kitchen.','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''
