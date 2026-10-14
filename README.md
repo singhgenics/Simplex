@@ -13,6 +13,7 @@ Live: https://singhgenics.github.io/Simplex/ (opens straight into the 3D model)
 | [`kitchen.html`](kitchen.html) | Kitchen drawings for vendors, two A3 sheets at true scale. Sheet 1: equipment layout, 1:25 plan with every item named and sized. Sheet 2: services and exhaust, 1:25 plan with gas, water, drains, power and the exhaust run, hot-line elevation 1:40. PDFs: `plans/kitchen-sheet-1-equipment.pdf`, `plans/kitchen-sheet-2-services.pdf`, both in `plans/kitchen-sheets-A3.pdf`. Built by `tools/kitchen_sheets.py` |
 | [`biodigester.html`](biodigester.html) | Washroom drainage to a biodigester under the beer garden: diagrams and tank sizing |
 | [`licences.html`](licences.html) | Tick-box checklist of the documents, approvals and licences needed to open, in order, with issuing office, papers and fees |
+| [`rent-agreement.html`](rent-agreement.html) | Draft terms for the notarised rent agreement (Word copy: `rent-agreement-draft-terms.docx`), with the owner's and builder's names left blank |
 | [`plans/`](plans/) | The plan as SVG, a 4060 × 5040 px PNG and a vector PDF (`ground-floor-plan.pdf`) |
 
 Concept drawings for briefing an architect and a kitchen consultant, not for construction.
