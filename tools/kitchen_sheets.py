@@ -196,13 +196,18 @@ eq = [('Wok range, 2 burners (Chinese)', '1.20 × 0.80 × 0.80', '1'), ('Dim sum
       ('Mixer-grinder, commercial', '—', '1'), ('Kitchen blowtorch', '—', '1'), ('Foot-pedal bins (wet under veg sink, dry)', 'Ø 0.20 × 0.60', '2'), ('Apron hook rail at the prep corner', '3 hooks', '1'),
       ('Double-acting door, vision panel, kick plate', '0.80 × 2.05', '1'), ('Make-up air diffusers, ceiling', '0.60 × 0.50', '2'), ('Insect killer', '0.50 × 0.18', '1'), ('Floor channel drain', '3.15 × 0.08', '1'),
       ('Ceiling hatch + fold-down ladder', '0.60 × 0.80', '1'), ('Goods hoist 200 kg over the hatch', '—', '1'),
-      ('Extinguisher Class K 6 L (CO₂ at the door)', 'wall bracket', '1'), ('Fire blanket, first-aid box', '—', '1 each')]
+      ('Extinguisher Class K 6 L (CO₂ at the door)', 'wall bracket', '1'), ('Fire blanket, first-aid box', '—', '1 each'),
+      ('OUTSIDE + SERVICES (details on sheet 2)', '', ''),
+      ('LPG bank: cage + 5 × 19 kg cylinders', '0.35 × 1.70 × 1.60', '1'), ('Gas: solenoid valve, valve per appliance, leak detector', 'copper, 1 set', '1'),
+      ('Exhaust: ESP + carbon filter, outside', '0.50 × 1.00 × 0.90', '1'), ('Inline exhaust fan, anti-vibration mounts', 'Ø 0.44', '1'), ('Fresh-air intake fan, back wall, high', '0.50 × 0.48', '1'),
+      ('Cooling coil 1.5 TR + condenser (make-up air)', '0.80 × 0.55 × 0.30', '1'), ('Grease trap, outside back corner', '0.45 × 0.45', '1'),
+      ('Water cabinet: pump, filter, softener', '0.45 × 0.80 × 1.50', '1'), ('Water sump, buried, 1,000 L', '1.3 × 1.0 × 0.8', '1'),
+      ('Heat detector, kitchen ceiling', '—', '1'), ('Sockets 1–14, fan + ESP control panel', 'sheet 2', '1 set')]
 CX = 300
-t, y = table(eq, CX, 36, (CX, CX + 70, CX + 104), ('EQUIPMENT', 'W × D × H (m)', 'QTY'), 4.15, FS, width=111)
+t, y = table(eq, CX, 36, (CX, CX + 70, CX + 104), ('EQUIPMENT', 'W × D × H (m)', 'QTY'), 3.8, FS, width=111)
 s.add(f'<text x="{CX-1.5}" y="31.5" font-size="{FB}" font-weight="700" fill="{INK}">Equipment list</text>' + t)
-nb, y = notes_block([('Notes', ['Benches stainless steel 304, 0.90 m high; hot line 0.70 deep,', 'wok range 0.80. Cooks\' aisle 1.05 m (0.95 m at the wok range).', 'Kitchen 4.90 × 2.40 m inside; non-combustible cement-board', 'ceiling at 2.70 m, storage deck above (1.7 m clear) by the hatch.',
-                                'Sized to the Pan-Asian menu: about 23 recipes, 40 choices,', 'one chef + one helper, 35–45 covers a service.',
-                                'Shelves over the dish line at 1.45 and 1.85 m: plates below,', 'steamer baskets air-dry on the slatted top shelf.', 'Positions are from the 3D model; check every wall and', 'pillar P2 on site before fabrication.'])], CX - 1.5, y + 5)
+nb, y = notes_block([('Notes', ['Stainless steel 304 benches, 0.90 m high; hot line 0.70 deep,', "wok range 0.80. Cooks' aisle 1.05 m (0.95 m at the wok range).", 'Cement-board ceiling at 2.70 m; storage deck above, hoist at the hatch.',
+                                'Pan-Asian menu: about 23 recipes, 40 choices; one chef + one helper.', 'Positions are from the 3D model: check walls and pillar P2 on site.'])], CX - 1.5, y + 4)
 s.add(nb)
 sheet1 = frame('Kitchen equipment layout', 'For commercial kitchen equipment vendors · plan at 1:25 on A3 · every item named and sized on the drawing', 1, ''.join(s.o))
 

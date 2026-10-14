@@ -129,7 +129,7 @@ for xa,xb,t,dim,z0 in ((X0,-1.25,'wok range ×2','1.20 × 0.80 · h 0.80',8.0),(
     rect(xa,xb,z0,D,'#9aa0a5'); text((xa+xb)/2,8.36,t,9,'#fff',weight=700); text((xa+xb)/2,8.58,dim,7.5,'#fff')
 line(X0+0.05,8.13,X0+0.05,8.6,'#2a6f8f',3,'5 2'); text(X0+0.14,8.36,'tools',6.5,'#fff',rot=-90) # wok tool rail on the wall, at 1.4 m
 rect(X0,0.9,7.85,D-0.02,'none','#c4442a',1.3,'8 4'); text(-0.25,7.95,'hood 3.35 × 0.95 × 0.55 · bottom 2.05 m',8.5,'#b23a1e'); circ(0.4,8.74,0.04,'#2f6f9f','#2f6f9f',1) # pot filler
-rect(1.7,X1,6.45,7.4,'#c3c8cc'); text(2.0,6.92,'dual-temp reach-in',8.5,weight=600,rot=90); text(2.2,6.92,'1.0 × 0.75 · h 2.0',7.5,'#4a4038',rot=90)
+rect(1.7,X1,6.45,7.4,'#c3c8cc'); text(2.0,6.92,'dual-temp reach-in',8.5,weight=600,rot=90); text(2.2,6.92,'0.95 × 0.75 · h 2.0',7.5,'#4a4038',rot=90)
 rect(1.8,X1,7.4,8.0,'#c3c8cc'); text(2.03,7.7,'u/c dishwasher',8,weight=600,rot=90); text(2.23,7.7,'0.60 × 0.65',7.5,'#4a4038',rot=90)
 rect(1.8,X1,8.0,D,'#c3c8cc'); text(2.0,8.22,'2-bowl sink',8,weight=600,rot=90); text(2.17,8.22,'0.80 × 0.65',7.5,'#4a4038',rot=90); circ(2.27,8.62,0.16,'none','#b8862a',1.4); text(2.27,8.62,'35 L',6,'#8a6420',weight=700) # water heater above
 rect(1.0,1.6,7.45,8.25,'none','#2a6f8f',1.3,'5 3'); text(1.3,7.78,'hatch + hoist',8.5,'#2a6f8f',weight=700); text(1.3,7.96,'0.6 × 0.8',7.5,'#2a6f8f')
