@@ -3,7 +3,7 @@
 <title>Betalbatim Pub No-Loft</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Yellowtail&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Yellowtail&family=Fredoka:wght@500;600&family=Anton&display=swap">
 <style>
 /* Layout: full-bleed 3D stage with a docked spec sheet on the right; stacks (stage above, sheet below) on phones */
 :root{
@@ -548,6 +548,23 @@ const menuTex=tex(1024,400,(g,w,h)=>{g.fillStyle='#24302a';g.fillRect(0,0,w,h);g
   ['crystal clear dumplings','fire starters wontons','siu mai goodness','prawn to be wild','bao down','seoul mate bao'].forEach((t,i)=>g.fillText(t,56,150+i*40));
   ['k-pop wings','fry hard kimchi fries','salt & pepa chonak','cabin fever chilli','3 craft taps','happy hour 4–7 pm'].forEach((t,i)=>g.fillText(t,546,150+i*40));});
 function neonTexture(text,font,glow,core,w,h){return tex(w,h,(g)=>{g.clearRect(0,0,w,h);g.font=font;g.textAlign='center';g.textBaseline='middle';g.shadowColor=glow;g.shadowBlur=26;g.fillStyle=core;g.fillText(text,w/2,h/2);g.shadowBlur=10;g.fillText(text,w/2,h/2);g.shadowBlur=0;g.fillStyle='#fff';g.globalAlpha=.5;g.fillText(text,w/2,h/2);});}
+
+function dimoNeon(w,h,glow,core){return tex(w,h,(g)=>{g.clearRect(0,0,w,h);const word='dımo';let fp=100;g.font='600 '+fp+'px Fredoka, sans-serif';fp=Math.floor(fp*(w*0.78)/g.measureText(word).width);
+  g.font='600 '+fp+'px Fredoka, sans-serif';g.textAlign='left';g.textBaseline='alphabetic';const full=g.measureText(word).width,x0=(w-full)/2,base=h*0.82,ix=x0+(0.565+0.1125)*fp,lw=Math.max(3,fp*0.03);
+  const dw=fp*0.36,dh=dw*0.56,dy=base-fp*0.62-dh;
+  const path=()=>{g.beginPath();g.moveTo(ix-dw/2,dy+dh);g.bezierCurveTo(ix-dw/2,dy+dh*0.25,ix-dw*0.3,dy,ix,dy);g.bezierCurveTo(ix+dw*0.3,dy,ix+dw/2,dy+dh*0.25,ix+dw/2,dy+dh);g.closePath();
+    [[-0.28,0.92],[-0.1,0.98],[0.1,0.98],[0.28,0.92]].forEach(([a,b])=>{g.moveTo(ix,dy+dh*0.2);g.lineTo(ix+a*dw,dy+dh*b);});};
+  const pass=(style,blur,alpha,lwid)=>{g.save();g.globalAlpha=alpha;g.shadowColor=glow;g.shadowBlur=blur;g.strokeStyle=style;g.lineWidth=lwid;g.lineJoin='round';g.lineCap='round';g.strokeText(word,x0,base);path();g.stroke();g.restore();};
+  pass(core,26,1,lw*1.6);pass(core,10,1,lw*1.3);pass('#fff',0,0.5,lw*0.45);});}
+function dimoSignTex(label,face,txt,rim){const w=760,h=314;return tex(w,h,(g)=>{const rr=(x,y,ww,hh,r)=>{g.beginPath();g.moveTo(x+r,y);g.arcTo(x+ww,y,x+ww,y+hh,r);g.arcTo(x+ww,y+hh,x,y+hh,r);g.arcTo(x,y+hh,x,y,r);g.arcTo(x,y,x+ww,y,r);g.closePath();};
+  g.fillStyle=face;rr(0,0,w,h,30);g.fill();g.strokeStyle=rim;g.lineWidth=5;rr(17,17,w-34,h-34,18);g.stroke();g.fillStyle='#b58a3c';[[150,22],[w-150,22],[40,h-40],[w-40,h-40]].forEach(([x,y])=>{g.beginPath();g.arc(x,y,9,0,7);g.fill();});
+  g.fillStyle=txt;g.textAlign='center';g.textBaseline='alphabetic';g.font='400 170px Anton, Impact, sans-serif';if('letterSpacing' in g)g.letterSpacing='8px';g.fillText(label,w/2,h*0.70);});}
+const DIMO_SIGNS=[['DIM SUM','#F3E9D2','#D9531E','#D9531E'],['CABIN','#D6402A','#F3E9D2','#F3E9D2'],['SEOUL','#9E2A1D','#F3E9D2','#F3E9D2'],['DRAUGHT','#2F7A5B','#F3E9D2','#F3E9D2']];
+function dimoHangSigns(cx,railY,z,parent,dir){const sw=0.38,sh=0.157,gap=0.05,drop=0.1,total=4*sw+3*gap;
+  bx(cx-total/2-0.07,cx+total/2+0.07,railY,railY+0.022,z-0.014,z+0.014,M.brass,parent,false);
+  DIMO_SIGNS.forEach(([l,f,t,r],i)=>{const x=dir>0?cx-total/2+sw/2+i*(sw+gap):cx+total/2-sw/2-i*(sw+gap);const tm=new THREE.MeshStandardMaterial({map:dimoSignTex(l,f,t,r),roughness:0.4,metalness:0.05}),pl=S({color:f,roughness:0.5});
+    const m=new THREE.Mesh(new THREE.BoxGeometry(sw,sh,0.012),[pl,pl,pl,pl,dir>0?tm:pl,dir>0?pl:tm]);m.position.set(x,railY-drop-sh/2,z);m.castShadow=true;parent.add(m);
+    [-1,1].forEach(s=>rod(V(x+s*sw*0.28,railY,z),V(x+s*sw*0.28,railY-drop,z),0.0035,M.brass,parent));});}
 const neonBao=neonTexture('bao, baby?','140px Yellowtail, cursive','#ff2d55','#ff6f86',800,220);
 const neonPay=neonTexture('settle up here','120px Yellowtail, cursive','#ffb04a','#ffd59a',900,200);
 const neonPink=neonTexture('stay a little longer','110px Yellowtail, cursive','#ff4fa0','#ffb0d4',1200,200);
@@ -597,7 +614,7 @@ function signTex(round,lines,bg,fg,rim){return tex(256,round?256:160,(g,w,h)=>{g
 function signSum(l){return l.reduce((a,b)=>a+b[1],0);}
 const signs=[signTex(true,[['BEER',62,0.45],['COLD · ON TAP',18,0.66]],'#c8321e','#f6ecd6','#f6ecd6'),signTex(false,[['HOPS & STEAM',30,0.42],['EST. 2026 · BAO BAR',15,0.68]],'#f1e6cf','#1f4f6e','#1f4f6e'),
   signTex(true,[['DIM',46,0.4],['SUM',46,0.62]],'#1f4f6e','#f6ecd6','#e9b54a'),signTex(false,[['DRAUGHT',34,0.45],['ICE COLD',16,0.72]],'#e9b54a','#2a1a10','#2a1a10')];
-const neonSign=neonTexture('dumplings & draught','110px Yellowtail, cursive','#ffb04a','#ffd59a',1200,200);
+const neonSign=dimoNeon(1024,400,'#ff8a1f','#ffc27a');
 const tvTex=tex(256,144,(g,w,h)=>{g.fillStyle='#1d6b34';g.fillRect(0,0,w,h);for(let x=0;x<w;x+=32){g.fillStyle='rgba(255,255,255,.06)';g.fillRect(x,0,16,h);}g.strokeStyle='rgba(255,255,255,.8)';g.lineWidth=2;g.strokeRect(14,14,w-28,h-28);g.beginPath();g.moveTo(w/2,14);g.lineTo(w/2,h-14);g.stroke();g.beginPath();g.arc(w/2,h/2,22,0,7);g.stroke();g.fillStyle='rgba(10,10,20,.85)';g.fillRect(10,8,96,16);g.fillStyle='#fff';g.font='600 11px sans-serif';g.fillText('GOA 2 – 1 BLR',16,20);});
 const chalkTex=tex(256,320,(g,w,h)=>{g.fillStyle='#24302a';g.fillRect(0,0,w,h);g.strokeStyle='#b07e4e';g.lineWidth=14;g.strokeRect(0,0,w,h);g.fillStyle='#f3ecdf';g.textAlign='center';g.font='36px Yellowtail, cursive';g.fillText('Tonight',w/2,62);g.font='500 17px "IBM Plex Mono", monospace';['siu mai goodness','bao down','k-pop wings','green with envy','3 craft taps','happy hour 4–7'].forEach((t,i)=>g.fillText(t,w/2,110+i*32));});
 
@@ -695,8 +712,9 @@ bx(X0-T,X1+T,H+0.06,H+0.22,-0.4,D+T,M.concrete,G.ceil);
  [0.4,2.0,3.2].forEach(z=>rod(V(-1.45,H,z),V(-1.45,H-0.18,z),0.01,M.black,G.ceil));
  rod(V(0.7,H,2.1),V(0.7,H-0.45,2.1),0.02,M.black,G.ceil);cyl(0.1,0.12,0.12,0.7,H-0.57,2.1,M.black,G.ceil,16);
  for(let i=0;i<3;i++){const bl=new THREE.Mesh(new THREE.BoxGeometry(0.7,0.015,0.12),M.black);const a=i*2.094;bl.position.set(0.7+Math.cos(a)*0.42,H-0.53,2.1+Math.sin(a)*0.42);bl.rotation.y=-a;G.ceil.add(bl);}}
-bx(-1.95,1.95,H+0.25,H+0.75,-0.32,-0.24,M.timberDark,G.ceil);
-plane(3.6,0.58,M.neonSign,0,H+0.5,-0.33,Math.PI,G.ceil);
+bx(-1.2,1.2,H+0.25,H+1.15,-0.32,-0.24,M.timberDark,G.ceil);
+plane(2.1,0.82,M.neonSign,0,H+0.7,-0.33,Math.PI,G.ceil);
+dimoHangSigns(0,H-0.05,-0.44,G.ceil,-1);
 const fz0=-0.06,fz1=0;
 [X0,-1.35,-0.56,0.5,1.29,X1-0.06].forEach(x=>bx(x,x+0.06,0,4.3,fz0,fz1,M.steel,G.front));
 bx(X0,X1,4.25,4.31,fz0,fz1,M.steel,G.front); bx(X0,X1,2.45,2.51,fz0,fz1,M.steel,G.front);
@@ -1282,12 +1300,12 @@ const SALON=[ // side, z, y, w, h, frame(-1 = tin sign), poster, matted
 SALON.forEach(([sd,z,y,w,h,fm,pi,mt],k)=>{const par=sd<0?G.wallR:G.wallL;if(k===0){const g=new THREE.Group();hangP(sd,z,y,w,h,fm,pi,g,mt);g.position.x=0.045;par.add(g);}else hangP(sd,z,y,w,h,fm,pi,par,mt);});
 const blindTex=tex(128,256,(g,w,h)=>{g.fillStyle='#f2d9ae';g.fillRect(0,0,w,h);},1,1);
 M.blindGlow=new THREE.MeshBasicMaterial({map:blindTex,toneMapped:false}); const WINMOOD={off:[blindTex,0.04,'off']};
-M.neonDim=new THREE.MeshBasicMaterial({map:neonTexture('dim sum','110px Yellowtail, cursive','#ff6a3a','#ffd2b8',600,220),transparent:true,toneMapped:false,depthWrite:false});
-function roundNeon(z,y,r,mat,parent){const ring=new THREE.Mesh(new THREE.TorusGeometry(r,0.022,10,48),M.neonRed);ring.rotation.y=Math.PI/2;ring.position.set(X0+0.06,y,z);parent.add(ring);
-  const ring2=new THREE.Mesh(new THREE.TorusGeometry(r*0.82,0.012,8,40),M.neonRed);ring2.rotation.y=Math.PI/2;ring2.position.set(X0+0.06,y,z);parent.add(ring2);
+M.neonOrange=S({color:'#ffb066',emissive:'#ff8a1f',emissiveIntensity:2.0});M.neonDim=new THREE.MeshBasicMaterial({map:dimoNeon(600,220,'#ff8a1f','#ffc27a'),transparent:true,toneMapped:false,depthWrite:false});
+function roundNeon(z,y,r,mat,parent,rm){const ring=new THREE.Mesh(new THREE.TorusGeometry(r,0.022,10,48),rm||M.neonRed);ring.rotation.y=Math.PI/2;ring.position.set(X0+0.06,y,z);parent.add(ring);
+  const ring2=new THREE.Mesh(new THREE.TorusGeometry(r*0.82,0.012,8,40),rm||M.neonRed);ring2.rotation.y=Math.PI/2;ring2.position.set(X0+0.06,y,z);parent.add(ring2);
   const disc=new THREE.Mesh(new THREE.CircleGeometry(r*0.98,40),M.black);disc.rotation.y=Math.PI/2;disc.position.set(X0+0.035,y,z);parent.add(disc);
   plane(r*1.75,r*0.62,mat,X0+0.07,y,z,Math.PI/2,parent);}
-roundNeon(2.5,3.95,0.36,M.neonDim,G.wallR);
+roundNeon(2.5,3.95,0.36,M.neonDim,G.wallR,M.neonOrange);
 {const pc=[M.red,M.linen,M.ochre||M.orange,M.teal2||M.oliveWood];const tri=new THREE.Shape();tri.moveTo(-0.09,0);tri.lineTo(0.09,0);tri.lineTo(0,-0.22);tri.lineTo(-0.09,0);const tg=new THREE.ShapeGeometry(tri);
  [[1,0.4,3.5,4.44],[1,5.3,6.25,4.44]].forEach(([sd,z0,z1,y])=>{const x=sd<0?X0+0.02:X1-0.02;rod(V(x,y+0.01,z0),V(x,y+0.01,z1),0.004,M.black,sd<0?G.wallR:G.wallL);
    let k=0;for(let z=z0+0.12;z<z1-0.05;z+=0.24,k++){const m=new THREE.Mesh(tg,pc[k%4]);m.position.set(x,y,z);m.rotation.y=sd<0?Math.PI/2:-Math.PI/2;(sd<0?G.wallR:G.wallL).add(m);}});}
@@ -1514,7 +1532,7 @@ const VIEWS={
   gallery:{p:[-1.0,2.0,1.6],t:[2.45,3.0,1.8]},
   safety:{p:[7.4,13.2,4.2],t:[0,0.6,4.2]},
   garden:{p:[3.4,2.3,-5.2],t:[-0.3,0.9,-1.0]},
-  street:{p:[0.4,1.7,-8.8],t:[0,2.0,2.0]},
+  street:{p:[0.4,1.7,-10.6],t:[0,2.7,2.0]},
   yard:{p:[-8.5,5.5,2.5],t:[-2.8,1.4,5.6]},
   yardBack:{p:[-1.5,4.2,D+6.0],t:[-2.7,1.8,D-0.6]},
   plan:{p:[-0.3,24,4.2],t:[-0.3,0,4.2]},
@@ -1639,7 +1657,7 @@ function frame(now){
 }
 requestAnimationFrame(frame);
 }
-const fl=document.fonts&&document.fonts.load?Promise.race([Promise.all(['700 46px "Bricolage Grotesque"','500 26px "IBM Plex Mono"','110px Yellowtail'].map(f=>document.fonts.load(f))),new Promise(r=>setTimeout(r,1800))]):Promise.resolve();
+const fl=document.fonts&&document.fonts.load?Promise.race([Promise.all(['700 46px "Bricolage Grotesque"','500 26px "IBM Plex Mono"','110px Yellowtail','600 110px Fredoka','110px Anton'].map(f=>document.fonts.load(f))),new Promise(r=>setTimeout(r,1800))]):Promise.resolve();
 fl.catch(()=>{}).then(init);
 })();
 </script>
