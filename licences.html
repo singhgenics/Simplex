@@ -102,9 +102,9 @@ ul.items { list-style: none; margin: 0; padding: 0; border: 2px solid var(--line
   <div class="rules">
     <h2>Three rules to follow all the way through</h2>
     <ol>
-      <li><b>No building until the builder has consented in writing.</b> Everything outside the shop walls belongs to the builder. The WC drain, biodigester, soak pit, exhaust, gas bank and signage all need his signed consent.</li>
+      <li><b>No building until every permission in Phase 3 is in your hands.</b> That means the builder's signed consent (everything outside the shop walls is his), the owner's written consent, the panchayat permission, and any planning, pollution, health and coastal approvals that apply.</li>
       <li><b>One name everywhere.</b> The proprietor's name and the trade name must be spelled exactly the same on the rent agreement, PAN, bank, GST, trade licence, FSSAI and excise licence.</li>
-      <li><b>The rent-free period starts only when the written permissions are in your hands</b> (steps 3 and 14). No rent, lock-in or term runs before that date.</li>
+      <li><b>The rent-free period starts only when all the written permissions are in your hands</b> (the builder's consent and everything in Phase 3). No rent, lock-in or term runs before that date.</li>
     </ol>
   </div>
 
@@ -128,9 +128,10 @@ ul.items { list-style: none; margin: 0; padding: 0; border: 2px solid var(--line
 var PHASES = [
   { t: "Collect papers before signing", n: "Get these from the owner, the builder, the building and your advocate.", items: [
     ["Owner's property papers", "The owner", "Sale deed, occupancy certificate, approved plan and construction licence, Form I & XIV for survey 22/6, latest house tax receipt, latest electricity bill", ""],
+    ["Owner's written consent and NOC for your works", "The owner", "Clause 9 of the deed binds the owner, so she must consent in writing to your fit-out and sign the NOCs that the panchayat and other offices ask for", ""],
     ["Deeds for shops 1 to 3 (only if you are taking more than Shop 4)", "The owner", "The deed seen covers Shop 4 only", ""],
     ["Builder's written consent for all works outside the shop walls", "The builder, through the owner", "Signed consent for the WC drain, biodigester, pipe run and soak pit, kitchen exhaust, gas bank, AC units and signage, with a marked plan. Ask if a soak pit already exists and who owns it.", "", "Key"],
-    ["Society NOC, or signed consent from the 4 flat owners", "Society or flat owners", "Protects you from noise complaints", ""],
+    ["Society NOC, or signed consent from the 4 flat owners", "Society or flat owners", "Protects you from noise complaints. Ask your advocate whether the other unit owners or the original landowners must also consent to the tank and the garden, because each unit owns a share of the land.", ""],
     ["Title search and encumbrance report", "Your advocate", "Checks the owner's title is clean", ""],
     ["Check what the offices accept", "Panchayat secretary, FDA Goa, Excise office", "Do they accept a notarised rent agreement? What papers does the trade licence need? What does FDA need for FSSAI?", ""]
   ]},
@@ -143,11 +144,15 @@ var PHASES = [
     ["Professional Tax", "Commercial Taxes Dept", "Rent agreement, PAN", "~₹2,500/yr"],
     ["Shops & Establishments registration", "Labour Dept", "Rent agreement, staff details", "₹1k to 5k"]
   ]},
-  { t: "Permission to build", n: "When this phase is done and step 3 is in hand, the Works Permissions Date is reached and your rent-free period starts.", items: [
-    ["Panchayat permission for interior and repair works", "Sernabatim–Colva panchayat", "Layout drawing, biodigester drawing, builder's consent, occupancy certificate, rent agreement, house tax receipt", "A few thousand ₹", "Starts rent-free"],
-    ["Design for biodigester, grease trap and soak pit", "Supplier", "Capacity calculation and drawing, sized for daily water use (covers plus staff). Needed for the Health and Pollution applications.", "Quote"]
+  { t: "Permission to build", n: "GATE: do not start any work until every step in this phase is ticked, or confirmed in writing as not needed. When all of them and the builder's consent are in hand, the Works Permissions Date is reached and your rent-free period starts.", items: [
+    ["Coastal zone (CRZ) check", "Panchayat secretary, Goa Coastal Zone Management Authority", "Survey no. 22/6 and the plot location. If the plot is in the coastal regulation zone, clearance is needed before any construction.", "Free"],
+    ["Design for biodigester, grease trap and soak pit", "Supplier", "Capacity calculation and drawing, sized for daily water use (covers plus staff). Needed for the applications below.", "Quote"],
+    ["Panchayat permission for the works", "Sernabatim–Colva panchayat", "Layout and drawings (including the back-wall openings, storage deck, biodigester, garden and signboard), owner's NOC, builder's consent, occupancy certificate, rent agreement, house tax receipt", "A few thousand ₹"],
+    ["Town & Country Planning approval (if needed)", "TCP Dept, South Goa, Margao", "Revised plan. Needed if you add floor area (the storage deck), put a permanent structure in a setback (the pergola), or change the approved plan ER/0036/2010. Ask the panchayat if it applies.", "Varies"],
+    ["Pollution Board: Consent to Establish (if needed)", "Goa State Pollution Control Board", "Layout, exhaust and grease trap details, waste plan, investment statement, biodigester drawing. Ask the Board whether a restaurant of your size needs it.", "₹2k to 10k"],
+    ["Health sign-off on the sewage arrangement", "PHC Cansaulim", "Biodigester drawing, capacity calculation and outlet location. Ask whether they want this before building.", "Small"]
   ]},
-  { t: "Build and connect utilities", n: "Only start after the builder's consent and the panchayat permission are in writing.", items: [
+  { t: "Build and connect utilities", n: "Only start after every Phase 3 permission is in writing.", items: [
     ["Build the WC, install biodigester and grease trap, connect to the soak pit", "Supplier and contractor", "Get an installation certificate. The kitchen line goes through the grease trap.", "Quote"],
     ["Commercial electricity connection", "Electricity Dept", "Rent agreement, owner's NOC, load list, wiring certificate", "Deposit"],
     ["Separate water meter", "PWD", "Rent agreement, owner's NOC, house tax receipt", "Deposit"],
@@ -156,7 +161,7 @@ var PHASES = [
   { t: "NOCs and food licence", n: "Apply together once the build is under way. Apply for FSSAI as soon as you have the rent agreement and the Health NOC. Do not wait for the trade licence.", items: [
     ["Health NOC", "PHC Cansaulim", "Rent agreement, occupancy certificate, layout, toilet and water arrangement, waste plan, biodigester drawing and installation certificate", "₹500 to 2,000"],
     ["Fire NOC", "Fire & Emergency Services", "Layout, extinguisher plan, LPG layout, occupancy certificate", "₹2k to 10k"],
-    ["Pollution Board consent (to Establish, then to Operate)", "Goa State Pollution Control Board", "Layout, exhaust and grease trap details, waste plan, investment statement, biodigester drawing, capacity calculation, soak pit location", "₹2k to 10k"],
+    ["Pollution Board: Consent to Operate", "Goa State Pollution Control Board", "Consent to Establish (if you needed it), installation certificate for the biodigester, exhaust and grease trap details, waste plan", "₹2k to 10k"],
     ["FSSAI State Licence", "FDA Goa", "Rent agreement, owner's NOC, layout, equipment list, water test report, food safety plan. Trade licence or panchayat NOC only if the FDA asks. If asked, give the application number first.", "₹2,000/yr"]
   ]},
   { t: "Local licences", n: "These need the NOCs above.", items: [
@@ -177,7 +182,7 @@ var PHASES = [
   ]}
 ];
 
-var KEY = "shop4-checklist-v3";
+var KEY = "shop4-checklist-v4";
 var state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
 function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
