@@ -14,5 +14,3 @@ cp build/plans/ground-floor-plan-noloft.png plans/
 Then paste the new SVG into `plan.html` (replace the `<svg id="plan" …>` element). Needs Python 3, Google Chrome (macOS path in `render_plan.py`) and ImageMagick (`magick`).
 
 Coordinates: x runs from the right wall (−2.45) to the left wall (2.45) as you walk in from the road; z runs from the shopfront (0) to the back wall (8.8).
-
-`kitchen_sheets.py` draws the two A3 kitchen sheets and `kitchen.html`. `budget.py` holds the two-phase setup budget (phase 1 before opening, phase 2 after) and writes `budget.html`. Items bought in phase 2 are marked P2 on the plan and the sheets, and are in their own groups in the 3D model (the “Phase 2 items” button).
