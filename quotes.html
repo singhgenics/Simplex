@@ -1,0 +1,334 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Kitchen Quote Request Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column. Cover facts, what every quote must state, then two item tables with three supplier price columns and a landed-cost comparison. */
+:root {
+  --bg: #f4f7f6;
+  --surface: #ffffff;
+  --fg: #14201d;
+  --muted: #55645f;
+  --line: #d3ddd9;
+  --accent: #0f6b5c;
+  --accent-soft: #dcefe9;
+  --warn: #a8480f;
+  --warn-soft: #f9e6d9;
+  --font-body: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1715; --surface: #16231f; --fg: #e5eeea; --muted: #9bb0a9; --line: #2a3b36;
+    --accent: #4fc1a8; --accent-soft: #1b3a33; --warn: #f0a070; --warn-soft: #3a2518;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1715; --surface: #16231f; --fg: #e5eeea; --muted: #9bb0a9; --line: #2a3b36;
+  --accent: #4fc1a8; --accent-soft: #1b3a33; --warn: #f0a070; --warn-soft: #3a2518;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.5; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+.wrap { max-width: 980px; margin-inline: auto; }
+header { padding-block: 28px 8px; }
+.kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.1; margin: 0 0 10px; text-wrap: balance; letter-spacing: -.01em; }
+.sub { color: var(--muted); margin: 0; max-width: 64ch; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px 24px; margin: 18px 0 0; padding: 14px 0; border-block: 1px solid var(--line); }
+.facts div { min-width: 0; }
+.facts dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font-weight: 500; overflow-wrap: anywhere; }
+.facts a { color: var(--accent); }
+section { margin-top: 32px; }
+h2 { font-size: 18px; margin: 0 0 4px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.letter { font-family: var(--font-mono); font-size: 13px; color: var(--accent); }
+.note { margin: 0 0 12px; color: var(--muted); font-size: 14px; max-width: 74ch; }
+.terms { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 6px 16px; }
+.terms li { padding: 9px 0; border-top: 1px solid var(--line); font-size: 14px; min-width: 0; }
+.terms li:first-child { border-top: 0; }
+@media (min-width: 640px) { .terms li:nth-child(2) { border-top: 0; } }
+.terms b { font-weight: 700; }
+.blocker { margin-top: 18px; background: var(--warn-soft); border-left: 3px solid var(--warn); padding: 12px 14px; border-radius: 0 6px 6px 0; font-size: 14px; }
+.blocker strong { color: var(--warn); }
+.blocker ul { margin: 6px 0 0; padding-left: 18px; }
+.tools { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 0 0 10px; }
+button { font: inherit; font-size: 13px; cursor: pointer; color: var(--accent); background: var(--surface); border: 1px solid var(--accent); border-radius: 6px; padding: 6px 12px; }
+button:hover { background: var(--accent-soft); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.quiet { color: var(--muted); border-color: var(--line); }
+.status { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 780px; }
+th, td { padding: 10px 12px; text-align: left; vertical-align: top; border-top: 1px solid var(--line); }
+thead th { border-top: 0; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; vertical-align: bottom; }
+td.no { font-family: var(--font-mono); font-size: 12px; color: var(--muted); width: 44px; }
+td.qty { font-family: var(--font-mono); font-size: 13px; width: 52px; white-space: nowrap; }
+.name { font-weight: 700; }
+.spec { color: var(--muted); font-size: 13.5px; margin-top: 2px; max-width: 58ch; }
+.price { width: 118px; }
+input.p, input.s, input.f { width: 100%; font: inherit; font-size: 14px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; min-width: 0; }
+input.p { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+input.s { font-weight: 700; font-family: var(--font-body); font-size: 13px; text-transform: none; letter-spacing: 0; }
+tr.sub-total td { background: var(--accent-soft); font-family: var(--font-mono); font-size: 13px; }
+tr.sub-total td.price { text-align: right; font-variant-numeric: tabular-nums; }
+.compare table { min-width: 560px; }
+.compare td.v { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.compare tr.grand td { font-weight: 700; border-top: 2px solid var(--fg); }
+.compare td.low { color: var(--accent); }
+.compare .tag { font-size: 11px; font-family: var(--font-mono); background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 999px; margin-left: 6px; }
+footer { margin-top: 26px; font-size: 13px; color: var(--muted); max-width: 74ch; }
+@media (max-width: 520px) { td.no { display: none; } }
+@media print { .tools, button { display: none; } body { background: #fff; color: #000; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="kicker">Kitchen quote request</p>
+    <h1>Betalbatim pub kitchen, quote sheet</h1>
+    <p class="sub">Every item and size is taken from the two A3 kitchen sheets. Send each group to three suppliers, then enter their prices to compare the landed cost. Part A is fabricated steel, where Gujarat or Mumbai may be cheaper. Part B is branded equipment, where a Goa dealer gives local service.</p>
+    <dl class="facts">
+      <div><dt>Site</dt><dd>Shop 4, Tulip Residency, Gandaulim, Salcete, South Goa</dd></div>
+      <div><dt>Kitchen</dt><dd>4.9 × 2.4 m, one chef and one helper</dd></div>
+      <div><dt>Menu</dt><dd>Pan-Asian: wok, steam, fry, stock, 35 to 45 covers a service</dd></div>
+      <div><dt>Gas</dt><dd>LPG, 5 × 19 kg cylinders on a manifold</dd></div>
+      <div><dt>Power</dt><dd>Three-phase, about 15 to 20 kW</dd></div>
+      <div><dt>Drawings</dt><dd><a href="https://singhgenics.github.io/Simplex/kitchen.html">Kitchen sheets</a> · <a href="https://singhgenics.github.io/Simplex/plans/kitchen-sheets-A3.pdf">A3 PDF, print at 100%</a></dd></div>
+    </dl>
+  </header>
+
+  <section>
+    <h2><span class="letter">1</span>Every quote must state</h2>
+    <p class="note">Ask for these in writing. Quotes that leave them out cannot be compared.</p>
+    <ul class="terms">
+      <li><b>Steel grade and thickness.</b> 304 stainless only. Suggested: worktops 1.2 mm or thicker, bodies 1.0 mm, legs 38 mm tube. The supplier confirms or corrects this.</li>
+      <li><b>Make and model</b> of burners, fryer, steamer, compressors, fans and heaters.</li>
+      <li><b>Price ex-GST,</b> itemised line by line, with the GST rate shown separately.</li>
+      <li><b>Delivery to Betalbatim,</b> with freight and unloading, and whether it is included.</li>
+      <li><b>Installation and gas or water connections,</b> included or extra.</li>
+      <li><b>Lead time</b> from the advance, and the payment schedule (suggest a part on delivery and inspection).</li>
+      <li><b>Warranty</b> and who services it in Goa.</li>
+      <li><b>Validity</b> of the quote, and photos or the address of recent similar work.</li>
+    </ul>
+    <div class="blocker">
+      <strong>On arrival, check before paying the balance</strong>
+      <ul>
+        <li>Test the steel: 304 is barely magnetic, and a magnet that grips firmly means cheaper 201 or mild steel.</li>
+        <li>Measure each item against this sheet. The aisle is 1.05 m (0.95 m at the wok range), so a few centimetres matter.</li>
+        <li>Outdoor cabinets stand in coastal air. The supplier says whether they are 304 or powder-coated mild steel.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="letter">A</span>Stainless fabrication and cabinets</h2>
+    <p class="note">Get quotes from a Gujarat fabricator, a Mumbai fabricator and a Goa fabricator. Sizes are width × depth × height in metres unless stated.</p>
+    <div class="tools"><button type="button" data-copy="A">Copy request text for part A</button><span class="status" id="st-A" role="status"></span></div>
+    <div class="scroll"><table id="tA"></table></div>
+  </section>
+
+  <section>
+    <h2><span class="letter">B</span>Branded equipment and fittings</h2>
+    <p class="note">Get prices from a Goa dealer, plus the brand's own price or an online dealer for comparison. Ask who services each item in Goa.</p>
+    <div class="tools"><button type="button" data-copy="B">Copy request text for part B</button><span class="status" id="st-B" role="status"></span></div>
+    <div class="scroll"><table id="tB"></table></div>
+  </section>
+
+  <section class="compare">
+    <h2><span class="letter">C</span>Landed cost compared</h2>
+    <p class="note">Enter the supplier names in the headers above, their prices per line (total for the quantity), then freight and the GST rate here. A supplier that did not quote every line will show a lower total, so check the line count first.</p>
+    <div class="scroll"><table id="tC"></table></div>
+    <div class="tools" style="margin-top:10px"><button type="button" class="quiet" id="clear">Clear all prices</button><span class="status">Prices stay in this browser only.</span></div>
+  </section>
+
+  <footer>Sizes and quantities come from the kitchen drawings (concept drawings for briefing vendors, not construction drawings). Suggested steel gauges are a starting point for the supplier to confirm. Prices you enter are not stored anywhere except this browser.</footer>
+</div>
+
+<script>
+var URL_SHEETS = "https://singhgenics.github.io/Simplex/kitchen.html";
+var GROUPS = {
+  A: [
+    ["Canopy hood", "3.35 × 0.95 × 0.55 m, bottom edge at 2.05 m. Baffle filters, grease cup, light. Overhang 0.2 m at the open end, 0.15 m over the wok range, 0.25 m elsewhere. Wet-chemical suppression is in part B.", "1"],
+    ["Exhaust duct and discharge", "0.4 × 0.4 m, out through the back wall, right along it, then forward along the right side at 2.35 to 2.75 m. Discharge about 2.6 m high, pointing away from the building, with bird mesh and rain cowl. Length to be measured on site.", "1 lot"],
+    ["Chinese wok range, 2 burners", "1.2 × 0.8 × 0.8 m (Chinese ranges are 0.75 to 0.9 deep). LPG. Say the burner make and gas rating. A ball valve per appliance on the manifold.", "1"],
+    ["2-burner stock range", "0.6 × 0.7 × 0.85 m, LPG. 20 L stock pots, with a wall pot-filler tap above (the tap is plumbing).", "1"],
+    ["Non-veg prep bench", "0.8 × 0.65 m with an open undershelf for a colour-coded board rack (red, blue, green, yellow). Magnetic knife strip over it. Counter-top mise-en-place rail 0.76 × 0.26 × 0.22 m for 5 pans on the back.", "1"],
+    ["Dumpling and veg prep bench", "0.8 × 0.65 m, with room under it for an under-counter freezer. A space at one end for two 5 L rice cookers. Shelf over it for a stone mortar, mixer-grinder and kitchen torch. Magnetic knife strip.", "1"],
+    ["Pass counter", "0.65 × 0.65 m with a hatch 0.65 × 0.6 m. Heat-lamp bracket, dip and garnish rail 0.65 × 0.12 m (5 inserts), ticket rail above the hatch, room below for an under-counter fridge.", "1"],
+    ["Dish sink, 2 bowls, with pre-rinse spray", "0.8 × 0.65 × 0.9 m in the back left corner. Undershelf for a 20 L used-oil can in a spill tray. Two wall shelves over the dish line, the top one slatted so bamboo steamer baskets air-dry.", "1"],
+    ["Veg and herb wash sink", "Single bowl 0.45 × 0.5 m, tall mixer tap, on the right wall behind the non-veg bench.", "1"],
+    ["Hand-wash basins", "At the door: 0.33 × 0.4 m, compact. At the prep corner: 0.25 × 0.25 m wall basin, hands-free tap, with a 3-hook apron rail above. A 6 L heater under each.", "2"],
+    ["Wall rails and shelves", "Wok seasoning rail 0.44 × 0.22 m at 1.0 m (8 lidded pots and 8 squeeze bottles). Wok tool rail at 1.4 m. Sauce and oil shelf over the wok station. Two magnetic knife strips.", "1 lot"],
+    ["Kitchen doors", "From the dining room: 0.8 m clear, double-acting, vision panel, push plates and kick plate. Rear exit: 0.8 m with a closer, rubber sweep and PVC strip curtain. Material to be advised.", "2"],
+    ["Right-side cabinets (outside)", "On a 0.5 m strip, depth first: bin store 0.45 × 0.9 × 1.0 m (three 60 L bins). Water cabinet 0.45 × 0.8 × 1.5 m. LPG cage 0.35 × 1.7 × 1.6 m, locked and ventilated, for 5 × 19 kg cylinders. Wall power-backup cabinet 0.35 × 0.8 × 1.6 m.", "4"]
+  ],
+  B: [
+    ["Dual-temperature reach-in", "0.95 W × 0.75 D × 2.0 H m, about 800 L. Fridge door and freezer door, two 0.47 m doors that open into the aisle. Do not quote a wider unit.", "1"],
+    ["Under-counter freezer", "Fits under the dumpling bench (0.8 × 0.65 m). For the twice-weekly dim sum trays, bao, fries, wings and ice cream.", "1"],
+    ["Under-counter fridge", "Fits under the pass (0.65 × 0.65 m). For sauce bases and cut veg.", "1"],
+    ["Dim sum steamer, 2 holes", "0.6 × 0.7 × 0.8 m with its own water top-up.", "1"],
+    ["Twin-tank fryer", "0.6 × 0.7 × 0.9 m, two tanks to keep veg and non-veg oil apart.", "1"],
+    ["Under-counter dishwasher", "0.6 × 0.65 × 0.9 m with a drainboard on top, left wall, and its own booster heater.", "1"],
+    ["Rice cookers", "5 L each. One for jasmine, one for sticky rice.", "2"],
+    ["Mixer-grinder and kitchen torch", "For the shelf over the veg bench.", "1 each"],
+    ["Water heaters", "One 35 L, 3 kW storage heater (70 °C) high on the left wall over the dish line. Two 6 L heaters for the hand-wash basins.", "3"],
+    ["Exhaust fan, ESP and carbon filter", "Hood draws 4,000 to 5,000 m³/h. ESP and carbon filter unit about 0.5 × 1.0 × 0.9 m with an inline fan on anti-vibration mounts, and a control panel and hood-light switch.", "1 set"],
+    ["Make-up air", "A 1.5 TR coil and two low-velocity diffusers 0.6 × 0.5 m in the ceiling in front of the hood, about 2.4 m/s. Interlocked with the exhaust.", "1 set"],
+    ["Fire and gas safety", "Wet-chemical suppression on the hood that also cuts the gas. Gas solenoid valve outside. LPG leak detector low on the right wall. Heat detector. Class K extinguisher for the kitchen, and the other extinguishers on the drawing.", "1 set"],
+    ["Gas line and manifold", "Copper line in at 1.3 m, back right corner. Manifold at 0.4 m behind the hot line, a ball valve per appliance. 5 × 19 kg cylinders (4 on the manifold, 1 spare).", "1 set"],
+    ["Water supply set", "Pressure pump, sediment filter and softener in the right-hand cabinet, fed from a buried 1,000 L sump. Goa water is hard, so the softener matters for the steamer, dishwasher and heaters.", "1 set"],
+    ["Goods hoist", "200 kg electric hoist over a 0.6 × 0.8 m ceiling hatch beside the rear-exit lane, for rice, flour and oil tins.", "1"],
+    ["Bins", "Two slim foot-pedal bins, Ø 0.2 × 0.6 m (wet under the veg sink, dry by the rear door). Three 60 L bins for the outside bin store.", "5"],
+    ["Insect killer and heat lamps", "Insect killer near the door. Heat lamps over the pass, on their own switch.", "1 set"]
+  ]
+};
+var NS = 3;
+var KEY = "betalbatim-kitchen-quotes-v1";
+var state = { s: ["Supplier 1", "Supplier 2", "Supplier 3"], p: {}, freight: ["", "", ""], gst: "18" };
+try { var saved = JSON.parse(localStorage.getItem(KEY) || "null"); if (saved && saved.p) state = saved; } catch (e) {}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+function num(v) { var n = parseFloat(String(v).replace(/,/g, "")); return isFinite(n) ? n : 0; }
+function inr(n) { return n ? "₹ " + Math.round(n).toLocaleString("en-IN") : "–"; }
+function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function supplierHeads(tr) {
+  for (var s = 0; s < NS; s++) {
+    var th = el("th", "price"); var inp = el("input", "s");
+    inp.type = "text"; inp.id = "sup" + s; inp.value = state.s[s]; inp.setAttribute("aria-label", "Supplier " + (s + 1) + " name");
+    inp.addEventListener("input", (function (i) { return function (e) { state.s[i] = e.target.value; save(); syncNames(i); renderTotals(); }; })(s));
+    th.appendChild(inp); tr.appendChild(th);
+  }
+}
+function syncNames(from) {
+  document.querySelectorAll("input.s").forEach(function (i) { var k = parseInt(i.id.slice(3), 10); if (k === from && document.activeElement !== i) i.value = state.s[k]; });
+}
+
+function build(letter, tableId) {
+  var t = document.getElementById(tableId);
+  var thead = el("thead"), hr = el("tr");
+  ["#", "Item and specification", "Qty"].forEach(function (h) { hr.appendChild(el("th", null, h)); });
+  supplierHeads(hr); thead.appendChild(hr); t.appendChild(thead);
+  var tb = el("tbody");
+  GROUPS[letter].forEach(function (it, i) {
+    var tr = el("tr");
+    tr.appendChild(el("td", "no", letter + (i + 1)));
+    var td = el("td"); td.appendChild(el("div", "name", it[0])); td.appendChild(el("div", "spec", it[1])); tr.appendChild(td);
+    tr.appendChild(el("td", "qty", it[2]));
+    for (var s = 0; s < NS; s++) {
+      var c = el("td", "price"), inp = el("input", "p"), key = letter + i + "-" + s;
+      inp.type = "text"; inp.inputMode = "numeric"; inp.placeholder = "₹"; inp.id = "p-" + key;
+      inp.setAttribute("aria-label", it[0] + ", " + "supplier " + (s + 1) + " price");
+      inp.value = state.p[key] || "";
+      inp.addEventListener("input", (function (k) { return function (e) { if (e.target.value) state.p[k] = e.target.value; else delete state.p[k]; save(); renderTotals(); }; })(key));
+      c.appendChild(inp); tr.appendChild(c);
+    }
+    tb.appendChild(tr);
+  });
+  var st = el("tr", "sub-total"); st.id = "sub-" + letter;
+  st.appendChild(el("td")); st.appendChild(el("td", null, "Subtotal, part " + letter)); st.appendChild(el("td"));
+  for (var s = 0; s < NS; s++) st.appendChild(el("td", "price", "–"));
+  tb.appendChild(st); t.appendChild(tb);
+}
+
+function sums(letter) {
+  var out = [0, 0, 0], cnt = [0, 0, 0];
+  GROUPS[letter].forEach(function (it, i) { for (var s = 0; s < NS; s++) { var v = num(state.p[letter + i + "-" + s]); out[s] += v; if (v) cnt[s] += 1; } });
+  return { sum: out, cnt: cnt };
+}
+
+function buildCompare() {
+  var t = document.getElementById("tC");
+  var thead = el("thead"), hr = el("tr");
+  hr.appendChild(el("th", null, "Per supplier"));
+  for (var s = 0; s < NS; s++) { var th = el("th", null, ""); th.id = "cn" + s; th.style.textAlign = "right"; hr.appendChild(th); }
+  thead.appendChild(hr); t.appendChild(thead);
+  var tb = el("tbody"); tb.id = "cmp"; t.appendChild(tb);
+  var rows = [["Lines quoted", "cnt"], ["Part A subtotal", "a"], ["Part B subtotal", "b"], ["Subtotal ex-GST", "sub"], ["Freight and installation", "fr"], ["GST", "gst"], ["Landed total", "tot"]];
+  rows.forEach(function (r) {
+    var tr = el("tr"); tr.dataset.k = r[1]; if (r[1] === "tot") tr.className = "grand";
+    var first = el("td", null, r[0]);
+    if (r[1] === "gst") {
+      first.textContent = "GST at ";
+      var g = el("input", "f"); g.type = "text"; g.inputMode = "decimal"; g.id = "gst"; g.value = state.gst; g.style.width = "56px"; g.setAttribute("aria-label", "GST rate percent");
+      g.addEventListener("input", function (e) { state.gst = e.target.value; save(); renderTotals(); });
+      first.appendChild(g); first.appendChild(document.createTextNode(" %"));
+    }
+    tr.appendChild(first);
+    for (var s = 0; s < NS; s++) {
+      var td = el("td", "v", "–");
+      if (r[1] === "fr") {
+        td.textContent = ""; var f = el("input", "p"); f.type = "text"; f.inputMode = "numeric"; f.placeholder = "₹"; f.id = "fr-" + s; f.value = state.freight[s] || "";
+        f.setAttribute("aria-label", "Freight and installation, supplier " + (s + 1));
+        f.addEventListener("input", (function (i) { return function (e) { state.freight[i] = e.target.value; save(); renderTotals(); }; })(s));
+        td.appendChild(f);
+      }
+      tr.appendChild(td);
+    }
+    tb.appendChild(tr);
+  });
+}
+
+function renderTotals() {
+  var A = sums("A"), B = sums("B");
+  var totals = [];
+  for (var s = 0; s < NS; s++) {
+    var sub = A.sum[s] + B.sum[s], fr = num(state.freight[s]);
+    var gst = (sub + fr) * num(state.gst) / 100;
+    totals.push({ a: A.sum[s], b: B.sum[s], sub: sub, fr: fr, gst: gst, tot: sub + fr + gst, cnt: A.cnt[s] + B.cnt[s] });
+  }
+  ["A", "B"].forEach(function (L) {
+    var tds = document.querySelectorAll("#sub-" + L + " td.price");
+    for (var s = 0; s < NS; s++) tds[s].textContent = inr(L === "A" ? A.sum[s] : B.sum[s]);
+  });
+  for (var s2 = 0; s2 < NS; s2++) document.getElementById("cn" + s2).textContent = state.s[s2] || ("Supplier " + (s2 + 1));
+  var all = GROUPS.A.length + GROUPS.B.length;
+  var quoted = totals.filter(function (x) { return x.cnt === all; });
+  var low = quoted.length > 1 ? Math.min.apply(null, quoted.map(function (x) { return x.tot; })) : -1;
+  document.querySelectorAll("#cmp tr").forEach(function (tr) {
+    var k = tr.dataset.k;
+    if (k === "fr") return;
+    var tds = tr.querySelectorAll("td.v");
+    for (var s = 0; s < NS; s++) {
+      var x = totals[s], td = tds[s];
+      td.className = "v"; td.textContent = "";
+      if (k === "cnt") td.textContent = x.cnt + " of " + all;
+      else td.textContent = inr(x[k]);
+      if (k === "tot" && x.cnt === all && x.tot === low) { td.classList.add("low"); var tag = el("span", "tag", "lowest"); td.appendChild(tag); }
+    }
+  });
+}
+
+function requestText(letter) {
+  var head = letter === "A" ? "stainless steel fabrication and cabinets" : "branded kitchen equipment and fittings";
+  var lines = ["Hello, please send a quote for the " + head + " for a restaurant kitchen in Betalbatim, South Goa (kitchen 4.9 × 2.4 m).",
+    "", "Drawings, A3 at true scale: " + URL_SHEETS, "",
+    "Please quote ex-GST, item by item, and state: steel grade and thickness (we need 304), make and model, delivery to site, installation, lead time, warranty and who services it in Goa, payment terms, and how long the quote is valid. Photos or the address of similar recent work would help.", "", "Items:"];
+  GROUPS[letter].forEach(function (it, i) { lines.push(letter + (i + 1) + ". " + it[0] + " (qty " + it[2] + "): " + it[1]); });
+  return lines.join("\n");
+}
+function flash(letter, msg) { var s = document.getElementById("st-" + letter); s.textContent = msg; setTimeout(function () { s.textContent = ""; }, 4000); }
+function fallbackCopy(letter, text) {
+  var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select(); var ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta); flash(letter, ok ? "Copied. Paste it into WhatsApp or email." : "Could not copy here. Select the table text instead.");
+}
+document.querySelectorAll("button[data-copy]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var L = b.dataset.copy, text = requestText(L);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { flash(L, "Copied. Paste it into WhatsApp or email."); }, function () { fallbackCopy(L, text); });
+    } else { fallbackCopy(L, text); }
+  });
+});
+document.getElementById("clear").addEventListener("click", function () {
+  state.p = {}; state.freight = ["", "", ""]; save();
+  document.querySelectorAll("input.p").forEach(function (i) { i.value = ""; });
+  renderTotals();
+});
+
+build("A", "tA"); build("B", "tB"); buildCompare(); renderTotals();
+</script>
