@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kitchen in 3D · exact sizes</title>
+<meta name="description" content="The Simplex kitchen rebuilt in 3D from the equipment sheet: every item at its drawn size, with the BOQ numbers 1 to 44, plus photoreal views made from the exact model.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#1d1720;--panel:#1b1512;--raise:#251d18;--fg:#f3e9d6;--muted:#a99884;--line:#3a2f27;--amber:#e9b54a;--ox:#c4573c;--body:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--panel:#fbf7ef;--raise:#f1e9d8;--fg:#1f1a16;--muted:#6a5d4e;--line:#d8cbb4;--amber:#b8741a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--panel);color:var(--fg);font:15px/1.55 var(--body)}
+a{color:inherit}
+.top{padding:22px max(16px,env(safe-area-inset-left)) 12px;max-width:1240px;margin:0 auto}
+.eyebrow{font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin:0 0 6px}
+h1{font:700 clamp(28px,5vw,44px)/1.05 var(--body);letter-spacing:-.02em;margin:0 0 8px}
+.lede{max-width:70ch;color:var(--muted);margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left))}
+.viewer{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;margin:14px 0 30px}
+@media (max-width:980px){.viewer{grid-template-columns:1fr}}
+.stagebox{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#1d1720;aspect-ratio:4/3;min-width:0}
+.viewer>*{min-width:0}
+@media (max-width:700px){.stagebox{aspect-ratio:3/4}.seg button{padding:8px 9px}}
+#stage{position:absolute;inset:0}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none}
+.tb{position:absolute;left:10px;top:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px;pointer-events:none}
+.seg{pointer-events:auto;display:flex;flex-wrap:wrap;gap:2px;background:rgba(19,15,12,.86);border:1px solid #3a2f27;border-radius:12px;padding:3px}
+.seg button{appearance:none;border:0;background:transparent;color:#a99884;font:500 12px/1 var(--body);padding:8px 10px;border-radius:9px;cursor:pointer;white-space:nowrap}
+.seg button:hover{color:#f3e9d6;background:rgba(255,255,255,.06)}
+.seg button[aria-pressed=true]{background:#e9b54a;color:#1b120a}
+.lbls{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.nb{position:absolute;left:0;top:0;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:#c4573c;color:#fff;font:700 11px/22px var(--mono);text-align:center;border:1.5px solid #fff;will-change:transform;box-shadow:0 1px 4px rgba(0,0,0,.5)}
+.nb.on{background:#e9b54a;color:#1b120a;z-index:3}
+.hint{position:absolute;left:10px;bottom:10px;font:400 11px/1.3 var(--mono);color:#a99884;background:rgba(19,15,12,.72);padding:6px 9px;border-radius:8px;pointer-events:none}
+.side{background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:14px 14px 10px;max-height:min(80vh,760px);overflow:auto}
+.side h2{font:600 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.side table{width:100%;border-collapse:collapse;font-size:12.5px}
+.side td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+.side tr.g td{font:600 10.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--amber);padding-top:12px}
+.side tr.r{cursor:pointer}.side tr.r:hover td,.side tr.r.on td{background:rgba(233,181,74,.14)}
+.side td.n{font:700 11px/1.5 var(--mono);color:var(--amber);width:28px}
+.side td.s{font:500 11px/1.5 var(--mono);color:var(--muted);white-space:nowrap;text-align:right}
+h2.sec{font:700 24px/1.2 var(--body);margin:34px 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);max-width:75ch;margin:0 0 16px}
+.pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:18px}
+.pair{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--raise)}
+.pair .ph{position:relative;aspect-ratio:4/3;background:#222;cursor:pointer}
+.pair .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+.pair .ph img.b{opacity:0}.pair.show-m .ph img.b{opacity:1}
+.pair .tg{position:absolute;left:8px;bottom:8px;display:flex;gap:4px}
+.pair .tg button{appearance:none;border:1.5px solid rgba(255,255,255,.7);background:rgba(20,15,12,.7);color:#fff;font:600 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:999px;cursor:pointer}
+.pair .tg button[aria-pressed=true]{background:#e9b54a;color:#1b120a;border-color:#e9b54a}
+.pair .bd{padding:12px 14px 14px}
+.pair h3{font:700 16px/1.25 var(--body);margin:0 0 4px}
+.pair p{margin:0;font-size:13px;color:var(--muted)}
+.pair .key{font:500 11.5px/1.55 var(--mono);color:var(--amber);margin-top:8px}
+.note{font-size:13px;color:var(--muted);border-left:3px solid var(--ox);padding-left:10px;max-width:75ch}
+footer{padding:26px 0 50px;font-size:12px;color:var(--muted)}
+.err{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;color:#a99884}
+</style></head><body>
+<header class="top">
+  <p class="eyebrow">Simplex · concept 27 · kitchen 4.90 × 2.40 m · ceiling 2.70 m</p>
+  <h1>The kitchen in 3D, at the sheet's sizes</h1>
+  <p class="lede">Every item below is built at the size on the equipment sheet (BOQ numbers 1 to 44), in the place the sheet puts it. Orbit it, then compare the exact model with the photoreal images made from it.</p>
+  <p class="lede" style="margin-top:6px"><a href="kitchen.html">Kitchen sheets for vendors</a> · <a href="index.html">Pub 3D model</a> · <a href="quotes.html">Quote request sheet</a></p>
+</header>
+<div class="wrap">
+  <div class="viewer">
+    <div class="stagebox" id="stagebox">
+      <div id="stage"></div><div class="lbls" id="lbls"></div>
+      <div class="tb">
+        <div class="seg" id="vws" role="group" aria-label="View"></div>
+        <div class="seg" id="tgl" role="group" aria-label="Show">
+          <button data-t="wallF" aria-pressed="true">Front wall</button><button data-t="ceil" aria-pressed="false">Ceiling</button><button data-t="hood" aria-pressed="true">Hood</button><button data-t="nums" aria-pressed="true">Numbers</button>
+        </div>
+      </div>
+      <div class="hint" id="hint">Drag to orbit · scroll to zoom · right-drag to pan</div>
+    </div>
+    <aside class="side" id="side"></aside>
+  </div>
+
+  <h2 class="sec" id="photo">Exact model next to the photoreal view</h2>
+  <p class="sub">Each pair is the same camera. The model is built from the sheet's sizes; the photoreal image was generated in Google Flow from the model image, with the sizes in the prompt. Tap an image to flip between them. Generated images are close but not exact, so the sheet and the model govern the sizes.</p>
+  <div class="pairs" id="pairs"></div>
+  <p class="note" style="margin-top:22px">Sizes are the sheet's W × D × H in mm (equipment list, sheet 1) and its stated heights and positions. Hand-wash, bins, extinguishers and small kit are drawn at their stated sizes; items with no size on the sheet (rice cookers Ø 260 mm, steamer baskets Ø 260 mm, torch, mixer) are drawn at typical sizes. Ducting, ESP, fan, hoist and water heater outside the room are not drawn. Positions from the 3D model: check walls and pillar P2 on site.</p>
+</div>
+<footer class="wrap">Betalbatim pub · Simplex concept 27 · concept drawings for briefing a kitchen consultant, not for construction.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const stagebox=document.getElementById('stagebox'),stage=document.getElementById('stage'),lblsEl=document.getElementById('lbls');
+/* ---------------- the equipment list: number, name, size (mm) as on sheet 1 ---------------- */
+const LIST=[['STAINLESS STEEL FABRICATION'],
+[1,'Non-veg prep bench','800 × 650 × 900'],[2,'Dumpling and veg prep bench','800 × 650 × 900'],[3,'Pass counter','650 × 650 × 900'],[4,'Dish sink, 2 bowls','800 × 650 × 900'],[5,'Wall shelf over the dish line','1,400 × 350 · 2 nos'],[6,'Veg and herb wash sink','450 × 500 × 900'],[7,'Sauce and oil wall shelf','900 × 300'],[8,'Wok seasoning rail','440 × 220'],[9,'Wok tool rail','470 long'],[10,'Chilled mise-en-place rail','760 × 260 × 220'],[11,'Dip and garnish rail','650 × 120'],[12,'Ticket rail','650 long'],[13,'Magnetic knife strip','400 long · 2 nos'],[14,'Cutting-board rack','280 × 420 × 420'],[15,'Floor channel drain','3,150 × 80'],
+['COOKING, COLD AND KITCHEN EQUIPMENT'],
+[18,'Chinese wok range, 2 burners','1,200 × 800 × 800'],[19,'Dim sum steamer, 2 holes','600 × 700 × 800'],[20,'Twin-tank fryer','600 × 700 × 900'],[21,'Stock range, 2 burners','600 × 700 × 850'],[22,'Reach-in, 2 doors, dual temperature','950 × 750 × 2,000'],[23,'Under-counter fridge (pass)','600 × 550 × 700'],[24,'Under-counter freezer, 2 doors','fits under 800 × 650'],[25,'Under-counter dishwasher','600 × 650 × 900'],[26,'Rice cooker','Ø 260 · 2 nos'],[27,'Mixer-grinder',''],[28,'Kitchen blowtorch',''],[29,'Storage water heater','Ø 330 × 500'],[31,'Insect killer','500 × 180'],[32,'Heat lamp over the pass','2 nos'],[35,'Bamboo steamer stack','Ø 260 · 3 nos'],
+['HOOD, EXHAUST AND VENTILATION'],
+[36,'Canopy hood, wall type, baffle filters','3,350 × 950 × 550'],[42,'Make-up air diffuser, low velocity','600 × 500 · 2 nos']];
+/* ---------------- renderer, scene, lights ---------------- */
+if(!window.THREE||!THREE.OrbitControls){stage.insertAdjacentHTML('beforeend','<div class="err">The 3D viewer could not load. Reload to try again.</div>');return;}
+let renderer;try{renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,logarithmicDepthBuffer:true});}catch(e){stage.insertAdjacentHTML('beforeend','<div class="err">This device cannot show 3D.</div>');return;}
+renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));renderer.outputEncoding=THREE.sRGBEncoding;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=0.78;
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;stage.appendChild(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x1d1720);
+const camera=new THREE.PerspectiveCamera(48,1,0.05,100);const controls=new THREE.OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.08;controls.maxPolarAngle=Math.PI*0.62;
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+// soft-box environment so stainless steel has something to reflect
+{const es=new THREE.Scene();es.background=new THREE.Color(0x70645a);
+ const sb=(w,h,p,r,i)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:new THREE.Color(i,i,i*0.94),side:THREE.DoubleSide}));m.position.set(...p);m.rotation.set(...r);es.add(m);};
+ sb(6,6,[0,6,0],[Math.PI/2,0,0],6);sb(4,3,[-6,2,0],[0,Math.PI/2,0],3);sb(4,3,[6,2,2],[0,Math.PI/2,0],2);sb(5,2,[0,2,-6],[0,0,0],1.4);sb(5,2,[0,1,6],[0,0,0],1.0);
+ const pm=new THREE.PMREMGenerator(renderer);scene.environment=pm.fromScene(es,0.02).texture;pm.dispose();}
+scene.add(new THREE.HemisphereLight(0xfff3e4,0x6a5d50,0.32));
+const sun=new THREE.DirectionalLight(0xfff0dd,0.6);sun.position.set(3,6,5);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-4;sun.shadow.camera.right=4;sun.shadow.camera.top=4;sun.shadow.camera.bottom=-4;sun.shadow.camera.near=1;sun.shadow.camera.far=16;sun.shadow.bias=-0.0004;scene.add(sun);
+[[-1.2,2.5,7.4],[0.6,2.5,7.4],[1.2,2.5,6.7],[-1.2,2.5,6.7]].forEach(p=>{const l=new THREE.PointLight(0xfff6ea,0.3,6,1.6);l.position.set(...p);scene.add(l);});
+/* ---------------- materials ---------------- */
+function tex(w,h,fn,rx,ry){const c=document.createElement('canvas');c.width=w;c.height=h;fn(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(rx||1,ry||1);t.encoding=THREE.sRGBEncoding;t.anisotropy=8;return t;}
+const tileTex=tex(128,128,(g,w)=>{g.fillStyle='#b7b2a8';g.fillRect(0,0,w,w);g.fillStyle='#f4f2ec';g.fillRect(2,2,w-4,w-4);const gr=g.createLinearGradient(0,0,w,w);gr.addColorStop(0,'rgba(255,255,255,.35)');gr.addColorStop(1,'rgba(0,0,0,.06)');g.fillStyle=gr;g.fillRect(2,2,w-4,w-4);});
+const floorTex=tex(256,256,(g,w)=>{g.fillStyle='#8d9196';g.fillRect(0,0,w,w);for(let i=0;i<2600;i++){g.fillStyle=`rgba(${Math.random()<.5?255:0},${Math.random()<.5?255:0},${Math.random()<.5?255:0},.035)`;g.fillRect(Math.random()*w,Math.random()*w,2,2);}},4,3);
+function S(o){o.envMapIntensity=o.envMapIntensity||0.45;return new THREE.MeshStandardMaterial(o);}
+const M={ss:S({color:0xc9ccd0,metalness:.88,roughness:.34}),ssDark:S({color:0x8d9196,metalness:.85,roughness:.42}),ssBrush:S({color:0xbfc3c8,metalness:.8,roughness:.5}),
+ black:S({color:0x1c1c1e,metalness:.5,roughness:.5}),castIron:S({color:0x26262a,metalness:.7,roughness:.55}),wok:S({color:0x15151a,metalness:.7,roughness:.4}),
+ bamboo:S({color:0xd2ae72,roughness:.8}),bambooD:S({color:0xb98f52,roughness:.85}),white:S({color:0xf1efe9,roughness:.5}),
+ tile:S({map:tileTex,roughness:.35,metalness:.05}),floor:S({map:floorTex,roughness:.5}),ceil:S({color:0xe6e1d6,roughness:.9}),wall:S({color:0xe9e3d6,roughness:.9}),
+ steelDoor:S({color:0xbec2c6,metalness:.75,roughness:.45}),glass:S({color:0xcfe3ea,transparent:true,opacity:.35,roughness:.1,metalness:.1}),
+ red:S({color:0xc8231b,roughness:.45}),brass:S({color:0xb78a3b,metalness:.9,roughness:.3}),green:S({color:0x4b7a46,roughness:.7}),
+ rubber:S({color:0x2a2a2a,roughness:.9}),plastic:S({color:0xe8e4da,roughness:.6}),
+ chili:S({color:0xb02a17,roughness:.5}),oil:S({color:0x5b3a14,roughness:.4}),peas:S({color:0x5d9a3b,roughness:.8}),carrot:S({color:0xe27b25,roughness:.8}),cream:S({color:0xf1e6c8,roughness:.6}),
+ pb:S({color:0xd23a3a}),pg:S({color:0x3f9a4b}),py:S({color:0xe5c030}),pbl:S({color:0x2f6fb5}),wire:S({color:0x888c90,metalness:.8,roughness:.4}),
+ hotEl:S({color:0x3a1010,emissive:0x331005,roughness:.6})};
+/* ---------------- builders (x from the right wall -2.45 to the left wall +2.45, z from the front wall 6.3 to the back wall 8.8, y up) ---------------- */
+const X0=-2.45,X1=2.45,KZ=6.3,D=8.8,KC=2.7,WT=0.1;
+const G={all:new THREE.Group(),wallF:new THREE.Group(),ceil:new THREE.Group(),hood:new THREE.Group(),eq:new THREE.Group()};
+scene.add(G.all);G.all.add(G.wallF,G.ceil,G.hood,G.eq);
+function bx(x0,x1,y0,y1,z0,z1,m,g,sh=true){const w=Math.abs(x1-x0),h=Math.abs(y1-y0),d=Math.abs(z1-z0);const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set((x0+x1)/2,(y0+y1)/2,(z0+z1)/2);o.castShadow=sh;o.receiveShadow=true;(g||G.eq).add(o);return o;}
+function cy(r0,r1,h,x,y,z,m,g,seg=24,sh=true){const o=new THREE.Mesh(new THREE.CylinderGeometry(r0,r1,h,seg),m);o.position.set(x,y+h/2,z);o.castShadow=sh;o.receiveShadow=true;(g||G.eq).add(o);return o;}
+function rd(a,b,r,m,g){const d=b.clone().sub(a),l=d.length();const o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,l,10),m);o.position.copy(a.clone().add(b).multiplyScalar(.5));o.quaternion.setFromUnitVectors(V(0,1,0),d.normalize());o.castShadow=true;(g||G.eq).add(o);return o;}
+const registry={};  // BOQ number -> {pos, group of meshes}
+function reg(n,x,y,z){registry[n]=V(x,y,z);}
+/* shell */
+bx(X0,X1,-0.05,0,KZ,D,M.floor,G.all,false);
+bx(X0-WT,X0,0,KC,KZ,D+WT,M.wall,G.all);  // right wall
+bx(X1,X1+WT,0,KC,KZ,D+WT,M.wall,G.all);   // left wall
+// 75 mm white glazed tile (BOQ F.01): to 2.1 m on the left wall and the partition, 0.85 to 2.1 m on the back and right walls; paint above
+function tiled(w,h){const t=tileTex.clone();t.needsUpdate=true;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(w/0.075,h/0.075);return S({map:t,roughness:.3,metalness:.05});}
+bx(X0,X0+0.012,0.85,2.1,KZ+WT,D,tiled(D-KZ,1.25),G.all,false);   // right wall
+bx(X1-0.012,X1,0,2.1,KZ+WT,D,tiled(D-KZ,2.1),G.all,false);       // left wall
+// back wall with the rear exit (x 0.95..1.75, 0.80 wide, 2.1 high)
+const bwM=M.wall;
+bx(X0,0.95,0,KC,D,D+WT,bwM,G.all);bx(1.75,X1,0,KC,D,D+WT,bwM,G.all);bx(0.95,1.75,2.1,KC,D,D+WT,bwM,G.all);
+bx(X0,0.95,0.85,2.1,D-0.012,D,tiled(3.4,1.25),G.all,false);bx(1.75,X1,0,2.1,D-0.012,D,tiled(0.7,2.1),G.all,false);
+{const rd0=bx(0.95,1.75,0,2.1,D+0.02,D+0.08,S({color:0x8b6a49,roughness:.7}),G.all);bx(1.0,1.7,1.2,1.9,D-0.0,D+0.1,M.glass,G.all,false);bx(0.9,0.95,0,2.1,D,D+WT,M.ssDark,G.all);bx(1.75,1.8,0,2.1,D,D+WT,M.ssDark,G.all);
+ rd(V(1.6,1.0,D-0.01),V(1.6,1.05,D-0.01),0.02,M.brass,G.all);}
+// front wall (to the dining room) with hatch (0.65 × 0.60, sill 1.15 m), double-acting door 0.80 (x 0.1..0.9), insect killer above
+const fwM=M.wall;
+{const g=G.wallF,z0=KZ,z1=KZ+WT;
+ bx(X0,-0.6,0,KC,z0,z1,fwM,g);bx(0.05,0.1,0,KC,z0,z1,fwM,g);bx(0.9,X1,0,KC,z0,z1,fwM,g);bx(-0.6,0.05,0,1.15,z0,z1,fwM,g);bx(-0.6,0.05,1.75,KC,z0,z1,fwM,g);bx(0.1,0.9,2.05,KC,z0,z1,fwM,g);
+ // door leaves
+ [[0.1,0.5],[0.5,0.9]].forEach(([a,b])=>{bx(a+0.01,b-0.01,0.0,2.05,z0+0.03,z0+0.07,M.steelDoor,g);bx(a+0.1,b-0.1,1.2,1.75,z0+0.025,z0+0.075,M.glass,g,false);bx(a+0.01,b-0.01,0.0,0.3,z0+0.02,z0+0.08,M.ssDark,g);});
+ rd(V(0.48,0.95,z0+0.03),V(0.48,1.1,z0+0.03),0.012,M.ss,g);rd(V(0.52,0.95,z0+0.03),V(0.52,1.1,z0+0.03),0.012,M.ss,g);
+ // insect killer 0.50 × 0.18 above the door, ticket rail 0.65 above the hatch, heat lamps
+ reg(31,0.45,2.2,KZ+0.1);bx(0.2,0.7,2.12,2.30,KZ+0.0,KZ+0.1,M.white,g);bx(0.22,0.68,2.2,2.22,KZ-0.005,KZ+0.0,S({color:0x7a5cff,emissive:0x5a3cff,emissiveIntensity:1.2}),g,false);
+ bx(-0.6,0.05,1.8,1.83,KZ-0.03,KZ+0.0,M.ss,g);for(let i=0;i<5;i++)bx(-0.55+i*0.12,-0.52+i*0.12,1.62,1.82,KZ-0.025,KZ-0.02,S({color:0xf5f0e0}),g,false);
+ // 75 mm tile on the kitchen face of the partition, to 2.1 m, round the door and hatch
+ [[X0,-0.6,0,2.1],[0.9,X1,0,2.1],[-0.6,0.05,0,1.15],[-0.6,0.05,1.75,2.1]].forEach(([a,b,c,d])=>bx(a,b,c,d,KZ+WT,KZ+WT+0.012,tiled(Math.abs(b-a),Math.abs(d-c)),g,false));
+ // fire blanket box by the wok side, first-aid box on the right wall
+ bx(-2.1,-1.86,1.3,1.6,KZ+WT+0.012,KZ+WT+0.06,S({color:0xc8231b,roughness:.5}),g);
+}
+bx(X0+0.012,X0+0.07,1.6,1.9,7.75,8.0,S({color:0x3f9a4b,roughness:.5}),G.all);
+reg(36,-0.8,2.35,8.35);
+/* ceiling (cement board) with the two make-up-air diffusers 0.60 × 0.50 and the hatch 0.60 × 0.80 */
+{const g=G.ceil;bx(X0,X1,KC,KC+0.05,KZ,D,M.ceil,g);
+ [[-2.4,-1.8,7.0,7.5],[-0.95,-0.35,7.1,7.6]].forEach(([a,b,c,d])=>{bx(a,b,KC-0.04,KC,c,d,M.ssBrush,g,false);for(let x=a+0.05;x<b;x+=0.05)bx(x,x+0.012,KC-0.045,KC-0.04,c,d,M.black,g,false);});
+ bx(1.0,1.6,KC-0.02,KC,7.45,8.25,M.ssDark,g,false);
+ [[-1.4,7.3],[0.45,7.3],[1.3,6.85]].forEach(([x,z])=>bx(x-0.3,x+0.3,KC-0.03,KC,z-0.3,z+0.3,S({color:0xffffff,emissive:0xfff3dc,emissiveIntensity:1.5}),g,false));
+ cy(0.05,0.05,0.03,-0.2,KC-0.03,7.55,M.white,g,16,false);}
+reg(42,-0.65,KC-0.1,7.35);
+/* the dining room just beyond the partition, seen through the hatch and the door window */
+{const g=G.all;bx(X0-0.3,X1+0.3,-0.06,-0.02,KZ-3.0,KZ-0.02,S({color:0xd9d4cc,roughness:.6}),g,false);bx(X0-0.3,X1+0.3,0,2.7,KZ-3.0,KZ-2.98,S({color:0xc9b79a,roughness:.9}),g,false);bx(X0-0.3,X0-0.28,0,2.7,KZ-3.0,KZ-0.02,S({color:0xc9b79a,roughness:.9}),g,false);bx(X1+0.28,X1+0.3,0,2.7,KZ-3.0,KZ-0.02,S({color:0xc9b79a,roughness:.9}),g,false);}
+/* helpers for stainless cabinets and benches */
+function bench(x0,x1,z0,z1,h,opts,n){opts=opts||{};const top=bx(x0,x1,h-0.04,h,z0,z1,M.ss);bx(x0,x1,h-0.04,h-0.01,z0,z1,M.ssBrush,null,false);
+ // legs / panels
+ const w=x1-x0;
+ if(opts.doors){bx(x0,x1,0.12,h-0.04,z0,z1-0.0,M.ssDark);bx(x0,x1,0,0.12,z0+0.03,z1-0.03,M.black);
+  const nd=opts.doors;for(let i=0;i<nd;i++){const a=x0+w*i/nd,b=x0+w*(i+1)/nd;bx(a+0.01,b-0.01,0.14,h-0.07,Math.max(z0,z1)-0.0,Math.max(z0,z1)+0.015,M.ss);rd(V(a+0.06,h-0.12,z1+0.04),V(b-0.06,h-0.12,z1+0.04),0.008,M.ss);}}
+ else{[[x0+0.03,z0+0.03],[x1-0.03,z0+0.03],[x0+0.03,z1-0.03],[x1-0.03,z1-0.03]].forEach(([x,z])=>bx(x-0.025,x+0.025,0.0,h-0.04,z-0.025,z+0.025,M.ss));bx(x0+0.03,x1-0.03,0.16,0.19,z0+0.03,z1-0.03,M.ssBrush);}
+ bx(x0,x1,h,h+0.1,z0,z0+0.015,M.ss);return top;}
+/* ------------------- HOT LINE (back wall): 18 wok range, 19 steamer, 20 fryer, 21 stock range ------------------- */
+{const zb=D;
+ // 18 wok range 1,200 × 800 × 800
+ bx(-2.45,-1.25,0,0.8,8.0,zb,M.ss);bx(-2.45,-1.25,0,0.12,8.03,zb-0.03,M.black);
+ bx(-2.45,-1.25,0.8,0.86,8.0,zb,M.ssBrush);
+ [-2.05,-1.65].forEach((x,i)=>{cy(0.17,0.2,0.06,x,0.84,8.45,M.castIron);const wk=new THREE.Mesh(new THREE.SphereGeometry(0.23,28,16,0,Math.PI*2,Math.PI*0.52,Math.PI*0.48),M.wok);wk.material.side=THREE.DoubleSide;wk.position.set(x,1.06,8.45);wk.rotation.x=Math.PI;wk.scale.y=0.45;wk.castShadow=true;G.eq.add(wk);
+  rd(V(x+0.22,1.04,8.45),V(x+0.5*0.6+0.3,1.1,8.45),0.01,M.black);});
+ bx(-2.45,-1.25,0.15,0.74,8.0,8.01,M.black);[-2.2,-1.9,-1.6,-1.45].forEach(x=>cy(0.02,0.02,0.04,x,0.55,8.0-0.0,M.black,null,10).rotation.x=Math.PI/2);
+ bx(-2.45,-1.25,0.86,1.15,8.74,zb,M.ssBrush); // splashback
+ [-2.05,-1.65].forEach(x=>{rd(V(x,0.86,8.7),V(x,1.1,8.7),0.012,M.ss);rd(V(x,1.1,8.7),V(x,1.14,8.45),0.012,M.ss);}); // water swing arms
+ reg(18,-1.85,0.85,8.4);
+ // 19 steamer 600 × 700 × 800 (2 holes), 35 bamboo stacks Ø 260
+ bx(-1.2,-0.6,0,0.8,8.1,zb,M.ss);bx(-1.2,-0.6,0,0.12,8.13,zb-0.03,M.black);bx(-1.2,-0.6,0.8,0.84,8.1,zb,M.ssBrush);
+ [[-1.0,8.45],[-0.8,8.45]].forEach(([x,z],i)=>{});
+ [-1.05,-0.75].forEach((x)=>{for(let k=0;k<3;k++){cy(0.13,0.13,0.07,x,0.84+k*0.075,8.46,M.bamboo,null,28);cy(0.133,0.133,0.012,x,0.84+k*0.075+0.03,8.46,M.bambooD,null,28);}cy(0.135,0.135,0.02,x,0.84+3*0.075,8.46,M.bambooD,null,28);});
+ [-1.05,-0.75].forEach(x=>cy(0.015,0.015,0.02,x,0.84,8.2,M.black,null,10));
+ reg(19,-0.9,0.9,8.45);reg(35,-1.05,1.0,8.46);
+ // 20 twin-tank fryer 600 × 700 × 900
+ bx(-0.55,0.05,0,0.9,8.1,zb,M.ss);bx(-0.55,0.05,0,0.12,8.13,zb-0.03,M.black);bx(-0.55,0.05,0.9,0.93,8.1,zb,M.ssBrush);
+ [-0.4,-0.1].forEach(x=>{bx(x-0.1,x+0.1,0.82,0.9,8.2,8.55,M.black,null,false);bx(x-0.09,x+0.09,0.78,0.88,8.22,8.52,M.wire,null,false);rd(V(x,0.88,8.2),V(x,0.92,8.0),0.01,M.black);rd(V(x,0.92,8.0),V(x,0.95,7.9+0.0),0.012,M.black);});
+ bx(-0.55,0.05,0.9,1.0,8.65,zb,M.ss);[-0.45,-0.15].forEach(x=>cy(0.025,0.025,0.03,x,0.9,8.62,M.black,null,12));
+ [-0.5,-0.1].forEach(x=>bx(x-0.0,x+0.0,0,0,0,0,M.black,null,false));
+ bx(-0.55,0.05,0.2,0.8,8.09,8.1,M.ssBrush);bx(-0.54,-0.02,0.6,0.64,8.065,8.095,M.ss);
+ reg(20,-0.25,0.95,8.4);
+ // 21 stock range 600 × 700 × 850 with a stock pot
+ bx(0.1,0.7,0,0.85,8.1,zb,M.ss);bx(0.1,0.7,0,0.12,8.13,zb-0.03,M.black);bx(0.1,0.7,0.85,0.89,8.1,zb,M.ssBrush);
+ cy(0.18,0.2,0.04,0.4,0.89,8.45,M.castIron);cy(0.17,0.17,0.3,0.4,0.9,8.45,M.ss);cy(0.175,0.175,0.02,0.4,1.2,8.45,M.ssDark);rd(V(0.57,1.12,8.45),V(0.65,1.12,8.45),0.012,M.black);
+ bx(0.1,0.7,0.2,0.75,8.09,8.1,M.ssBrush);[0.22,0.35,0.48,0.6].forEach(x=>cy(0.018,0.018,0.04,x,0.55,8.07,M.black,null,10).rotation.x=Math.PI/2);
+ reg(21,0.4,0.9,8.45);
+ // 15 floor channel drain 3,150 × 80 along the line
+ bx(-2.35,0.8,-0.01,0.005,7.9,7.98,M.wire,G.all,false);reg(15,-0.8,0.02,7.94);
+ // 9 wok tool rail at 1.4 m on the right wall, 470 long, 4 tools (spatula, ladle, spider, brush)
+ rd(V(-2.43,1.4,8.13),V(-2.43,1.4,8.6),0.008,M.ss);[8.2,8.31,8.42,8.53].forEach((z,i)=>{rd(V(-2.4,1.4,z),V(-2.39,1.0,z),0.007,M.ss);cy(0.04-0.01*(i%2),0.045,0.04,-2.38,0.98,z,i===3?M.bamboo:M.ss,null,10);});reg(9,-2.4,1.4,8.37);
+ // 8 wok seasoning rail 440 × 220 at 1.0 m; 7 sauce + oil shelf 900 × 300 at 1.45 m on the right wall
+ bx(-2.45,-2.23,0.98,1.0,7.62,8.06,M.ss);[7.7,7.8,7.9,8.0].forEach((z,i)=>cy(0.025,0.03,0.17,-2.34,1.0,z,[M.chili,M.oil,M.cream,M.carrot][i],null,10));reg(8,-2.34,1.05,7.84);
+ bx(-2.45,-2.15,1.45,1.48,7.15,8.05,M.ss);[7.25,7.4,7.55,7.7,7.85,7.97].forEach((z,i)=>cy(0.035,0.035,0.17,-2.3,1.48,z,[M.chili,M.oil,M.cream,M.peas,M.carrot,M.chili][i],null,10));for(let z=7.2;z<8.05;z+=0.3)bx(-2.45,-2.43,1.3,1.45,z,z+0.02,M.ssDark,null,false);reg(7,-2.3,1.55,7.6);
+ // pot filler over the stock range (swing arm), 20: dry bin, Class K extinguisher by the rear exit
+ rd(V(0.4,1.45,8.76),V(0.4,1.45,8.55),0.012,M.brass);rd(V(0.4,1.45,8.55),V(0.4,1.2,8.55),0.012,M.brass);
+ cy(0.1,0.1,0.6,0.83,0.0,8.62,S({color:0x3d4044,metalness:.5,roughness:.5}),null,18);  // dry bin O 200 x 600
+ cy(0.075,0.075,0.5,0.83,0.0+0.9,8.68,M.red,null,18);  // Class K extinguisher on the wall above
+}
+bx(X0+0.012,X0+0.07,0.5,0.62,7.66,7.82,S({color:0xeeeeee,roughness:.5}),G.all);   // LPG leak detector, low (G.07)
+bx(0.76,0.92,1.3,1.5,D-0.05,D,S({color:0xc8231b,roughness:.5}),G.all);                   // hood suppression pull + gas cut-off at the rear exit
+bx(1.1,1.6,2.15,2.3,D-0.04,D,S({color:0x2fa05a,emissive:0x1f8a4a,emissiveIntensity:1.2}),G.all,false);   // EXIT sign
+/* ------------------- HOOD 3,350 × 950 × 550, bottom 2.05 m ------------------- */
+{const g=G.hood,hx0=-2.45,hx1=0.9,hz0=7.85,hz1=D-0.0;bx(hx0,hx1,2.05,2.6,hz0,hz1,M.ssBrush,g);
+ // lower front lip + baffle filters
+ bx(hx0,hx1,2.05,2.12,hz0-0.0,hz0+0.02,M.ss,g);for(let x=hx0+0.03;x<hx1-0.03;x+=0.045)bx(x,x+0.025,2.0,2.05,hz0+0.04,hz1-0.1,M.ssDark,g,false);
+ [-1.95,-0.9,0.1].forEach(x=>bx(x-0.15,x+0.15,2.03,2.05,8.2,8.4,S({color:0xffffff,emissive:0xfff6df,emissiveIntensity:1.6}),g,false));
+ // suppression pipe (red) along the front lip, with nozzles
+ rd(V(hx0+0.05,2.0,hz0+0.0),V(hx1-0.05,2.0,hz0+0.0),0.013,M.red,g);for(let x=-2.1;x<0.8;x+=0.7)cy(0.012,0.02,0.05,x,1.95,hz0,M.brass,g,8);
+ // exhaust collar
+ bx(-1.5,-1.1,2.35,KC,8.4,D,M.ssBrush,g);bx(-1.5,-1.1,2.35,KC,D,D+0.4,M.ssBrush,g);}
+/* ------------------- LEFT WALL (dish line): 22 reach-in, 25 dishwasher, 4 two-bowl sink, 5 shelves, 29 water heater ------------------- */
+{ // 22 dual-temp reach-in 950 × 750 × 2,000 (0.95 along the wall, 0.75 out)
+ const x0=1.7,x1=X1,z0=6.45,z1=7.4;bx(x0,x1,0.1,2.0,z0,z1,M.ss);bx(x0,x1,0,0.1,z0+0.03,z1-0.03,M.black);
+ const zm=(z0+z1)/2;[[z0,zm],[zm,z1]].forEach(([a,b])=>{bx(x0-0.025,x0,0.18,1.9,a+0.01,b-0.01,M.steelDoor);});
+ rd(V(x0-0.05,0.5,zm-0.06),V(x0-0.05,1.5,zm-0.06),0.012,M.ss);rd(V(x0-0.05,0.5,zm+0.06),V(x0-0.05,1.5,zm+0.06),0.012,M.ss);
+ bx(x0-0.03,x0-0.02,1.7,1.85,zm-0.03,zm+0.03,S({color:0x3aff7a,emissive:0x1aff5a,emissiveIntensity:.6}),null,false);reg(22,x0,1.9,zm);
+ // 25 dishwasher 600 × 650 × 900 (0.65 out from the wall), drainboard on top
+ bx(1.8,X1,0,0.9,7.4,8.0,M.ss);bx(1.8,X1,0.9,0.94,7.4,8.0,M.ssBrush);bx(1.78,1.8,0.1,0.8,7.42,7.98,M.steelDoor);rd(V(1.76,0.7,7.45),V(1.76,0.7,7.95),0.012,M.ss);bx(1.79,1.8,0.82,0.86,7.5,7.75,S({color:0x2a6f8f,emissive:0x1a4f6f,emissiveIntensity:.6}),null,false);reg(25,1.8,0.9,7.7);
+ // 4 dish sink, 2 bowls 800 × 650 × 900 with pre-rinse spray and tap
+ bx(1.8,X1,0,0.9,8.0,D,M.ss);bx(1.8,X1,0.88,0.93,8.0,D,M.ssBrush);[8.05,8.45].forEach(z=>bx(1.9,X1-0.05,0.74,0.9,z,z+0.3,M.ssDark,null,false));bx(1.8,X1,0.93,1.15,D-0.02,D,M.ssBrush);
+ rd(V(2.4,0.93,8.7),V(2.4,1.5,8.7),0.012,M.ss);rd(V(2.4,1.5,8.7),V(2.15,1.55,8.5),0.012,M.ss);rd(V(2.35,1.5,8.74),V(2.35,1.0,8.74),0.01,M.black);
+ reg(4,2.1,0.95,8.4);
+ // 5 wall shelves 1,400 × 350 (2 nos)
+ [1.55,2.0].forEach(y=>{bx(2.1,X1,y,y+0.03,7.15,8.55,M.ss);for(let z=7.3;z<8.5;z+=0.25)cy(0.07,0.07,0.1,2.28,y+0.03,z,y>1.8?M.bamboo:M.ssDark,null,16);});reg(5,2.25,2.1,7.9);
+ // 29 storage water heater Ø330 × 500, high over the dish sink
+ cy(0.165,0.165,0.5,2.27,2.15,8.62,M.white,null,24);reg(29,2.27,2.4,8.62);
+ // door-side hand wash 0.28 × 0.40 (x 0.92..1.2) with hands-free tap
+ bx(0.92,1.2,0.82,0.9,6.4,6.8,M.ss);bx(0.92,1.2,0,0.82,6.4,6.5,M.ssDark,null,false);rd(V(1.06,0.9,6.46),V(1.06,1.05,6.46),0.01,M.ss);rd(V(1.06,1.05,6.46),V(1.06,1.05,6.6),0.01,M.ss);cy(0.05,0.05,0.2,1.06,1.15,6.42,M.white,null,14);
+}
+/* ------------------- FRONT-WALL BENCHES: 1 non-veg, 2 dumpling/veg, 3 pass ------------------- */
+{ // 1 non-veg prep 800 × 650 × 900, open undershelf with the 4-board rack (14)
+ bench(-2.2,-1.4,6.4,7.05,0.9,{},1);
+ [[-2.15,6.45],[-1.45,6.45]].forEach(()=>{});bx(-2.2,-1.4,0.2,0.23,6.4,7.05,M.ssBrush);
+ // 14 cutting-board rack 280 × 420 × 420, 4 coloured boards in slots
+ bx(-2.17,-1.89,0.23,0.65,6.55,6.97,M.ssDark,null,false);[M.pb,M.pbl,M.pg,M.py].forEach((m,i)=>bx(-2.15+i*0.065,-2.11+i*0.065,0.25,0.62,6.57,6.95,m,null,false));reg(14,-2.03,0.45,6.75);
+ // top boards, 10 chilled mise-en-place rail 760 × 260 × 220 at the back of the bench
+ bx(-2.18,-1.42,0.9,1.05,6.42,6.68,M.ssBrush);[0,1,2,3,4].forEach(i=>{const x=-2.16+i*0.15;bx(x,x+0.13,1.0,1.06,6.44,6.66,[M.peas,M.carrot,M.cream,M.chili,M.oil][i],null,false);});reg(10,-1.8,1.1,6.55);
+ bx(-1.75,-1.5,0.9,0.93,6.75,7.0,M.pb,null,false);bx(-1.95,-1.78,0.9,0.93,6.78,6.98,S({color:0xe8e8e8}),null,false);reg(1,-1.8,0.95,6.8);
+ // 2 dumpling / veg prep with freezer under (2 doors), rice cookers 26, mixer-grinder 27 + torch 28 on the shelf over it
+ bench(-1.4,-0.6,6.4,7.05,0.9,{doors:2},2);reg(24,-1.0,0.45,7.05);reg(2,-1.0,0.95,6.75);
+ [[-0.82,6.56],[-0.8,6.84]].forEach(([x,z])=>{cy(0.13,0.13,0.2,x,0.9,z,M.white,null,24);cy(0.125,0.125,0.04,x,1.1,z,M.ssDark,null,24);bx(x+0.0,x+0.0,0,0,0,0,M.black,null,false);cy(0.02,0.02,0.04,x+0.1,0.98,z,M.red,null,8);});reg(26,-0.82,1.1,6.7);
+ bx(-1.4,-0.6,1.55,1.58,6.4,6.65,M.ss);cy(0.07,0.09,0.16,-1.2,1.58,6.52,M.ssDark,null,16);cy(0.04,0.04,0.14,-0.9,1.58,6.52,S({color:0x333}),null,10);cy(0.03,0.025,0.1,-0.75,1.58,6.52,M.red,null,10);reg(27,-1.2,1.7,6.52);reg(28,-0.75,1.65,6.52);
+ // 13 magnetic knife strips 400 each on the wall above both benches
+ [[-2.15,-1.75],[-1.35,-0.95]].forEach(([a,b],k)=>{bx(a,b,1.3,1.34,6.4,6.425,M.black,null,false);for(let i=0;i<5;i++)bx(a+0.05+i*0.07,a+0.065+i*0.07,1.12,1.3,6.425,6.435,i%2?M.ss:M.black,null,false);});reg(13,-1.95,1.3,6.43);
+ // 3 pass 650 × 650 × 900, 23 under-counter fridge, 11 dip rail, 32 two heat lamps over it, hatch 0.65 × 0.60 above
+ bench(-0.6,0.05,6.4,7.05,0.9,{doors:1},3);reg(3,-0.28,0.9,6.7);reg(23,-0.28,0.4,7.05);
+ bx(-0.58,0.03,0.9,1.0,6.93,7.05,M.ssBrush);for(let i=0;i<4;i++)bx(-0.55+i*0.15,-0.43+i*0.15,0.96,1.02,6.94,7.04,[M.chili,M.oil,M.peas,M.cream][i],null,false);reg(11,-0.28,1.05,7.0);
+ [-0.4,-0.1].forEach(x=>{cy(0.05,0.05,0.12,x,1.45,6.55,M.black,null,12);bx(x-0.0,x+0.0,0,0,0,0,M.black,null,false);cy(0.045,0.045,0.01,x,1.44,6.55,S({color:0xff7a30,emissive:0xff5a10,emissiveIntensity:1.6}),null,12,false);rd(V(x,1.57,6.55),V(x,1.9,6.5),0.008,M.black);});reg(32,-0.25,1.55,6.55);reg(12,-0.28,1.8,6.35);
+ // second hand-wash 0.25, 6 L heater, 3 apron hooks (prep corner on the right wall); 6 veg sink 450 × 500 × 900 with a wet bin under
+ bx(X0,X0+0.25,0.82,0.9,6.4,6.65,M.ss);bx(X0,X0+0.25,0.0,0.82,6.4,6.45,M.ssDark,null,false);for(let i=0;i<3;i++)rd(V(X0+0.02,1.9,6.45+i*0.07),V(X0+0.08,1.88,6.45+i*0.07),0.008,M.ss);reg(6,X0+0.22,0.95,7.37);
+ bx(X0,X0+0.45,0,0.9,7.12,7.62,M.ss);bx(X0,X0+0.45,0.88,0.93,7.12,7.62,M.ssBrush);bx(X0+0.05,X0+0.4,0.78,0.9,7.17,7.57,M.ssDark,null,false);rd(V(X0+0.1,0.93,7.37),V(X0+0.1,1.35,7.37),0.012,M.ss);rd(V(X0+0.1,1.35,7.37),V(X0+0.35,1.35,7.37),0.012,M.ss);cy(0.1,0.1,0.6,X0+0.27,0.0,7.3,M.green,null,18);
+ // pillar P2 (measure on site) at the right wall near the front
+ bx(X0,X0+0.23,0,KC,6.65,6.95,S({color:0x4a4038,roughness:.9}),G.all);
+}
+/* ---------------- numbered markers ---------------- */
+const nbEls={};
+Object.keys(registry).sort((a,b)=>a-b).forEach(n=>{const e=document.createElement('div');e.className='nb';e.textContent=n;lblsEl.appendChild(e);nbEls[n]=e;});
+/* ---------------- views ---------------- */
+const VIEWS={
+ 'Overview':{p:[3.6,4.6,5.0],t:[-0.1,0.7,7.7],hide:['wallF','ceil']},
+ 'Hot line':{p:[1.1,1.55,6.8],t:[-1.5,0.95,8.4],hide:['ceil']},
+ 'Prep & pass':{p:[-1.95,1.7,8.45],t:[-0.55,0.95,6.4],hide:['ceil']},
+ 'Dish line':{p:[-1.2,1.6,7.0],t:[2.3,1.0,7.9],hide:['ceil']},
+ 'Wok range':{p:[-0.75,1.5,7.35],t:[-1.85,0.85,8.5],hide:['ceil']},
+ 'Rear exit':{p:[1.3,1.6,8.7],t:[-0.5,1.0,6.8],hide:['ceil']},
+ 'Top':{p:[-0.1,8.6,7.55],t:[-0.1,0,7.55],hide:['ceil','wallF']}};
+const vws=document.getElementById('vws');Object.keys(VIEWS).forEach((k,i)=>{const b=document.createElement('button');b.textContent=k;b.setAttribute('aria-pressed',i===0);b.addEventListener('click',()=>go(k));vws.appendChild(b);});
+const flags={wallF:true,ceil:false,hood:true,nums:true};
+function applyFlags(){G.wallF.visible=flags.wallF;G.ceil.visible=flags.ceil;G.hood.visible=flags.hood;lblsEl.style.display=flags.nums?'':'none';[...document.querySelectorAll('#tgl button')].forEach(b=>b.setAttribute('aria-pressed',String(flags[b.dataset.t])));dirty=true;}
+let anim=null,dirty=true;
+function go(k,instant){const v=VIEWS[k];['wallF','ceil'].forEach(f=>{flags[f]=!v.hide.includes(f)?(f==='wallF'):false;});flags.wallF=!v.hide.includes('wallF');flags.ceil=false;applyFlags();
+ [...vws.children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===k)));
+ const to={p:V(...v.p),t:V(...v.t)};if(instant){camera.position.copy(to.p);controls.target.copy(to.t);controls.update();dirty=true;return;}
+ anim={fp:camera.position.clone(),ft:controls.target.clone(),to,t0:performance.now(),dur:900};}
+document.getElementById('tgl').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;flags[b.dataset.t]=!flags[b.dataset.t];applyFlags();});
+controls.addEventListener('change',()=>{dirty=true});
+/* ---------------- side list ---------------- */
+{let h='<h2>Equipment · BOQ number, size W × D × H (mm)</h2><table>';LIST.forEach(r=>{if(r.length===1)h+=`<tr class="g"><td colspan="3">${r[0]}</td></tr>`;else h+=`<tr class="r" data-n="${r[0]}"><td class="n">${r[0]}</td><td>${r[1]}</td><td class="s">${r[2]}</td></tr>`;});h+='</table>';document.getElementById('side').innerHTML=h;
+ document.getElementById('side').addEventListener('click',e=>{const tr=e.target.closest('[data-n]');if(!tr)return;const n=+tr.dataset.n,p=registry[n];[...document.querySelectorAll('#side tr.r')].forEach(x=>x.classList.toggle('on',x===tr));Object.values(nbEls).forEach(x=>x.classList.remove('on'));if(nbEls[n])nbEls[n].classList.add('on');if(!p)return;
+  const dir=camera.position.clone().sub(controls.target).normalize();anim={fp:camera.position.clone(),ft:controls.target.clone(),to:{p:p.clone().add(dir.multiplyScalar(2.0)),t:p.clone()},t0:performance.now(),dur:800};});}
+/* ---------------- loop ---------------- */
+function resize(){const w=stagebox.clientWidth,h=stagebox.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();dirty=true;}
+addEventListener('resize',resize);
+const tmp=V(0,0,0);
+function frame(now){requestAnimationFrame(frame);
+ if(anim){const k=Math.min(1,(now-anim.t0)/anim.dur),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;camera.position.lerpVectors(anim.fp,anim.to.p,e);controls.target.lerpVectors(anim.ft,anim.to.t,e);if(k>=1)anim=null;dirty=true;}
+ controls.update();
+ if(dirty){renderer.render(scene,camera);const w=stagebox.clientWidth,h=stagebox.clientHeight;
+  if(flags.nums)for(const n in nbEls){tmp.copy(registry[n]).project(camera);const vis=tmp.z<1&&Math.abs(tmp.x)<1.05&&Math.abs(tmp.y)<1.05;const el=nbEls[n];el.style.display=vis?'':'none';if(vis)el.style.transform=`translate(${(tmp.x*.5+.5)*w}px,${(-tmp.y*.5+.5)*h}px)`;}
+  dirty=false;}}
+resize();go('Overview',true);requestAnimationFrame(frame);
+window.__kitchen={go,flags,applyFlags,camera,controls,renderer,scene,VIEWS,setDirty:()=>{dirty=true},registry};
+/* ---------------- photoreal pairs ---------------- */
+const PAIRS=[
+ ['Overview','Overview from above','The whole kitchen, 4.90 × 2.40 m: hot line along the back wall, benches and pass on the front wall, dish line on the left, reach-in at the door end.','18 wok range 1.20 × 0.80 · 19 steamer 0.60 × 0.70 · 20 fryer 0.60 × 0.70 · 21 stock range 0.60 × 0.70 · 22 reach-in 0.95 × 0.75 × 2.00'],
+ ['Hot line','The hot line','Wok range, dim sum steamer, twin-tank fryer and stock range side by side under the 3.35 m canopy hood, 0.05 m apart, with the 0.95 m cook\'s aisle in front.','18 · 19 · 20 · 21 · 36 hood 3.35 × 0.95 × 0.55, bottom 2.05 m'],
+ ['Prep & pass','Prep benches and the pass','Non-veg bench, dumpling and veg bench and the pass counter, 0.80 + 0.80 + 0.65 m, 0.90 m high, with the mise-en-place rail, knife strips and the hatch.','1 · 2 · 3 · 10 rail 0.76 × 0.26 · 13 knife strips · 14 board rack'],
+ ['Dish line','Dish line and reach-in','Reach-in 0.95 × 0.75 × 2.00 m at the door end, dishwasher 0.60 × 0.65 × 0.90 and the 2-bowl sink 0.80 × 0.65 × 0.90 along the left wall, with two shelves over.','22 · 25 · 4 · 5 shelves 1.40 × 0.35 · 29 water heater Ø 0.33 × 0.50'],
+ ['Wok range','The wok station','The 2-burner wok range 1.20 × 0.80 × 0.80 m with swing taps, the wok tool rail at 1.4 m, the seasoning rail at 1.0 m and the sauce shelf at 1.45 m on the right wall.','18 · 9 tool rail · 8 seasoning rail 0.44 × 0.22 · 7 shelf 0.90 × 0.30'],
+ ['Rear exit','From the rear exit','Looking back through the kitchen from the 0.80 m rear exit towards the pass and the double-acting door.','Whole room: 4.90 × 2.40 m, ceiling 2.70 m'],
+];
+const pairs=document.getElementById('pairs');
+PAIRS.forEach(([v,t,p,key])=>{const id=v.toLowerCase().replace(/[^a-z]+/g,'-');const el=document.createElement('div');el.className='pair';
+ el.innerHTML=`<div class="ph"><img class="a" src="renders/kitchen3d-${id}-photo.jpg" alt="${t}, photoreal" loading="lazy"><img class="b" src="renders/kitchen3d-${id}-model.jpg" alt="${t}, exact model" loading="lazy"><div class="tg"><button type="button" data-m="0" aria-pressed="true">Photoreal</button><button type="button" data-m="1" aria-pressed="false">Exact model</button></div></div><div class="bd"><h3>${t}</h3><p>${p}</p><div class="key">${key}</div></div>`;
+ const flip=m=>{el.classList.toggle('show-m',m===1);el.querySelectorAll('.tg button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.m===m)));};
+ el.querySelector('.tg').addEventListener('click',e=>{e.stopPropagation();const b=e.target.closest('[data-m]');if(b)flip(+b.dataset.m);});
+ el.querySelector('.ph').addEventListener('click',()=>flip(el.classList.contains('show-m')?0:1));
+ pairs.appendChild(el);});
+})();
+</script>
+</body></html>
