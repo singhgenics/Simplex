@@ -207,7 +207,7 @@ CX = 300
 t, y = table(eq, CX, 36, (CX, CX + 70, CX + 104), ('EQUIPMENT', 'W × D × H (m)', 'QTY'), 3.8, FS, width=111)
 s.add(f'<text x="{CX-1.5}" y="31.5" font-size="{FB}" font-weight="700" fill="{INK}">Equipment list</text>' + t)
 nb, y = notes_block([('Notes', ['Stainless steel 304 benches, 0.90 m high; hot line 0.70 deep,', "wok range 0.80. Cooks' aisle 1.05 m (0.95 m at the wok range).", 'Cement-board ceiling at 2.70 m; storage deck above, hoist at the hatch.',
-                                'Pan-Asian menu: about 23 recipes, 40 choices; one chef + one helper.', 'Positions are from the 3D model: check walls and pillar P2 on site.'])], CX - 1.5, y + 4)
+                                'Pan-Asian menu: about 23 recipes, 40 choices; one chef + one helper.', 'Price against the BOQ (boq.html): item numbers, units, quantities.', 'Positions are from the 3D model: check walls and pillar P2 on site.'])], CX - 1.5, y + 4)
 s.add(nb)
 sheet1 = frame('Kitchen equipment layout', 'For commercial kitchen equipment vendors · plan at 1:25 on A3 · every item named and sized on the drawing', 1, ''.join(s.o))
 
@@ -368,9 +368,9 @@ h2{font:700 clamp(19px,2.6vw,24px)/1.15 var(--display);margin:18px 0 2px}
 <header>
 <p class="eyebrow">Simplex · Betalbatim pub · for kitchen vendors</p>
 <h1>Kitchen drawings: equipment, services and exhaust</h1>
-<p class="lede">Two A3 sheets drawn to true scale: print at 100% (no “fit to page”) and the plans measure 1:25, the elevation 1:40. Sheet 1 is for the equipment fabricator; sheet 2 is for the exhaust, gas, plumbing and electrical vendors.</p>
+<p class="lede">Two A3 sheets drawn to true scale: print at 100% (no “fit to page”) and the plans measure 1:25, the elevation 1:40. Sheet 1 is for the equipment fabricator; sheet 2 is for the exhaust, gas, plumbing and electrical vendors. Prices are asked against the <a href="boq.html">bill of quantities (BOQ)</a>, which numbers every line and gives its unit and quantity.</p>
 </header>
-<div class="bar"><a class="pri" href="plans/kitchen-sheets-A3.pdf" target="_blank" rel="noopener">Both sheets · 2-page PDF (A3, vector)</a><a href="plan.html">Whole floor plan</a><a href="./">3D model</a></div>
+<div class="bar"><a class="pri" href="plans/kitchen-sheets-A3.pdf" target="_blank" rel="noopener">Both sheets · 2-page PDF (A3, vector)</a><a href="boq.html">BOQ (Excel, PDF)</a><a href="plan.html">Whole floor plan</a><a href="./">3D model</a></div>
 @@SHEETS@@
 </div>
 <script>
