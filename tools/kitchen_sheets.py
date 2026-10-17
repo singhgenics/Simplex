@@ -286,21 +286,26 @@ a, b = Q(X1, -0.25); ev.append(f'<text x="{a:.2f}" y="{b+1.5:.2f}" font-size="{F
 a, b = Q(X0, -0.25); ev.append(f'<text x="{a:.2f}" y="{b+1.5:.2f}" font-size="{FS}" fill="{MUT}" text-anchor="end">right wall (wok side)</text>')
 s.add(''.join(ev))
 # ---- legend
-LX, LY = 180, 198
-leg = [f'<text x="{LX}" y="{LY}" font-size="{FB}" font-weight="700" fill="{INK}">Legend</text>']
-items = [('line', RED, '2.2 1.2', 'canopy hood outline (above)'), ('line', EX, '1.4 0.8', 'exhaust duct, outside, at 2.35–2.75 m'), ('line', GAS, None, 'gas line, copper'),
-         ('line', GAS, '1.6 0.8', 'gas manifold at 0.40 m · dot = appliance valve'), ('box', GAS, 'S', 'solenoid shut-off valve'), ('circ', GAS, 'L', 'gas leak detector'),
-         ('circ', BLU, 'HC', 'water point: hot + cold (C = cold only)'), ('line', HWC, '1.4 0.8', 'hot water from the 35 L heater (W)'), ('line', '#3b8fd0', None, 'cold water main in (WM)'), ('tri', BLU, None, 'drain point'), ('line', BLU, '1.2 0.7', 'drain line to the grease trap'),
-         ('box', PWR, '1', 'power point, see the services list'), ('line', GRN, '1 0.6', 'make-up air diffusers in the ceiling (MA, 2)'), ('circ', RED, 'H', 'heat detector'),
-         ('sq', RED, None, 'SP suppression pull + gas cut-off · K = Class K extinguisher')]
-y = LY + 6
-for kind, col, d, t in items:
-    if kind == 'line': leg.append(f'<line x1="{LX}" y1="{y-0.9}" x2="{LX+9}" y2="{y-0.9}" stroke="{col}" stroke-width="0.6"' + (f' stroke-dasharray="{d}"' if d else '') + '/>')
-    elif kind == 'box': leg.append(f'<rect x="{LX+2.3}" y="{y-3.1}" width="4.4" height="4.4" fill="#fff" stroke="{col}" stroke-width="0.35"/><text x="{LX+4.5}" y="{y}" font-size="{FS}" font-weight="700" fill="{col}" text-anchor="middle">{d}</text>')
-    elif kind == 'circ': leg.append(f'<circle cx="{LX+4.5}" cy="{y-0.9}" r="3" fill="#fff" stroke="{col}" stroke-width="0.35"/><text x="{LX+4.5}" y="{y}" font-size="{FS}" font-weight="700" fill="{col}" text-anchor="middle">{d}</text>')
-    elif kind == 'sq': leg.append(f'<rect x="{LX+3.5}" y="{y-2.3}" width="2" height="2.6" fill="{col}"/>')
-    else: leg.append(f'<path d="M{LX+3.5} {y-1.8} l2 0 l-1 1.7 z" fill="{col}"/>')
-    leg.append(f'<text x="{LX+12}" y="{y}" font-size="{FS}" fill="{INK}">{t}</text>'); y += 5.35
+LX, LY = 168, 198
+leg = [f'<text x="{LX}" y="{LY}" font-size="{FB}" font-weight="700" fill="{INK}">Legend: every symbol and letter on this sheet</text>']
+items = [('line', RED, '2.2 1.2', 'canopy hood outline (above)'), ('line', EX, '1.4 0.8', 'exhaust duct, outside, 2.35–2.75 m'), ('line', GAS, None, 'gas line, copper'),
+         ('line', GAS, '1.6 0.8', 'gas manifold at 0.40 m (dot = valve)'), ('box', GAS, 'S', 'S  solenoid shut-off valve'), ('circ', GAS, 'L', 'L  gas leak detector'),
+         ('circ', BLU, 'HC', 'HC  water point, hot + cold'), ('circ', BLU, 'C', 'C  water point, cold only'), ('tri', BLU, None, 'drain point'),
+         ('line', BLU, '1.2 0.7', 'drain line to the grease trap'), ('line', HWC, '1.4 0.8', 'hot water pipe from heater W'), ('line', '#3b8fd0', None, 'cold water main in (WM)'),
+         ('boxf', BLU, 'GT', 'GT  grease trap (outside, back corner)'), ('circ', HWC, 'W', 'W  35 L storage water heater'),
+         ('box', PWR, '1', '1–14  power point (see services list)'), ('line', GRN, '1 0.6', 'MA  make-up air diffusers, ceiling'),
+         ('circ', RED, 'H', 'H  heat detector'), ('circf', '#c8231b', 'K', 'K  Class K extinguisher (wok and fryer fires)'), ('sq', RED, None, 'SP  hood suppression pull + gas cut-off'),
+         ('dark', INK, 'P', 'P1, P2  structural pillars on the right wall'), ('none', INK, None, 'E, F, CC, G, WC, SU, PF: services list')]
+half = 11
+for i, (kind, col, d, t) in enumerate(items):
+    cx0 = LX + (i // half) * 66; y = LY + 6 + (i % half) * 5.6
+    if kind == 'line': leg.append(f'<line x1="{cx0}" y1="{y-0.9}" x2="{cx0+9}" y2="{y-0.9}" stroke="{col}" stroke-width="0.6"' + (f' stroke-dasharray="{d}"' if d else '') + '/>')
+    elif kind in ('box', 'boxf'): leg.append(f'<rect x="{cx0+2.3}" y="{y-3.1}" width="4.4" height="4.4" fill="{"#e6ecef" if kind == "boxf" else "#fff"}" stroke="{col}" stroke-width="0.35"/><text x="{cx0+4.5}" y="{y}" font-size="{FS if len(d) < 2 else 2.3}" font-weight="700" fill="{col}" text-anchor="middle">{d}</text>')
+    elif kind in ('circ', 'circf'): leg.append(f'<circle cx="{cx0+4.5}" cy="{y-0.9}" r="3" fill="{"#c8231b" if kind == "circf" else "#fff"}" stroke="{col}" stroke-width="0.35"/><text x="{cx0+4.5}" y="{y}" font-size="{FS}" font-weight="700" fill="{"#fff" if kind == "circf" else col}" text-anchor="middle">{d}</text>')
+    elif kind == 'sq': leg.append(f'<rect x="{cx0+3.5}" y="{y-2.3}" width="2" height="2.6" fill="{col}"/>')
+    elif kind == 'dark': leg.append(f'<rect x="{cx0+2.5}" y="{y-3.0}" width="4" height="4" fill="#4a4038"/>')
+    elif kind == 'tri': leg.append(f'<path d="M{cx0+3.5} {y-1.8} l2 0 l-1 1.7 z" fill="{col}"/>')
+    leg.append(f'<text x="{cx0+12}" y="{y}" font-size="{FS}" fill="{INK}">{t}</text>')
 s.add(''.join(leg))
 # ---- services schedule (right column)
 CX = 300
