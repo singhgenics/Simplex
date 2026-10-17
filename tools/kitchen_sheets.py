@@ -182,30 +182,18 @@ for i, (x, z, t) in enumerate(bot):
 s.scalebar(12, 252, 'PLAN 1:25 on A3 · dimensions in metres')
 s.add(f'<text x="12" y="263" font-size="{FS}" fill="{MUT}">Back wall at the top, dining room at the bottom; left and right as you walk in from the road. Dashed red: canopy hood above (3.35 × 0.95, bottom 2.05 m).</text>')
 s.add(f'<text x="12" y="267.5" font-size="{FS}" fill="{MUT}">Dashed blue: hatch and fridge doors. Dashed green: make-up air diffusers above (2). Dashed grey: shelves above. Heights and services: sheet 2.</text>')
-eq = [('Wok range, 2 burners (Chinese)', '1.20 × 0.80 × 0.80', '1'), ('Dim sum steamer, 2 holes', '0.60 × 0.70 × 0.80', '1'), ('Twin-tank fryer (veg / non-veg)', '0.60 × 0.70 × 0.90', '1'),
-      ('Stock range, 2 burners', '0.60 × 0.70 × 0.85', '1'), ('Canopy hood, baffle filters, suppression', '3.35 × 0.95 × 0.55', '1'), ('Non-veg prep bench, undershelf, shelf over', '0.80 × 0.65 × 0.90', '1'),
-      ('Veg / dumpling bench, 2 shelves over', '0.80 × 0.65 × 0.90', '1'), ('Under-counter freezer (in the veg bench)', '2 doors', '1'), ('Pass bench + 2 heat lamps, u/c fridge under', '0.65 × 0.65 × 0.90', '1'),
-      ('Veg + herb wash sink, tall mixer tap', '0.45 × 0.50 × 0.90', '1'), ('Hand-wash basins, hands-free, 6 L heater each', '0.28 × 0.40 · 0.25 × 0.25', '2'),
-      ('Dual-temp reach-in (fridge + freezer)', '0.95 × 0.75 × 2.00', '1'), ('Under-counter dishwasher + drainboard', '0.60 × 0.65 × 0.90', '1'),
-      ('2-bowl sink + pre-rinse spray', '0.80 × 0.65 × 0.90', '1'), ('Storage water heater 35 L, 3 kW', 'Ø 0.33 × 0.50', '1'), ('Shelves over the dish line (top one slatted)', '1.40 × 0.35', '2'),
-      ('Bamboo steamer stacks (3 baskets + lid)', 'Ø 0.26', '3'), ('Pot filler, wall swing arm (cold)', '0.30 reach', '1'), ('Used-oil can 20 L + spill tray', '0.34 × 0.17 × 0.40', '1'),
-      ('Wok seasoning rail, 8 pots + 8 bottles', '0.44 × 0.22', '1'), ('Wok tool rail: ladle, spatula, spider, brush', '0.47', '1'),
-      ('Back-up sauce + oil shelf', '0.90 × 0.30', '1'), ('Chilled mise-en-place rail, 5 pans', '0.76 × 0.26 × 0.22', '1'), ('Dip + garnish rail (5 inserts)', '0.65 × 0.12', '1'),
-      ('Ticket rail over the pass hatch', '0.65', '1'), ('Magnetic knife strips', '0.40', '2'), ('Colour-coded board rack + boards', '4 boards', '1'),
-      ('Rice cookers 5 L (jasmine, sticky)', 'Ø 0.26', '2'), ('Stone mortar + pestle, granite', 'Ø 0.22', '1'),
-      ('Mixer-grinder, commercial', '—', '1'), ('Kitchen blowtorch', '—', '1'), ('Foot-pedal bins (wet under veg sink, dry)', 'Ø 0.20 × 0.60', '2'), ('Apron hook rail at the prep corner', '3 hooks', '1'),
-      ('Double-acting door, vision panel, kick plate', '0.80 × 2.05', '1'), ('Make-up air diffusers, ceiling', '0.60 × 0.50', '2'), ('Insect killer', '0.50 × 0.18', '1'), ('Floor channel drain', '3.15 × 0.08', '1'),
-      ('Ceiling hatch + fold-down ladder', '0.60 × 0.80', '1'), ('Goods hoist 200 kg over the hatch', '—', '1'),
-      ('Extinguisher Class K 6 L (CO₂ at the door)', 'wall bracket', '1'), ('Fire blanket, first-aid box', '—', '1 each'),
-      ('OUTSIDE + SERVICES (details on sheet 2)', '', ''),
-      ('LPG bank: cage + 5 × 19 kg cylinders', '0.35 × 1.70 × 1.60', '1'), ('Gas: solenoid valve, valve per appliance, leak detector', 'copper, 1 set', '1'),
-      ('Exhaust: ESP + carbon filter, outside', '0.50 × 1.00 × 0.90', '1'), ('Inline exhaust fan, anti-vibration mounts', 'Ø 0.44', '1'), ('Fresh-air intake fan, back wall, high', '0.50 × 0.48', '1'),
-      ('Cooling coil 1.5 TR + condenser (make-up air)', '0.80 × 0.55 × 0.30', '1'), ('Grease trap, outside back corner', '0.45 × 0.45', '1'),
-      ('Water cabinet: pump, filter, softener', '0.45 × 0.80 × 1.50', '1'), ('Water sump, buried, 1,000 L', '1.3 × 1.0 × 0.8', '1'),
-      ('Heat detector, kitchen ceiling', '—', '1'), ('Sockets 1–14, fan + ESP control panel', 'sheet 2', '1 set')]
+import boq   # the equipment list is the BOQ (sections A and B), so the drawing and the bill of quantities use the same item numbers
+eq = []
+for sec, title, _note, items in boq.S[:2]:
+    eq.append((sec, title.upper(), '', ''))
+    for no, item, size, spec, unit, qty, ref in items:
+        q = f'{qty:g}' if isinstance(qty, float) else str(qty)
+        sz = size.replace(' section', ''); sz = '3 sizes, see BOQ' if len(sz) > 26 else sz
+        eq.append((no, item, sz, f'{q} {unit}'))
+eq.append(('C–H', 'Gas, plumbing, electrical, civil, fire, outside: see the BOQ', '', ''))
 CX = 300
-t, y = table(eq, CX, 36, (CX, CX + 70, CX + 104), ('EQUIPMENT', 'W × D × H (m)', 'QTY'), 3.8, FS, width=111)
-s.add(f'<text x="{CX-1.5}" y="31.5" font-size="{FB}" font-weight="700" fill="{INK}">Equipment list</text>' + t)
+t, y = table(eq, CX, 36, (CX, CX + 9, CX + 63, CX + 100), ('NO', 'EQUIPMENT / TYPE', 'SIZE W × D × H (mm)', 'QTY'), 3.75, FS, width=111)
+s.add(f'<text x="{CX-1.5}" y="31.5" font-size="{FB}" font-weight="700" fill="{INK}">Equipment list = BOQ sections A and B</text>' + t)
 nb, y = notes_block([('Notes', ['Stainless steel 304 benches, 0.90 m high; hot line 0.70 deep,', "wok range 0.80. Cooks' aisle 1.05 m (0.95 m at the wok range).", 'Cement-board ceiling at 2.70 m; storage deck above, hoist at the hatch.',
                                 'Pan-Asian menu: about 23 recipes, 40 choices; one chef + one helper.', 'Price against the BOQ (boq.html): item numbers, units, quantities.', 'Positions are from the 3D model: check walls and pillar P2 on site.'])], CX - 1.5, y + 4)
 s.add(nb)
