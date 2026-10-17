@@ -45,7 +45,7 @@ h2.sec{font:700 24px/1.2 var(--body);margin:34px 0 6px;letter-spacing:-.01em}
 .pair{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--raise)}
 .pair .ph{position:relative;aspect-ratio:4/3;background:#222;cursor:pointer}
 .pair .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .25s}
-.pair .ph img.b{opacity:0}.pair.show-m .ph img.b{opacity:1}
+.pair .ph img.b,.pair .ph img.t{opacity:0}.pair.show-m .ph img.b{opacity:1}.pair.show-t .ph img.t{opacity:1}
 .pair .tg{position:absolute;left:8px;bottom:8px;display:flex;gap:4px}
 .pair .tg button{appearance:none;border:1.5px solid rgba(255,255,255,.7);background:rgba(20,15,12,.7);color:#fff;font:600 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:999px;cursor:pointer}
 .pair .tg button[aria-pressed=true]{background:#e9b54a;color:#1b120a;border-color:#e9b54a}
@@ -70,7 +70,7 @@ footer{padding:26px 0 50px;font-size:12px;color:var(--muted)}
       <div class="tb">
         <div class="seg" id="vws" role="group" aria-label="View"></div>
         <div class="seg" id="tgl" role="group" aria-label="Show">
-          <button data-t="wallF" aria-pressed="true">Front wall</button><button data-t="ceil" aria-pressed="false">Ceiling</button><button data-t="hood" aria-pressed="true">Hood</button><button data-t="nums" aria-pressed="true">Numbers</button>
+          <button data-t="wallF" aria-pressed="true">Front wall</button><button data-t="ceil" aria-pressed="false">Ceiling</button><button data-t="hood" aria-pressed="true">Hood</button><button data-t="nums" aria-pressed="true">Numbers</button><button data-t="photo" aria-pressed="true">Photo textures</button>
         </div>
       </div>
       <div class="hint" id="hint">Drag to orbit · scroll to zoom · right-drag to pan</div>
@@ -78,8 +78,8 @@ footer{padding:26px 0 50px;font-size:12px;color:var(--muted)}
     <aside class="side" id="side"></aside>
   </div>
 
-  <h2 class="sec" id="photo">Exact model next to the photoreal view</h2>
-  <p class="sub">Each pair is the same camera. The model is built from the sheet's sizes; the photoreal image was generated in Google Flow from the model image, with the sizes in the prompt. Tap an image to flip between them. Generated images are close but not exact, so the sheet and the model govern the sizes.</p>
+  <h2 class="sec" id="photo">Exact model, textured model and photoreal view</h2>
+  <p class="sub">Each view has three states from the same camera. <b>Exact model</b>: built from the sheet's sizes. <b>Textured model</b>: the same model with real photographs (tile, stainless, doors, fronts) wrapped on it, so sizes stay exact. <b>Photoreal</b>: a Google Flow image made from the model image, with the sizes in the prompt. Tap an image to cycle. Generated images are close but not exact, so the sheet and the model govern the sizes.</p>
   <div class="pairs" id="pairs"></div>
   <p class="note" style="margin-top:22px">Sizes are the sheet's W × D × H in mm (equipment list, sheet 1) and its stated heights and positions. Hand-wash, bins, extinguishers and small kit are drawn at their stated sizes; items with no size on the sheet (rice cookers Ø 260 mm, steamer baskets Ø 260 mm, torch, mixer) are drawn at typical sizes. Ducting, ESP, fan, hoist and water heater outside the room are not drawn. Positions from the 3D model: check walls and pillar P2 on site.</p>
 </div>
@@ -128,6 +128,18 @@ const M={ss:S({color:0xc9ccd0,metalness:.88,roughness:.34}),ssDark:S({color:0x8d
  chili:S({color:0xb02a17,roughness:.5}),oil:S({color:0x5b3a14,roughness:.4}),peas:S({color:0x5d9a3b,roughness:.8}),carrot:S({color:0xe27b25,roughness:.8}),cream:S({color:0xf1e6c8,roughness:.6}),
  pb:S({color:0xd23a3a}),pg:S({color:0x3f9a4b}),py:S({color:0xe5c030}),pbl:S({color:0x2f6fb5}),wire:S({color:0x888c90,metalness:.8,roughness:.4}),
  hotEl:S({color:0x3a1010,emissive:0x331005,roughness:.6})};
+/* ---------------- photo textures: real photographs (made in Google Flow, tools/make_textures.py) wrapped on the same exact-size boxes ---------------- */
+const TILE_N=7;/*tile-n*/
+const ldr=new THREE.TextureLoader();
+function ltex(id,rep){const t=ldr.load('renders/tex/'+id+'.jpg',()=>{dirty=true});t.encoding=THREE.sRGBEncoding;t.anisotropy=8;if(rep){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(rep[0],rep[1]);}return t;}
+const PT={ss:ltex('ss-brushed'),floor:ltex('floor-epoxy',[4.9/0.9,2.5/0.9]),ceil:ltex('ceiling-board',[4.9/1.0,2.4/1.0])};
+const swap=[[M.ss,PT.ss,0xffffff],[M.ssBrush,PT.ss,0xe8eaed],[M.ssDark,PT.ss,0xb5b8bd],[M.floor,PT.floor,0xffffff],[M.ceil,PT.ceil,0xffffff]].map(([m,t,c])=>({m,clay:m.map,cc:m.color.getHex(),cm:m.metalness,photo:t,pc:c}));
+const skins=[],tiledMats=[];
+function skin(mesh,photo){skins.push({mesh,clay:mesh.material,photo});return mesh;}
+function facePhoto(id,idx,base){const b=base||M.ss,arr=[b,b,b,b,b,b];arr[idx]=S({map:ltex(id),metalness:.35,roughness:.45,envMapIntensity:.5});return arr;}
+function setPhoto(on){swap.forEach(o=>{o.m.map=on?o.photo:o.clay;o.m.color.setHex(on?o.pc:o.cc);if(o.m!==M.floor&&o.m!==M.ceil)o.m.metalness=on?0.5:o.cm;o.m.needsUpdate=true;});
+ skins.forEach(k=>{if(k.photo==='hide')k.mesh.visible=!on;else k.mesh.material=on?k.photo:k.clay;});
+ tiledMats.forEach(t=>{t.m.map=on?t.photo:t.clay;t.m.needsUpdate=true;});dirty=true;}
 /* ---------------- builders (x from the right wall -2.45 to the left wall +2.45, z from the front wall 6.3 to the back wall 8.8, y up) ---------------- */
 const X0=-2.45,X1=2.45,KZ=6.3,D=8.8,KC=2.7,WT=0.1;
 const G={all:new THREE.Group(),wallF:new THREE.Group(),ceil:new THREE.Group(),hood:new THREE.Group(),eq:new THREE.Group()};
@@ -142,21 +154,21 @@ bx(X0,X1,-0.05,0,KZ,D,M.floor,G.all,false);
 bx(X0-WT,X0,0,KC,KZ,D+WT,M.wall,G.all);  // right wall
 bx(X1,X1+WT,0,KC,KZ,D+WT,M.wall,G.all);   // left wall
 // 75 mm white glazed tile (BOQ F.01): to 2.1 m on the left wall and the partition, 0.85 to 2.1 m on the back and right walls; paint above
-function tiled(w,h){const t=tileTex.clone();t.needsUpdate=true;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(w/0.075,h/0.075);return S({map:t,roughness:.3,metalness:.05});}
+function tiled(w,h){const t=tileTex.clone();t.needsUpdate=true;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(w/0.075,h/0.075);const m=S({map:t,roughness:.3,metalness:.05});tiledMats.push({m,clay:t,photo:ltex('tile-75',[w/(0.075*TILE_N),h/(0.075*TILE_N)])});return m;}
 bx(X0,X0+0.012,0.85,2.1,KZ+WT,D,tiled(D-KZ,1.25),G.all,false);   // right wall
 bx(X1-0.012,X1,0,2.1,KZ+WT,D,tiled(D-KZ,2.1),G.all,false);       // left wall
 // back wall with the rear exit (x 0.95..1.75, 0.80 wide, 2.1 high)
 const bwM=M.wall;
 bx(X0,0.95,0,KC,D,D+WT,bwM,G.all);bx(1.75,X1,0,KC,D,D+WT,bwM,G.all);bx(0.95,1.75,2.1,KC,D,D+WT,bwM,G.all);
 bx(X0,0.95,0.85,2.1,D-0.012,D,tiled(3.4,1.25),G.all,false);bx(1.75,X1,0,2.1,D-0.012,D,tiled(0.7,2.1),G.all,false);
-{const rd0=bx(0.95,1.75,0,2.1,D+0.02,D+0.08,S({color:0x8b6a49,roughness:.7}),G.all);bx(1.0,1.7,1.2,1.9,D-0.0,D+0.1,M.glass,G.all,false);bx(0.9,0.95,0,2.1,D,D+WT,M.ssDark,G.all);bx(1.75,1.8,0,2.1,D,D+WT,M.ssDark,G.all);
+{const rd0=skin(bx(0.95,1.75,0,2.1,D+0.02,D+0.08,S({color:0x8b6a49,roughness:.7}),G.all),facePhoto('rear-door',5,S({color:0x8b6a49,roughness:.7})));bx(1.0,1.7,1.2,1.9,D-0.0,D+0.1,M.glass,G.all,false);bx(0.9,0.95,0,2.1,D,D+WT,M.ssDark,G.all);bx(1.75,1.8,0,2.1,D,D+WT,M.ssDark,G.all);
  rd(V(1.6,1.0,D-0.01),V(1.6,1.05,D-0.01),0.02,M.brass,G.all);}
 // front wall (to the dining room) with hatch (0.65 × 0.60, sill 1.15 m), double-acting door 0.80 (x 0.1..0.9), insect killer above
 const fwM=M.wall;
 {const g=G.wallF,z0=KZ,z1=KZ+WT;
  bx(X0,-0.6,0,KC,z0,z1,fwM,g);bx(0.05,0.1,0,KC,z0,z1,fwM,g);bx(0.9,X1,0,KC,z0,z1,fwM,g);bx(-0.6,0.05,0,1.15,z0,z1,fwM,g);bx(-0.6,0.05,1.75,KC,z0,z1,fwM,g);bx(0.1,0.9,2.05,KC,z0,z1,fwM,g);
  // door leaves
- [[0.1,0.5],[0.5,0.9]].forEach(([a,b])=>{bx(a+0.01,b-0.01,0.0,2.05,z0+0.03,z0+0.07,M.steelDoor,g);bx(a+0.1,b-0.1,1.2,1.75,z0+0.025,z0+0.075,M.glass,g,false);bx(a+0.01,b-0.01,0.0,0.3,z0+0.02,z0+0.08,M.ssDark,g);});
+ [[0.1,0.5],[0.5,0.9]].forEach(([a,b],i)=>{{const lf=facePhoto(i?'kitchen-door-r':'kitchen-door-l',4,M.steelDoor);lf[5]=lf[4];skin(bx(a+0.01,b-0.01,0.0,2.05,z0+0.03,z0+0.07,M.steelDoor,g),lf);}bx(a+0.1,b-0.1,1.2,1.75,z0+0.025,z0+0.075,M.glass,g,false);skin(bx(a+0.01,b-0.01,0.0,0.3,z0+0.02,z0+0.08,M.ssDark,g),'hide');});
  rd(V(0.48,0.95,z0+0.03),V(0.48,1.1,z0+0.03),0.012,M.ss,g);rd(V(0.52,0.95,z0+0.03),V(0.52,1.1,z0+0.03),0.012,M.ss,g);
  // insect killer 0.50 × 0.18 above the door, ticket rail 0.65 above the hatch, heat lamps
  reg(31,0.45,2.2,KZ+0.1);bx(0.2,0.7,2.12,2.30,KZ+0.0,KZ+0.1,M.white,g);bx(0.22,0.68,2.2,2.22,KZ-0.005,KZ+0.0,S({color:0x7a5cff,emissive:0x5a3cff,emissiveIntensity:1.2}),g,false);
@@ -182,37 +194,37 @@ function bench(x0,x1,z0,z1,h,opts,n){opts=opts||{};const top=bx(x0,x1,h-0.04,h,z
  // legs / panels
  const w=x1-x0;
  if(opts.doors){bx(x0,x1,0.12,h-0.04,z0,z1-0.0,M.ssDark);bx(x0,x1,0,0.12,z0+0.03,z1-0.03,M.black);
-  const nd=opts.doors;for(let i=0;i<nd;i++){const a=x0+w*i/nd,b=x0+w*(i+1)/nd;bx(a+0.01,b-0.01,0.14,h-0.07,Math.max(z0,z1)-0.0,Math.max(z0,z1)+0.015,M.ss);rd(V(a+0.06,h-0.12,z1+0.04),V(b-0.06,h-0.12,z1+0.04),0.008,M.ss);}}
+  const nd=opts.doors;for(let i=0;i<nd;i++){const a=x0+w*i/nd,b=x0+w*(i+1)/nd;skin(bx(a+0.01,b-0.01,0.14,h-0.07,Math.max(z0,z1)-0.0,Math.max(z0,z1)+0.015,M.ss),facePhoto('bench-door',4));rd(V(a+0.06,h-0.12,z1+0.04),V(b-0.06,h-0.12,z1+0.04),0.008,M.ss);}}
  else{[[x0+0.03,z0+0.03],[x1-0.03,z0+0.03],[x0+0.03,z1-0.03],[x1-0.03,z1-0.03]].forEach(([x,z])=>bx(x-0.025,x+0.025,0.0,h-0.04,z-0.025,z+0.025,M.ss));bx(x0+0.03,x1-0.03,0.16,0.19,z0+0.03,z1-0.03,M.ssBrush);}
  bx(x0,x1,h,h+0.1,z0,z0+0.015,M.ss);return top;}
 /* ------------------- HOT LINE (back wall): 18 wok range, 19 steamer, 20 fryer, 21 stock range ------------------- */
 {const zb=D;
  // 18 wok range 1,200 × 800 × 800
- bx(-2.45,-1.25,0,0.8,8.0,zb,M.ss);bx(-2.45,-1.25,0,0.12,8.03,zb-0.03,M.black);
+ skin(bx(-2.45,-1.25,0,0.8,8.0,zb,M.ss),facePhoto('front-wok',5));bx(-2.45,-1.25,0,0.12,8.03,zb-0.03,M.black);
  bx(-2.45,-1.25,0.8,0.86,8.0,zb,M.ssBrush);
  [-2.05,-1.65].forEach((x,i)=>{cy(0.17,0.2,0.06,x,0.84,8.45,M.castIron);const wk=new THREE.Mesh(new THREE.SphereGeometry(0.23,28,16,0,Math.PI*2,Math.PI*0.52,Math.PI*0.48),M.wok);wk.material.side=THREE.DoubleSide;wk.position.set(x,1.06,8.45);wk.rotation.x=Math.PI;wk.scale.y=0.45;wk.castShadow=true;G.eq.add(wk);
   rd(V(x+0.22,1.04,8.45),V(x+0.5*0.6+0.3,1.1,8.45),0.01,M.black);});
- bx(-2.45,-1.25,0.15,0.74,8.0,8.01,M.black);[-2.2,-1.9,-1.6,-1.45].forEach(x=>cy(0.02,0.02,0.04,x,0.55,8.0-0.0,M.black,null,10).rotation.x=Math.PI/2);
+ skin(bx(-2.45,-1.25,0.15,0.74,8.0,8.01,M.black),'hide');[-2.2,-1.9,-1.6,-1.45].forEach(x=>cy(0.02,0.02,0.04,x,0.55,8.0-0.0,M.black,null,10).rotation.x=Math.PI/2);
  bx(-2.45,-1.25,0.86,1.15,8.74,zb,M.ssBrush); // splashback
  [-2.05,-1.65].forEach(x=>{rd(V(x,0.86,8.7),V(x,1.1,8.7),0.012,M.ss);rd(V(x,1.1,8.7),V(x,1.14,8.45),0.012,M.ss);}); // water swing arms
  reg(18,-1.85,0.85,8.4);
  // 19 steamer 600 × 700 × 800 (2 holes), 35 bamboo stacks Ø 260
- bx(-1.2,-0.6,0,0.8,8.1,zb,M.ss);bx(-1.2,-0.6,0,0.12,8.13,zb-0.03,M.black);bx(-1.2,-0.6,0.8,0.84,8.1,zb,M.ssBrush);
+ skin(bx(-1.2,-0.6,0,0.8,8.1,zb,M.ss),facePhoto('front-steamer',5));bx(-1.2,-0.6,0,0.12,8.13,zb-0.03,M.black);bx(-1.2,-0.6,0.8,0.84,8.1,zb,M.ssBrush);
  [[-1.0,8.45],[-0.8,8.45]].forEach(([x,z],i)=>{});
  [-1.05,-0.75].forEach((x)=>{for(let k=0;k<3;k++){cy(0.13,0.13,0.07,x,0.84+k*0.075,8.46,M.bamboo,null,28);cy(0.133,0.133,0.012,x,0.84+k*0.075+0.03,8.46,M.bambooD,null,28);}cy(0.135,0.135,0.02,x,0.84+3*0.075,8.46,M.bambooD,null,28);});
  [-1.05,-0.75].forEach(x=>cy(0.015,0.015,0.02,x,0.84,8.2,M.black,null,10));
  reg(19,-0.9,0.9,8.45);reg(35,-1.05,1.0,8.46);
  // 20 twin-tank fryer 600 × 700 × 900
- bx(-0.55,0.05,0,0.9,8.1,zb,M.ss);bx(-0.55,0.05,0,0.12,8.13,zb-0.03,M.black);bx(-0.55,0.05,0.9,0.93,8.1,zb,M.ssBrush);
+ skin(bx(-0.55,0.05,0,0.9,8.1,zb,M.ss),facePhoto('front-fryer',5));bx(-0.55,0.05,0,0.12,8.13,zb-0.03,M.black);bx(-0.55,0.05,0.9,0.93,8.1,zb,M.ssBrush);
  [-0.4,-0.1].forEach(x=>{bx(x-0.1,x+0.1,0.82,0.9,8.2,8.55,M.black,null,false);bx(x-0.09,x+0.09,0.78,0.88,8.22,8.52,M.wire,null,false);rd(V(x,0.88,8.2),V(x,0.92,8.0),0.01,M.black);rd(V(x,0.92,8.0),V(x,0.95,7.9+0.0),0.012,M.black);});
  bx(-0.55,0.05,0.9,1.0,8.65,zb,M.ss);[-0.45,-0.15].forEach(x=>cy(0.025,0.025,0.03,x,0.9,8.62,M.black,null,12));
  [-0.5,-0.1].forEach(x=>bx(x-0.0,x+0.0,0,0,0,0,M.black,null,false));
- bx(-0.55,0.05,0.2,0.8,8.09,8.1,M.ssBrush);bx(-0.54,-0.02,0.6,0.64,8.065,8.095,M.ss);
+ skin(bx(-0.55,0.05,0.2,0.8,8.09,8.1,M.ssBrush),'hide');skin(bx(-0.54,-0.02,0.6,0.64,8.065,8.095,M.ss),'hide');
  reg(20,-0.25,0.95,8.4);
  // 21 stock range 600 × 700 × 850 with a stock pot
- bx(0.1,0.7,0,0.85,8.1,zb,M.ss);bx(0.1,0.7,0,0.12,8.13,zb-0.03,M.black);bx(0.1,0.7,0.85,0.89,8.1,zb,M.ssBrush);
+ skin(bx(0.1,0.7,0,0.85,8.1,zb,M.ss),facePhoto('front-stock',5));bx(0.1,0.7,0,0.12,8.13,zb-0.03,M.black);bx(0.1,0.7,0.85,0.89,8.1,zb,M.ssBrush);
  cy(0.18,0.2,0.04,0.4,0.89,8.45,M.castIron);cy(0.17,0.17,0.3,0.4,0.9,8.45,M.ss);cy(0.175,0.175,0.02,0.4,1.2,8.45,M.ssDark);rd(V(0.57,1.12,8.45),V(0.65,1.12,8.45),0.012,M.black);
- bx(0.1,0.7,0.2,0.75,8.09,8.1,M.ssBrush);[0.22,0.35,0.48,0.6].forEach(x=>cy(0.018,0.018,0.04,x,0.55,8.07,M.black,null,10).rotation.x=Math.PI/2);
+ skin(bx(0.1,0.7,0.2,0.75,8.09,8.1,M.ssBrush),'hide');[0.22,0.35,0.48,0.6].forEach(x=>cy(0.018,0.018,0.04,x,0.55,8.07,M.black,null,10).rotation.x=Math.PI/2);
  reg(21,0.4,0.9,8.45);
  // 15 floor channel drain 3,150 × 80 along the line
  bx(-2.35,0.8,-0.01,0.005,7.9,7.98,M.wire,G.all,false);reg(15,-0.8,0.02,7.94);
@@ -241,13 +253,13 @@ bx(1.1,1.6,2.15,2.3,D-0.04,D,S({color:0x2fa05a,emissive:0x1f8a4a,emissiveIntensi
 /* ------------------- LEFT WALL (dish line): 22 reach-in, 25 dishwasher, 4 two-bowl sink, 5 shelves, 29 water heater ------------------- */
 { // 22 dual-temp reach-in 950 × 750 × 2,000 (0.95 along the wall, 0.75 out)
  const x0=1.7,x1=X1,z0=6.45,z1=7.4;bx(x0,x1,0.1,2.0,z0,z1,M.ss);bx(x0,x1,0,0.1,z0+0.03,z1-0.03,M.black);
- const zm=(z0+z1)/2;[[z0,zm],[zm,z1]].forEach(([a,b])=>{bx(x0-0.025,x0,0.18,1.9,a+0.01,b-0.01,M.steelDoor);});
+ const zm=(z0+z1)/2;[[z0,zm],[zm,z1]].forEach(([a,b],i)=>{skin(bx(x0-0.025,x0,0.18,1.9,a+0.01,b-0.01,M.steelDoor),facePhoto(i?'front-reachin-r':'front-reachin-l',1,M.steelDoor));});
  rd(V(x0-0.05,0.5,zm-0.06),V(x0-0.05,1.5,zm-0.06),0.012,M.ss);rd(V(x0-0.05,0.5,zm+0.06),V(x0-0.05,1.5,zm+0.06),0.012,M.ss);
  bx(x0-0.03,x0-0.02,1.7,1.85,zm-0.03,zm+0.03,S({color:0x3aff7a,emissive:0x1aff5a,emissiveIntensity:.6}),null,false);reg(22,x0,1.9,zm);
  // 25 dishwasher 600 × 650 × 900 (0.65 out from the wall), drainboard on top
- bx(1.8,X1,0,0.9,7.4,8.0,M.ss);bx(1.8,X1,0.9,0.94,7.4,8.0,M.ssBrush);bx(1.78,1.8,0.1,0.8,7.42,7.98,M.steelDoor);rd(V(1.76,0.7,7.45),V(1.76,0.7,7.95),0.012,M.ss);bx(1.79,1.8,0.82,0.86,7.5,7.75,S({color:0x2a6f8f,emissive:0x1a4f6f,emissiveIntensity:.6}),null,false);reg(25,1.8,0.9,7.7);
+ bx(1.8,X1,0,0.9,7.4,8.0,M.ss);bx(1.8,X1,0.9,0.94,7.4,8.0,M.ssBrush);skin(bx(1.78,1.8,0.1,0.8,7.42,7.98,M.steelDoor),facePhoto('front-dishwasher',1,M.steelDoor));rd(V(1.76,0.7,7.45),V(1.76,0.7,7.95),0.012,M.ss);bx(1.79,1.8,0.82,0.86,7.5,7.75,S({color:0x2a6f8f,emissive:0x1a4f6f,emissiveIntensity:.6}),null,false);reg(25,1.8,0.9,7.7);
  // 4 dish sink, 2 bowls 800 × 650 × 900 with pre-rinse spray and tap
- bx(1.8,X1,0,0.9,8.0,D,M.ss);bx(1.8,X1,0.88,0.93,8.0,D,M.ssBrush);[8.05,8.45].forEach(z=>bx(1.9,X1-0.05,0.74,0.9,z,z+0.3,M.ssDark,null,false));bx(1.8,X1,0.93,1.15,D-0.02,D,M.ssBrush);
+ skin(bx(1.8,X1,0,0.9,8.0,D,M.ss),facePhoto('front-sink',1));bx(1.8,X1,0.88,0.93,8.0,D,M.ssBrush);[8.05,8.45].forEach(z=>bx(1.9,X1-0.05,0.74,0.9,z,z+0.3,M.ssDark,null,false));bx(1.8,X1,0.93,1.15,D-0.02,D,M.ssBrush);
  rd(V(2.4,0.93,8.7),V(2.4,1.5,8.7),0.012,M.ss);rd(V(2.4,1.5,8.7),V(2.15,1.55,8.5),0.012,M.ss);rd(V(2.35,1.5,8.74),V(2.35,1.0,8.74),0.01,M.black);
  reg(4,2.1,0.95,8.4);
  // 5 wall shelves 1,400 × 350 (2 nos)
@@ -295,8 +307,9 @@ const VIEWS={
  'Rear exit':{p:[1.3,1.6,8.7],t:[-0.5,1.0,6.8],hide:['ceil']},
  'Top':{p:[-0.1,8.6,7.55],t:[-0.1,0,7.55],hide:['ceil','wallF']}};
 const vws=document.getElementById('vws');Object.keys(VIEWS).forEach((k,i)=>{const b=document.createElement('button');b.textContent=k;b.setAttribute('aria-pressed',i===0);b.addEventListener('click',()=>go(k));vws.appendChild(b);});
-const flags={wallF:true,ceil:false,hood:true,nums:true};
-function applyFlags(){G.wallF.visible=flags.wallF;G.ceil.visible=flags.ceil;G.hood.visible=flags.hood;lblsEl.style.display=flags.nums?'':'none';[...document.querySelectorAll('#tgl button')].forEach(b=>b.setAttribute('aria-pressed',String(flags[b.dataset.t])));dirty=true;}
+const flags={wallF:true,ceil:false,hood:true,nums:true,photo:location.protocol!=='file:'};   // browsers block texture images opened straight from disk
+if(location.protocol==='file:'){const pb=document.querySelector('[data-t=photo]');pb.disabled=true;pb.title='Photo textures need the page to be served over http(s)';}
+function applyFlags(){setPhoto(flags.photo);G.wallF.visible=flags.wallF;G.ceil.visible=flags.ceil;G.hood.visible=flags.hood;lblsEl.style.display=flags.nums?'':'none';[...document.querySelectorAll('#tgl button')].forEach(b=>b.setAttribute('aria-pressed',String(flags[b.dataset.t])));dirty=true;}
 let anim=null,dirty=true;
 function go(k,instant){const v=VIEWS[k];['wallF','ceil'].forEach(f=>{flags[f]=!v.hide.includes(f)?(f==='wallF'):false;});flags.wallF=!v.hide.includes('wallF');flags.ceil=false;applyFlags();
  [...vws.children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===k)));
@@ -331,10 +344,10 @@ const PAIRS=[
 ];
 const pairs=document.getElementById('pairs');
 PAIRS.forEach(([v,t,p,key])=>{const id=v.toLowerCase().replace(/[^a-z]+/g,'-');const el=document.createElement('div');el.className='pair';
- el.innerHTML=`<div class="ph"><img class="a" src="renders/kitchen3d-${id}-photo.jpg" alt="${t}, photoreal" loading="lazy"><img class="b" src="renders/kitchen3d-${id}-model.jpg" alt="${t}, exact model" loading="lazy"><div class="tg"><button type="button" data-m="0" aria-pressed="true">Photoreal</button><button type="button" data-m="1" aria-pressed="false">Exact model</button></div></div><div class="bd"><h3>${t}</h3><p>${p}</p><div class="key">${key}</div></div>`;
- const flip=m=>{el.classList.toggle('show-m',m===1);el.querySelectorAll('.tg button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.m===m)));};
+ el.innerHTML=`<div class="ph"><img class="a" src="renders/kitchen3d-${id}-photo.jpg" alt="${t}, photoreal" loading="lazy"><img class="t" src="renders/kitchen3d-${id}-tex.jpg" alt="${t}, photo-textured model" loading="lazy"><img class="b" src="renders/kitchen3d-${id}-model.jpg" alt="${t}, exact model" loading="lazy"><div class="tg"><button type="button" data-m="0" aria-pressed="true">Photoreal</button><button type="button" data-m="1" aria-pressed="false">Textured model</button><button type="button" data-m="2" aria-pressed="false">Exact model</button></div></div><div class="bd"><h3>${t}</h3><p>${p}</p><div class="key">${key}</div></div>`;
+ let cur=0;const flip=m=>{cur=m;el.classList.toggle('show-t',m===1);el.classList.toggle('show-m',m===2);el.querySelectorAll('.tg button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.m===m)));};
  el.querySelector('.tg').addEventListener('click',e=>{e.stopPropagation();const b=e.target.closest('[data-m]');if(b)flip(+b.dataset.m);});
- el.querySelector('.ph').addEventListener('click',()=>flip(el.classList.contains('show-m')?0:1));
+ el.querySelector('.ph').addEventListener('click',()=>flip((cur+1)%3));
  pairs.appendChild(el);});
 })();
 </script>
