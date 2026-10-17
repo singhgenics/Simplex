@@ -14,3 +14,7 @@ cp build/plans/ground-floor-plan-noloft.png plans/
 Then paste the new SVG into `plan.html` (replace the `<svg id="plan" …>` element). Needs Python 3, Google Chrome (macOS path in `render_plan.py`) and ImageMagick (`magick`).
 
 Coordinates: x runs from the right wall (−2.45) to the left wall (2.45) as you walk in from the road; z runs from the shopfront (0) to the back wall (8.8).
+
+## Kitchen sheets as AutoCAD files
+
+`svg_to_dxf.py` converts `plans/kitchen-sheet-1-equipment.svg` and `plans/kitchen-sheet-2-services.svg` into DXF (`pip install ezdxf`, then `python3 tools/svg_to_dxf.py` from the repo root). Each DXF is the A3 sheet at paper size, 1 unit = 1 mm, with colours as layers. The plans are drawn at 1:25 and the elevation at 1:40, so scale a plan by 25 (the elevation by 40) for real-world size. Rerun it after `kitchen_sheets.py` changes the SVGs.

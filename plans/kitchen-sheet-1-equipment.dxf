@@ -1,0 +1,26942 @@
+  0
+SECTION
+  2
+HEADER
+  9
+$ACADVER
+  1
+AC1024
+  9
+$ACADMAINTVER
+ 70
+6
+  9
+$DWGCODEPAGE
+  3
+ANSI_1252
+  9
+$LASTSAVEDBY
+  1
+ezdxf
+  9
+$INSBASE
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$EXTMIN
+ 10
+1e+20
+ 20
+1e+20
+ 30
+1e+20
+  9
+$EXTMAX
+ 10
+-1e+20
+ 20
+-1e+20
+ 30
+-1e+20
+  9
+$LIMMIN
+ 10
+0.0
+ 20
+0.0
+  9
+$LIMMAX
+ 10
+420.0
+ 20
+297.0
+  9
+$ORTHOMODE
+ 70
+0
+  9
+$REGENMODE
+ 70
+1
+  9
+$FILLMODE
+ 70
+1
+  9
+$QTEXTMODE
+ 70
+0
+  9
+$MIRRTEXT
+ 70
+1
+  9
+$LTSCALE
+ 40
+1.0
+  9
+$ATTMODE
+ 70
+1
+  9
+$TEXTSIZE
+ 40
+2.5
+  9
+$TRACEWID
+ 40
+1.0
+  9
+$TEXTSTYLE
+  7
+OpenSans
+  9
+$CLAYER
+  8
+0
+  9
+$CELTYPE
+  6
+ByLayer
+  9
+$CECOLOR
+ 62
+256
+  9
+$CELTSCALE
+ 40
+1.0
+  9
+$DISPSILH
+ 70
+0
+  9
+$DIMSCALE
+ 40
+1.0
+  9
+$DIMASZ
+ 40
+0.175
+  9
+$DIMEXO
+ 40
+0.125
+  9
+$DIMDLI
+ 40
+3.75
+  9
+$DIMRND
+ 40
+0.0
+  9
+$DIMDLE
+ 40
+0.0
+  9
+$DIMEXE
+ 40
+0.375
+  9
+$DIMTP
+ 40
+0.0
+  9
+$DIMTM
+ 40
+0.0
+  9
+$DIMTXT
+ 40
+0.25
+  9
+$DIMCEN
+ 40
+2.5
+  9
+$DIMTSZ
+ 40
+0.0
+  9
+$DIMTOL
+ 70
+0
+  9
+$DIMLIM
+ 70
+0
+  9
+$DIMTIH
+ 70
+0
+  9
+$DIMTOH
+ 70
+0
+  9
+$DIMSE1
+ 70
+0
+  9
+$DIMSE2
+ 70
+0
+  9
+$DIMTAD
+ 70
+1
+  9
+$DIMZIN
+ 70
+12
+  9
+$DIMBLK
+  1
+ARCHTICK
+  9
+$DIMASO
+ 70
+1
+  9
+$DIMSHO
+ 70
+1
+  9
+$DIMPOST
+  1
+
+  9
+$DIMAPOST
+  1
+
+  9
+$DIMALT
+ 70
+0
+  9
+$DIMALTD
+ 70
+3
+  9
+$DIMALTF
+ 40
+0.03937007874
+  9
+$DIMLFAC
+ 40
+100.0
+  9
+$DIMTOFL
+ 70
+1
+  9
+$DIMTVP
+ 40
+0.0
+  9
+$DIMTIX
+ 70
+0
+  9
+$DIMSOXD
+ 70
+0
+  9
+$DIMSAH
+ 70
+0
+  9
+$DIMBLK1
+  1
+
+  9
+$DIMBLK2
+  1
+
+  9
+$DIMSTYLE
+  2
+EZDXF
+  9
+$DIMCLRD
+ 70
+0
+  9
+$DIMCLRE
+ 70
+0
+  9
+$DIMCLRT
+ 70
+0
+  9
+$DIMTFAC
+ 40
+0.5
+  9
+$DIMGAP
+ 40
+0.1
+  9
+$DIMJUST
+ 70
+0
+  9
+$DIMSD1
+ 70
+0
+  9
+$DIMSD2
+ 70
+0
+  9
+$DIMTOLJ
+ 70
+0
+  9
+$DIMTZIN
+ 70
+8
+  9
+$DIMALTZ
+ 70
+0
+  9
+$DIMALTTZ
+ 70
+0
+  9
+$DIMUPT
+ 70
+1
+  9
+$DIMDEC
+ 70
+2
+  9
+$DIMTDEC
+ 70
+2
+  9
+$DIMALTU
+ 70
+2
+  9
+$DIMALTTD
+ 70
+3
+  9
+$DIMTXSTY
+  7
+OpenSansCondensed-Light
+  9
+$DIMAUNIT
+ 70
+0
+  9
+$DIMADEC
+ 70
+2
+  9
+$DIMALTRND
+ 40
+0.0
+  9
+$DIMAZIN
+ 70
+3
+  9
+$DIMDSEP
+ 70
+46
+  9
+$DIMATFIT
+ 70
+3
+  9
+$DIMFRAC
+ 70
+0
+  9
+$DIMLDRBLK
+  1
+
+  9
+$DIMLUNIT
+ 70
+2
+  9
+$DIMLWD
+ 70
+-2
+  9
+$DIMLWE
+ 70
+-2
+  9
+$DIMTMOVE
+ 70
+2
+  9
+$DIMFXL
+ 40
+1.0
+  9
+$DIMFXLON
+ 70
+0
+  9
+$DIMJOGANG
+ 40
+0.785398163397
+  9
+$DIMTFILL
+ 70
+0
+  9
+$DIMTFILLCLR
+ 70
+0
+  9
+$DIMARCSYM
+ 70
+0
+  9
+$DIMLTYPE
+  6
+
+  9
+$DIMLTEX1
+  6
+
+  9
+$DIMLTEX2
+  6
+
+  9
+$DIMTXTDIRECTION
+ 70
+0
+  9
+$LUNITS
+ 70
+2
+  9
+$LUPREC
+ 70
+4
+  9
+$SKETCHINC
+ 40
+1.0
+  9
+$FILLETRAD
+ 40
+10.0
+  9
+$AUNITS
+ 70
+0
+  9
+$AUPREC
+ 70
+2
+  9
+$MENU
+  1
+.
+  9
+$ELEVATION
+ 40
+0.0
+  9
+$PELEVATION
+ 40
+0.0
+  9
+$THICKNESS
+ 40
+0.0
+  9
+$LIMCHECK
+ 70
+0
+  9
+$CHAMFERA
+ 40
+0.0
+  9
+$CHAMFERB
+ 40
+0.0
+  9
+$CHAMFERC
+ 40
+0.0
+  9
+$CHAMFERD
+ 40
+0.0
+  9
+$SKPOLY
+ 70
+0
+  9
+$TDCREATE
+ 40
+2461331.480949074
+  9
+$TDUCREATE
+ 40
+2458532.153996898
+  9
+$TDUPDATE
+ 40
+2461331.480949074
+  9
+$TDUUPDATE
+ 40
+2458532.1544311
+  9
+$TDINDWG
+ 40
+0.0
+  9
+$TDUSRTIMER
+ 40
+0.0
+  9
+$USRTIMER
+ 70
+1
+  9
+$ANGBASE
+ 50
+0.0
+  9
+$ANGDIR
+ 70
+0
+  9
+$PDMODE
+ 70
+0
+  9
+$PDSIZE
+ 40
+0.0
+  9
+$PLINEWID
+ 40
+0.0
+  9
+$SPLFRAME
+ 70
+0
+  9
+$SPLINETYPE
+ 70
+6
+  9
+$SPLINESEGS
+ 70
+8
+  9
+$HANDSEED
+  5
+288
+  9
+$SURFTAB1
+ 70
+6
+  9
+$SURFTAB2
+ 70
+6
+  9
+$SURFTYPE
+ 70
+6
+  9
+$SURFU
+ 70
+6
+  9
+$SURFV
+ 70
+6
+  9
+$UCSBASE
+  2
+
+  9
+$UCSNAME
+  2
+
+  9
+$UCSORG
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$UCSXDIR
+ 10
+1.0
+ 20
+0.0
+ 30
+0.0
+  9
+$UCSYDIR
+ 10
+0.0
+ 20
+1.0
+ 30
+0.0
+  9
+$UCSORTHOREF
+  2
+
+  9
+$UCSORTHOVIEW
+ 70
+0
+  9
+$UCSORGTOP
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$UCSORGBOTTOM
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$UCSORGLEFT
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$UCSORGRIGHT
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$UCSORGFRONT
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$UCSORGBACK
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PUCSBASE
+  2
+
+  9
+$PUCSNAME
+  2
+
+  9
+$PUCSORG
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PUCSXDIR
+ 10
+1.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PUCSYDIR
+ 10
+0.0
+ 20
+1.0
+ 30
+0.0
+  9
+$PUCSORTHOREF
+  2
+
+  9
+$PUCSORTHOVIEW
+ 70
+0
+  9
+$PUCSORGTOP
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PUCSORGBOTTOM
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PUCSORGLEFT
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PUCSORGRIGHT
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PUCSORGFRONT
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PUCSORGBACK
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$USERI1
+ 70
+0
+  9
+$USERI2
+ 70
+0
+  9
+$USERI3
+ 70
+0
+  9
+$USERI4
+ 70
+0
+  9
+$USERI5
+ 70
+0
+  9
+$USERR1
+ 40
+0.0
+  9
+$USERR2
+ 40
+0.0
+  9
+$USERR3
+ 40
+0.0
+  9
+$USERR4
+ 40
+0.0
+  9
+$USERR5
+ 40
+0.0
+  9
+$WORLDVIEW
+ 70
+1
+  9
+$SHADEDGE
+ 70
+3
+  9
+$SHADEDIF
+ 70
+70
+  9
+$TILEMODE
+ 70
+1
+  9
+$MAXACTVP
+ 70
+64
+  9
+$PINSBASE
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  9
+$PLIMCHECK
+ 70
+0
+  9
+$PEXTMIN
+ 10
+1e+20
+ 20
+1e+20
+ 30
+1e+20
+  9
+$PEXTMAX
+ 10
+-1e+20
+ 20
+-1e+20
+ 30
+-1e+20
+  9
+$PLIMMIN
+ 10
+0.0
+ 20
+0.0
+  9
+$PLIMMAX
+ 10
+420.0
+ 20
+297.0
+  9
+$UNITMODE
+ 70
+0
+  9
+$VISRETAIN
+ 70
+1
+  9
+$PLINEGEN
+ 70
+0
+  9
+$PSLTSCALE
+ 70
+1
+  9
+$TREEDEPTH
+ 70
+3020
+  9
+$CMLSTYLE
+  2
+Standard
+  9
+$CMLJUST
+ 70
+0
+  9
+$CMLSCALE
+ 40
+20.0
+  9
+$PROXYGRAPHICS
+ 70
+1
+  9
+$MEASUREMENT
+ 70
+1
+  9
+$CELWEIGHT
+370
+-1
+  9
+$ENDCAPS
+280
+0
+  9
+$JOINSTYLE
+280
+0
+  9
+$LWDISPLAY
+290
+0
+  9
+$INSUNITS
+ 70
+4
+  9
+$HYPERLINKBASE
+  1
+
+  9
+$STYLESHEET
+  1
+
+  9
+$XEDIT
+290
+1
+  9
+$CEPSNTYPE
+380
+0
+  9
+$PSTYLEMODE
+290
+1
+  9
+$FINGERPRINTGUID
+  2
+{DDCAD168-B7A8-45A1-99C8-5DD21A29DB1C}
+  9
+$VERSIONGUID
+  2
+{26746CCB-0561-4018-99C7-70CA7119D6E2}
+  9
+$EXTNAMES
+290
+1
+  9
+$PSVPSCALE
+ 40
+0.0
+  9
+$OLESTARTUP
+290
+0
+  9
+$SORTENTS
+280
+127
+  9
+$INDEXCTL
+280
+0
+  9
+$HIDETEXT
+280
+1
+  9
+$XCLIPFRAME
+280
+1
+  9
+$HALOGAP
+280
+0
+  9
+$OBSCOLOR
+ 70
+257
+  9
+$OBSLTYPE
+280
+0
+  9
+$INTERSECTIONDISPLAY
+280
+0
+  9
+$INTERSECTIONCOLOR
+ 70
+257
+  9
+$DIMASSOC
+280
+2
+  9
+$PROJECTNAME
+  1
+
+  9
+$CAMERADISPLAY
+290
+0
+  9
+$LENSLENGTH
+ 40
+50.0
+  9
+$CAMERAHEIGHT
+ 40
+0.0
+  9
+$STEPSPERSEC
+ 40
+24.0
+  9
+$STEPSIZE
+ 40
+100.0
+  9
+$3DDWFPREC
+ 40
+2.0
+  9
+$PSOLWIDTH
+ 40
+0.005
+  9
+$PSOLHEIGHT
+ 40
+0.08
+  9
+$LOFTANG1
+ 40
+1.570796326795
+  9
+$LOFTANG2
+ 40
+1.570796326795
+  9
+$LOFTMAG1
+ 40
+0.0
+  9
+$LOFTMAG2
+ 40
+0.0
+  9
+$LOFTPARAM
+ 70
+7
+  9
+$LOFTNORMALS
+280
+1
+  9
+$LATITUDE
+ 40
+37.795
+  9
+$LONGITUDE
+ 40
+-122.394
+  9
+$NORTHDIRECTION
+ 40
+0.0
+  9
+$TIMEZONE
+ 70
+-8000
+  9
+$LIGHTGLYPHDISPLAY
+280
+1
+  9
+$TILEMODELIGHTSYNCH
+280
+1
+  9
+$CMATERIAL
+347
+20
+  9
+$SOLIDHIST
+280
+0
+  9
+$SHOWHIST
+280
+1
+  9
+$DWFFRAME
+280
+2
+  9
+$DGNFRAME
+280
+2
+  9
+$REALWORLDSCALE
+290
+1
+  9
+$INTERFERECOLOR
+ 62
+256
+  9
+$CSHADOW
+280
+0
+  9
+$SHADOWPLANELOCATION
+ 40
+0.0
+  0
+ENDSEC
+  0
+SECTION
+  2
+CLASSES
+  0
+CLASS
+  1
+ACDBDICTIONARYWDFLT
+  2
+AcDbDictionaryWithDefault
+  3
+ObjectDBX Classes
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+SUN
+  2
+AcDbSun
+  3
+SCENEOE
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+VISUALSTYLE
+  2
+AcDbVisualStyle
+  3
+ObjectDBX Classes
+ 90
+4095
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+MATERIAL
+  2
+AcDbMaterial
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+SCALE
+  2
+AcDbScale
+  3
+ObjectDBX Classes
+ 90
+1153
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+TABLESTYLE
+  2
+AcDbTableStyle
+  3
+ObjectDBX Classes
+ 90
+4095
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+MLEADERSTYLE
+  2
+AcDbMLeaderStyle
+  3
+ACDB_MLEADERSTYLE_CLASS
+ 90
+4095
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+DICTIONARYVAR
+  2
+AcDbDictionaryVar
+  3
+ObjectDBX Classes
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+CELLSTYLEMAP
+  2
+AcDbCellStyleMap
+  3
+ObjectDBX Classes
+ 90
+1152
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+MENTALRAYRENDERSETTINGS
+  2
+AcDbMentalRayRenderSettings
+  3
+SCENEOE
+ 90
+1024
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+ACDBDETAILVIEWSTYLE
+  2
+AcDbDetailViewStyle
+  3
+ObjectDBX Classes
+ 90
+1025
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+ACDBSECTIONVIEWSTYLE
+  2
+AcDbSectionViewStyle
+  3
+ObjectDBX Classes
+ 90
+1025
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+RASTERVARIABLES
+  2
+AcDbRasterVariables
+  3
+ISM
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+LAYOUT
+  2
+AcDbLayout
+  3
+ObjectDBX Classes
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+CLASS
+  1
+ACDBPLACEHOLDER
+  2
+AcDbPlaceHolder
+  3
+ObjectDBX Classes
+ 90
+0
+ 91
+0
+280
+0
+281
+0
+  0
+ENDSEC
+  0
+SECTION
+  2
+TABLES
+  0
+TABLE
+  2
+VPORT
+  5
+8
+330
+0
+100
+AcDbSymbolTable
+ 70
+1
+  0
+VPORT
+  5
+284
+330
+8
+100
+AcDbSymbolTableRecord
+100
+AcDbViewportTableRecord
+  2
+*Active
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 11
+1.0
+ 21
+1.0
+ 12
+210.0
+ 22
+148.5
+ 13
+0.0
+ 23
+0.0
+ 14
+0.5
+ 24
+0.5
+ 15
+0.5
+ 25
+0.5
+ 16
+0.0
+ 26
+0.0
+ 36
+1.0
+ 17
+0.0
+ 27
+0.0
+ 37
+0.0
+ 40
+297.0
+ 41
+1.34
+ 42
+50.0
+ 43
+0.0
+ 44
+0.0
+ 50
+0.0
+ 51
+0.0
+ 71
+0
+ 72
+1000
+ 73
+1
+ 74
+3
+ 75
+0
+ 76
+0
+ 77
+0
+ 78
+0
+281
+0
+ 65
+1
+110
+0.0
+120
+0.0
+130
+0.0
+111
+1.0
+121
+0.0
+131
+0.0
+112
+0.0
+122
+1.0
+132
+0.0
+ 79
+0
+146
+0.0
+  0
+ENDTAB
+  0
+TABLE
+  2
+LTYPE
+  5
+2
+330
+0
+100
+AcDbSymbolTable
+ 70
+21
+  0
+LTYPE
+  5
+24
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+ByBlock
+ 70
+0
+  3
+
+ 72
+65
+ 73
+0
+ 40
+0.0
+  0
+LTYPE
+  5
+25
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+ByLayer
+ 70
+0
+  3
+
+ 72
+65
+ 73
+0
+ 40
+0.0
+  0
+LTYPE
+  5
+26
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+Continuous
+ 70
+0
+  3
+
+ 72
+65
+ 73
+0
+ 40
+0.0
+  0
+LTYPE
+  5
+2F
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+CENTER
+ 70
+0
+  3
+Center ____ _ ____ _ ____ _ ____ _ ____ _ ____
+ 72
+65
+ 73
+4
+ 40
+5.08
+ 49
+3.175
+ 74
+0
+ 49
+-0.635
+ 74
+0
+ 49
+0.635
+ 74
+0
+ 49
+-0.635
+ 74
+0
+  0
+LTYPE
+  5
+30
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+CENTERX2
+ 70
+0
+  3
+Center (2x) ________  __  ________  __  ________
+ 72
+65
+ 73
+4
+ 40
+8.89
+ 49
+6.35
+ 74
+0
+ 49
+-0.635
+ 74
+0
+ 49
+1.27
+ 74
+0
+ 49
+-0.635
+ 74
+0
+  0
+LTYPE
+  5
+31
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+CENTER2
+ 70
+0
+  3
+Center (.5x) ____ _ ____ _ ____ _ ____ _ ____
+ 72
+65
+ 73
+4
+ 40
+2.54
+ 49
+1.587
+ 74
+0
+ 49
+-0.318
+ 74
+0
+ 49
+0.318
+ 74
+0
+ 49
+-0.318
+ 74
+0
+  0
+LTYPE
+  5
+32
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DASHED
+ 70
+0
+  3
+Dashed __ __ __ __ __ __ __ __ __ __ __ __ __ _
+ 72
+65
+ 73
+2
+ 40
+1.524
+ 49
+1.27
+ 74
+0
+ 49
+-0.254
+ 74
+0
+  0
+LTYPE
+  5
+33
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DASHEDX2
+ 70
+0
+  3
+Dashed (2x) ____  ____  ____  ____  ____  ____
+ 72
+65
+ 73
+2
+ 40
+3.048
+ 49
+2.54
+ 74
+0
+ 49
+-0.508
+ 74
+0
+  0
+LTYPE
+  5
+34
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DASHED2
+ 70
+0
+  3
+Dashed (.5x) _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ 72
+65
+ 73
+2
+ 40
+0.762
+ 49
+0.635
+ 74
+0
+ 49
+-0.127
+ 74
+0
+  0
+LTYPE
+  5
+35
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+PHANTOM
+ 70
+0
+  3
+Phantom ______  __  __  ______  __  __  ______
+ 72
+65
+ 73
+6
+ 40
+6.35
+ 49
+3.175
+ 74
+0
+ 49
+-0.635
+ 74
+0
+ 49
+0.635
+ 74
+0
+ 49
+-0.635
+ 74
+0
+ 49
+0.635
+ 74
+0
+ 49
+-0.635
+ 74
+0
+  0
+LTYPE
+  5
+36
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+PHANTOMX2
+ 70
+0
+  3
+Phantom (2x)____________    ____    ____    ____________
+ 72
+65
+ 73
+6
+ 40
+10.795
+ 49
+6.35
+ 74
+0
+ 49
+-0.635
+ 74
+0
+ 49
+1.27
+ 74
+0
+ 49
+-0.635
+ 74
+0
+ 49
+1.27
+ 74
+0
+ 49
+-0.635
+ 74
+0
+  0
+LTYPE
+  5
+37
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+PHANTOM2
+ 70
+0
+  3
+Phantom (.5x) ___ _ _ ___ _ _ ___ _ _ ___ _ _ ___
+ 72
+65
+ 73
+6
+ 40
+3.175
+ 49
+1.587
+ 74
+0
+ 49
+-0.318
+ 74
+0
+ 49
+0.318
+ 74
+0
+ 49
+-0.318
+ 74
+0
+ 49
+0.318
+ 74
+0
+ 49
+-0.318
+ 74
+0
+  0
+LTYPE
+  5
+38
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DASHDOT
+ 70
+0
+  3
+Dash dot __ . __ . __ . __ . __ . __ . __ . __
+ 72
+65
+ 73
+4
+ 40
+3.556
+ 49
+2.54
+ 74
+0
+ 49
+-0.508
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.508
+ 74
+0
+  0
+LTYPE
+  5
+39
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DASHDOTX2
+ 70
+0
+  3
+Dash dot (2x) ____  .  ____  .  ____  .  ____
+ 72
+65
+ 73
+4
+ 40
+6.096
+ 49
+5.08
+ 74
+0
+ 49
+-0.508
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.508
+ 74
+0
+  0
+LTYPE
+  5
+3A
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DASHDOT2
+ 70
+0
+  3
+Dash dot (.5x) _ . _ . _ . _ . _ . _ . _ . _
+ 72
+65
+ 73
+4
+ 40
+1.778
+ 49
+1.27
+ 74
+0
+ 49
+-0.254
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.254
+ 74
+0
+  0
+LTYPE
+  5
+3B
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DOT
+ 70
+0
+  3
+Dot .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+ 72
+65
+ 73
+2
+ 40
+0.508
+ 49
+0.0
+ 74
+0
+ 49
+-0.508
+ 74
+0
+  0
+LTYPE
+  5
+3C
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DOTX2
+ 70
+0
+  3
+Dot (2x) .    .    .    .    .    .    .    . 
+ 72
+65
+ 73
+2
+ 40
+1.016
+ 49
+0.0
+ 74
+0
+ 49
+-1.016
+ 74
+0
+  0
+LTYPE
+  5
+3D
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DOT2
+ 70
+0
+  3
+Dot (.5) . . . . . . . . . . . . . . . . . . . 
+ 72
+65
+ 73
+2
+ 40
+0.254
+ 49
+0.0
+ 74
+0
+ 49
+-0.254
+ 74
+0
+  0
+LTYPE
+  5
+3E
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DIVIDE
+ 70
+0
+  3
+Divide __ . . __ . . __ . . __ . . __ . . __
+ 72
+65
+ 73
+6
+ 40
+4.064
+ 49
+2.54
+ 74
+0
+ 49
+-0.508
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.508
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.508
+ 74
+0
+  0
+LTYPE
+  5
+3F
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DIVIDEX2
+ 70
+0
+  3
+Divide (2x) ____  . .  ____  . .  ____  . .  ____
+ 72
+65
+ 73
+6
+ 40
+6.604
+ 49
+5.08
+ 74
+0
+ 49
+-0.508
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.508
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.508
+ 74
+0
+  0
+LTYPE
+  5
+40
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLinetypeTableRecord
+  2
+DIVIDE2
+ 70
+0
+  3
+Divide(.5x) _ . _ . _ . _ . _ . _ . _ . _
+ 72
+65
+ 73
+6
+ 40
+2.032
+ 49
+1.27
+ 74
+0
+ 49
+-0.254
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.254
+ 74
+0
+ 49
+0.0
+ 74
+0
+ 49
+-0.254
+ 74
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+LAYER
+  5
+1
+330
+0
+100
+AcDbSymbolTable
+ 70
+38
+  0
+LAYER
+  5
+27
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+0
+ 70
+0
+ 62
+7
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+28
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+Defpoints
+ 70
+0
+ 62
+7
+  6
+Continuous
+290
+0
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+8B
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-PAPER
+ 70
+0
+ 62
+7
+420
+16513007
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+8D
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+INK
+ 70
+0
+ 62
+7
+420
+2761760
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+8F
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+INK-TEXT
+ 70
+0
+ 62
+7
+420
+2761760
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+91
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+MUTED-TEXT
+ 70
+0
+ 62
+7
+420
+6970702
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+97
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-EEF0EC
+ 70
+0
+ 62
+7
+420
+15659244
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+99
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-WALLS
+ 70
+0
+ 62
+7
+420
+4866104
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+9B
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+WALLS
+ 70
+0
+ 62
+7
+420
+4866104
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+A3
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-D8C6AC
+ 70
+0
+ 62
+7
+420
+14206636
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+A5
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+COLOR-A8987C
+ 70
+0
+ 62
+7
+420
+11049084
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+AB
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-CFE3EA
+ 70
+0
+ 62
+7
+420
+13624298
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+AD
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+COLOR-7A9AAA
+ 70
+0
+ 62
+7
+420
+8034986
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+B1
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+WHITE-TEXT
+ 70
+0
+ 62
+7
+420
+16777215
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+B7
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+WATER-BLUE
+ 70
+0
+ 62
+7
+420
+3108767
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+BB
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-HOT-LINE
+ 70
+0
+ 62
+7
+420
+10133669
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+D3
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+EXHAUST-RED
+ 70
+0
+ 62
+7
+420
+11680286
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+D5
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-B9C0C5
+ 70
+0
+ 62
+7
+420
+12173509
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+D7
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+COLOR-6D7276
+ 70
+0
+ 62
+7
+420
+7172726
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+D9
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-STEEL
+ 70
+0
+ 62
+7
+420
+13225425
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+DE
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-DFF0F6
+ 70
+0
+ 62
+7
+420
+14676214
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+E6
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-E9E9E9
+ 70
+0
+ 62
+7
+420
+15329769
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+F0
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-E6ECEF
+ 70
+0
+ 62
+7
+420
+15133935
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+10F
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+MUTED
+ 70
+0
+ 62
+7
+420
+6970702
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+113
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-D9261C
+ 70
+0
+ 62
+7
+420
+14231068
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+115
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+COLOR-D9261C
+ 70
+0
+ 62
+7
+420
+14231068
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+117
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-CFE0BF
+ 70
+0
+ 62
+7
+420
+13623487
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+119
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+AIR-GREEN
+ 70
+0
+ 62
+7
+420
+4155962
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+11B
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-D6E2EF
+ 70
+0
+ 62
+7
+420
+14082799
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+11E
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-C8231B
+ 70
+0
+ 62
+7
+420
+13116187
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+120
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+COLOR-C8231B
+ 70
+0
+ 62
+7
+420
+13116187
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+122
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-WATER-BLUE
+ 70
+0
+ 62
+7
+420
+3108767
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+125
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+COLOR-8F6A4A
+ 70
+0
+ 62
+7
+420
+9398858
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+12A
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+WATER-BLUE-TEXT
+ 70
+0
+ 62
+7
+420
+3108767
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+130
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+AIR-GREEN-TEXT
+ 70
+0
+ 62
+7
+420
+4155962
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+13A
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+EXHAUST-RED-TEXT
+ 70
+0
+ 62
+7
+420
+11680286
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+17D
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-INK
+ 70
+0
+ 62
+7
+420
+2761760
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+LAYER
+  5
+1C5
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+FILL-COLOR-F3EFE6
+ 70
+0
+ 62
+7
+420
+15986662
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+  0
+ENDTAB
+  0
+TABLE
+  2
+STYLE
+  5
+5
+330
+0
+100
+AcDbSymbolTable
+ 70
+27
+  0
+STYLE
+  5
+29
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+Standard
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+txt
+  4
+
+  0
+STYLE
+  5
+41
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-Light
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-Light.ttf
+  4
+
+  0
+STYLE
+  5
+42
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-Light-Italic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-LightItalic.ttf
+  4
+
+  0
+STYLE
+  5
+43
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-Regular.ttf
+  4
+
+  0
+STYLE
+  5
+44
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-Italic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-Italic.ttf
+  4
+
+  0
+STYLE
+  5
+45
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-SemiBold
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-SemiBold.ttf
+  4
+
+  0
+STYLE
+  5
+46
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-SemiBoldItalic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-SemiBoldItalic.ttf
+  4
+
+  0
+STYLE
+  5
+47
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-Bold
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-Bold.ttf
+  4
+
+  0
+STYLE
+  5
+48
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-BoldItalic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-BoldItalic.ttf
+  4
+
+  0
+STYLE
+  5
+49
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-ExtraBold
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-ExtraBold.ttf
+  4
+
+  0
+STYLE
+  5
+4A
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSans-ExtraBoldItalic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSans-ExtraBoldItalic.ttf
+  4
+
+  0
+STYLE
+  5
+4B
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSansCondensed-Bold
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSansCondensed-Bold.ttf
+  4
+
+  0
+STYLE
+  5
+4C
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSansCondensed-Light
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSansCondensed-Light.ttf
+  4
+
+  0
+STYLE
+  5
+4D
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+OpenSansCondensed-Italic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+OpenSansCondensed-LightItalic.ttf
+  4
+
+  0
+STYLE
+  5
+4E
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationSans
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationSans-Regular.ttf
+  4
+
+  0
+STYLE
+  5
+4F
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationSans-Bold
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationSans-Bold.ttf
+  4
+
+  0
+STYLE
+  5
+50
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationSans-BoldItalic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationSans-BoldItalic.ttf
+  4
+
+  0
+STYLE
+  5
+51
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationSans-Italic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationSans-Italic.ttf
+  4
+
+  0
+STYLE
+  5
+52
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationSerif
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationSerif-Regular.ttf
+  4
+
+  0
+STYLE
+  5
+53
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationSerif-Bold
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationSerif-Bold.ttf
+  4
+
+  0
+STYLE
+  5
+54
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationSerif-BoldItalic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationSerif-BoldItalic.ttf
+  4
+
+  0
+STYLE
+  5
+55
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationSerif-Italic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationSerif-Italic.ttf
+  4
+
+  0
+STYLE
+  5
+56
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationMono
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationMono-Regular.ttf
+  4
+
+  0
+STYLE
+  5
+57
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationMono-Bold
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationMono-Bold.ttf
+  4
+
+  0
+STYLE
+  5
+58
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationMono-BoldItalic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationMono-BoldItalic.ttf
+  4
+
+  0
+STYLE
+  5
+59
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+LiberationMono-Italic
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+LiberationMono-Italic.ttf
+  4
+
+  0
+STYLE
+  5
+8A
+330
+5
+100
+AcDbSymbolTableRecord
+100
+AcDbTextStyleTableRecord
+  2
+KITCHEN
+ 70
+0
+ 40
+0.0
+ 41
+1.0
+ 50
+0.0
+ 71
+0
+ 42
+2.5
+  3
+arial.ttf
+  4
+
+  0
+ENDTAB
+  0
+TABLE
+  2
+VIEW
+  5
+7
+330
+0
+100
+AcDbSymbolTable
+ 70
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+UCS
+  5
+6
+330
+0
+100
+AcDbSymbolTable
+ 70
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+APPID
+  5
+3
+330
+0
+100
+AcDbSymbolTable
+ 70
+3
+  0
+APPID
+  5
+2A
+330
+3
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+ACAD
+ 70
+0
+  0
+APPID
+  5
+285
+330
+3
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+HATCHBACKGROUNDCOLOR
+ 70
+0
+  0
+APPID
+  5
+286
+330
+3
+100
+AcDbSymbolTableRecord
+100
+AcDbRegAppTableRecord
+  2
+EZDXF
+ 70
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+DIMSTYLE
+  5
+4
+330
+0
+100
+AcDbSymbolTable
+ 70
+12
+100
+AcDbDimStyleTable
+  0
+DIMSTYLE
+105
+2B
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+Standard
+ 70
+0
+ 40
+1.0
+ 41
+2.5
+ 42
+0.625
+ 43
+3.75
+ 44
+1.25
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+2.5
+141
+2.5
+142
+0.0
+143
+0.03937007874
+144
+1.0
+145
+0.0
+146
+1.0
+147
+0.625
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+8
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+44
+279
+0
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+0
+289
+3
+290
+0
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+73
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZDXF
+ 70
+0
+ 40
+1.0
+ 41
+0.175
+ 42
+0.125
+ 43
+3.75
+ 44
+0.375
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.25
+141
+2.5
+142
+0.0
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.1
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+342
+74
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+7C
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_M_100_H25_CM
+ 70
+0
+ 40
+1.0
+ 41
+0.25
+ 42
+0.125
+ 43
+3.75
+ 44
+0.375
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.25
+141
+2.5
+142
+0.125
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.1
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+7D
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_M_50_H25_CM
+ 70
+0
+ 40
+1.0
+ 41
+0.125
+ 42
+0.0625
+ 43
+3.75
+ 44
+0.1875
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.125
+141
+2.5
+142
+0.0625
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.05
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+7E
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_M_25_H25_CM
+ 70
+0
+ 40
+1.0
+ 41
+0.0625
+ 42
+0.03125
+ 43
+3.75
+ 44
+0.09375
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.0625
+141
+2.5
+142
+0.03125
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.025
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+7F
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_M_20_H25_CM
+ 70
+0
+ 40
+1.0
+ 41
+0.05
+ 42
+0.025
+ 43
+3.75
+ 44
+0.07500000000000001
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.05
+141
+2.5
+142
+0.025
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.020000000000000004
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+80
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_M_10_H25_CM
+ 70
+0
+ 40
+1.0
+ 41
+0.025
+ 42
+0.0125
+ 43
+3.75
+ 44
+0.037500000000000006
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.025
+141
+2.5
+142
+0.0125
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.010000000000000002
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+81
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_M_5_H25_CM
+ 70
+0
+ 40
+1.0
+ 41
+0.0125
+ 42
+0.00625
+ 43
+3.75
+ 44
+0.018750000000000003
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.0125
+141
+2.5
+142
+0.00625
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.005000000000000001
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+82
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_M_1_H25_CM
+ 70
+0
+ 40
+1.0
+ 41
+0.0025
+ 42
+0.00125
+ 43
+3.75
+ 44
+0.00375
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.0025
+141
+2.5
+142
+0.00125
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.001
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+83
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_RADIUS
+ 70
+0
+ 40
+1.0
+ 41
+0.25
+ 42
+0.125
+ 43
+3.75
+ 44
+0.375
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.25
+141
+0.0
+142
+0.0
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.1
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+0
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+1
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+342
+84
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+88
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_RADIUS_INSIDE
+ 70
+0
+ 40
+1.0
+ 41
+0.25
+ 42
+0.125
+ 43
+3.75
+ 44
+0.375
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.25
+141
+0.0
+142
+0.0
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.1
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+0
+ 78
+12
+ 79
+3
+170
+0
+171
+3
+172
+0
+173
+0
+174
+1
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+0
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+0
+290
+0
+340
+4C
+342
+84
+371
+-2
+372
+-2
+  0
+DIMSTYLE
+105
+89
+330
+4
+100
+AcDbSymbolTableRecord
+100
+AcDbDimStyleTableRecord
+  2
+EZ_CURVED
+ 70
+0
+ 40
+1.0
+ 41
+0.25
+ 42
+0.125
+ 43
+3.75
+ 44
+0.375
+ 45
+0.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+2.5
+140
+0.25
+141
+2.5
+142
+0.0
+143
+0.03937007874
+144
+100.0
+145
+0.0
+146
+0.5
+147
+0.1
+148
+0.0
+ 69
+0
+ 70
+0
+ 71
+0
+ 72
+0
+ 73
+0
+ 74
+0
+ 75
+0
+ 76
+0
+ 77
+1
+ 78
+12
+ 79
+2
+ 90
+2
+170
+0
+171
+3
+172
+1
+173
+0
+174
+0
+175
+0
+176
+0
+177
+0
+178
+0
+179
+2
+271
+2
+272
+2
+273
+2
+274
+3
+275
+0
+276
+0
+277
+2
+278
+46
+279
+2
+280
+0
+281
+0
+282
+0
+283
+0
+284
+8
+285
+0
+286
+0
+288
+1
+289
+3
+290
+0
+340
+4C
+371
+-2
+372
+-2
+  0
+ENDTAB
+  0
+TABLE
+  2
+BLOCK_RECORD
+  5
+9
+330
+0
+100
+AcDbSymbolTable
+ 70
+5
+  0
+BLOCK_RECORD
+  5
+17
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+*Model_Space
+340
+1A
+ 70
+0
+280
+1
+281
+0
+  0
+BLOCK_RECORD
+  5
+1B
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+*Paper_Space
+340
+1E
+ 70
+0
+280
+1
+281
+0
+  0
+BLOCK_RECORD
+  5
+74
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+_ARCHTICK
+340
+0
+ 70
+0
+280
+1
+281
+0
+  0
+BLOCK_RECORD
+  5
+78
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+_CLOSEDFILLED
+340
+0
+ 70
+0
+280
+1
+281
+0
+  0
+BLOCK_RECORD
+  5
+84
+330
+9
+100
+AcDbSymbolTableRecord
+100
+AcDbBlockTableRecord
+  2
+_CLOSEDBLANK
+340
+0
+ 70
+0
+280
+1
+281
+0
+  0
+ENDTAB
+  0
+ENDSEC
+  0
+SECTION
+  2
+BLOCKS
+  0
+BLOCK
+  5
+18
+330
+17
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+*Model_Space
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+*Model_Space
+  1
+
+  0
+ENDBLK
+  5
+19
+330
+17
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockEnd
+  0
+BLOCK
+  5
+1C
+330
+1B
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+*Paper_Space
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+*Paper_Space
+  1
+
+  0
+ENDBLK
+  5
+1D
+330
+1B
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockEnd
+  0
+BLOCK
+  5
+75
+330
+74
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+_ARCHTICK
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+_ARCHTICK
+  1
+
+  0
+LWPOLYLINE
+  5
+77
+330
+74
+100
+AcDbEntity
+  8
+0
+  6
+BYBLOCK
+ 62
+0
+100
+AcDbPolyline
+ 90
+2
+ 70
+0
+ 43
+0.15
+ 10
+-0.5
+ 20
+-0.5
+ 10
+0.5
+ 20
+0.5
+  0
+ENDBLK
+  5
+76
+330
+74
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockEnd
+  0
+BLOCK
+  5
+79
+330
+78
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+_CLOSEDFILLED
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+_CLOSEDFILLED
+  1
+
+  0
+SOLID
+  5
+7B
+330
+78
+100
+AcDbEntity
+  8
+0
+  6
+BYBLOCK
+ 62
+0
+100
+AcDbTrace
+ 10
+-1.0
+ 20
+0.16439898372402537
+ 30
+0.0
+ 11
+0.0
+ 21
+0.0
+ 31
+0.0
+ 12
+-1.0
+ 22
+-0.16439898372402537
+ 32
+0.0
+ 13
+-1.0
+ 23
+-0.16439898372402537
+ 33
+0.0
+  0
+ENDBLK
+  5
+7A
+330
+78
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockEnd
+  0
+BLOCK
+  5
+85
+330
+84
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockBegin
+  2
+_CLOSEDBLANK
+ 70
+0
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  3
+_CLOSEDBLANK
+  1
+
+  0
+LWPOLYLINE
+  5
+87
+330
+84
+100
+AcDbEntity
+  8
+0
+  6
+BYBLOCK
+ 62
+0
+100
+AcDbPolyline
+ 90
+3
+ 70
+1
+ 10
+-1.0
+ 20
+0.16439898372402537
+ 10
+0.0
+ 20
+0.0
+ 10
+-1.0
+ 20
+-0.16439898372402537
+  0
+ENDBLK
+  5
+86
+330
+84
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockEnd
+  0
+ENDSEC
+  0
+SECTION
+  2
+ENTITIES
+  0
+HATCH
+  5
+8C
+330
+17
+100
+AcDbEntity
+  8
+FILL-PAPER
+ 62
+7
+420
+16513007
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+0.0
+ 20
+0.0
+ 10
+420.0
+ 20
+0.0
+ 10
+420.0
+ 20
+297.0
+ 10
+0.0
+ 20
+297.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+8E
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+35
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+5.0
+ 20
+292.0
+ 10
+415.0
+ 20
+292.0
+ 10
+415.0
+ 20
+5.0
+ 10
+5.0
+ 20
+5.0
+  0
+TEXT
+  5
+90
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+12.0
+ 20
+281.0
+ 30
+0.0
+ 40
+5.04
+  1
+Kitchen equipment layout
+  7
+KITCHEN
+ 11
+12.0
+ 21
+281.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+92
+330
+17
+100
+AcDbEntity
+  8
+MUTED-TEXT
+420
+6970702
+100
+AcDbText
+ 10
+12.0
+ 20
+274.5
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+For commercial kitchen equipment vendors · plan at 1:25 on A3 · every item named and sized on the drawing
+  7
+KITCHEN
+ 11
+12.0
+ 21
+274.5
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+93
+330
+17
+100
+AcDbEntity
+  8
+MUTED-TEXT
+420
+6970702
+100
+AcDbText
+ 10
+408.0
+ 20
+284.0
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+Betalbatim pub · Simplex · Concept 27
+  7
+KITCHEN
+ 72
+2
+ 11
+408.0
+ 21
+284.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+94
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+408.0
+ 20
+279.0
+ 30
+0.0
+ 40
+2.16
+  1
+Sheet 1 of 2 · A3
+  7
+KITCHEN
+ 72
+2
+ 11
+408.0
+ 21
+279.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+95
+330
+17
+100
+AcDbEntity
+  8
+MUTED-TEXT
+420
+6970702
+100
+AcDbText
+ 10
+408.0
+ 20
+274.5
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+singhgenics.github.io/Simplex/kitchen.html
+  7
+KITCHEN
+ 72
+2
+ 11
+408.0
+ 21
+274.5
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+96
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+25
+420
+2761760
+100
+AcDbLine
+ 10
+5.0
+ 20
+271.0
+ 30
+0.0
+ 11
+415.0
+ 21
+271.0
+ 31
+0.0
+  0
+HATCH
+  5
+98
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-EEF0EC
+ 62
+7
+420
+15659244
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+32.0
+ 20
+217.0
+ 10
+228.0
+ 20
+217.0
+ 10
+228.0
+ 20
+121.0
+ 10
+32.0
+ 20
+121.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+HATCH
+  5
+9A
+330
+17
+100
+AcDbEntity
+  8
+FILL-WALLS
+ 62
+7
+420
+4866104
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+228.0
+ 20
+225.0
+ 10
+236.0
+ 20
+225.0
+ 10
+236.0
+ 20
+103.0
+ 10
+228.0
+ 20
+103.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+9C
+330
+17
+100
+AcDbEntity
+  8
+WALLS
+370
+20
+420
+4866104
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+228.0
+ 20
+225.0
+ 10
+236.0
+ 20
+225.0
+ 10
+236.0
+ 20
+103.0
+ 10
+228.0
+ 20
+103.0
+  0
+HATCH
+  5
+9D
+330
+17
+100
+AcDbEntity
+  8
+FILL-WALLS
+ 62
+7
+420
+4866104
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+24.0
+ 20
+225.0
+ 10
+32.0
+ 20
+225.0
+ 10
+32.0
+ 20
+103.0
+ 10
+24.0
+ 20
+103.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+9E
+330
+17
+100
+AcDbEntity
+  8
+WALLS
+370
+20
+420
+4866104
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+24.0
+ 20
+225.0
+ 10
+32.0
+ 20
+225.0
+ 10
+32.0
+ 20
+103.0
+ 10
+24.0
+ 20
+103.0
+  0
+HATCH
+  5
+9F
+330
+17
+100
+AcDbEntity
+  8
+FILL-WALLS
+ 62
+7
+420
+4866104
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+92.0
+ 20
+225.0
+ 10
+228.0
+ 20
+225.0
+ 10
+228.0
+ 20
+217.0
+ 10
+92.0
+ 20
+217.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+A0
+330
+17
+100
+AcDbEntity
+  8
+WALLS
+370
+20
+420
+4866104
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+92.0
+ 20
+225.0
+ 10
+228.0
+ 20
+225.0
+ 10
+228.0
+ 20
+217.0
+ 10
+92.0
+ 20
+217.0
+  0
+HATCH
+  5
+A1
+330
+17
+100
+AcDbEntity
+  8
+FILL-WALLS
+ 62
+7
+420
+4866104
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+32.0
+ 20
+225.0
+ 10
+60.0
+ 20
+225.0
+ 10
+60.0
+ 20
+217.0
+ 10
+32.0
+ 20
+217.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+A2
+330
+17
+100
+AcDbEntity
+  8
+WALLS
+370
+20
+420
+4866104
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+32.0
+ 20
+225.0
+ 10
+60.0
+ 20
+225.0
+ 10
+60.0
+ 20
+217.0
+ 10
+32.0
+ 20
+217.0
+  0
+HATCH
+  5
+A4
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-D8C6AC
+ 62
+7
+420
+14206636
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+154.0
+ 20
+121.0
+ 10
+228.0
+ 20
+121.0
+ 10
+228.0
+ 20
+117.0
+ 10
+154.0
+ 20
+117.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+A6
+330
+17
+100
+AcDbEntity
+  8
+COLOR-A8987C
+370
+20
+420
+11049084
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+154.0
+ 20
+121.0
+ 10
+228.0
+ 20
+121.0
+ 10
+228.0
+ 20
+117.0
+ 10
+154.0
+ 20
+117.0
+  0
+HATCH
+  5
+A7
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-D8C6AC
+ 62
+7
+420
+14206636
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+126.0
+ 20
+121.0
+ 10
+128.0
+ 20
+121.0
+ 10
+128.0
+ 20
+117.0
+ 10
+126.0
+ 20
+117.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+A8
+330
+17
+100
+AcDbEntity
+  8
+COLOR-A8987C
+370
+20
+420
+11049084
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+126.0
+ 20
+121.0
+ 10
+128.0
+ 20
+121.0
+ 10
+128.0
+ 20
+117.0
+ 10
+126.0
+ 20
+117.0
+  0
+HATCH
+  5
+A9
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-D8C6AC
+ 62
+7
+420
+14206636
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+32.0
+ 20
+121.0
+ 10
+94.0
+ 20
+121.0
+ 10
+94.0
+ 20
+117.0
+ 10
+32.0
+ 20
+117.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+AA
+330
+17
+100
+AcDbEntity
+  8
+COLOR-A8987C
+370
+20
+420
+11049084
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+32.0
+ 20
+121.0
+ 10
+94.0
+ 20
+121.0
+ 10
+94.0
+ 20
+117.0
+ 10
+32.0
+ 20
+117.0
+  0
+HATCH
+  5
+AC
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-CFE3EA
+ 62
+7
+420
+13624298
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+128.0
+ 20
+121.0
+ 10
+154.0
+ 20
+121.0
+ 10
+154.0
+ 20
+117.0
+ 10
+128.0
+ 20
+117.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+AE
+330
+17
+100
+AcDbEntity
+  8
+COLOR-7A9AAA
+370
+20
+420
+8034986
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+128.0
+ 20
+121.0
+ 10
+154.0
+ 20
+121.0
+ 10
+154.0
+ 20
+117.0
+ 10
+128.0
+ 20
+117.0
+  0
+HATCH
+  5
+AF
+330
+17
+100
+AcDbEntity
+  8
+FILL-WALLS
+ 62
+7
+420
+4866104
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+218.8
+ 20
+143.0
+ 10
+228.0
+ 20
+143.0
+ 10
+228.0
+ 20
+131.0
+ 10
+218.8
+ 20
+131.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+B0
+330
+17
+100
+AcDbEntity
+  8
+WALLS
+370
+20
+420
+4866104
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+218.8
+ 20
+143.0
+ 10
+228.0
+ 20
+143.0
+ 10
+228.0
+ 20
+131.0
+ 10
+218.8
+ 20
+131.0
+  0
+TEXT
+  5
+B2
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+223.4
+ 20
+136.12
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+P2
+  7
+KITCHEN
+ 72
+1
+ 11
+223.4
+ 21
+136.12
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+ARC
+  5
+B3
+330
+17
+100
+AcDbEntity
+  8
+INK
+  6
+DASHED
+370
+20
+420
+2761760
+100
+AcDbCircle
+ 10
+126.0
+ 20
+121.0
+ 30
+0.0
+ 40
+32.0
+100
+AcDbArc
+ 50
+90.0
+ 51
+180.0
+  0
+LINE
+  5
+B4
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+40
+420
+2761760
+100
+AcDbLine
+ 10
+126.0
+ 20
+121.0
+ 30
+0.0
+ 11
+126.0
+ 21
+153.0
+ 31
+0.0
+  0
+ARC
+  5
+B5
+330
+17
+100
+AcDbEntity
+  8
+INK
+  6
+DASHED
+370
+20
+420
+2761760
+100
+AcDbCircle
+ 10
+60.0
+ 20
+225.0
+ 30
+0.0
+ 40
+32.0
+100
+AcDbArc
+ 50
+0.0
+ 51
+90.0
+  0
+LINE
+  5
+B6
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+40
+420
+2761760
+100
+AcDbLine
+ 10
+60.0
+ 20
+225.0
+ 30
+0.0
+ 11
+60.0
+ 21
+257.0
+ 31
+0.0
+  0
+ARC
+  5
+B8
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+  6
+DASHED
+370
+20
+420
+3108767
+100
+AcDbCircle
+ 10
+62.0
+ 20
+123.0
+ 30
+0.0
+ 40
+18.8
+100
+AcDbArc
+ 50
+0.0
+ 51
+90.0
+  0
+ARC
+  5
+B9
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+  6
+DASHED
+370
+20
+420
+3108767
+100
+AcDbCircle
+ 10
+62.0
+ 20
+161.0
+ 30
+0.0
+ 40
+18.8
+100
+AcDbArc
+ 50
+-90.0
+ 51
+0.0
+  0
+TEXT
+  5
+BA
+330
+17
+100
+AcDbEntity
+  8
+MUTED-TEXT
+420
+6970702
+100
+AcDbText
+ 10
+12.0
+ 20
+93.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+DINING ROOM SIDE
+  7
+KITCHEN
+ 11
+12.0
+ 21
+93.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+BC
+330
+17
+100
+AcDbEntity
+  8
+FILL-HOT-LINE
+ 62
+7
+420
+10133669
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+180.0
+ 20
+217.0
+ 10
+228.0
+ 20
+217.0
+ 10
+228.0
+ 20
+185.0
+ 10
+180.0
+ 20
+185.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+BD
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+180.0
+ 20
+217.0
+ 10
+228.0
+ 20
+217.0
+ 10
+228.0
+ 20
+185.0
+ 10
+180.0
+ 20
+185.0
+  0
+TEXT
+  5
+BE
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+204.0
+ 20
+205.34
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+Wok range
+  7
+KITCHEN
+ 72
+1
+ 11
+204.0
+ 21
+205.34
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+BF
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+204.0
+ 20
+202.09
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+2 burners
+  7
+KITCHEN
+ 72
+1
+ 11
+204.0
+ 21
+202.09
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+C0
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+204.0
+ 20
+198.84
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+1.20 × 0.80 × 0.80
+  7
+KITCHEN
+ 72
+1
+ 11
+204.0
+ 21
+198.84
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+C1
+330
+17
+100
+AcDbEntity
+  8
+FILL-HOT-LINE
+ 62
+7
+420
+10133669
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+154.0
+ 20
+217.0
+ 10
+178.0
+ 20
+217.0
+ 10
+178.0
+ 20
+189.0
+ 10
+154.0
+ 20
+189.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+C2
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+154.0
+ 20
+217.0
+ 10
+178.0
+ 20
+217.0
+ 10
+178.0
+ 20
+189.0
+ 10
+154.0
+ 20
+189.0
+  0
+TEXT
+  5
+C3
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+166.0
+ 20
+206.95999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+Dim sum
+  7
+KITCHEN
+ 72
+1
+ 11
+166.0
+ 21
+206.95999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+C4
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+166.0
+ 20
+203.70999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+steamer
+  7
+KITCHEN
+ 72
+1
+ 11
+166.0
+ 21
+203.70999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+C5
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+166.0
+ 20
+200.45999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+0.60 × 0.70
+  7
+KITCHEN
+ 72
+1
+ 11
+166.0
+ 21
+200.45999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+C6
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+166.0
+ 20
+197.20999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+h 0.80
+  7
+KITCHEN
+ 72
+1
+ 11
+166.0
+ 21
+197.20999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+C7
+330
+17
+100
+AcDbEntity
+  8
+FILL-HOT-LINE
+ 62
+7
+420
+10133669
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+128.0
+ 20
+217.0
+ 10
+152.0
+ 20
+217.0
+ 10
+152.0
+ 20
+189.0
+ 10
+128.0
+ 20
+189.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+C8
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+128.0
+ 20
+217.0
+ 10
+152.0
+ 20
+217.0
+ 10
+152.0
+ 20
+189.0
+ 10
+128.0
+ 20
+189.0
+  0
+TEXT
+  5
+C9
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+140.0
+ 20
+206.95999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+Twin-tank
+  7
+KITCHEN
+ 72
+1
+ 11
+140.0
+ 21
+206.95999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+CA
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+140.0
+ 20
+203.70999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+fryer
+  7
+KITCHEN
+ 72
+1
+ 11
+140.0
+ 21
+203.70999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+CB
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+140.0
+ 20
+200.45999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+0.60 × 0.70
+  7
+KITCHEN
+ 72
+1
+ 11
+140.0
+ 21
+200.45999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+CC
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+140.0
+ 20
+197.20999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+h 0.90
+  7
+KITCHEN
+ 72
+1
+ 11
+140.0
+ 21
+197.20999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+CD
+330
+17
+100
+AcDbEntity
+  8
+FILL-HOT-LINE
+ 62
+7
+420
+10133669
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+102.0
+ 20
+217.0
+ 10
+126.0
+ 20
+217.0
+ 10
+126.0
+ 20
+189.0
+ 10
+102.0
+ 20
+189.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+CE
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+102.0
+ 20
+217.0
+ 10
+126.0
+ 20
+217.0
+ 10
+126.0
+ 20
+189.0
+ 10
+102.0
+ 20
+189.0
+  0
+TEXT
+  5
+CF
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+114.0
+ 20
+206.95999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+Stock
+  7
+KITCHEN
+ 72
+1
+ 11
+114.0
+ 21
+206.95999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+D0
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+114.0
+ 20
+203.70999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+range
+  7
+KITCHEN
+ 72
+1
+ 11
+114.0
+ 21
+203.70999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+D1
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+114.0
+ 20
+200.45999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+0.60 × 0.70
+  7
+KITCHEN
+ 72
+1
+ 11
+114.0
+ 21
+200.45999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+D2
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+114.0
+ 20
+197.20999999999998
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+h 0.85
+  7
+KITCHEN
+ 72
+1
+ 11
+114.0
+ 21
+197.20999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LWPOLYLINE
+  5
+D4
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+  6
+DASHED
+370
+40
+420
+11680286
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+94.0
+ 20
+216.2
+ 10
+228.0
+ 20
+216.2
+ 10
+228.0
+ 20
+179.0
+ 10
+94.0
+ 20
+179.0
+  0
+HATCH
+  5
+D6
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-B9C0C5
+ 62
+7
+420
+12173509
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+100.0
+ 20
+185.0
+ 10
+226.0
+ 20
+185.0
+ 10
+226.0
+ 20
+181.8
+ 10
+100.0
+ 20
+181.8
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+D8
+330
+17
+100
+AcDbEntity
+  8
+COLOR-6D7276
+370
+15
+420
+7172726
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+100.0
+ 20
+185.0
+ 10
+226.0
+ 20
+185.0
+ 10
+226.0
+ 20
+181.8
+ 10
+100.0
+ 20
+181.8
+  0
+HATCH
+  5
+DA
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+186.0
+ 20
+147.0
+ 10
+218.0
+ 20
+147.0
+ 10
+218.0
+ 20
+121.6
+ 10
+186.0
+ 20
+121.6
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+DB
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+186.0
+ 20
+147.0
+ 10
+218.0
+ 20
+147.0
+ 10
+218.0
+ 20
+121.6
+ 10
+186.0
+ 20
+121.6
+  0
+TEXT
+  5
+DC
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+202.0
+ 20
+140.11
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+Non-veg prep
+  7
+KITCHEN
+ 72
+1
+ 11
+202.0
+ 21
+140.11
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+DD
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+202.0
+ 20
+136.86
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+0.80 × 0.65 · h 0.90
+  7
+KITCHEN
+ 72
+1
+ 11
+202.0
+ 21
+136.86
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+DF
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-DFF0F6
+ 62
+7
+420
+14676214
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+186.8
+ 20
+132.2
+ 10
+217.20000000000002
+ 20
+132.2
+ 10
+217.20000000000002
+ 20
+121.79999999999998
+ 10
+186.8
+ 20
+121.79999999999998
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+E0
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+370
+30
+420
+3108767
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+186.8
+ 20
+132.2
+ 10
+217.20000000000002
+ 20
+132.2
+ 10
+217.20000000000002
+ 20
+121.79999999999998
+ 10
+186.8
+ 20
+121.79999999999998
+  0
+HATCH
+  5
+E1
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+154.0
+ 20
+147.0
+ 10
+186.0
+ 20
+147.0
+ 10
+186.0
+ 20
+121.6
+ 10
+154.0
+ 20
+121.6
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+E2
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+154.0
+ 20
+147.0
+ 10
+186.0
+ 20
+147.0
+ 10
+186.0
+ 20
+121.6
+ 10
+154.0
+ 20
+121.6
+  0
+TEXT
+  5
+E3
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+176.0
+ 20
+139.25
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Veg / dumpling
+  7
+KITCHEN
+ 72
+1
+ 11
+176.0
+ 21
+139.25
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+E4
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+176.0
+ 20
+136.12
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80 × 0.65
+  7
+KITCHEN
+ 72
+1
+ 11
+176.0
+ 21
+136.12
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+E5
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+176.0
+ 20
+133.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+freezer under
+  7
+KITCHEN
+ 72
+1
+ 11
+176.0
+ 21
+133.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+E7
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-E9E9E9
+ 62
+7
+420
+15329769
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+160.0
+ 20
+127.4
+ 40
+5.2
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+CIRCLE
+  5
+E8
+330
+17
+100
+AcDbEntity
+  8
+COLOR-6D7276
+370
+25
+420
+7172726
+100
+AcDbCircle
+ 10
+160.0
+ 20
+127.4
+ 30
+0.0
+ 40
+5.2
+  0
+HATCH
+  5
+E9
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-E9E9E9
+ 62
+7
+420
+15329769
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+160.0
+ 20
+141.0
+ 40
+5.2
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+CIRCLE
+  5
+EA
+330
+17
+100
+AcDbEntity
+  8
+COLOR-6D7276
+370
+25
+420
+7172726
+100
+AcDbCircle
+ 10
+160.0
+ 20
+141.0
+ 30
+0.0
+ 40
+5.2
+  0
+HATCH
+  5
+EB
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+128.0
+ 20
+147.0
+ 10
+154.0
+ 20
+147.0
+ 10
+154.0
+ 20
+121.6
+ 10
+128.0
+ 20
+121.6
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+EC
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+128.0
+ 20
+147.0
+ 10
+154.0
+ 20
+147.0
+ 10
+154.0
+ 20
+121.6
+ 10
+128.0
+ 20
+121.6
+  0
+TEXT
+  5
+ED
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+141.0
+ 20
+135.34
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+Pass
+  7
+KITCHEN
+ 72
+1
+ 11
+141.0
+ 21
+135.34
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+EE
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+141.0
+ 20
+132.09
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+0.65 × 0.65
+  7
+KITCHEN
+ 72
+1
+ 11
+141.0
+ 21
+132.09
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+EF
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+141.0
+ 20
+128.84
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+u/c fridge
+  7
+KITCHEN
+ 72
+1
+ 11
+141.0
+ 21
+128.84
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+F1
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-E6ECEF
+ 62
+7
+420
+15133935
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+128.0
+ 20
+147.0
+ 10
+154.0
+ 20
+147.0
+ 10
+154.0
+ 20
+142.2
+ 10
+128.0
+ 20
+142.2
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+F2
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+370
+25
+420
+3108767
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+128.0
+ 20
+147.0
+ 10
+154.0
+ 20
+147.0
+ 10
+154.0
+ 20
+142.2
+ 10
+128.0
+ 20
+142.2
+  0
+HATCH
+  5
+F3
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+82.0
+ 20
+137.0
+ 10
+93.2
+ 20
+137.0
+ 10
+93.2
+ 20
+121.6
+ 10
+82.0
+ 20
+121.6
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+F4
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+82.0
+ 20
+137.0
+ 10
+93.2
+ 20
+137.0
+ 10
+93.2
+ 20
+121.6
+ 10
+82.0
+ 20
+121.6
+  0
+TEXT
+  5
+F5
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+87.6
+ 20
+128.12
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+HW
+  7
+KITCHEN
+ 72
+1
+ 11
+87.6
+ 21
+128.12
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+F6
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+218.0
+ 20
+131.0
+ 10
+228.0
+ 20
+131.0
+ 10
+228.0
+ 20
+121.6
+ 10
+218.0
+ 20
+121.6
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+F7
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+218.0
+ 20
+131.0
+ 10
+228.0
+ 20
+131.0
+ 10
+228.0
+ 20
+121.6
+ 10
+218.0
+ 20
+121.6
+  0
+TEXT
+  5
+F8
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+223.0
+ 20
+125.32
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+HW
+  7
+KITCHEN
+ 72
+1
+ 11
+223.0
+ 21
+125.32
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+F9
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+210.0
+ 20
+169.0
+ 10
+228.0
+ 20
+169.0
+ 10
+228.0
+ 20
+149.8
+ 10
+210.0
+ 20
+149.8
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+FA
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+210.0
+ 20
+169.0
+ 10
+228.0
+ 20
+169.0
+ 10
+228.0
+ 20
+149.8
+ 10
+210.0
+ 20
+149.8
+  0
+TEXT
+  5
+FB
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+219.0
+ 20
+165.69
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Veg sink
+  7
+KITCHEN
+ 72
+1
+ 11
+219.0
+ 21
+165.69
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+FC
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+219.0
+ 20
+162.56
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.45 × 0.50
+  7
+KITCHEN
+ 72
+1
+ 11
+219.0
+ 21
+162.56
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+FD
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+32.0
+ 20
+161.0
+ 10
+62.0
+ 20
+161.0
+ 10
+62.0
+ 20
+123.0
+ 10
+32.0
+ 20
+123.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+FE
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+32.0
+ 20
+161.0
+ 10
+62.0
+ 20
+161.0
+ 10
+62.0
+ 20
+123.0
+ 10
+32.0
+ 20
+123.0
+  0
+TEXT
+  5
+FF
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+46.8
+ 20
+147.17
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Dual-temp
+  7
+KITCHEN
+ 72
+1
+ 11
+46.8
+ 21
+147.17
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+100
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+46.8
+ 20
+144.05
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+reach-in
+  7
+KITCHEN
+ 72
+1
+ 11
+46.8
+ 21
+144.05
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+101
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+46.8
+ 20
+140.92
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+fridge + freezer
+  7
+KITCHEN
+ 72
+1
+ 11
+46.8
+ 21
+140.92
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+102
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+46.8
+ 20
+137.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.95 × 0.75
+  7
+KITCHEN
+ 72
+1
+ 11
+46.8
+ 21
+137.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+103
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+46.8
+ 20
+134.67
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+h 2.00
+  7
+KITCHEN
+ 72
+1
+ 11
+46.8
+ 21
+134.67
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+104
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+32.0
+ 20
+185.0
+ 10
+58.0
+ 20
+185.0
+ 10
+58.0
+ 20
+161.0
+ 10
+32.0
+ 20
+161.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+105
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+32.0
+ 20
+185.0
+ 10
+58.0
+ 20
+185.0
+ 10
+58.0
+ 20
+161.0
+ 10
+32.0
+ 20
+161.0
+  0
+TEXT
+  5
+106
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+45.2
+ 20
+175.34
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+Dish-
+  7
+KITCHEN
+ 72
+1
+ 11
+45.2
+ 21
+175.34
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+107
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+45.2
+ 20
+172.09
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+washer
+  7
+KITCHEN
+ 72
+1
+ 11
+45.2
+ 21
+172.09
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+108
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+45.2
+ 20
+168.84
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+0.60 × 0.65
+  7
+KITCHEN
+ 72
+1
+ 11
+45.2
+ 21
+168.84
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+109
+330
+17
+100
+AcDbEntity
+  8
+FILL-STEEL
+ 62
+7
+420
+13225425
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+32.0
+ 20
+217.0
+ 10
+58.0
+ 20
+217.0
+ 10
+58.0
+ 20
+185.0
+ 10
+32.0
+ 20
+185.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+10A
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+30
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+32.0
+ 20
+217.0
+ 10
+58.0
+ 20
+217.0
+ 10
+58.0
+ 20
+185.0
+ 10
+32.0
+ 20
+185.0
+  0
+TEXT
+  5
+10B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+45.2
+ 20
+196.05
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2-bowl
+  7
+KITCHEN
+ 72
+1
+ 11
+45.2
+ 21
+196.05
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+10C
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+45.2
+ 20
+192.92000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+sink
+  7
+KITCHEN
+ 72
+1
+ 11
+45.2
+ 21
+192.92000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+10D
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+45.2
+ 20
+189.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80 × 0.65
+  7
+KITCHEN
+ 72
+1
+ 11
+45.2
+ 21
+189.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+CIRCLE
+  5
+10E
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+  6
+DASHED
+370
+30
+420
+3108767
+100
+AcDbCircle
+ 10
+39.2
+ 20
+209.8
+ 30
+0.0
+ 40
+6.4
+  0
+LWPOLYLINE
+  5
+110
+330
+17
+100
+AcDbEntity
+  8
+MUTED
+  6
+DASHED
+370
+20
+420
+6970702
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+216.0
+ 20
+187.0
+ 10
+228.0
+ 20
+187.0
+ 10
+228.0
+ 20
+151.0
+ 10
+216.0
+ 20
+151.0
+  0
+HATCH
+  5
+111
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-E6ECEF
+ 62
+7
+420
+15133935
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+219.2
+ 20
+187.4
+ 10
+228.0
+ 20
+187.4
+ 10
+228.0
+ 20
+169.8
+ 10
+219.2
+ 20
+169.8
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+112
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+370
+30
+420
+3108767
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+219.2
+ 20
+187.4
+ 10
+228.0
+ 20
+187.4
+ 10
+228.0
+ 20
+169.8
+ 10
+219.2
+ 20
+169.8
+  0
+HATCH
+  5
+114
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-D9261C
+ 62
+7
+420
+14231068
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+204.4
+ 20
+123.4
+ 10
+214.0
+ 20
+123.4
+ 10
+214.0
+ 20
+121.0
+ 10
+204.4
+ 20
+121.0
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+116
+330
+17
+100
+AcDbEntity
+  8
+COLOR-D9261C
+370
+20
+420
+14231068
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+204.4
+ 20
+123.4
+ 10
+214.0
+ 20
+123.4
+ 10
+214.0
+ 20
+121.0
+ 10
+204.4
+ 20
+121.0
+  0
+HATCH
+  5
+118
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-CFE0BF
+ 62
+7
+420
+13623487
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+220.8
+ 20
+155.8
+ 40
+3.4
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+CIRCLE
+  5
+11A
+330
+17
+100
+AcDbEntity
+  8
+AIR-GREEN
+  6
+DASHED
+370
+30
+420
+4155962
+100
+AcDbCircle
+ 10
+220.8
+ 20
+155.8
+ 30
+0.0
+ 40
+3.4
+  0
+HATCH
+  5
+11C
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-D6E2EF
+ 62
+7
+420
+14082799
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+96.8
+ 20
+209.8
+ 40
+4.0
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+CIRCLE
+  5
+11D
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+370
+30
+420
+3108767
+100
+AcDbCircle
+ 10
+96.8
+ 20
+209.8
+ 30
+0.0
+ 40
+4.0
+  0
+HATCH
+  5
+11F
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-C8231B
+ 62
+7
+420
+13116187
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+96.8
+ 20
+213.4
+ 40
+2.8
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+CIRCLE
+  5
+121
+330
+17
+100
+AcDbEntity
+  8
+COLOR-C8231B
+370
+20
+420
+13116187
+100
+AcDbCircle
+ 10
+96.8
+ 20
+213.4
+ 30
+0.0
+ 40
+2.8
+  0
+HATCH
+  5
+123
+330
+17
+100
+AcDbEntity
+  8
+FILL-WATER-BLUE
+ 62
+7
+420
+3108767
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+114.0
+ 20
+214.6
+ 40
+1.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+CIRCLE
+  5
+124
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+370
+20
+420
+3108767
+100
+AcDbCircle
+ 10
+114.0
+ 20
+214.6
+ 30
+0.0
+ 40
+1.6
+  0
+LWPOLYLINE
+  5
+126
+330
+17
+100
+AcDbEntity
+  8
+COLOR-8F6A4A
+  6
+DASHED
+370
+25
+420
+9398858
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+203.6
+ 20
+135.4
+ 10
+214.79999999999998
+ 20
+135.4
+ 10
+214.79999999999998
+ 20
+125.0
+ 10
+203.6
+ 20
+125.0
+  0
+LINE
+  5
+127
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+80
+420
+2761760
+100
+AcDbLine
+ 10
+203.6
+ 20
+122.19999999999999
+ 30
+0.0
+ 11
+187.6
+ 21
+122.19999999999999
+ 31
+0.0
+  0
+LINE
+  5
+128
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+80
+420
+2761760
+100
+AcDbLine
+ 10
+184.0
+ 20
+122.19999999999999
+ 30
+0.0
+ 11
+168.0
+ 21
+122.19999999999999
+ 31
+0.0
+  0
+LWPOLYLINE
+  5
+129
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+  6
+DASHED
+370
+30
+420
+3108767
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+66.0
+ 20
+195.0
+ 10
+90.0
+ 20
+195.0
+ 10
+90.0
+ 20
+163.0
+ 10
+66.0
+ 20
+163.0
+  0
+TEXT
+  5
+12B
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE-TEXT
+420
+3108767
+100
+AcDbText
+ 10
+78.0
+ 20
+181.25
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ceiling hatch
+  7
+KITCHEN
+ 72
+1
+ 11
+78.0
+ 21
+181.25
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+12C
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE-TEXT
+420
+3108767
+100
+AcDbText
+ 10
+78.0
+ 20
+178.12
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60 × 0.80
+  7
+KITCHEN
+ 72
+1
+ 11
+78.0
+ 21
+178.12
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+12D
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE-TEXT
+420
+3108767
+100
+AcDbText
+ 10
+78.0
+ 20
+175.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
++ goods hoist
+  7
+KITCHEN
+ 72
+1
+ 11
+78.0
+ 21
+175.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LWPOLYLINE
+  5
+12E
+330
+17
+100
+AcDbEntity
+  8
+AIR-GREEN
+  6
+DASHED
+370
+30
+420
+4155962
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+202.0
+ 20
+165.0
+ 10
+226.0
+ 20
+165.0
+ 10
+226.0
+ 20
+145.0
+ 10
+202.0
+ 20
+145.0
+  0
+LWPOLYLINE
+  5
+12F
+330
+17
+100
+AcDbEntity
+  8
+AIR-GREEN
+  6
+DASHED
+370
+30
+420
+4155962
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+144.0
+ 20
+169.0
+ 10
+168.0
+ 20
+169.0
+ 10
+168.0
+ 20
+149.0
+ 10
+144.0
+ 20
+149.0
+  0
+TEXT
+  5
+131
+330
+17
+100
+AcDbEntity
+  8
+AIR-GREEN-TEXT
+420
+4155962
+100
+AcDbText
+ 10
+156.0
+ 20
+159.69
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Make-up air
+  7
+KITCHEN
+ 72
+1
+ 11
+156.0
+ 21
+159.69
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+132
+330
+17
+100
+AcDbEntity
+  8
+AIR-GREEN-TEXT
+420
+4155962
+100
+AcDbText
+ 10
+156.0
+ 20
+156.56
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60 × 0.50
+  7
+KITCHEN
+ 72
+1
+ 11
+156.0
+ 21
+156.56
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+133
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+105.2
+ 20
+168.75
+ 30
+0.0
+ 40
+2.16
+  1
+KITCHEN
+  7
+KITCHEN
+ 72
+1
+ 11
+105.2
+ 21
+168.75
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+134
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+105.2
+ 20
+163.32
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+4.90 × 2.40 m
+  7
+KITCHEN
+ 72
+1
+ 11
+105.2
+ 21
+163.32
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+135
+330
+17
+100
+AcDbEntity
+  8
+MUTED-TEXT
+420
+6970702
+100
+AcDbText
+ 10
+105.2
+ 20
+158.52
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+ceiling 2.70 m
+  7
+KITCHEN
+ 72
+1
+ 11
+105.2
+ 21
+158.52
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+136
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+172.0
+ 20
+182.51999999999998
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+floor channel drain 3.15 × 0.08
+  7
+KITCHEN
+ 72
+1
+ 11
+172.0
+ 21
+182.51999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+137
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+228.0
+ 20
+229.8
+ 30
+0.0
+ 11
+180.0
+ 21
+229.8
+ 31
+0.0
+  0
+LINE
+  5
+138
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+228.0
+ 20
+231.0
+ 30
+0.0
+ 11
+228.0
+ 21
+228.6
+ 31
+0.0
+  0
+LINE
+  5
+139
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+180.0
+ 20
+231.0
+ 30
+0.0
+ 11
+180.0
+ 21
+228.6
+ 31
+0.0
+  0
+TEXT
+  5
+13B
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+204.0
+ 20
+230.7
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1.20
+  7
+KITCHEN
+ 72
+1
+ 11
+204.0
+ 21
+230.7
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+13C
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+178.0
+ 20
+229.8
+ 30
+0.0
+ 11
+154.0
+ 21
+229.8
+ 31
+0.0
+  0
+LINE
+  5
+13D
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+178.0
+ 20
+231.0
+ 30
+0.0
+ 11
+178.0
+ 21
+228.6
+ 31
+0.0
+  0
+LINE
+  5
+13E
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+154.0
+ 20
+231.0
+ 30
+0.0
+ 11
+154.0
+ 21
+228.6
+ 31
+0.0
+  0
+TEXT
+  5
+13F
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+166.0
+ 20
+230.7
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60
+  7
+KITCHEN
+ 72
+1
+ 11
+166.0
+ 21
+230.7
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+140
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+152.0
+ 20
+229.8
+ 30
+0.0
+ 11
+128.0
+ 21
+229.8
+ 31
+0.0
+  0
+LINE
+  5
+141
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+152.0
+ 20
+231.0
+ 30
+0.0
+ 11
+152.0
+ 21
+228.6
+ 31
+0.0
+  0
+LINE
+  5
+142
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+128.0
+ 20
+231.0
+ 30
+0.0
+ 11
+128.0
+ 21
+228.6
+ 31
+0.0
+  0
+TEXT
+  5
+143
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+140.0
+ 20
+230.7
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60
+  7
+KITCHEN
+ 72
+1
+ 11
+140.0
+ 21
+230.7
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+144
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+126.0
+ 20
+229.8
+ 30
+0.0
+ 11
+102.0
+ 21
+229.8
+ 31
+0.0
+  0
+LINE
+  5
+145
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+126.0
+ 20
+231.0
+ 30
+0.0
+ 11
+126.0
+ 21
+228.6
+ 31
+0.0
+  0
+LINE
+  5
+146
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+102.0
+ 20
+231.0
+ 30
+0.0
+ 11
+102.0
+ 21
+228.6
+ 31
+0.0
+  0
+TEXT
+  5
+147
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+114.0
+ 20
+230.7
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60
+  7
+KITCHEN
+ 72
+1
+ 11
+114.0
+ 21
+230.7
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+148
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+92.0
+ 20
+229.8
+ 30
+0.0
+ 11
+60.0
+ 21
+229.8
+ 31
+0.0
+  0
+LINE
+  5
+149
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+92.0
+ 20
+231.0
+ 30
+0.0
+ 11
+92.0
+ 21
+228.6
+ 31
+0.0
+  0
+LINE
+  5
+14A
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+60.0
+ 20
+231.0
+ 30
+0.0
+ 11
+60.0
+ 21
+228.6
+ 31
+0.0
+  0
+TEXT
+  5
+14B
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+76.0
+ 20
+230.7
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+rear exit 0.80
+  7
+KITCHEN
+ 72
+1
+ 11
+76.0
+ 21
+230.7
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+14C
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+32.0
+ 20
+243.0
+ 30
+0.0
+ 11
+228.0
+ 21
+243.0
+ 31
+0.0
+  0
+LINE
+  5
+14D
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+32.0
+ 20
+244.2
+ 30
+0.0
+ 11
+32.0
+ 21
+241.8
+ 31
+0.0
+  0
+LINE
+  5
+14E
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+228.0
+ 20
+244.2
+ 30
+0.0
+ 11
+228.0
+ 21
+241.8
+ 31
+0.0
+  0
+TEXT
+  5
+14F
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+130.0
+ 20
+243.9
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+4.90 inside
+  7
+KITCHEN
+ 72
+1
+ 11
+130.0
+ 21
+243.9
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+150
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+218.0
+ 20
+113.80000000000001
+ 30
+0.0
+ 11
+186.0
+ 21
+113.80000000000001
+ 31
+0.0
+  0
+LINE
+  5
+151
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+218.0
+ 20
+115.0
+ 30
+0.0
+ 11
+218.0
+ 21
+112.6
+ 31
+0.0
+  0
+LINE
+  5
+152
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+186.0
+ 20
+115.0
+ 30
+0.0
+ 11
+186.0
+ 21
+112.6
+ 31
+0.0
+  0
+TEXT
+  5
+153
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+202.0
+ 20
+114.69999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80
+  7
+KITCHEN
+ 72
+1
+ 11
+202.0
+ 21
+114.69999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+154
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+186.0
+ 20
+113.80000000000001
+ 30
+0.0
+ 11
+154.0
+ 21
+113.80000000000001
+ 31
+0.0
+  0
+LINE
+  5
+155
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+186.0
+ 20
+115.0
+ 30
+0.0
+ 11
+186.0
+ 21
+112.6
+ 31
+0.0
+  0
+LINE
+  5
+156
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+154.0
+ 20
+115.0
+ 30
+0.0
+ 11
+154.0
+ 21
+112.6
+ 31
+0.0
+  0
+TEXT
+  5
+157
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+170.0
+ 20
+114.69999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80
+  7
+KITCHEN
+ 72
+1
+ 11
+170.0
+ 21
+114.69999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+158
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+154.0
+ 20
+113.80000000000001
+ 30
+0.0
+ 11
+128.0
+ 21
+113.80000000000001
+ 31
+0.0
+  0
+LINE
+  5
+159
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+154.0
+ 20
+115.0
+ 30
+0.0
+ 11
+154.0
+ 21
+112.6
+ 31
+0.0
+  0
+LINE
+  5
+15A
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+128.0
+ 20
+115.0
+ 30
+0.0
+ 11
+128.0
+ 21
+112.6
+ 31
+0.0
+  0
+TEXT
+  5
+15B
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+141.0
+ 20
+114.69999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.65
+  7
+KITCHEN
+ 72
+1
+ 11
+141.0
+ 21
+114.69999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+15C
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+126.0
+ 20
+113.80000000000001
+ 30
+0.0
+ 11
+94.0
+ 21
+113.80000000000001
+ 31
+0.0
+  0
+LINE
+  5
+15D
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+126.0
+ 20
+115.0
+ 30
+0.0
+ 11
+126.0
+ 21
+112.6
+ 31
+0.0
+  0
+LINE
+  5
+15E
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+94.0
+ 20
+115.0
+ 30
+0.0
+ 11
+94.0
+ 21
+112.6
+ 31
+0.0
+  0
+TEXT
+  5
+15F
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+110.0
+ 20
+114.69999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+door 0.80
+  7
+KITCHEN
+ 72
+1
+ 11
+110.0
+ 21
+114.69999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+160
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+93.2
+ 20
+113.80000000000001
+ 30
+0.0
+ 11
+82.0
+ 21
+113.80000000000001
+ 31
+0.0
+  0
+LINE
+  5
+161
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+93.2
+ 20
+115.0
+ 30
+0.0
+ 11
+93.2
+ 21
+112.6
+ 31
+0.0
+  0
+LINE
+  5
+162
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+82.0
+ 20
+115.0
+ 30
+0.0
+ 11
+82.0
+ 21
+112.6
+ 31
+0.0
+  0
+TEXT
+  5
+163
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+87.6
+ 20
+114.69999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.28
+  7
+KITCHEN
+ 72
+1
+ 11
+87.6
+ 21
+114.69999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+164
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+14.4
+ 20
+121.0
+ 30
+0.0
+ 11
+14.4
+ 21
+217.0
+ 31
+0.0
+  0
+LINE
+  5
+165
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+13.2
+ 20
+121.0
+ 30
+0.0
+ 11
+15.6
+ 21
+121.0
+ 31
+0.0
+  0
+LINE
+  5
+166
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+13.2
+ 20
+217.0
+ 30
+0.0
+ 11
+15.6
+ 21
+217.0
+ 31
+0.0
+  0
+TEXT
+  5
+167
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+13.4
+ 20
+169.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2.40 inside
+ 50
+90.0
+  7
+KITCHEN
+ 72
+1
+ 11
+13.4
+ 21
+169.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+168
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+142.0
+ 20
+147.0
+ 30
+0.0
+ 11
+142.0
+ 21
+189.0
+ 31
+0.0
+  0
+LINE
+  5
+169
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+140.8
+ 20
+147.0
+ 30
+0.0
+ 11
+143.2
+ 21
+147.0
+ 31
+0.0
+  0
+LINE
+  5
+16A
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+140.8
+ 20
+189.0
+ 30
+0.0
+ 11
+143.2
+ 21
+189.0
+ 31
+0.0
+  0
+TEXT
+  5
+16B
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+141.0
+ 20
+168.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+cooks' aisle 1.05
+ 50
+90.0
+  7
+KITCHEN
+ 72
+1
+ 11
+141.0
+ 21
+168.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+16C
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+182.0
+ 20
+147.0
+ 30
+0.0
+ 11
+182.0
+ 21
+185.0
+ 31
+0.0
+  0
+LINE
+  5
+16D
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+180.8
+ 20
+147.0
+ 30
+0.0
+ 11
+183.2
+ 21
+147.0
+ 31
+0.0
+  0
+LINE
+  5
+16E
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+180.8
+ 20
+185.0
+ 30
+0.0
+ 11
+183.2
+ 21
+185.0
+ 31
+0.0
+  0
+TEXT
+  5
+16F
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+181.0
+ 20
+166.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.95 at the wok range
+ 50
+90.0
+  7
+KITCHEN
+ 72
+1
+ 11
+181.0
+ 21
+166.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+170
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+20.0
+ 20
+123.0
+ 30
+0.0
+ 11
+20.0
+ 21
+161.0
+ 31
+0.0
+  0
+LINE
+  5
+171
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+18.8
+ 20
+123.0
+ 30
+0.0
+ 11
+21.2
+ 21
+123.0
+ 31
+0.0
+  0
+LINE
+  5
+172
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+18.8
+ 20
+161.0
+ 30
+0.0
+ 11
+21.2
+ 21
+161.0
+ 31
+0.0
+  0
+TEXT
+  5
+173
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+19.0
+ 20
+142.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.95
+ 50
+90.0
+  7
+KITCHEN
+ 72
+1
+ 11
+19.0
+ 21
+142.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+174
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+20.0
+ 20
+161.0
+ 30
+0.0
+ 11
+20.0
+ 21
+185.0
+ 31
+0.0
+  0
+LINE
+  5
+175
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+18.8
+ 20
+161.0
+ 30
+0.0
+ 11
+21.2
+ 21
+161.0
+ 31
+0.0
+  0
+LINE
+  5
+176
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+18.8
+ 20
+185.0
+ 30
+0.0
+ 11
+21.2
+ 21
+185.0
+ 31
+0.0
+  0
+TEXT
+  5
+177
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+19.0
+ 20
+173.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60
+ 50
+90.0
+  7
+KITCHEN
+ 72
+1
+ 11
+19.0
+ 21
+173.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+178
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+20.0
+ 20
+185.0
+ 30
+0.0
+ 11
+20.0
+ 21
+217.0
+ 31
+0.0
+  0
+LINE
+  5
+179
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+18.8
+ 20
+185.0
+ 30
+0.0
+ 11
+21.2
+ 21
+185.0
+ 31
+0.0
+  0
+LINE
+  5
+17A
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED
+370
+25
+420
+11680286
+100
+AcDbLine
+ 10
+18.8
+ 20
+217.0
+ 30
+0.0
+ 11
+21.2
+ 21
+217.0
+ 31
+0.0
+  0
+TEXT
+  5
+17B
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+19.0
+ 20
+201.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80
+ 50
+90.0
+  7
+KITCHEN
+ 72
+1
+ 11
+19.0
+ 21
+201.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+LINE
+  5
+17C
+330
+17
+100
+AcDbEntity
+  8
+WATER-BLUE
+  6
+DASHED
+370
+90
+420
+3108767
+100
+AcDbLine
+ 10
+226.0
+ 20
+190.2
+ 30
+0.0
+ 11
+226.0
+ 21
+209.0
+ 31
+0.0
+  0
+HATCH
+  5
+17E
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+226.0
+ 20
+199.4
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+17F
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+226.0
+ 20
+199.4
+ 10
+239.8
+ 20
+197.0
+ 10
+240.8
+ 20
+197.0
+  0
+TEXT
+  5
+180
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+241.0
+ 20
+196.1
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Wok tool rail at 1.4 m · 4 tools
+  7
+KITCHEN
+ 11
+241.0
+ 21
+196.1
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+181
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+218.0
+ 20
+185.0
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+182
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+218.0
+ 20
+185.0
+ 10
+239.8
+ 20
+186.2
+ 10
+240.8
+ 20
+186.2
+  0
+TEXT
+  5
+183
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+241.0
+ 20
+185.3
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Back-up sauce + oil shelf above, at 1.45 m
+  7
+KITCHEN
+ 11
+241.0
+ 21
+185.3
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+184
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+223.6
+ 20
+178.6
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+185
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+223.6
+ 20
+178.6
+ 10
+239.8
+ 20
+177.0
+ 10
+240.8
+ 20
+177.0
+  0
+TEXT
+  5
+186
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+241.0
+ 20
+176.1
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Wok seasoning rail at 1.0 m · 0.44 × 0.22
+  7
+KITCHEN
+ 11
+241.0
+ 21
+176.1
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+187
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+220.0
+ 20
+159.4
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+188
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+220.0
+ 20
+159.4
+ 10
+239.8
+ 20
+159.4
+ 10
+240.8
+ 20
+159.4
+  0
+TEXT
+  5
+189
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+241.0
+ 20
+158.5
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Veg + herb sink 0.45 × 0.50 · wet bin under
+  7
+KITCHEN
+ 11
+241.0
+ 21
+158.5
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+18A
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+226.8
+ 20
+133.8
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+18B
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+226.8
+ 20
+133.8
+ 10
+239.8
+ 20
+137.0
+ 10
+240.8
+ 20
+137.0
+  0
+TEXT
+  5
+18C
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+241.0
+ 20
+136.1
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Pillar P2: measure on site
+  7
+KITCHEN
+ 11
+241.0
+ 21
+136.1
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+18D
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+223.2
+ 20
+125.80000000000001
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+18E
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+223.2
+ 20
+125.80000000000001
+ 10
+239.8
+ 20
+125.80000000000001
+ 10
+240.8
+ 20
+125.80000000000001
+  0
+TEXT
+  5
+18F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+241.0
+ 20
+124.9
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Second hand-wash 0.25 · 3 apron hooks
+  7
+KITCHEN
+ 11
+241.0
+ 21
+124.9
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+190
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+39.2
+ 20
+209.8
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+191
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+39.2
+ 20
+209.8
+ 10
+39.2
+ 20
+265.7
+ 10
+40.7
+ 20
+265.7
+  0
+TEXT
+  5
+192
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+41.2
+ 20
+264.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Water heater 35 L, 3 kW, high on the left wall over the dish sink
+  7
+KITCHEN
+ 11
+41.2
+ 21
+264.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+193
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+94.8
+ 20
+214.6
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+194
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+94.8
+ 20
+214.6
+ 10
+94.8
+ 20
+261.4
+ 10
+96.3
+ 20
+261.4
+  0
+TEXT
+  5
+195
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+96.8
+ 20
+260.5
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Class K extinguisher on the wall, above the dry bin · suppression pull above it
+  7
+KITCHEN
+ 11
+96.8
+ 21
+260.5
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+196
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+98.8
+ 20
+209.8
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+197
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+98.8
+ 20
+209.8
+ 10
+98.8
+ 20
+257.1
+ 10
+100.3
+ 20
+257.1
+  0
+TEXT
+  5
+198
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+100.8
+ 20
+256.2
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Dry bin (pedal) Ø 0.20 · keeps the rear exit clear
+  7
+KITCHEN
+ 11
+100.8
+ 21
+256.2
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+199
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+114.0
+ 20
+214.6
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+19A
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+114.0
+ 20
+214.6
+ 10
+114.0
+ 20
+252.8
+ 10
+115.5
+ 20
+252.8
+  0
+TEXT
+  5
+19B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+116.0
+ 20
+251.9
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Pot filler over the stock range · cold, swing arm
+  7
+KITCHEN
+ 11
+116.0
+ 21
+251.9
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+19C
+330
+17
+100
+AcDbEntity
+  8
+MUTED-TEXT
+420
+6970702
+100
+AcDbText
+ 10
+12.0
+ 20
+226.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+OUTSIDE (parking)
+  7
+KITCHEN
+ 11
+12.0
+ 21
+226.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+19D
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+212.0
+ 20
+130.2
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+19E
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+212.0
+ 20
+130.2
+ 10
+212.0
+ 20
+101.1
+ 10
+213.5
+ 20
+101.1
+  0
+TEXT
+  5
+19F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+214.0
+ 20
+100.19999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Colour-coded board rack in slots under the bench (4 boards)
+  7
+KITCHEN
+ 11
+214.0
+ 21
+100.19999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1A0
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+206.0
+ 20
+122.19999999999999
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1A1
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+206.0
+ 20
+122.19999999999999
+ 10
+206.0
+ 20
+96.80000000000001
+ 10
+207.5
+ 20
+96.80000000000001
+  0
+TEXT
+  5
+1A2
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+208.0
+ 20
+95.9
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Fire blanket on the wall
+  7
+KITCHEN
+ 11
+208.0
+ 21
+95.9
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1A3
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+194.0
+ 20
+127.0
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1A4
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+194.0
+ 20
+127.0
+ 10
+194.0
+ 20
+92.5
+ 10
+195.5
+ 20
+92.5
+  0
+TEXT
+  5
+1A5
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+196.0
+ 20
+91.6
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Chilled mise-en-place rail on the bench · 0.76 × 0.26
+  7
+KITCHEN
+ 11
+196.0
+ 21
+91.6
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1A6
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+182.0
+ 20
+129.8
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1A7
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+182.0
+ 20
+129.8
+ 10
+182.0
+ 20
+88.19999999999999
+ 10
+183.5
+ 20
+88.19999999999999
+  0
+TEXT
+  5
+1A8
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+184.0
+ 20
+87.30000000000001
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Shelf over the veg bench: stone mortar, mixer-grinder, kitchen torch
+  7
+KITCHEN
+ 11
+184.0
+ 21
+87.30000000000001
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1A9
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+178.0
+ 20
+122.19999999999999
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1AA
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+178.0
+ 20
+122.19999999999999
+ 10
+178.0
+ 20
+83.9
+ 10
+179.5
+ 20
+83.9
+  0
+TEXT
+  5
+1AB
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+180.0
+ 20
+83.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Magnetic knife strips on the wall over both benches · 0.40 each
+  7
+KITCHEN
+ 11
+180.0
+ 21
+83.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1AC
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+160.0
+ 20
+127.4
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1AD
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+160.0
+ 20
+127.4
+ 10
+160.0
+ 20
+79.6
+ 10
+161.5
+ 20
+79.6
+  0
+TEXT
+  5
+1AE
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+162.0
+ 20
+78.69999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Two 5 L rice cookers (jasmine, sticky) · Ø 0.26
+  7
+KITCHEN
+ 11
+162.0
+ 21
+78.69999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1AF
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+152.0
+ 20
+144.6
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1B0
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+152.0
+ 20
+144.6
+ 10
+152.0
+ 20
+75.30000000000001
+ 10
+153.5
+ 20
+75.30000000000001
+  0
+TEXT
+  5
+1B1
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+154.0
+ 20
+74.4
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Dip + garnish rail on the pass · ticket rail above the hatch
+  7
+KITCHEN
+ 11
+154.0
+ 21
+74.4
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1B2
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+110.0
+ 20
+121.0
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1B3
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+110.0
+ 20
+121.0
+ 10
+110.0
+ 20
+71.0
+ 10
+111.5
+ 20
+71.0
+  0
+TEXT
+  5
+1B4
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+112.0
+ 20
+70.1
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Double-acting door 0.80 with vision panel · insect killer above
+  7
+KITCHEN
+ 11
+112.0
+ 21
+70.1
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1B5
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+1
+ 93
+1
+ 72
+2
+ 10
+87.6
+ 20
+129.0
+ 40
+0.6
+ 50
+0
+ 51
+360
+ 73
+1
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1B6
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+87.6
+ 20
+129.0
+ 10
+87.6
+ 20
+66.69999999999999
+ 10
+89.1
+ 20
+66.69999999999999
+  0
+TEXT
+  5
+1B7
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+89.6
+ 20
+65.80000000000001
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Hand-wash at the door 0.28 × 0.40 · hands-free tap · 6 L heater
+  7
+KITCHEN
+ 11
+89.6
+ 21
+65.80000000000001
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1B8
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+12.0
+ 20
+45.0
+ 10
+52.0
+ 20
+45.0
+ 10
+52.0
+ 20
+43.400000000000006
+ 10
+12.0
+ 20
+43.400000000000006
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+LWPOLYLINE
+  5
+1B9
+330
+17
+100
+AcDbEntity
+  8
+INK
+370
+20
+420
+2761760
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+52.0
+ 20
+45.0
+ 10
+92.0
+ 20
+45.0
+ 10
+92.0
+ 20
+43.400000000000006
+ 10
+52.0
+ 20
+43.400000000000006
+  0
+TEXT
+  5
+1BA
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+12.0
+ 20
+40.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0
+  7
+KITCHEN
+ 11
+12.0
+ 21
+40.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1BB
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+52.0
+ 20
+40.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1 m
+  7
+KITCHEN
+ 72
+1
+ 11
+52.0
+ 21
+40.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1BC
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+92.0
+ 20
+40.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2 m
+  7
+KITCHEN
+ 72
+1
+ 11
+92.0
+ 21
+40.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1BD
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+98.0
+ 20
+43.19999999999999
+ 30
+0.0
+ 40
+1.8719999999999999
+  1
+PLAN 1:25 on A3 · dimensions in metres
+  7
+KITCHEN
+ 11
+98.0
+ 21
+43.19999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1BE
+330
+17
+100
+AcDbEntity
+  8
+MUTED-TEXT
+420
+6970702
+100
+AcDbText
+ 10
+12.0
+ 20
+34.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Back wall at the top, dining room at the bottom; left and right as you walk in from the road. Dashed red: canopy hood above (3.35 × 0.95, bottom 2.05 m).
+  7
+KITCHEN
+ 11
+12.0
+ 21
+34.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1BF
+330
+17
+100
+AcDbEntity
+  8
+MUTED-TEXT
+420
+6970702
+100
+AcDbText
+ 10
+12.0
+ 20
+29.5
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Dashed blue: hatch and fridge doors. Dashed green: make-up air diffusers above (2). Dashed grey: shelves above. Heights and services: sheet 2.
+  7
+KITCHEN
+ 11
+12.0
+ 21
+29.5
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1C0
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+298.5
+ 20
+265.5
+ 30
+0.0
+ 40
+2.16
+  1
+Equipment list
+  7
+KITCHEN
+ 11
+298.5
+ 21
+265.5
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1C1
+330
+17
+100
+AcDbEntity
+  8
+FILL-INK
+ 62
+7
+420
+2761760
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+264.3
+ 10
+409.5
+ 20
+264.3
+ 10
+409.5
+ 20
+259.7
+ 10
+298.5
+ 20
+259.7
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1C2
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+300.0
+ 20
+261.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+EQUIPMENT
+  7
+KITCHEN
+ 11
+300.0
+ 21
+261.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1C3
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+370.0
+ 20
+261.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+W × D × H (m)
+  7
+KITCHEN
+ 11
+370.0
+ 21
+261.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1C4
+330
+17
+100
+AcDbEntity
+  8
+WHITE-TEXT
+420
+16777215
+100
+AcDbText
+ 10
+404.0
+ 20
+261.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+QTY
+  7
+KITCHEN
+ 11
+404.0
+ 21
+261.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1C6
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+259.7
+ 10
+409.5
+ 20
+259.7
+ 10
+409.5
+ 20
+255.9
+ 10
+298.5
+ 20
+255.9
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1C7
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+256.6
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Wok range, 2 burners (Chinese)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+256.6
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1C8
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+256.6
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1.20 × 0.80 × 0.80
+  7
+KITCHEN
+ 11
+370.0
+ 21
+256.6
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1C9
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+256.6
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+256.6
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1CA
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+252.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Dim sum steamer, 2 holes
+  7
+KITCHEN
+ 11
+300.0
+ 21
+252.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1CB
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+252.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60 × 0.70 × 0.80
+  7
+KITCHEN
+ 11
+370.0
+ 21
+252.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1CC
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+252.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+252.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1CD
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+252.10000000000002
+ 10
+409.5
+ 20
+252.10000000000002
+ 10
+409.5
+ 20
+248.3
+ 10
+298.5
+ 20
+248.3
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1CE
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+249.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Twin-tank fryer (veg / non-veg)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+249.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1CF
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+249.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60 × 0.70 × 0.90
+  7
+KITCHEN
+ 11
+370.0
+ 21
+249.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1D0
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+249.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+249.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1D1
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+245.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Stock range, 2 burners
+  7
+KITCHEN
+ 11
+300.0
+ 21
+245.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1D2
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+245.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60 × 0.70 × 0.85
+  7
+KITCHEN
+ 11
+370.0
+ 21
+245.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1D3
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+245.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+245.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1D4
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+244.5
+ 10
+409.5
+ 20
+244.5
+ 10
+409.5
+ 20
+240.70000000000002
+ 10
+298.5
+ 20
+240.70000000000002
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1D5
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+241.4
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Canopy hood, baffle filters, suppression
+  7
+KITCHEN
+ 11
+300.0
+ 21
+241.4
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1D6
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+241.4
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+3.35 × 0.95 × 0.55
+  7
+KITCHEN
+ 11
+370.0
+ 21
+241.4
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1D7
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+241.4
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+241.4
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1D8
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+237.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Non-veg prep bench, undershelf, shelf over
+  7
+KITCHEN
+ 11
+300.0
+ 21
+237.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1D9
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+237.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80 × 0.65 × 0.90
+  7
+KITCHEN
+ 11
+370.0
+ 21
+237.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1DA
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+237.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+237.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1DB
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+236.90000000000003
+ 10
+409.5
+ 20
+236.90000000000003
+ 10
+409.5
+ 20
+233.10000000000002
+ 10
+298.5
+ 20
+233.10000000000002
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1DC
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+233.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Veg / dumpling bench, 2 shelves over
+  7
+KITCHEN
+ 11
+300.0
+ 21
+233.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1DD
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+233.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80 × 0.65 × 0.90
+  7
+KITCHEN
+ 11
+370.0
+ 21
+233.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1DE
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+233.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+233.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1DF
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+230.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Under-counter freezer (in the veg bench)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+230.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1E0
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+230.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2 doors
+  7
+KITCHEN
+ 11
+370.0
+ 21
+230.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1E1
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+230.0
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+230.0
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1E2
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+229.3
+ 10
+409.5
+ 20
+229.3
+ 10
+409.5
+ 20
+225.5
+ 10
+298.5
+ 20
+225.5
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1E3
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+226.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Pass bench + 2 heat lamps, u/c fridge under
+  7
+KITCHEN
+ 11
+300.0
+ 21
+226.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1E4
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+226.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.65 × 0.65 × 0.90
+  7
+KITCHEN
+ 11
+370.0
+ 21
+226.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1E5
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+226.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+226.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1E6
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+222.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Veg + herb wash sink, tall mixer tap
+  7
+KITCHEN
+ 11
+300.0
+ 21
+222.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1E7
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+222.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.45 × 0.50 × 0.90
+  7
+KITCHEN
+ 11
+370.0
+ 21
+222.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1E8
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+222.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+222.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1E9
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+221.70000000000002
+ 10
+409.5
+ 20
+221.70000000000002
+ 10
+409.5
+ 20
+217.90000000000003
+ 10
+298.5
+ 20
+217.90000000000003
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1EA
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+218.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Hand-wash basins, hands-free, 6 L heater each
+  7
+KITCHEN
+ 11
+300.0
+ 21
+218.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1EB
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+218.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.28 × 0.40 · 0.25 × 0.25
+  7
+KITCHEN
+ 11
+370.0
+ 21
+218.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1EC
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+218.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2
+  7
+KITCHEN
+ 11
+404.0
+ 21
+218.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1ED
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+214.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Dual-temp reach-in (fridge + freezer)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+214.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1EE
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+214.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.95 × 0.75 × 2.00
+  7
+KITCHEN
+ 11
+370.0
+ 21
+214.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1EF
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+214.8
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+214.8
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1F0
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+214.10000000000002
+ 10
+409.5
+ 20
+214.10000000000002
+ 10
+409.5
+ 20
+210.3
+ 10
+298.5
+ 20
+210.3
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1F1
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+211.00000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Under-counter dishwasher + drainboard
+  7
+KITCHEN
+ 11
+300.0
+ 21
+211.00000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1F2
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+211.00000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60 × 0.65 × 0.90
+  7
+KITCHEN
+ 11
+370.0
+ 21
+211.00000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1F3
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+211.00000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+211.00000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1F4
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+207.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2-bowl sink + pre-rinse spray
+  7
+KITCHEN
+ 11
+300.0
+ 21
+207.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1F5
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+207.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80 × 0.65 × 0.90
+  7
+KITCHEN
+ 11
+370.0
+ 21
+207.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1F6
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+207.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+207.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1F7
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+206.50000000000003
+ 10
+409.5
+ 20
+206.50000000000003
+ 10
+409.5
+ 20
+202.70000000000005
+ 10
+298.5
+ 20
+202.70000000000005
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1F8
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+203.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Storage water heater 35 L, 3 kW
+  7
+KITCHEN
+ 11
+300.0
+ 21
+203.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1F9
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+203.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ø 0.33 × 0.50
+  7
+KITCHEN
+ 11
+370.0
+ 21
+203.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1FA
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+203.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+203.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1FB
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+199.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Shelves over the dish line (top one slatted)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+199.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1FC
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+199.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1.40 × 0.35
+  7
+KITCHEN
+ 11
+370.0
+ 21
+199.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+1FD
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+199.60000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2
+  7
+KITCHEN
+ 11
+404.0
+ 21
+199.60000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+1FE
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+198.90000000000003
+ 10
+409.5
+ 20
+198.90000000000003
+ 10
+409.5
+ 20
+195.10000000000002
+ 10
+298.5
+ 20
+195.10000000000002
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+1FF
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+195.80000000000004
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Bamboo steamer stacks (3 baskets + lid)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+195.80000000000004
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+200
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+195.80000000000004
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ø 0.26
+  7
+KITCHEN
+ 11
+370.0
+ 21
+195.80000000000004
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+201
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+195.80000000000004
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+3
+  7
+KITCHEN
+ 11
+404.0
+ 21
+195.80000000000004
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+202
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+192.00000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Pot filler, wall swing arm (cold)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+192.00000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+203
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+192.00000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.30 reach
+  7
+KITCHEN
+ 11
+370.0
+ 21
+192.00000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+204
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+192.00000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+192.00000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+205
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+191.30000000000004
+ 10
+409.5
+ 20
+191.30000000000004
+ 10
+409.5
+ 20
+187.50000000000006
+ 10
+298.5
+ 20
+187.50000000000006
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+206
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+188.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Used-oil can 20 L + spill tray
+  7
+KITCHEN
+ 11
+300.0
+ 21
+188.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+207
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+188.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.34 × 0.17 × 0.40
+  7
+KITCHEN
+ 11
+370.0
+ 21
+188.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+208
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+188.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+188.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+209
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+184.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Wok seasoning rail, 8 pots + 8 bottles
+  7
+KITCHEN
+ 11
+300.0
+ 21
+184.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+20A
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+184.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.44 × 0.22
+  7
+KITCHEN
+ 11
+370.0
+ 21
+184.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+20B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+184.40000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+184.40000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+20C
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+183.70000000000005
+ 10
+409.5
+ 20
+183.70000000000005
+ 10
+409.5
+ 20
+179.90000000000003
+ 10
+298.5
+ 20
+179.90000000000003
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+20D
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+180.60000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Wok tool rail: ladle, spatula, spider, brush
+  7
+KITCHEN
+ 11
+300.0
+ 21
+180.60000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+20E
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+180.60000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.47
+  7
+KITCHEN
+ 11
+370.0
+ 21
+180.60000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+20F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+180.60000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+180.60000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+210
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+176.80000000000007
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Back-up sauce + oil shelf
+  7
+KITCHEN
+ 11
+300.0
+ 21
+176.80000000000007
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+211
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+176.80000000000007
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.90 × 0.30
+  7
+KITCHEN
+ 11
+370.0
+ 21
+176.80000000000007
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+212
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+176.80000000000007
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+176.80000000000007
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+213
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+176.10000000000005
+ 10
+409.5
+ 20
+176.10000000000005
+ 10
+409.5
+ 20
+172.30000000000007
+ 10
+298.5
+ 20
+172.30000000000007
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+214
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+173.00000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Chilled mise-en-place rail, 5 pans
+  7
+KITCHEN
+ 11
+300.0
+ 21
+173.00000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+215
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+173.00000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.76 × 0.26 × 0.22
+  7
+KITCHEN
+ 11
+370.0
+ 21
+173.00000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+216
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+173.00000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+173.00000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+217
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+169.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Dip + garnish rail (5 inserts)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+169.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+218
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+169.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.65 × 0.12
+  7
+KITCHEN
+ 11
+370.0
+ 21
+169.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+219
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+169.20000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+169.20000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+21A
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+168.50000000000006
+ 10
+409.5
+ 20
+168.50000000000006
+ 10
+409.5
+ 20
+164.70000000000005
+ 10
+298.5
+ 20
+164.70000000000005
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+21B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+165.40000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ticket rail over the pass hatch
+  7
+KITCHEN
+ 11
+300.0
+ 21
+165.40000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+21C
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+165.40000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.65
+  7
+KITCHEN
+ 11
+370.0
+ 21
+165.40000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+21D
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+165.40000000000006
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+165.40000000000006
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+21E
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+161.60000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Magnetic knife strips
+  7
+KITCHEN
+ 11
+300.0
+ 21
+161.60000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+21F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+161.60000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.40
+  7
+KITCHEN
+ 11
+370.0
+ 21
+161.60000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+220
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+161.60000000000005
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2
+  7
+KITCHEN
+ 11
+404.0
+ 21
+161.60000000000005
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+221
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+160.90000000000003
+ 10
+409.5
+ 20
+160.90000000000003
+ 10
+409.5
+ 20
+157.10000000000002
+ 10
+298.5
+ 20
+157.10000000000002
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+222
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+157.80000000000004
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Colour-coded board rack + boards
+  7
+KITCHEN
+ 11
+300.0
+ 21
+157.80000000000004
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+223
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+157.80000000000004
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+4 boards
+  7
+KITCHEN
+ 11
+370.0
+ 21
+157.80000000000004
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+224
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+157.80000000000004
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+157.80000000000004
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+225
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+154.00000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Rice cookers 5 L (jasmine, sticky)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+154.00000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+226
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+154.00000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ø 0.26
+  7
+KITCHEN
+ 11
+370.0
+ 21
+154.00000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+227
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+154.00000000000003
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2
+  7
+KITCHEN
+ 11
+404.0
+ 21
+154.00000000000003
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+228
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+153.3
+ 10
+409.5
+ 20
+153.3
+ 10
+409.5
+ 20
+149.5
+ 10
+298.5
+ 20
+149.5
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+229
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+150.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Stone mortar + pestle, granite
+  7
+KITCHEN
+ 11
+300.0
+ 21
+150.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+22A
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+150.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ø 0.22
+  7
+KITCHEN
+ 11
+370.0
+ 21
+150.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+22B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+150.20000000000002
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+150.20000000000002
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+22C
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+146.4
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Mixer-grinder, commercial
+  7
+KITCHEN
+ 11
+300.0
+ 21
+146.4
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+22D
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+146.4
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+—
+  7
+KITCHEN
+ 11
+370.0
+ 21
+146.4
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+22E
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+146.4
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+146.4
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+22F
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+145.7
+ 10
+409.5
+ 20
+145.7
+ 10
+409.5
+ 20
+141.89999999999998
+ 10
+298.5
+ 20
+141.89999999999998
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+230
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+142.6
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Kitchen blowtorch
+  7
+KITCHEN
+ 11
+300.0
+ 21
+142.6
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+231
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+142.6
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+—
+  7
+KITCHEN
+ 11
+370.0
+ 21
+142.6
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+232
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+142.6
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+142.6
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+233
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+138.79999999999998
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Foot-pedal bins (wet under veg sink, dry)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+138.79999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+234
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+138.79999999999998
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ø 0.20 × 0.60
+  7
+KITCHEN
+ 11
+370.0
+ 21
+138.79999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+235
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+138.79999999999998
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2
+  7
+KITCHEN
+ 11
+404.0
+ 21
+138.79999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+236
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+138.09999999999997
+ 10
+409.5
+ 20
+138.09999999999997
+ 10
+409.5
+ 20
+134.29999999999995
+ 10
+298.5
+ 20
+134.29999999999995
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+237
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+134.99999999999997
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Apron hook rail at the prep corner
+  7
+KITCHEN
+ 11
+300.0
+ 21
+134.99999999999997
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+238
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+134.99999999999997
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+3 hooks
+  7
+KITCHEN
+ 11
+370.0
+ 21
+134.99999999999997
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+239
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+134.99999999999997
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+134.99999999999997
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+23A
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+131.19999999999996
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Double-acting door, vision panel, kick plate
+  7
+KITCHEN
+ 11
+300.0
+ 21
+131.19999999999996
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+23B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+131.19999999999996
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80 × 2.05
+  7
+KITCHEN
+ 11
+370.0
+ 21
+131.19999999999996
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+23C
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+131.19999999999996
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+131.19999999999996
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+23D
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+130.49999999999994
+ 10
+409.5
+ 20
+130.49999999999994
+ 10
+409.5
+ 20
+126.69999999999993
+ 10
+298.5
+ 20
+126.69999999999993
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+23E
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+127.39999999999995
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Make-up air diffusers, ceiling
+  7
+KITCHEN
+ 11
+300.0
+ 21
+127.39999999999995
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+23F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+127.39999999999995
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60 × 0.50
+  7
+KITCHEN
+ 11
+370.0
+ 21
+127.39999999999995
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+240
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+127.39999999999995
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+2
+  7
+KITCHEN
+ 11
+404.0
+ 21
+127.39999999999995
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+241
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+123.59999999999994
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Insect killer
+  7
+KITCHEN
+ 11
+300.0
+ 21
+123.59999999999994
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+242
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+123.59999999999994
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.50 × 0.18
+  7
+KITCHEN
+ 11
+370.0
+ 21
+123.59999999999994
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+243
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+123.59999999999994
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+123.59999999999994
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+244
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+122.89999999999992
+ 10
+409.5
+ 20
+122.89999999999992
+ 10
+409.5
+ 20
+119.09999999999991
+ 10
+298.5
+ 20
+119.09999999999991
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+245
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+119.79999999999993
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Floor channel drain
+  7
+KITCHEN
+ 11
+300.0
+ 21
+119.79999999999993
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+246
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+119.79999999999993
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+3.15 × 0.08
+  7
+KITCHEN
+ 11
+370.0
+ 21
+119.79999999999993
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+247
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+119.79999999999993
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+119.79999999999993
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+248
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+115.99999999999991
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ceiling hatch + fold-down ladder
+  7
+KITCHEN
+ 11
+300.0
+ 21
+115.99999999999991
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+249
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+115.99999999999991
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.60 × 0.80
+  7
+KITCHEN
+ 11
+370.0
+ 21
+115.99999999999991
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+24A
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+115.99999999999991
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+115.99999999999991
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+24B
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+115.2999999999999
+ 10
+409.5
+ 20
+115.2999999999999
+ 10
+409.5
+ 20
+111.49999999999989
+ 10
+298.5
+ 20
+111.49999999999989
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+24C
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+112.1999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Goods hoist 200 kg over the hatch
+  7
+KITCHEN
+ 11
+300.0
+ 21
+112.1999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+24D
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+112.1999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+—
+  7
+KITCHEN
+ 11
+370.0
+ 21
+112.1999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+24E
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+112.1999999999999
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+112.1999999999999
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+24F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+108.39999999999989
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Extinguisher Class K 6 L (CO₂ at the door)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+108.39999999999989
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+250
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+108.39999999999989
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+wall bracket
+  7
+KITCHEN
+ 11
+370.0
+ 21
+108.39999999999989
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+251
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+108.39999999999989
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+108.39999999999989
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+252
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+107.69999999999987
+ 10
+409.5
+ 20
+107.69999999999987
+ 10
+409.5
+ 20
+103.89999999999986
+ 10
+298.5
+ 20
+103.89999999999986
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+253
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+104.59999999999988
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Fire blanket, first-aid box
+  7
+KITCHEN
+ 11
+300.0
+ 21
+104.59999999999988
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+254
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+104.59999999999988
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+—
+  7
+KITCHEN
+ 11
+370.0
+ 21
+104.59999999999988
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+255
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+104.59999999999988
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1 each
+  7
+KITCHEN
+ 11
+404.0
+ 21
+104.59999999999988
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+256
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+100.79999999999987
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+OUTSIDE + SERVICES (details on sheet 2)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+100.79999999999987
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+257
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+100.09999999999985
+ 10
+409.5
+ 20
+100.09999999999985
+ 10
+409.5
+ 20
+96.29999999999984
+ 10
+298.5
+ 20
+96.29999999999984
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+258
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+96.99999999999986
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+LPG bank: cage + 5 × 19 kg cylinders
+  7
+KITCHEN
+ 11
+300.0
+ 21
+96.99999999999986
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+259
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+96.99999999999986
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.35 × 1.70 × 1.60
+  7
+KITCHEN
+ 11
+370.0
+ 21
+96.99999999999986
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+25A
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+96.99999999999986
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+96.99999999999986
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+25B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+93.19999999999985
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Gas: solenoid valve, valve per appliance, leak detector
+  7
+KITCHEN
+ 11
+300.0
+ 21
+93.19999999999985
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+25C
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+93.19999999999985
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+copper, 1 set
+  7
+KITCHEN
+ 11
+370.0
+ 21
+93.19999999999985
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+25D
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+93.19999999999985
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+93.19999999999985
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+25E
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+92.49999999999983
+ 10
+409.5
+ 20
+92.49999999999983
+ 10
+409.5
+ 20
+88.69999999999982
+ 10
+298.5
+ 20
+88.69999999999982
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+25F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+89.39999999999984
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Exhaust: ESP + carbon filter, outside
+  7
+KITCHEN
+ 11
+300.0
+ 21
+89.39999999999984
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+260
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+89.39999999999984
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.50 × 1.00 × 0.90
+  7
+KITCHEN
+ 11
+370.0
+ 21
+89.39999999999984
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+261
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+89.39999999999984
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+89.39999999999984
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+262
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+85.59999999999982
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Inline exhaust fan, anti-vibration mounts
+  7
+KITCHEN
+ 11
+300.0
+ 21
+85.59999999999982
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+263
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+85.59999999999982
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Ø 0.44
+  7
+KITCHEN
+ 11
+370.0
+ 21
+85.59999999999982
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+264
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+85.59999999999982
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+85.59999999999982
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+265
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+84.8999999999998
+ 10
+409.5
+ 20
+84.8999999999998
+ 10
+409.5
+ 20
+81.0999999999998
+ 10
+298.5
+ 20
+81.0999999999998
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+266
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+81.79999999999981
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Fresh-air intake fan, back wall, high
+  7
+KITCHEN
+ 11
+300.0
+ 21
+81.79999999999981
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+267
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+81.79999999999981
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.50 × 0.48
+  7
+KITCHEN
+ 11
+370.0
+ 21
+81.79999999999981
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+268
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+81.79999999999981
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+81.79999999999981
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+269
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+77.9999999999998
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Cooling coil 1.5 TR + condenser (make-up air)
+  7
+KITCHEN
+ 11
+300.0
+ 21
+77.9999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+26A
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+77.9999999999998
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.80 × 0.55 × 0.30
+  7
+KITCHEN
+ 11
+370.0
+ 21
+77.9999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+26B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+77.9999999999998
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+77.9999999999998
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+26C
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+77.29999999999978
+ 10
+409.5
+ 20
+77.29999999999978
+ 10
+409.5
+ 20
+73.49999999999977
+ 10
+298.5
+ 20
+73.49999999999977
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+26D
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+74.19999999999979
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Grease trap, outside back corner
+  7
+KITCHEN
+ 11
+300.0
+ 21
+74.19999999999979
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+26E
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+74.19999999999979
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.45 × 0.45
+  7
+KITCHEN
+ 11
+370.0
+ 21
+74.19999999999979
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+26F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+74.19999999999979
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+74.19999999999979
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+270
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+70.39999999999978
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Water cabinet: pump, filter, softener
+  7
+KITCHEN
+ 11
+300.0
+ 21
+70.39999999999978
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+271
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+70.39999999999978
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+0.45 × 0.80 × 1.50
+  7
+KITCHEN
+ 11
+370.0
+ 21
+70.39999999999978
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+272
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+70.39999999999978
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+70.39999999999978
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+273
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+69.69999999999976
+ 10
+409.5
+ 20
+69.69999999999976
+ 10
+409.5
+ 20
+65.89999999999975
+ 10
+298.5
+ 20
+65.89999999999975
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+274
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+66.59999999999977
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Water sump, buried, 1,000 L
+  7
+KITCHEN
+ 11
+300.0
+ 21
+66.59999999999977
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+275
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+66.59999999999977
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1.3 × 1.0 × 0.8
+  7
+KITCHEN
+ 11
+370.0
+ 21
+66.59999999999977
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+276
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+66.59999999999977
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+66.59999999999977
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+277
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+62.799999999999756
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Heat detector, kitchen ceiling
+  7
+KITCHEN
+ 11
+300.0
+ 21
+62.799999999999756
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+278
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+62.799999999999756
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+—
+  7
+KITCHEN
+ 11
+370.0
+ 21
+62.799999999999756
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+279
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+62.799999999999756
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1
+  7
+KITCHEN
+ 11
+404.0
+ 21
+62.799999999999756
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+HATCH
+  5
+27A
+330
+17
+100
+AcDbEntity
+  8
+FILL-COLOR-F3EFE6
+ 62
+7
+420
+15986662
+100
+AcDbHatch
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+210
+0.0
+220
+0.0
+230
+1.0
+  2
+SOLID
+ 70
+1
+ 71
+0
+ 91
+1
+ 92
+3
+ 72
+0
+ 73
+1
+ 93
+4
+ 10
+298.5
+ 20
+62.09999999999974
+ 10
+409.5
+ 20
+62.09999999999974
+ 10
+409.5
+ 20
+58.29999999999973
+ 10
+298.5
+ 20
+58.29999999999973
+ 97
+0
+ 75
+0
+ 76
+1
+ 98
+0
+  0
+TEXT
+  5
+27B
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+300.0
+ 20
+58.999999999999744
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Sockets 1–14, fan + ESP control panel
+  7
+KITCHEN
+ 11
+300.0
+ 21
+58.999999999999744
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+27C
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+370.0
+ 20
+58.999999999999744
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+sheet 2
+  7
+KITCHEN
+ 11
+370.0
+ 21
+58.999999999999744
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+27D
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+404.0
+ 20
+58.999999999999744
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+1 set
+  7
+KITCHEN
+ 11
+404.0
+ 21
+58.999999999999744
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+27E
+330
+17
+100
+AcDbEntity
+  8
+EXHAUST-RED-TEXT
+420
+11680286
+100
+AcDbText
+ 10
+298.5
+ 20
+51.19999999999973
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+NOTES
+  7
+KITCHEN
+ 11
+298.5
+ 21
+51.19999999999973
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+27F
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+298.5
+ 20
+47.499999999999744
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Stainless steel 304 benches, 0.90 m high; hot line 0.70 deep,
+  7
+KITCHEN
+ 11
+298.5
+ 21
+47.499999999999744
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+280
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+298.5
+ 20
+44.09999999999974
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+wok range 0.80. Cooks' aisle 1.05 m (0.95 m at the wok range).
+  7
+KITCHEN
+ 11
+298.5
+ 21
+44.09999999999974
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+281
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+298.5
+ 20
+40.69999999999976
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Cement-board ceiling at 2.70 m; storage deck above, hoist at the hatch.
+  7
+KITCHEN
+ 11
+298.5
+ 21
+40.69999999999976
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+282
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+298.5
+ 20
+37.299999999999784
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Pan-Asian menu: about 23 recipes, 40 choices; one chef + one helper.
+  7
+KITCHEN
+ 11
+298.5
+ 21
+37.299999999999784
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+TEXT
+  5
+283
+330
+17
+100
+AcDbEntity
+  8
+INK-TEXT
+420
+2761760
+100
+AcDbText
+ 10
+298.5
+ 20
+33.89999999999981
+ 30
+0.0
+ 40
+1.7999999999999998
+  1
+Positions are from the 3D model: check walls and pillar P2 on site.
+  7
+KITCHEN
+ 11
+298.5
+ 21
+33.89999999999981
+ 31
+0.0
+100
+AcDbText
+ 73
+1
+  0
+ENDSEC
+  0
+SECTION
+  2
+OBJECTS
+  0
+DICTIONARY
+  5
+A
+330
+0
+100
+AcDbDictionary
+281
+1
+  3
+ACAD_COLOR
+350
+B
+  3
+ACAD_GROUP
+350
+C
+  3
+ACAD_LAYOUT
+350
+D
+  3
+ACAD_MATERIAL
+350
+E
+  3
+ACAD_MLEADERSTYLE
+350
+F
+  3
+ACAD_MLINESTYLE
+350
+10
+  3
+ACAD_PLOTSETTINGS
+350
+11
+  3
+ACAD_PLOTSTYLENAME
+350
+12
+  3
+ACAD_SCALELIST
+350
+14
+  3
+ACAD_TABLESTYLE
+350
+15
+  3
+ACAD_VISUALSTYLE
+350
+16
+  3
+EZDXF_META
+350
+2D
+  0
+DICTIONARY
+  5
+B
+330
+A
+100
+AcDbDictionary
+281
+1
+  0
+DICTIONARY
+  5
+C
+330
+A
+100
+AcDbDictionary
+281
+1
+  0
+DICTIONARY
+  5
+D
+330
+A
+100
+AcDbDictionary
+281
+1
+  3
+Model
+350
+1A
+  3
+Layout1
+350
+1E
+  0
+DICTIONARY
+  5
+E
+330
+A
+100
+AcDbDictionary
+281
+1
+  3
+ByBlock
+350
+1F
+  3
+ByLayer
+350
+20
+  3
+Global
+350
+21
+  0
+DICTIONARY
+  5
+F
+330
+A
+100
+AcDbDictionary
+281
+1
+  3
+Standard
+350
+2C
+  0
+DICTIONARY
+  5
+10
+330
+A
+100
+AcDbDictionary
+281
+1
+  3
+Standard
+350
+22
+  0
+DICTIONARY
+  5
+11
+330
+A
+100
+AcDbDictionary
+281
+1
+  0
+ACDBDICTIONARYWDFLT
+  5
+12
+330
+A
+100
+AcDbDictionary
+281
+1
+  3
+Normal
+350
+13
+100
+AcDbDictionaryWithDefault
+340
+13
+  0
+ACDBPLACEHOLDER
+  5
+13
+330
+12
+  0
+DICTIONARY
+  5
+14
+330
+A
+100
+AcDbDictionary
+281
+1
+  0
+DICTIONARY
+  5
+15
+330
+A
+100
+AcDbDictionary
+281
+1
+  0
+DICTIONARY
+  5
+16
+330
+A
+100
+AcDbDictionary
+281
+1
+  3
+2dWireframe
+350
+5A
+  3
+Basic
+350
+5B
+  3
+Brighten
+350
+5C
+  3
+ColorChange
+350
+5D
+  3
+Conceptual
+350
+5E
+  3
+Dim
+350
+5F
+  3
+EdgeColorOff
+350
+60
+  3
+Facepattern
+350
+61
+  3
+Flat
+350
+62
+  3
+FlatWithEdges
+350
+63
+  3
+Gouraud
+350
+64
+  3
+GouraudWithEdges
+350
+65
+  3
+Hidden
+350
+66
+  3
+JitterOff
+350
+67
+  3
+Linepattern
+350
+68
+  3
+Modeling
+350
+69
+  3
+OverhangOff
+350
+6A
+  3
+Realistic
+350
+6B
+  3
+Shaded
+350
+6C
+  3
+Shaded with edges
+350
+6D
+  3
+Shades of Gray
+350
+6E
+  3
+Sketchy
+350
+6F
+  3
+Thicken
+350
+70
+  3
+Wireframe
+350
+71
+  3
+X-Ray
+350
+72
+  0
+LAYOUT
+  5
+1A
+330
+D
+100
+AcDbPlotSettings
+  1
+
+  4
+A3
+  6
+
+ 40
+7.5
+ 41
+20.0
+ 42
+7.5
+ 43
+20.0
+ 44
+420.0
+ 45
+297.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+0.0
+140
+0.0
+141
+0.0
+142
+1.0
+143
+1.0
+ 70
+1024
+ 72
+1
+ 73
+0
+ 74
+5
+  7
+
+ 75
+16
+ 76
+0
+ 77
+2
+ 78
+300
+147
+1.0
+148
+0.0
+149
+0.0
+100
+AcDbLayout
+  1
+Model
+ 70
+1
+ 71
+0
+ 10
+0.0
+ 20
+0.0
+ 11
+420.0
+ 21
+297.0
+ 12
+0.0
+ 22
+0.0
+ 32
+0.0
+ 14
+1e+20
+ 24
+1e+20
+ 34
+1e+20
+ 15
+-1e+20
+ 25
+-1e+20
+ 35
+-1e+20
+146
+0.0
+ 13
+0.0
+ 23
+0.0
+ 33
+0.0
+ 16
+1.0
+ 26
+0.0
+ 36
+0.0
+ 17
+0.0
+ 27
+1.0
+ 37
+0.0
+ 76
+1
+330
+17
+  0
+LAYOUT
+  5
+1E
+330
+D
+100
+AcDbPlotSettings
+  1
+
+  4
+A3
+  6
+
+ 40
+7.5
+ 41
+20.0
+ 42
+7.5
+ 43
+20.0
+ 44
+420.0
+ 45
+297.0
+ 46
+0.0
+ 47
+0.0
+ 48
+0.0
+ 49
+0.0
+140
+0.0
+141
+0.0
+142
+1.0
+143
+1.0
+ 70
+0
+ 72
+1
+ 73
+0
+ 74
+5
+  7
+
+ 75
+16
+ 76
+0
+ 77
+2
+ 78
+300
+147
+1.0
+148
+0.0
+149
+0.0
+100
+AcDbLayout
+  1
+Layout1
+ 70
+1
+ 71
+1
+ 10
+0.0
+ 20
+0.0
+ 11
+420.0
+ 21
+297.0
+ 12
+0.0
+ 22
+0.0
+ 32
+0.0
+ 14
+1e+20
+ 24
+1e+20
+ 34
+1e+20
+ 15
+-1e+20
+ 25
+-1e+20
+ 35
+-1e+20
+146
+0.0
+ 13
+0.0
+ 23
+0.0
+ 33
+0.0
+ 16
+1.0
+ 26
+0.0
+ 36
+0.0
+ 17
+0.0
+ 27
+1.0
+ 37
+0.0
+ 76
+1
+330
+1B
+  0
+MATERIAL
+  5
+1F
+102
+{ACAD_REACTORS
+330
+E
+102
+}
+330
+E
+100
+AcDbMaterial
+  1
+ByBlock
+  2
+
+ 70
+0
+ 40
+1.0
+ 71
+1
+ 41
+1.0
+ 91
+-1023410177
+ 42
+1.0
+ 72
+1
+  3
+
+ 73
+1
+ 74
+1
+ 75
+1
+ 44
+0.5
+ 73
+0
+ 45
+1.0
+ 46
+1.0
+ 77
+1
+  4
+
+ 78
+1
+ 79
+1
+170
+1
+ 48
+1.0
+171
+1
+  6
+
+172
+1
+173
+1
+174
+1
+140
+1.0
+141
+1.0
+175
+1
+  7
+
+176
+1
+177
+1
+178
+1
+143
+1.0
+179
+1
+  8
+
+270
+1
+271
+1
+272
+1
+145
+1.0
+146
+1.0
+273
+1
+  9
+
+274
+1
+275
+1
+276
+1
+ 42
+1.0
+ 72
+1
+  3
+
+ 73
+1
+ 74
+1
+ 75
+1
+ 94
+63
+  0
+MATERIAL
+  5
+20
+102
+{ACAD_REACTORS
+330
+E
+102
+}
+330
+E
+100
+AcDbMaterial
+  1
+ByLayer
+  2
+
+ 70
+0
+ 40
+1.0
+ 71
+1
+ 41
+1.0
+ 91
+-1023410177
+ 42
+1.0
+ 72
+1
+  3
+
+ 73
+1
+ 74
+1
+ 75
+1
+ 44
+0.5
+ 73
+0
+ 45
+1.0
+ 46
+1.0
+ 77
+1
+  4
+
+ 78
+1
+ 79
+1
+170
+1
+ 48
+1.0
+171
+1
+  6
+
+172
+1
+173
+1
+174
+1
+140
+1.0
+141
+1.0
+175
+1
+  7
+
+176
+1
+177
+1
+178
+1
+143
+1.0
+179
+1
+  8
+
+270
+1
+271
+1
+272
+1
+145
+1.0
+146
+1.0
+273
+1
+  9
+
+274
+1
+275
+1
+276
+1
+ 42
+1.0
+ 72
+1
+  3
+
+ 73
+1
+ 74
+1
+ 75
+1
+ 94
+63
+  0
+MATERIAL
+  5
+21
+102
+{ACAD_REACTORS
+330
+E
+102
+}
+330
+E
+100
+AcDbMaterial
+  1
+Global
+  2
+
+ 70
+0
+ 40
+1.0
+ 71
+1
+ 41
+1.0
+ 91
+-1023410177
+ 42
+1.0
+ 72
+1
+  3
+
+ 73
+1
+ 74
+1
+ 75
+1
+ 44
+0.5
+ 73
+0
+ 45
+1.0
+ 46
+1.0
+ 77
+1
+  4
+
+ 78
+1
+ 79
+1
+170
+1
+ 48
+1.0
+171
+1
+  6
+
+172
+1
+173
+1
+174
+1
+140
+1.0
+141
+1.0
+175
+1
+  7
+
+176
+1
+177
+1
+178
+1
+143
+1.0
+179
+1
+  8
+
+270
+1
+271
+1
+272
+1
+145
+1.0
+146
+1.0
+273
+1
+  9
+
+274
+1
+275
+1
+276
+1
+ 42
+1.0
+ 72
+1
+  3
+
+ 73
+1
+ 74
+1
+ 75
+1
+ 94
+63
+  0
+MLINESTYLE
+  5
+22
+102
+{ACAD_REACTORS
+330
+10
+102
+}
+330
+10
+100
+AcDbMlineStyle
+  2
+Standard
+ 70
+0
+  3
+
+ 62
+256
+ 51
+90.0
+ 52
+90.0
+ 71
+2
+ 49
+0.5
+ 62
+256
+  6
+BYLAYER
+ 49
+-0.5
+ 62
+256
+  6
+BYLAYER
+  0
+MLEADERSTYLE
+  5
+2C
+102
+{ACAD_REACTORS
+330
+F
+102
+}
+330
+F
+100
+AcDbMLeaderStyle
+179
+2
+170
+2
+171
+1
+172
+0
+ 90
+2
+ 40
+0.0
+ 41
+0.0
+173
+1
+ 91
+-1056964608
+ 92
+-2
+290
+1
+ 42
+2.0
+291
+1
+ 43
+8.0
+  3
+Standard
+ 44
+4.0
+300
+
+342
+29
+174
+1
+175
+1
+176
+0
+178
+1
+ 93
+-1056964608
+ 45
+4.0
+292
+0
+297
+0
+ 46
+4.0
+ 94
+-1056964608
+ 47
+1.0
+ 49
+1.0
+140
+1.0
+294
+1
+141
+0.0
+177
+0
+142
+1.0
+295
+0
+296
+0
+143
+3.75
+271
+0
+272
+9
+273
+9
+  0
+DICTIONARY
+  5
+2D
+330
+A
+100
+AcDbDictionary
+280
+1
+281
+1
+  3
+CREATED_BY_EZDXF
+350
+2E
+  3
+WRITTEN_BY_EZDXF
+350
+287
+  0
+DICTIONARYVAR
+  5
+2E
+330
+2D
+100
+DictionaryVariables
+280
+0
+  1
+1.4.5 @ 2026-10-17T11:32:34.437970+00:00
+  0
+VISUALSTYLE
+  5
+5A
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+2dWireframe
+ 70
+4
+ 90
+0
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+5B
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Basic
+ 70
+7
+ 90
+1
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+5C
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Brighten
+ 70
+12
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+5D
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+ColorChange
+ 70
+16
+ 90
+2
+ 40
+0.6
+ 62
+8
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+5E
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Conceptual
+ 70
+9
+ 90
+3
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+5F
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Dim
+ 70
+11
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+60
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+EdgeColorOff
+ 70
+22
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+61
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Facepattern
+ 70
+15
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+62
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Flat
+ 70
+0
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+63
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+FlatWithEdges
+ 70
+1
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+64
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Gouraud
+ 70
+2
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+65
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+GouraudWithEdges
+ 70
+3
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+66
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Hidden
+ 70
+6
+ 90
+1
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+67
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+JitterOff
+ 70
+20
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+68
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Linepattern
+ 70
+14
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+69
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Modeling
+ 70
+10
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+6A
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+OverhangOff
+ 70
+21
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+6B
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Realistic
+ 70
+8
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+6C
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Shaded
+ 70
+27
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+6D
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Shaded with edges
+ 70
+26
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+6E
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Shades of Gray
+ 70
+23
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+6F
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Sketchy
+ 70
+24
+ 90
+1
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+70
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Thicken
+ 70
+13
+ 90
+2
+ 40
+0.6
+ 62
+7
+290
+0
+291
+1
+  0
+VISUALSTYLE
+  5
+71
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+Wireframe
+ 70
+5
+ 90
+0
+ 40
+0.6
+ 62
+7
+290
+0
+291
+0
+  0
+VISUALSTYLE
+  5
+72
+102
+{ACAD_REACTORS
+330
+16
+102
+}
+330
+16
+100
+AcDbVisualStyle
+  2
+X-Ray
+ 70
+25
+ 90
+2
+ 40
+0.5
+ 62
+7
+290
+0
+291
+0
+  0
+DICTIONARYVAR
+  5
+287
+330
+2D
+100
+DictionaryVariables
+280
+0
+  1
+1.4.5 @ 2026-10-17T11:32:34.521635+00:00
+  0
+ENDSEC
+  0
+EOF
