@@ -218,7 +218,7 @@ ul{{margin:0;padding-left:20px;font-size:14px}} li{{margin:3px 0}}
 </style></head><body><div class="wrap">
 <header><p class="eyebrow">Simplex · Betalbatim pub · kitchen</p><h1>Bill of quantities (BOQ)</h1>
 <p class="lede">{n} priced lines in 8 trades, numbered A.01 to H.06, taken from the model and the two A3 sheets. Each line gives the item or appliance type, its size (W × D × H in mm), and its capacity or rating. Suppliers fill the rate, make and model; the Excel file multiplies and totals. Quantities marked “measure on site” are estimates for pricing. Concept drawings for briefing suppliers, not construction drawings.</p></header>
-<div class="bar"><a class="pri" href="plans/kitchen-boq.xlsx">Excel BOQ (rates and totals calculate)</a><a href="plans/kitchen-boq.pdf" target="_blank" rel="noopener">PDF, A4</a><a href="plans/kitchen-boq.csv">CSV</a><a href="kitchen.html">Kitchen sheets</a><a href="quotes.html">Quote comparison</a></div>
+<div class="bar"><a class="pri" href="plans/kitchen-boq.xlsx">Excel BOQ (rates and totals calculate)</a><a href="plans/kitchen-boq.pdf" target="_blank" rel="noopener">PDF, A4</a><a href="plans/kitchen-boq.csv">CSV</a><a href="boq-goa.html">Equipment and exhaust BOQ (feet, SWG, CFM)</a><a href="kitchen.html">Kitchen sheets</a><a href="quotes.html">Quote comparison</a></div>
 <div class="tw"><table><thead><tr><th>Item</th><th>Item / type</th><th>Size W × D × H mm</th><th>Capacity, rating, specification</th><th>Unit</th><th>Qty</th><th>Rate ₹</th><th>Amount ₹</th><th>Drawing</th></tr></thead><tbody>{''.join(body)}</tbody></table></div>
 <section><b>Every quote must state</b><ul>
 <li>Steel grade and thickness (304 stainless only); make and model of every branded item.</li>

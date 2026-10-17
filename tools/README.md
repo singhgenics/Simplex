@@ -16,3 +16,5 @@ Then paste the new SVG into `plan.html` (replace the `<svg id="plan" …>` eleme
 Coordinates: x runs from the right wall (−2.45) to the left wall (2.45) as you walk in from the road; z runs from the shopfront (0) to the back wall (8.8).
 
 `boq.py` writes the kitchen bill of quantities (`boq.html`, `plans/kitchen-boq.xlsx`, `.csv`); print `boq.html` from Chrome headless (A4 landscape, no header or footer) for `plans/kitchen-boq.pdf`. `kitchen_sheets.py` draws the two A3 kitchen sheets and `kitchen.html`.
+
+`boq_goa.py` writes the separate kitchen equipment and exhaust BOQ in feet and inches, SWG, CFM and TR (`boq-goa.html`, `plans/kitchen-boq-goa.xlsx`, `.csv`; PDF from Chrome headless, A4 landscape). It reads the item list from `boq.py`, so the two stay in step.

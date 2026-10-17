@@ -358,7 +358,7 @@ h2{font:700 clamp(19px,2.6vw,24px)/1.15 var(--display);margin:18px 0 2px}
 <h1>Kitchen drawings: equipment, services and exhaust</h1>
 <p class="lede">Two A3 sheets drawn to true scale: print at 100% (no “fit to page”) and the plans measure 1:25, the elevation 1:40. Sheet 1 is for the equipment fabricator; sheet 2 is for the exhaust, gas, plumbing and electrical vendors. Prices are asked against the <a href="boq.html">bill of quantities (BOQ)</a>, which numbers every line and gives its unit and quantity.</p>
 </header>
-<div class="bar"><a class="pri" href="plans/kitchen-sheets-A3.pdf" target="_blank" rel="noopener">Both sheets · 2-page PDF (A3, vector)</a><a href="boq.html">BOQ (Excel, PDF)</a><a href="plan.html">Whole floor plan</a><a href="./">3D model</a></div>
+<div class="bar"><a class="pri" href="plans/kitchen-sheets-A3.pdf" target="_blank" rel="noopener">Both sheets · 2-page PDF (A3, vector)</a><a href="boq.html">BOQ (Excel, PDF)</a><a href="boq-goa.html">Equipment and exhaust BOQ (feet, SWG, CFM)</a><a href="plan.html">Whole floor plan</a><a href="./">3D model</a></div>
 @@SHEETS@@
 </div>
 <script>
