@@ -205,11 +205,15 @@ s.shell()
 s.rect(XS - 0.5, XS, KZ - 0.35, D + T, '#ece6db', 'none')
 s.add(f'<text x="12" y="{s.P(0, D+T+0.62)[1]:.2f}" font-size="{FS}" fill="{MUT}">OUTSIDE · back (parking)</text>')
 # equipment as light outlines with names
-for xa, xb, za, zb, t in ((X0, -1.25, 8.0, D, 'wok range'), (-1.2, -0.6, 8.1, D, 'steamer'), (-0.55, 0.05, 8.1, D, 'fryer'), (0.1, 0.7, 8.1, D, 'stock'),
-                          (-2.2, -1.4, KZ + 0.115, 7.05, 'non-veg prep'), (-1.4, -0.6, KZ + 0.115, 7.05, 'veg prep'), (-0.6, 0.05, KZ + 0.115, 7.05, 'pass'),
-                          (0.92, 1.2, KZ + 0.115, 6.8, ''), (X0, X0 + 0.25, KZ + 0.115, 6.65, ''), (X0, X0 + 0.45, 7.12, 7.6, ''), (1.7, X1, 6.45, 7.4, 'reach-in'), (1.8, X1, 7.4, 8.0, 'dishwasher'), (1.8, X1, 8.0, D, 'sink')):
+for xa, xb, za, zb, t in ((X0, -1.25, 8.0, D, 'Wok range|1,200 × 800 × 800'), (-1.2, -0.6, 8.1, D, 'Dim sum|steamer|600 × 700 × 800'), (-0.55, 0.05, 8.1, D, 'Fryer|600 × 700 × 900'), (0.1, 0.7, 8.1, D, 'Stock range|600 × 700 × 850'),
+                          (-2.2, -1.4, KZ + 0.115, 7.05, 'Non-veg prep|800 × 650 × 900'), (-1.4, -0.6, KZ + 0.115, 7.05, 'Veg prep|800 × 650 × 900'), (-0.6, 0.05, KZ + 0.115, 7.05, 'Pass|650 × 650 × 900'),
+                          (0.92, 1.2, KZ + 0.115, 6.8, ''), (X0, X0 + 0.25, KZ + 0.115, 6.65, ''), (X0, X0 + 0.45, 7.12, 7.6, ''), (1.7, X1, 6.45, 7.4, 'Reach-in|950×750×2,000'), (1.8, X1, 7.4, 8.0, 'Dishwasher|600×650×900'), (1.8, X1, 8.0, D, 'Dish sink|800×650×900')):
     s.rect(xa, xb, za, zb, '#f4f4f2', '#9aa0a5', 0.25)
-    if t: s.text(((xa + xb) / 2 if xa < 1.6 else xa + 0.2), (8.25 if za >= 8 and xa < 1.6 else (za + zb) / 2 + (0.12 if xa < 1.6 else 0)), t, FS, '#7d858b', weight=600, rot=(90 if xa > 1.6 else 0))
+    if t:
+        ls = [(w, 700 if i == 0 or '×' not in w else 500) for i, w in enumerate(t.split('|'))]
+        if xa > 1.6: ls = [(w.replace('|', ''), wt) for w, wt in ls]; s.lines(xa + 0.3, (za + zb) / 2, ls, FS, '#5d666c')
+        elif za >= 8: s.lines((xa + xb) / 2, 8.22 if xb - xa < 0.7 else 8.32, ls, FS, '#5d666c')
+        else: s.lines((xa + xb) / 2, (za + zb) / 2 + 0.1, ls, FS, '#5d666c')
 # EXHAUST (red)
 s.rect(X0, 0.9, 7.85, D - 0.02, 'none', RED, 0.45, '2.2 1.2'); s.text(-1.6, 7.72, 'canopy hood above · bottom 2.05 m', FS, RED, weight=600)
 s.rect(-1.6, -1.1, 8.4, D, 'none', RED, 0.35, '1.4 0.8')

@@ -22,31 +22,32 @@ def drawing_svg():
     """The 1:25 plan: kitchen and the exhaust run outside. Every item is named on the drawing itself (inside the box, or on a leader to a label). All sizes in mm."""
     s = K.Sheet(0, 0, 3.15, 10.35)        # left wall outside face at x = 20 mm; page y = (10.35 - z) * 40
     s.shell()
+    N = {r[7]: r[1] for r in lines() if r[0] == 'item'}      # running BOQ number (1 to 44) of each item
     def box(xa, xb, za, zb, lines_, fill=STEEL, tc=INK, dz=0.0):
         s.rect(xa, xb, za, zb, fill, INK, 0.3)
         if lines_: s.lines((xa + xb) / 2, (za + zb) / 2 + dz, lines_, 2.5, tc)
     # ---- hot line (back wall) and floor channel
     s.rect(-2.4, 0.75, 7.92, 8.0, '#b9c0c5', '#6d7276', 0.15)
-    for xa, xb, z0, name, size in ((X0, -1.25, 8.0, 'Wok range', '1,200 × 800 × 800'), (-1.2, -0.6, 8.1, 'Dim sum|steamer', '600 × 700 × 800'), (-0.55, 0.05, 8.1, 'Fryer', '600 × 700 × 900'), (0.1, 0.7, 8.1, 'Stock range', '600 × 700 × 850')):
-        box(xa, xb, z0, D, [(n_, 700) for n_ in name.split('|')] + [(size, 500)], HOT, '#fff', dz=0.0)
-    s.text(-0.85, 7.96, 'Floor channel drain 3,150 × 80', 2.5, INK, weight=600)
+    for xa, xb, z0, name, size in ((X0, -1.25, 8.0, f"{N['B.01']}|Wok range", '1,200 × 800 × 800'), (-1.2, -0.6, 8.1, f"{N['B.02']}|Dim sum|steamer", '600 × 700 × 800'), (-0.55, 0.05, 8.1, f"{N['B.03']}|Fryer", '600 × 700 × 900'), (0.1, 0.7, 8.1, f"{N['B.04']}|Stock range", '600 × 700 × 850')):
+        parts = name.split('|'); box(xa, xb, z0, D, [(parts[0], 800)] + [(n_, 700) for n_ in parts[1:]] + [(size, 500)], HOT, '#fff', dz=0.0)
+    s.text(-0.85, 7.96, f"{N['A.15']}  Floor channel drain 3,150 × 80", 2.5, INK, weight=600)
     # ---- front-wall benches, pass, hand-wash
     box(-2.2, -1.4, KZ + 0.115, 7.05, [])
     box(-1.4, -0.6, KZ + 0.115, 7.05, [])
     box(-0.6, 0.05, KZ + 0.115, 7.05, [])
     s.rect(0.92, 1.2, KZ + 0.115, 6.8, STEEL, INK, 0.3); s.rect(X0, X0 + 0.25, KZ + 0.115, 6.65, STEEL, INK, 0.3)
     # ---- left wall: reach-in, dish line (what is in and above each box is written inside it)
-    box(1.7, X1, 6.45, 7.4, [('Reach-in', 700), ('950 × 750 × 2,000', 500)])
-    box(1.8, X1, 7.4, 8.0, [('Dishwasher', 700), ('600×650×900', 500), ('Above: fan panel,', 400), ('steamer baskets', 400)])
-    box(1.8, X1, 8.0, D, [('Dish sink', 700), ('800×650×900', 500), ('Above: shelves,', 400), ('35 L heater', 400)])
+    box(1.7, X1, 6.45, 7.4, [(N['B.05'], 800), ('Reach-in', 700), ('950 × 750 × 2,000', 500)])
+    box(1.8, X1, 7.4, 8.0, [(N['B.08'], 800), ('Dishwasher', 700), ('600×650×900', 500), (f"Above: panel {N['E.03']},", 400), (f"baskets {N['B.23']}", 400)])
+    box(1.8, X1, 8.0, D, [(N['A.04'], 800), ('Dish sink', 700), ('800×650×900', 500), (f"Above: shelves {N['A.05']},", 400), (f"heater {N['B.12']}", 400)])
     s.rect(2.1, X1, 7.4, D, 'none', MUT, 0.2, '1 0.8')
     # ---- right wall: veg sink, rails, pillar
-    box(X0, X0 + 0.45, 7.12, 7.6, []); s.text(X0 + 0.23, 7.52, 'Veg sink', 2.5, INK, weight=700)
+    box(X0, X0 + 0.45, 7.12, 7.6, []); s.lines(X0 + 0.23, 7.5, [(N['A.06'], 800), ('Veg sink', 700)], 2.5, INK)
     s.rect(X0, X0 + 0.23, 6.65, 6.95, K.WALL, K.WALL, 0.2); s.text(X0 + 0.115, 6.8, 'P2', 2.5, '#fff', weight=700)
     s.rect(X0, X0 + 0.22, 7.62, 8.06, '#e6ecef', BLU, 0.3)
     s.line(X0 + 0.05, 8.13, X0 + 0.05, 8.6, BLU, 0.9, '1.4 0.5')
     s.rect(X0, X0 + 0.3, 7.15, 8.05, 'none', MUT, 0.2, '1 0.8')
-    s.text(X0 + 0.1, 8.1, 'Wok tool rail', 2.5, BLU, anchor='end', weight=600); s.text(X0 + 0.28, 7.78, 'Seasoning rail', 2.5, BLU, anchor='end', weight=600); s.text(X0 + 0.34, 7.68, 'Sauce + oil shelf', 2.5, BLU, anchor='end', weight=600)
+    s.text(X0 + 0.1, 8.1, f"{N['A.09']}  Wok tool rail", 2.5, BLU, anchor='end', weight=600); s.text(X0 + 0.28, 7.78, f"{N['A.08']}  Seasoning rail", 2.5, BLU, anchor='end', weight=600); s.text(X0 + 0.34, 7.68, f"{N['A.07']}  Sauce + oil shelf", 2.5, BLU, anchor='end', weight=600)
     # ---- small kit on the benches and walls
     for z in (6.56, 6.9): s.circ(-0.75, z, 0.13, '#e9e9e9', '#6d7276', 0.25)
     s.rect(-2.18, -1.42, 6.42, 6.68, '#dff0f6', BLU, 0.3); s.rect(-0.6, 0.05, 6.93, 7.05, '#e6ecef', BLU, 0.25)
@@ -54,29 +55,29 @@ def drawing_svg():
     for xa, xb in ((-1.84, -1.44), (-1.35, -0.95)): s.line(xa, KZ + 0.13, xb, KZ + 0.13, INK, 0.8)
     s.circ(-2.27, 7.27, 0.085, '#cfe0bf', GRN, 0.3, '0.8 0.6'); s.circ(0.83, 8.62, 0.1, '#d6e2ef', BLU, 0.3); s.circ(0.83, 8.71, 0.07, '#c8231b', '#c8231b', 0.2)
     s.circ(2.27, 8.62, 0.16, 'none', BLU, 0.3, '1.2 0.8')
-    s.rect(1.0, 1.6, 7.45, 8.25, 'none', BLU, 0.3, '1.6 0.9'); s.lines(1.3, 7.85, [('Ceiling hatch', 600), ('600 × 800', 500), ('with ladder', 500), ('Goods hoist', 600), ('200 kg', 500)], 2.5, BLU)
+    s.rect(1.0, 1.6, 7.45, 8.25, 'none', BLU, 0.3, '1.6 0.9'); s.lines(1.3, 7.85, [(N['A.20'], 800), ('Ceiling hatch', 600), ('600 × 800', 500), ('with ladder', 500), (N['B.21'], 800), ('Goods hoist', 600), ('200 kg', 500)], 2.5, BLU)
     # bench names, written after the kit so nothing covers them
-    s.lines(-1.8, 6.86, [('Non-veg prep', 700), ('800 × 650 × 900', 500)], 2.5, INK)
-    s.lines(-1.12, 6.78, [('Veg prep', 700), ('800×650×900', 500)], 2.5, INK)
-    s.lines(-0.275, 6.62, [('Pass', 700), ('650×650×900', 500)], 2.5, INK)
+    s.lines(-1.8, 6.86, [(N['A.01'], 800), ('Non-veg prep', 700), ('800 × 650 × 900', 500)], 2.5, INK)
+    s.lines(-1.12, 6.78, [(N['A.02'], 800), ('Veg prep', 700), ('800×650×900', 500)], 2.5, INK)
+    s.lines(-0.275, 6.62, [(N['A.03'], 800), ('Pass', 700), ('650×650×900', 500)], 2.5, INK)
     # ---- hood, make-up air
     s.rect(X0, 0.9, 7.85, D - 0.02, 'none', RED, 0.45, '2.2 1.2')
-    s.lines(0.5, 7.5, [('Canopy hood above', 600), ('3,350 × 950 × 550', 500)], 2.5, RED)
+    s.lines(0.5, 7.5, [(N['A.16'], 800), ('Canopy hood above', 600), ('3,350 × 950 × 550', 500)], 2.5, RED)
     s.rect(-2.4, -1.8, 7.0, 7.5, 'none', GRN, 0.35, '1 0.6'); s.rect(-0.95, -0.35, 7.1, 7.6, 'none', GRN, 0.35, '1 0.6')
-    s.lines(-0.65, 7.35, [('Make-up air', 600), ('diffuser 600 × 500', 500)], 2.5, GRN)
-    s.lines(-1.5, 7.25, [('Make-up air', 600), ('diffuser 600×500', 500)], 2.5, GRN)
+    s.lines(-0.65, 7.35, [(N['B.19'], 800), ('Make-up air', 600), ('diffuser 600 × 500', 500)], 2.5, GRN)
+    s.lines(-1.5, 7.25, [(N['B.19'], 800), ('Make-up air', 600), ('diffuser 600×500', 500)], 2.5, GRN)
     # ---- exhaust run outside (duct at 2,350 to 2,750 mm high)
     EX = '#c4442a'
     s.rect(-1.6, -1.1, 8.4, D, 'none', RED, 0.35, '1.4 0.8')
     for xa, xb, za, zb in ((-1.6, -1.1, D, D + T), (XS - 0.45, -1.1, D + T, D + T + 0.4), (XS - 0.45, XS - 0.05, D - 0.35, D + T + 0.4)): s.rect(xa, xb, za, zb, '#f3e0dc', EX, 0.3, '1.4 0.8')
-    s.text(-2.0, D + T + 0.2, 'Exhaust duct 400 × 400, at 2,350 to 2,750 high', 2.5, RED, weight=600)
-    s.rect(XS - 0.5, XS + 0.02, D - 1.35, D - 0.35, '#e8c9c2', RED, 0.4); s.text(XS - 0.24, D - 0.85, 'ESP + carbon filter 500 × 1,000', 2.5, RED, weight=600, rot=-90)
-    s.circ(XS - 0.25, D - 1.55, 0.18, '#f3e0dc', EX, 0.3); s.lines(XS - 0.25, D - 1.55, [('Exhaust', 600), ('fan Ø440', 500)], 2.5, RED)
+    s.text(-2.0, D + T + 0.2, f"{N['A.17']}  Exhaust duct 400 × 400, at 2,350 to 2,750 high", 2.5, RED, weight=600)
+    s.rect(XS - 0.5, XS + 0.02, D - 1.35, D - 0.35, '#e8c9c2', RED, 0.4); s.text(XS - 0.24, D - 0.85, f"{N['B.16']}  ESP + carbon filter 500 × 1,000", 2.5, RED, weight=600, rot=-90)
+    s.circ(XS - 0.25, D - 1.55, 0.18, '#f3e0dc', EX, 0.3); s.lines(XS - 0.25, D - 1.55, [(N['B.17'], 800), ('Exhaust', 600), ('fan Ø440', 500)], 2.5, RED)
     s.text(XS - 0.25, D - 1.2, '', 2.5)
     s.rect(XS - 0.5, XS - 0.05, D - 1.95, D - 1.75, '#f3e0dc', EX, 0.3, '1.4 0.8')
     a, b = s.P(XS - 0.5, D - 1.85); s.add(f'<path d="M{a:.2f} {b:.2f} l6 0 m0 0 l-1.8 -1.2 m1.8 1.2 l-1.8 1.2" stroke="{RED}" stroke-width="0.45" fill="none"/>')
-    s.lines(XS - 1.2, D - 1.85, [('Discharge', 600), ('400×400', 500), ('at 2,600', 500)], 2.5, RED)
-    s.rect(1.9, 2.4, D + T, D + T + 0.3, '#e1eadc', GRN, 0.3); s.lines(2.15, D + T + 0.15, [('Fresh-air fan', 600), ('500 × 480', 500)], 2.5, GRN)
+    s.lines(XS - 1.2, D - 1.85, [(N['A.18'], 800), ('Discharge', 600), ('400×400', 500), ('at 2,600', 500)], 2.5, RED)
+    s.rect(1.9, 2.4, D + T, D + T + 0.3, '#e1eadc', GRN, 0.3); s.lines(2.15, D + T + 0.15, [(N['B.18'], 800), ('Fresh-air fan', 600), ('500 × 480', 500)], 2.5, GRN)
     # ---- dimensions in mm
     for xa, xb, t in ((X0, -1.25, '1,200'), (-1.2, -0.6, '600'), (-0.55, 0.05, '600'), (0.1, 0.7, '600'), (0.95, 1.75, 'rear exit 800')): s.hdim(xa, xb, D + T + 0.58, t)
     s.hdim(X1, X0, D + T + 0.82, '4,900 inside')
@@ -85,15 +86,16 @@ def drawing_svg():
     for za, zb, t in ((6.45, 7.4, '950'), (7.4, 8.0, '600'), (8.0, D, '800')): s.vdim(X1 + T + 0.12, za, zb, t)
     s.vdim(-0.3, 7.05, 8.1, "cooks' aisle 1,050")
     # ---- labels on leaders below the pass wall (rightmost item on the top row, so no leader crosses a label)
-    items = [('Hand-wash basin 250 × 250, prep corner', -2.33, 6.5), ('Cutting-board rack', -2.0, 6.7), ('Mise-en-place rail on the bench', -1.8, 6.55), ('Knife strips on the wall (2)', -1.64, KZ + 0.13), ('Under-counter freezer, in the veg bench', -1.15, 6.95),
-             ('Mixer-grinder, on the shelf over the bench', -1.0, 6.6), ('Rice cookers (2)', -0.8, 6.73), ('Kitchen torch, on the shelf', -0.72, 6.5), ('Heat lamps over the pass (2)', -0.42, 6.62),
-             ('Dip and garnish rail on the pass', -0.3, 6.99), ('Under-counter fridge, in the pass', -0.2, 6.55), ('Ticket rail over the pass hatch', -0.05, KZ + 0.03), ('Insect killer over the door', 0.4, KZ + 0.05), ('Hand-wash basin 280 × 400, at the door', 1.12, 6.5)]
+    items = [('Hand-wash basin 250 × 250, prep corner, heater ' + N['B.13'], -2.33, 6.5), (N['A.14'] + '  Cutting-board rack', -2.0, 6.7), (N['A.10'] + '  Mise-en-place rail on the bench', -1.8, 6.55), (N['A.13'] + '  Knife strips on the wall (2)', -1.64, KZ + 0.13),
+             (N['B.07'] + '  Under-counter freezer, in the veg bench', -1.15, 6.95), (N['B.10'] + '  Mixer-grinder, on the shelf over the bench', -1.0, 6.6), (N['B.09'] + '  Rice cookers (2)', -0.8, 6.73), (N['B.11'] + '  Kitchen torch, on the shelf', -0.72, 6.5),
+             (N['B.15'] + '  Heat lamps over the pass (2)', -0.42, 6.62), (N['A.11'] + '  Dip and garnish rail on the pass', -0.3, 6.99), (N['B.06'] + '  Under-counter fridge, in the pass', -0.2, 6.55), (N['A.12'] + '  Ticket rail over the pass hatch', -0.05, KZ + 0.03),
+             (N['B.14'] + '  Insect killer over the door', 0.4, KZ + 0.05), ('Hand-wash basin 280 × 400, at the door, heater ' + N['B.13'], 1.12, 6.5)]
     y0 = 182.0
     for i, (name, ix, iz) in enumerate(items):
         a, b = s.P(ix, iz); ty = y0 + i * 4.4
         s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="0.55" fill="{INK}"/><polyline points="{a:.2f},{b:.2f} {a:.2f},{ty-0.9:.2f} {a+1.5:.2f},{ty-0.9:.2f}" fill="none" stroke="{INK}" stroke-width="0.2"/><text x="{a+2:.2f}" y="{ty:.2f}" font-size="2.5" fill="{INK}">{name}</text>')
     ny = y0 + len(items) * 4.4 + 4
-    s.add(f'<text x="12" y="{ny:.1f}" font-size="2.5" fill="{MUT}">Dishwasher, reach-in, hot line, benches, sink, hood, diffusers, hatch and the exhaust parts are named on the plan. Not drawn: storage-deck racking, smallware (chef\'s list), the cooling-coil condenser (right outside wall at about 3,000 high, nearer the shopfront, sheet 2).</text>')
+    s.add(f'<text x="12" y="{ny:.1f}" font-size="2.5" fill="{MUT}">The number on each item is its number in the BOQ table below (1 to 44). Not drawn: 16 storage-deck racking, 34 smallware (chef\'s list), 43 the cooling-coil condenser (right outside wall at about 3,000 high, nearer the shopfront, sheet 2).</text>')
     s.add(f'<text x="12" y="{ny+3.2:.1f}" font-size="2.5" fill="{MUT}">Dashed lines are above the floor: hood, duct, make-up air diffusers, ceiling hatch. Rails and shelves are on the walls at the heights given in the BOQ. Cooks\' aisle 1,050, and 950 at the wok range.</text>')
     bx_, by_ = 12.0, ny + 9
     s.add(f'<rect x="{bx_}" y="{by_}" width="40" height="1.6" fill="{INK}"/><rect x="{bx_+40}" y="{by_}" width="40" height="1.6" fill="none" stroke="{INK}" stroke-width="0.2"/>'
