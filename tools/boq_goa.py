@@ -53,19 +53,27 @@ GOA = [
 ]),
 ]
 
+def _numbers():
+    out, k = {}, 0
+    for _sl, _t, _n, items in GOA:
+        for r in items:
+            k += 1; out[r['no']] = k
+    return out
+NUM = _numbers()      # main-BOQ item (A.01...) -> plain number 1 to 44 used on the drawings and in this list
+
 def fmt(q): return f'{q:g}' if isinstance(q, float) else str(q)
 def rows():
     for sl, title, note, items in GOA:
         yield ('sec', sl, title, note)
-        for k, r in enumerate(items, 1): yield ('item', f'{sl}.{k:02d}', r)
+        for r in items: yield ('item', str(NUM[r['no']]), r)
 
-HDR = ['Sl', 'Item / type', 'Size W × D × H (ft-in)', 'Size (mm)', 'Gauge, capacity, specification', 'Unit', 'Qty', 'Per-foot basis qty', 'Basis unit', 'Rate per unit (₹)', 'Rate per basis unit (₹)', 'Amount (₹)', 'Make / model / remarks', 'Main BOQ no.']
+HDR = ['No.', 'Item / type', 'Size W × D × H (ft-in)', 'Size (mm)', 'Gauge, capacity, specification', 'Unit', 'Qty', 'Per-foot basis qty', 'Basis unit', 'Rate per unit (₹)', 'Rate per basis unit (₹)', 'Amount (₹)', 'Make / model / remarks', 'Main BOQ no.']
 
 def write_csv(path):
     with open(path, 'w', newline='') as f:
         w = csv.writer(f); w.writerow(HDR)
         for r in rows():
-            if r[0] == 'sec': w.writerow([r[1], r[2], '', '', r[3]] + [''] * 9)
+            if r[0] == 'sec': w.writerow(['', r[2], '', '', r[3]] + [''] * 9)
             else:
                 d = r[2]; w.writerow([r[1], d['item'], d['ft'], d['mm'], d['spec'], d['unit'], fmt(d['qty']), fmt(d['basis']) if d['basis'] != '' else '', d['bunit'], '', '', '', '', d['no']])
 
@@ -85,11 +93,11 @@ def write_xlsx(path):
     ws.row_dimensions[5].height = 42
     r = 6; subs = []
     for sl, title, note, items in GOA:
-        ws.cell(r, 1, sl); ws.cell(r, 2, title); ws.cell(r, 5, note)
+        ws.cell(r, 1, ''); ws.cell(r, 2, title); ws.cell(r, 5, note)
         for i in range(1, NC + 1): c = ws.cell(r, i); c.fill = band; c.font = Font(bold=True); c.border = box; c.alignment = Alignment(wrap_text=True, vertical='top')
         ws.row_dimensions[r].height = 62; r += 1; first = r
         for k, d in enumerate(items, 1):
-            vals = [f'{sl}.{k:02d}', d['item'], d['ft'], d['mm'], d['spec'], d['unit'], d['qty'], d['basis'] if d['basis'] != '' else None, d['bunit'] or None, None, None,
+            vals = [str(NUM[d['no']]), d['item'], d['ft'], d['mm'], d['spec'], d['unit'], d['qty'], d['basis'] if d['basis'] != '' else None, d['bunit'] or None, None, None,
                     f'=IF(J{r}<>"",F{r}*J{r},IF(AND(K{r}<>"",H{r}<>""),H{r}*K{r},""))', None, d['no']]
             vals[5], vals[6] = d['unit'], d['qty']
             vals = [vals[0], vals[1], vals[2], vals[3], vals[4], vals[5], vals[6], vals[7], vals[8], vals[9], vals[10], vals[11], vals[12], vals[13]]
@@ -131,7 +139,7 @@ def write_xlsx(path):
 def page():
     esc = html.escape; body = []; n = 0
     for r in rows():
-        if r[0] == 'sec': body.append(f'<tr class="sec"><th>{r[1]}</th><th colspan="9">{esc(r[2])}<small>{esc(r[3])}</small></th></tr>')
+        if r[0] == 'sec': body.append(f'<tr class="sec"><th></th><th colspan="9">{esc(r[2])}<small>{esc(r[3])}</small></th></tr>')
         else:
             d = r[2]; n += 1
             b = f'{fmt(d["basis"])} {d["bunit"]}' if d['basis'] != '' else ''
@@ -162,7 +170,7 @@ a{{color:var(--accent)}} ul{{margin:0;padding-left:20px;font-size:14px}} li{{mar
 <header><p class="eyebrow">Simplex · Betalbatim pub · kitchen</p><h1>BOQ: kitchen equipment and exhaust</h1>
 <p class="lede">{n} lines in 3 sections: stainless steel fabrication, cooking and cold equipment, and the hood, exhaust and ventilation. Sizes are in feet and inches with millimetres alongside, sheet in SWG, hood and benches by the running foot, duct by the square foot, airflow in CFM, cooling in TR, cold units in litres. These are the units Indian commercial-kitchen quotes usually use; I could not confirm them with a Goa vendor, so the millimetre column is there if they prefer it. Gas, plumbing, electrical, civil and fire work are in the <a href="boq.html">main BOQ</a>. Concept drawings for briefing suppliers, not construction drawings.</p></header>
 <div class="bar"><a class="pri" href="plans/kitchen-boq-goa.xlsx">Excel (per unit, per foot or per sq ft)</a><a href="plans/kitchen-boq-goa.pdf" target="_blank" rel="noopener">PDF, A4</a><a href="plans/kitchen-boq-goa.csv">CSV</a><a href="boq.html">Main BOQ (metric)</a><a href="boq-drawing.html">Drawing + BOQ in mm (A3 PDF)</a><a href="kitchen.html">Kitchen sheets</a></div>
-<div class="tw"><table><thead><tr><th>Sl</th><th>Item / type</th><th>Size W × D × H (ft-in)</th><th>Size (mm)</th><th>Gauge, capacity, specification</th><th>Unit</th><th>Qty</th><th>Per-foot basis</th><th>Rate ₹</th><th>Main BOQ</th></tr></thead><tbody>{''.join(body)}</tbody></table></div>
+<div class="tw"><table><thead><tr><th>No.</th><th>Item / type</th><th>Size W × D × H (ft-in)</th><th>Size (mm)</th><th>Gauge, capacity, specification</th><th>Unit</th><th>Qty</th><th>Per-foot basis</th><th>Rate ₹</th><th>Main BOQ</th></tr></thead><tbody>{''.join(body)}</tbody></table></div>
 <section><b>Every quote must state</b><ul>
 <li>Steel grade and SWG for each part; make and model, kW or litres for every branded item; the static pressure the exhaust fan is selected for.</li>
 <li>Price ex-GST with the GST rate separate; delivery to Betalbatim and unloading; installation and connections included or extra; whether the hood and benches are priced per unit or per running foot, and the duct per square foot.</li>
