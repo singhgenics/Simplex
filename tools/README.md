@@ -19,4 +19,4 @@ Coordinates: x runs from the right wall (−2.45) to the left wall (2.45) as you
 
 `boq_goa.py` writes the separate kitchen equipment and exhaust BOQ in feet and inches, SWG, CFM and TR (`boq-goa.html`, `plans/kitchen-boq-goa.xlsx`, `.csv`; PDF from Chrome headless, A4 landscape). It reads the item list from `boq.py`, so the two stay in step.
 
-`boq_drawing.py` writes `boq-drawing.html`: the 1:25 kitchen and exhaust plan with numbered balloons (every size in mm) above the equipment and exhaust BOQ in mm only. Print it from Chrome headless on A3 portrait (`--print-to-pdf=plans/kitchen-drawing-boq-mm.pdf`, no header or footer). Its Sl numbers are the 1.xx, 2.xx, 3.xx lines of `boq_goa.py`.
+`boq_drawing.py` writes `boq-drawing.html`: the 1:25 kitchen and exhaust plan with every item named on the drawing (every size in mm) above the equipment and exhaust BOQ in mm only. Print it from Chrome headless on A3 portrait (`--print-to-pdf=plans/kitchen-drawing-boq-mm.pdf`, no header or footer). The table below it uses plain running numbers 1 to 44 and the same item names as the drawing.
