@@ -358,7 +358,7 @@ h2{font:700 clamp(19px,2.6vw,24px)/1.15 var(--display);margin:18px 0 2px}
 <h1>Kitchen drawings: equipment, services and exhaust</h1>
 <p class="lede">Two A3 sheets drawn to true scale: print at 100% (no “fit to page”) and the plans measure 1:25, the elevation 1:40. Sheet 1 is for the equipment fabricator; sheet 2 is for the exhaust, gas, plumbing and electrical vendors. Prices are asked against the <a href="boq.html">bill of quantities (BOQ)</a>, which numbers every line and gives its unit and quantity.</p>
 </header>
-<div class="bar"><a class="pri" href="plans/kitchen-sheets-A3.pdf" target="_blank" rel="noopener">Both sheets · 2-page PDF (A3, vector)</a><a href="boq.html">BOQ (Excel, PDF)</a><a href="boq-goa.html">Equipment and exhaust BOQ (feet, SWG, CFM)</a><a href="plan.html">Whole floor plan</a><a href="./">3D model</a></div>
+<div class="bar"><a class="pri" href="plans/kitchen-sheets-A3.pdf" target="_blank" rel="noopener">Both sheets · 2-page PDF (A3, vector)</a><a href="boq.html">BOQ (Excel, PDF)</a><a href="boq-goa.html">Equipment and exhaust BOQ (feet, SWG, CFM)</a><a href="boq-drawing.html">Drawing + BOQ in mm (A3 PDF)</a><a href="plan.html">Whole floor plan</a><a href="./">3D model</a></div>
 @@SHEETS@@
 </div>
 <script>
@@ -374,10 +374,14 @@ def page_block(n, slug, title, sub, svg):
             f'<a href="plans/kitchen-sheet-{slug}.png" target="_blank" rel="noopener">PNG 300 dpi</a></div>'
             f'<div class="sheet" id="s{n}" data-z="1">{svg}</div></section>')
 
-d = sys.argv[1]; os.makedirs(d, exist_ok=True)
-open(d + '/kitchen-sheet-1.svg', 'w').write(sheet1); open(d + '/kitchen-sheet-2.svg', 'w').write(sheet2)
-print('sheet 1 notes end', round(y, 1), '| sheet 2 notes end', round(y2, 1))
-if '--page' in sys.argv:
-    blocks = page_block(1, '1-equipment', 'Equipment layout', 'Plan 1:25 with every item named and sized, the key dimensions and the equipment list.', sheet1) + \
-             page_block(2, '2-services', 'Services and exhaust', 'Plan 1:25 with the exhaust run, gas, water, drains and power points; hot-line elevation 1:40; legend, services list and vendor notes.', sheet2)
-    open('kitchen.html', 'w').write(PAGE.replace('@@SHEETS@@', blocks)); print('kitchen.html written')
+def main():
+    d = sys.argv[1]; os.makedirs(d, exist_ok=True)
+    open(d + '/kitchen-sheet-1.svg', 'w').write(sheet1); open(d + '/kitchen-sheet-2.svg', 'w').write(sheet2)
+    print('sheet 1 notes end', round(y, 1), '| sheet 2 notes end', round(y2, 1))
+    if '--page' in sys.argv:
+        blocks = page_block(1, '1-equipment', 'Equipment layout', 'Plan 1:25 with every item named and sized, the key dimensions and the equipment list.', sheet1) + \
+                 page_block(2, '2-services', 'Services and exhaust', 'Plan 1:25 with the exhaust run, gas, water, drains and power points; hot-line elevation 1:40; legend, services list and vendor notes.', sheet2)
+        open('kitchen.html', 'w').write(PAGE.replace('@@SHEETS@@', blocks)); print('kitchen.html written')
+
+if __name__ == '__main__':
+    main()
