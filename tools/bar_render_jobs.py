@@ -1,0 +1,24 @@
+# Bar-section images. PRODUCTS: equipment catalogue shots (Flow text-to-image). VIEWS: the bar seen from fixed cameras of the photo-textured 3D model
+# (tools/bar-refs/<id>.jpg), turned into photographs by Flow with a sheet of the product shots as the second reference.
+# Sizes are the plan / 3D model sizes (W x D x H in metres).
+CAT = "Catalogue studio product photograph on a plain light-grey seamless background, soft daylight from the left, gentle shadow, sharp focus, true colours, no people, no text, no logos. "
+PRODUCTS = {
+ "ice": CAT + "A commercial under-counter cube ice machine, 0.50 m wide, 0.55 m deep, about 0.85 m high, producing about 50 kg of ice a day: brushed stainless steel cabinet, a hinged front door with a wide louvred air grille at the bottom (air-cooled, self-contained, no outdoor unit), a small control panel, and a stainless ice scoop beside it. Three-quarter view.",
+ "chiller": CAT + "A compact self-contained beer flash chiller, a small stainless steel box about 0.50 m wide, 0.42 m deep and 0.57 m high, with black front ventilation louvres, a small digital temperature display and three insulated black beer lines (a python bundle) leaving the top, with silver beer coupler hoses. Three-quarter view.",
+ "mixer": CAT + "A commercial under-counter back-bar mixer fridge, 0.70 m wide, 0.55 m deep, about 0.85 m high: stainless steel body and frame, a full-height glass door with a black frame, LED interior light, wire shelves holding rows of tonic water, soda and ginger beer bottles and cans, and a digital thermostat. Three-quarter view.",
+ "glasswasher": CAT + "A commercial under-counter front-loading glasswasher with a 0.45 m square basket, about 0.45 m wide, 0.55 m deep and 0.85 m high: stainless steel, a hinged drop-down front door, a small control panel on the top, shown with the door slightly open and a basket of clean beer glasses and stemware inside. Three-quarter view.",
+ "kegs": CAT + "An under-bar keg cabinet, 1.10 m wide, 0.63 m deep, 0.90 m high, with its louvred olive-timber doors open: inside, three 20 litre stainless steel kegs stand on a roll-out base, each with a silver coupler and beer line, a compact stainless chiller at one end and a 6 kg CO2 gas cylinder chained upright with a regulator and gauge. Three-quarter view.",
+ "font": CAT + "A polished brass three-tap beer font (tower) about 0.42 m high on a white marble bar top, three craft beer taps with small enamel handles in orange, red and green, a stainless drip tray in front, a pint glass being filled with golden beer. Three-quarter view.",
+ "sink": CAT + "A stainless steel bar sink unit about 0.50 m wide with a built-in ice well and a speed rail holding six upside-down spirit bottles with pour spouts, a swan-neck mixer tap, a drainboard, and a rubber bar mat. Three-quarter view.",
+}
+PRE = ("Photorealistic photograph of the bar section of dimo, a small Pan-Asian dim sum and craft-beer pub in Betalbatim, Goa, warm light, true colours, no people, no text. "
+       "Reference image 1 is the exact layout and camera: keep every counter, cabinet, stool, shelf, wall and door in the same position, size and proportion; do not add, remove, move or resize anything. "
+       "Reference image 2 is a sheet of product photographs of the exact equipment to use: ")
+VIEWS = {
+ "guest":  (["font", "chiller"], PRE + "the brass three-tap font on the white marble bar top with the back-lit onyx and brass-mesh bar front, sand velvet bar stools and the floating brass glass rack. The equipment is below the counter, out of sight."),
+ "aisle":  (["mixer", "glasswasher", "ice"], PRE + "the bartender's aisle looking down the bar: on the olive back bar the under-counter glass-door mixer fridge, the glasswasher, the CO2 cabinet and the POS nook, and on the other side the counter with the under-counter ice machine."),
+ "equip":  (["mixer", "glasswasher", "ice"], PRE + "the under-counter equipment on the back bar: the glass-door mixer fridge full of tonic and soda, the front-loading glasswasher with clean glasses, the POS nook, all under the white marble back-bar top."),
+ "kegs":   (["kegs", "chiller"], PRE + "the under-bar keg cabinet with its louvred olive-timber doors; show one door open so the three 20 litre kegs on the roll-out base, the compact flash chiller and the chained CO2 cylinder are visible."),
+ "ice":    (["ice", "sink"], PRE + "the bartender's end of the counter: the stainless bar sink with ice well and speed rail, and the under-counter ice machine beside it with its louvred front."),
+ "top":    (["ice", "chiller", "mixer", "glasswasher", "kegs", "sink"], PRE + "a high cutaway view looking down into the whole bar section from above, ceiling removed, showing the bar counter with four stools, the bartender's aisle, the back bar with the mixer fridge, glasswasher, CO2 cabinet and POS nook, the ice machine, sink, chiller and keg cabinet."),
+}
