@@ -67,6 +67,15 @@ SECTIONS = [
 ]),
 ]
 
+import re
+def _m(n): return f'{float(n.replace(",", "")) / 1000:.2f}'
+def to_m_size(t):      # every number in a size string is millimetres -> metres
+    return re.sub(r'\d[\d,]*', lambda m: _m(m.group(0)), t)
+def to_m_text(t):      # only numbers followed by "mm" (also lists like "1,600 and 1,950 mm" or "960 to 2,380 mm")
+    def lst(m): return re.sub(r'\d[\d,]*', lambda x: _m(x.group(0)), m.group(1)) + ' m'
+    return re.sub(r'((?:\d[\d,]*\s+(?:and|to)\s+)*\d[\d,]*)\s*mm\b', lst, t)
+SECTIONS = [(sec, title, to_m_text(note), col, [(k, item, to_m_text(wh), to_m_size(sz), to_m_text(sp), u, q) for (k, item, wh, sz, sp, u, q) in rows]) for sec, title, note, col, rows in SECTIONS]
+
 ITEMS = [(k, i, sz, sp, u, q, sec) for sec, _t, _n, _c, rows in SECTIONS for (k, i, wh, sz, sp, u, q) in rows]
 NUM = {r[0]: n for n, r in enumerate(ITEMS, 1)}
 WHERE = {k: wh for _s, _t, _n, _c, rows in SECTIONS for (k, i, wh, sz, sp, u, q) in rows}
@@ -81,7 +90,7 @@ def fmt(q): return f'{q:g}' if isinstance(q, float) else str(q)
 
 def write_csv(path):
     with open(path, 'w', newline='') as f:
-        w = csv.writer(f); w.writerow(['No.', 'Item', 'Where it is', 'Size W × D × H (mm)', 'What it is / specification', 'Unit', 'Qty', 'Rate (INR)', 'Amount (INR)', 'Make / model / remarks'])
+        w = csv.writer(f); w.writerow(['No.', 'Item', 'Where it is', 'Size W × D × H (m)', 'What it is / specification', 'Unit', 'Qty', 'Rate (INR)', 'Amount (INR)', 'Make / model / remarks'])
         for r in numbered():
             if r[0] == 'sec': w.writerow([r[1], r[2], '', '', r[3], '', '', '', '', ''])
             else: w.writerow([r[1], r[2], r[3], r[4], r[5], r[6], fmt(r[7]), '', '', ''])
@@ -93,10 +102,10 @@ def write_xlsx(path):
     thin = Side(style='thin', color='BBBBBB'); box = Border(left=thin, right=thin, top=thin, bottom=thin)
     head = PatternFill('solid', fgColor='2A2420'); band = PatternFill('solid', fgColor='EFE6D3'); inp = PatternFill('solid', fgColor='FFF9E0'); NC = 10
     ws['A1'] = 'Vendor list · bar and server station · Betalbatim pub'; ws['A1'].font = Font(bold=True, size=14)
-    ws['A2'] = 'Shop 4, Tulip Residency, Gandaulim, Salcete, South Goa. Bar on the left wall as in the Simplex model. Grouped by area of the bar (A to H); the same letters and item numbers are on the A3 drawing. Sizes in mm (width × depth × height), the space available; measure on site.'
+    ws['A2'] = 'Shop 4, Tulip Residency, Gandaulim, Salcete, South Goa. Bar on the left wall as in the Simplex model. Grouped by area of the bar (A to H); the same letters and item numbers are on the A3 drawing. Sizes in metres (width × depth × height), the space available; measure on site.'
     ws['A3'] = 'Fill the yellow cells (rate, make/model, remarks). Amounts and totals calculate. Rates ex-GST; freight, installation and the GST rate go in the lines at the bottom.'
     for r in (2, 3): ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=NC); ws.cell(r, 1).alignment = Alignment(wrap_text=True, vertical='top'); ws.row_dimensions[r].height = 32
-    for i, h in enumerate(['No.', 'Item', 'Where it is', 'Size W × D × H (mm)', 'What it is / specification', 'Unit', 'Qty', 'Rate (₹)', 'Amount (₹)', 'Make / model / remarks'], 1):
+    for i, h in enumerate(['No.', 'Item', 'Where it is', 'Size W × D × H (m)', 'What it is / specification', 'Unit', 'Qty', 'Rate (₹)', 'Amount (₹)', 'Make / model / remarks'], 1):
         c = ws.cell(5, i, h); c.font = Font(bold=True, color='FFFFFF'); c.fill = head; c.alignment = Alignment(vertical='center', wrap_text=True); c.border = box
     r = 6; subs = []
     for sec, title, note, col, rows in SECTIONS:
@@ -127,7 +136,7 @@ def write_xlsx(path):
     wb.save(path)
 
 def drawing_svg():
-    """1:25 plan of the bar and the server station: items numbered and named, sizes in mm. Leaders run to a label column on the right."""
+    """1:25 plan of the bar and the server station: items numbered and named, sizes in m. Leaders run to a label column on the right."""
     s = K.Sheet(14, 14, 2.65, 6.45)           # left wall inside face at x = 2.45 -> page 22 mm; page y = 14 + (6.45 - z) * 40
     def R(xa, xb, za, zb, fill='none', stroke=INK, sw=0.3, dash=None): s.rect(xa, xb, za, zb, fill, stroke, sw, dash)
     R(2.45, 2.65, 2.2, 6.45, '#4a4038', '#4a4038', 0.2)                                    # left wall
@@ -175,15 +184,15 @@ def drawing_svg():
         ty += 2.8
     missing = [NUM[k] for k, *_ in ITEMS if k not in placed]
     s.add(f'<text x="{col_x}" y="{ty:.1f}" font-size="2.5" fill="{MUT}">No tag on the plan: {", ".join(map(str, missing))} (services, lighting and loose items, area H).</text>')
-    s.vdim(2.84, 2.72, 5.37, 'back bar 2,650', RED); s.vdim(-0.3, 2.94, 5.22, 'counter 2,280 incl. front', RED)
-    s.hdim(1.2, 1.9, 5.5, 'bartender aisle 850', RED); s.hdim(0.35, 1.2, 2.82, '850', RED)
+    s.vdim(2.84, 2.72, 5.37, 'back bar 2.65', RED); s.vdim(-0.3, 2.94, 5.22, 'counter 2.28 incl. front', RED)
+    s.hdim(1.2, 1.9, 5.5, 'bartender aisle 0.85', RED); s.hdim(0.35, 1.2, 2.82, '0.85', RED)
     s.text(0.22, 6.2, 'Window tables are in front of the bar (left, toward the shopfront); the entry is at the bottom of the plan.', 2.5, MUT, anchor='start') if False else None
     s.text(1.0, 2.3, 'toward the shopfront and the entry', 2.5, MUT)
     by_ = max(208.0, ty + 4)                                            # scale bar and reading note go below whichever is lower, the plan or the key
     bx_ = 22.0
     s.add(f'<rect x="{bx_}" y="{by_}" width="40" height="1.6" fill="{INK}"/><rect x="{bx_+40}" y="{by_}" width="40" height="1.6" fill="none" stroke="{INK}" stroke-width="0.2"/>'
-          f'<text x="{bx_}" y="{by_+5}" font-size="2.5" fill="{INK}">0</text><text x="{bx_+40}" y="{by_+5}" font-size="2.5" text-anchor="middle" fill="{INK}">1000</text><text x="{bx_+80}" y="{by_+5}" font-size="2.5" text-anchor="middle" fill="{INK}">2000</text>'
-          f'<text x="{bx_+86}" y="{by_+1.8}" font-size="2.9" font-weight="700" fill="{INK}">PLAN 1:25 on A3, dimensions in mm</text>')
+          f'<text x="{bx_}" y="{by_+5}" font-size="2.5" fill="{INK}">0</text><text x="{bx_+40}" y="{by_+5}" font-size="2.5" text-anchor="middle" fill="{INK}">1 m</text><text x="{bx_+80}" y="{by_+5}" font-size="2.5" text-anchor="middle" fill="{INK}">2 m</text>'
+          f'<text x="{bx_+86}" y="{by_+1.8}" font-size="2.9" font-weight="700" fill="{INK}">PLAN 1:25 on A3, dimensions in metres</text>')
     note = 'How to read it: the coloured letter tabs A to G are the areas of the bar; the numbered circles are the items in the list. The left wall is at the left of the plan, the bar island to its right. Dashed: the glass rack above and the ice machine.'
     for i, line in enumerate(wrap(note, 150)): s.add(f'<text x="22" y="{by_+10+i*3.2:.1f}" font-size="2.5" fill="{MUT}">{html.escape(line)}</text>')
     H = by_ + 10 + 3.2 * 2 + 4
@@ -227,10 +236,10 @@ thead{display:table-header-group} tr{break-inside:avoid} .foot{font-size:2.6mm;c
     return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bar vendor list · Betalbatim Pub</title>\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">\n'
             f'<style>{css}</style></head><body><div class="sheet">\n'
-            '<div class="hd"><div><h1>Bar and server station: vendor list</h1><p>Grouped by area of the bar, A to H. Plan at 1:25 on A3 (print at 100%), sizes in mm. From the Simplex model. Shop 4, Tulip Residency, Gandaulim, South Goa</p></div><div class="r">Betalbatim pub · Simplex · Concept 27<br>singhgenics.github.io/Simplex/boq-bar.html</div></div>\n'
-            '<div class="bar"><a class="pri" href="plans/bar-drawing-boq-mm.pdf" target="_blank" rel="noopener">A3 PDF: drawing + list</a><a href="plans/bar-boq.xlsx">Excel (rates and totals calculate)</a><a href="plans/bar-boq.csv">CSV</a><a href="boq.html">Kitchen BOQ</a><a href="./">3D model</a></div>\n'
+            '<div class="hd"><div><h1>Bar and server station: vendor list</h1><p>Grouped by area of the bar, A to H. Plan at 1:25 on A3 (print at 100%), sizes in metres. From the Simplex model. Shop 4, Tulip Residency, Gandaulim, South Goa</p></div><div class="r">Betalbatim pub · Simplex · Concept 27<br>singhgenics.github.io/Simplex/boq-bar.html</div></div>\n'
+            '<div class="bar"><a class="pri" href="plans/bar-drawing-boq.pdf" target="_blank" rel="noopener">A3 PDF: drawing + list</a><a href="plans/bar-boq.xlsx">Excel (rates and totals calculate)</a><a href="plans/bar-boq.csv">CSV</a><a href="boq.html">Kitchen BOQ</a><a href="./">3D model</a></div>\n'
             f'{drawing_svg()}\n<h2>Vendor list ({len(ITEMS)} lines in {len(SECTIONS)} areas)</h2>\n'
-            '<div class="tw"><table><thead><tr><th>Area</th><th>Item and where it is</th><th>Size W × D × H (mm)</th><th>What it is / specification</th><th>Unit</th><th>Qty</th><th>Rate ₹</th><th>Amount ₹</th><th>Make / model</th></tr></thead>'
+            '<div class="tw"><table><thead><tr><th>Area</th><th>Item and where it is</th><th>Size W × D × H (m)</th><th>What it is / specification</th><th>Unit</th><th>Qty</th><th>Rate ₹</th><th>Amount ₹</th><th>Make / model</th></tr></thead>'
             f'<tbody>{"".join(body)}</tbody></table></div>\n'
             '<p class="foot">Quantities and sizes are the space available, from the model; the vendor measures on site and states make, model, kW or litres, price ex-GST, delivery, installation, lead time, warranty and who services it in Goa. The Goa excise licence and fire NOC come before any draught installation. Concept drawings for briefing suppliers, not construction drawings.</p>\n</div></body></html>\n')
 

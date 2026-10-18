@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The bar and its equipment</title>
+<meta name="description" content="The Simplex bar section: plan with every unit sized, realistic pictures of the ice machine, flash chiller, mixer fridge, glasswasher and keg cabinet, and photoreal views of the bar made from the 3D model.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#1b1512;--raise:#251d18;--fg:#f3e9d6;--muted:#a99884;--line:#3a2f27;--amber:#e9b54a;--ox:#c4573c;--body:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:light){:root{--bg:#fbf7ef;--raise:#f1e9d8;--fg:#1f1a16;--muted:#6a5d4e;--line:#d8cbb4;--amber:#a8631a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 var(--body)}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left))}
+.top{padding:26px 0 8px}
+.eyebrow{font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin:0 0 6px}
+h1{font:700 clamp(28px,5vw,46px)/1.05 var(--body);letter-spacing:-.02em;margin:0 0 8px}
+.lede{max-width:72ch;color:var(--muted);margin:0 0 6px}
+nav.links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0 0;font-size:13px}
+nav.links a{color:var(--amber)}
+.hero{margin:18px 0 8px;border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative;background:#222}
+.hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.hero span{position:absolute;left:10px;bottom:10px;font:600 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:rgba(20,15,12,.85);color:#fff;padding:7px 10px;border-radius:999px}
+h2{font:700 26px/1.2 var(--body);letter-spacing:-.01em;margin:40px 0 6px}
+.sub{color:var(--muted);max-width:75ch;margin:0 0 18px}
+.planbox{border:1px solid var(--line);border-radius:14px;background:#FBF7EF;overflow:auto}
+.planbox img{display:block;width:100%;min-width:760px;height:auto}
+.open{display:inline-block;margin-top:8px;font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.eq{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:18px}
+.card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--raise);display:grid;grid-template-rows:auto 1fr}
+.card figure{margin:0;position:relative;background:#dcdedf}
+.card figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.card figure b{position:absolute;left:8px;top:8px;background:#D9531E;color:#fff;font:700 12px/1 var(--mono);padding:6px 9px;border-radius:999px}
+.card .bd{padding:13px 15px 16px;display:grid;gap:8px;align-content:start}
+.card h3{font:700 17px/1.25 var(--body);margin:0}
+.card .sz{font:600 12px/1.4 var(--mono);color:var(--amber)}
+.card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px;border-top:1px dashed var(--line);padding-top:8px}
+.card dt{font:600 10px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card dd{margin:0;min-width:0}
+.pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:18px}
+.pair{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--raise)}
+.pair .ph{position:relative;aspect-ratio:4/3;background:#222;cursor:pointer}
+.pair .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+.pair .ph img.b,.pair .ph img.t{opacity:0}.pair.show-m .ph img.b{opacity:1}.pair.show-t .ph img.t{opacity:1}
+.pair .tg{position:absolute;left:8px;right:8px;bottom:8px;display:flex;flex-wrap:wrap;gap:4px}
+.pair .tg button{appearance:none;border:1.5px solid rgba(255,255,255,.7);background:rgba(20,15,12,.7);color:#fff;font:600 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:999px;cursor:pointer}
+.pair .tg button[aria-pressed=true]{background:#e9b54a;color:#1b120a;border-color:#e9b54a}
+.pair .bd{padding:12px 14px 14px}.pair h3{font:700 16px/1.25 var(--body);margin:0 0 4px}.pair p{margin:0;font-size:13px;color:var(--muted)}
+.pair .key{font:500 11.5px/1.55 var(--mono);color:var(--amber);margin-top:8px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.fk{padding:14px 16px;background:var(--raise);border:1px solid var(--line);border-radius:10px}
+.fk b{display:block;font:700 15px/1.3 var(--body);margin-bottom:4px}.fk span{font-size:13.5px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);border-left:3px solid var(--ox);padding-left:10px;max-width:78ch;margin-top:20px}
+footer{padding:30px 0 60px;font-size:12px;color:var(--muted)}
+</style></head><body>
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">Simplex · concept 27 · bar on the left wall · counter 2.20 × 0.75 m</p>
+  <h1>The bar and its equipment</h1>
+  <p class="lede">The bar section from the floor plan and the 3D model: every unit at its planned size and place, with realistic pictures of the ice machine, flash chiller, mixer fridge, glasswasher and keg cabinet, and photoreal views of the bar made from the model.</p>
+  <nav class="links"><a href="#plan">Plan</a><a href="#equipment">Equipment</a><a href="#views">Views</a><a href="#services">Services</a><a href="plan.html">Whole floor plan</a><a href="interior-3d.html">Interiors in 3D</a><a href="kitchen-3d.html">Kitchen in 3D</a><a href="./">Pub 3D model</a></nav>
+</header>
+<div class="hero"><img src="renders/bar/guest-photo.jpg" alt="The bar from the door, photoreal"><span>The bar from the door · photoreal from the 3D model</span></div>
+
+<h2 id="plan">Plan</h2>
+<p class="sub">Bar counter, keg cabinet, chiller, ice machine, sink, back bar with the built-in mixer cooler and glasswasher, POS nook and the server station, at the sizes on the pub plan. Numbers match the equipment list and the cards below.</p>
+<div class="planbox"><img src="renders/bar/bar-plan.svg" alt="Bar section plan with numbered equipment and dimensions"></div>
+<a class="open" href="renders/bar/bar-plan.svg" target="_blank" rel="noopener">Open the plan full size</a>
+
+<h2 id="equipment">The equipment</h2>
+<p class="sub">Pictures are generated catalogue-style images of the kind of unit the plan allows for. They show the type and layout, not a specific make; the size on each card is the space the plan allows, so do not quote a wider unit.</p>
+<div class="eq" id="eq"></div>
+
+<h2 id="views">The bar, photoreal</h2>
+<p class="sub">Each view has three states from the same camera. <b>Exact model</b>: the plain 3D model. <b>Textured model</b>: the same model with real photographs on it. <b>Photoreal</b>: a Google Flow image made from the textured model plus the equipment pictures above. Tap an image to cycle. Flow is close but not exact; the plan and the model govern sizes.</p>
+<div class="pairs" id="pairs"></div>
+
+<h2 id="services">Services and clearances</h2>
+<div class="facts" id="facts"></div>
+<p class="note">Sizes and positions are from the pub plan and 3D model. Ratings, water and drain points are typical for this kind of equipment and are for the vendor to confirm; the backup-power list is from the model (chiller, mixer cooler and ice machine on backup). Generated images show intent, not a supplier's product.</p>
+<footer>Betalbatim pub · Simplex concept 27 · concept drawings for briefing the bar equipment vendor, not for construction.</footer>
+</div>
+<script>
+const EQ=[
+ [7,'ice','Under-counter ice machine','0.55 D × 0.50 W · about 50 kg a day','Under the counter at the bartender end, next to the bar sink','Self-contained and air-cooled: no outdoor unit. Front louvres must stay clear.','Cold water in, drain out','On backup power'],
+ [4,'chiller','Beer flash chiller','0.50 × 0.42 × 0.57 m','Inside the keg cabinet, under the tap font','Self-contained, rated for room-temperature kegs in the tropics; insulated beer lines run up to the font.','Power only','On backup power'],
+ [8,'mixer','Mixer cooler (glass door)','0.70 W × 0.55 D, built in','Back bar, opposite the bar sink','Mixers, water and soft drinks within one step of the bartender. Sits in the 0.55 m deep stretch of the back bar.','Power only','On backup power'],
+ [9,'glasswasher','Under-counter glasswasher','0.45 W × 0.55 D, 0.45 basket','Back bar, opposite the bar sink','Front-loading, for pints and stemware. Needs its own water, drain and a rinse-aid supply.','Hot and cold water, drain','Not on the backup circuits'],
+ [3,'kegs','Keg cabinet + CO₂','Cabinet 1.10 × 0.63 × 0.90 · 3 × 20 L kegs · CO₂ 6 kg','Under the counter beneath the tap font; CO₂ cabinet in the back bar','Kegs stand on a roll-out base behind louvred timber doors so the chiller can breathe. The CO₂ cylinder is chained upright in its own cabinet with a low vent and a low CO₂ alarm (CO₂ sinks).','Gas line to the kegs','CO₂ alarm powered'],
+ [2,'font','Brass three-tap font','≈ 0.42 H · 3 craft taps · drip tray','On the counter, over the keg cabinet','One brass font with three enamel tap handles; beer is chilled on its way up from the chiller.','Drip tray: drain to the bar sink or a bucket (vendor to confirm)','—'],
+ [6,'sink','Bar sink, ice well, speed rail','0.50 m sink on the bartender side of the counter','Bartender side of the counter, beside the ice machine','Rinse sink, ice well and a speed rail within reach of the one bartender; bar mat on the drainboard.','Hot and cold water, drain to the grey-water line','—'],
+];
+document.getElementById('eq').innerHTML=EQ.map(([n,img,t,sz,where,note,svc,pw])=>`<article class="card"><figure><img src="renders/bar/product-${img}.jpg" alt="${t}" loading="lazy"><b>${n}</b></figure><div class="bd"><h3>${t}</h3><div class="sz">${sz}</div><dl><dt>Where</dt><dd>${where}</dd><dt>Note</dt><dd>${note}</dd><dt>Services</dt><dd>${svc}</dd><dt>Power</dt><dd>${pw}</dd></dl></div></article>`).join('');
+const PAIRS=[
+ ['guest','The bar from the door','The counter 2.20 × 0.75 × 1.04 m with the back-lit onyx front, marble top, brass tap font and four stools, the glass rack above. All the equipment is under the counter or in the back bar.','1 counter · 2 tap font · 13 stools'],
+ ['aisle','The bartender\'s aisle','Looking down the 0.85 m aisle: the back bar with the mixer fridge, glasswasher, CO₂ cabinet and POS nook on one side, the counter on the other.','8 mixer cooler · 9 glasswasher · 5 CO₂ · 10 POS'],
+ ['equip','The back-bar equipment','Built into the 0.55 m deep stretch of the back bar, under the 0.96 m marble top: mixer cooler 0.70 m and glasswasher 0.45 m opposite the sink.','8 · 9 · 10 · 11 back bar'],
+ ['kegs','The keg cabinet','1.10 × 0.63 × 0.90 m under the tap font: three 20 L kegs on a roll-out base, the flash chiller and the CO₂ cylinder behind louvred doors.','3 keg cabinet · 4 chiller · 5 CO₂'],
+ ['ice','Sink, ice well and ice machine','The bartender end of the counter: bar sink with ice well and speed rail, and the under-counter ice machine beside it.','6 sink · 7 ice machine'],
+ ['top','The whole bar from above','Ceiling removed: counter and stools, the 0.85 m aisle, the back bar with its built-ins, the ice machine, sink, chiller and keg cabinet.','1 – 13']];
+const pairs=document.getElementById('pairs');
+PAIRS.forEach(([id,t,p,key])=>{const el=document.createElement('div');el.className='pair';
+ el.innerHTML=`<div class="ph"><img class="a" src="renders/bar/${id}-photo.jpg" alt="${t}, photoreal" loading="lazy"><img class="t" src="renders/bar/${id}-tex.jpg" alt="${t}, photo-textured model" loading="lazy"><img class="b" src="renders/bar/${id}-model.jpg" alt="${t}, exact model" loading="lazy"><div class="tg"><button type="button" data-m="0" aria-pressed="true">Photoreal</button><button type="button" data-m="1" aria-pressed="false">Textured model</button><button type="button" data-m="2" aria-pressed="false">Exact model</button></div></div><div class="bd"><h3>${t}</h3><p>${p}</p><div class="key">${key}</div></div>`;
+ let cur=0;const flip=m=>{cur=m;el.classList.toggle('show-t',m===1);el.classList.toggle('show-m',m===2);el.querySelectorAll('.tg button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.m===m)));};
+ el.querySelector('.tg').addEventListener('click',e=>{e.stopPropagation();const b=e.target.closest('[data-m]');if(b)flip(+b.dataset.m);});
+ el.querySelector('.ph').addEventListener('click',()=>flip((cur+1)%3));pairs.appendChild(el);});
+document.getElementById('facts').innerHTML=[
+ ['Bartender aisle','0.85 m between the counter edge and the back bar (about 0.68 m at the built-ins). Planned for one bartender: everything is within one or two steps.'],
+ ['Way in and out','At the far end of the bar, past the server station and the kitchen door; the door end of the bar is closed off.'],
+ ['Behind the stools','1.5 m from the counter edge to the washroom block (about 0.95 m behind a seated guest).'],
+ ['Backup power','Beer flash chiller, mixer cooler and ice machine are on the backup circuits (7.5 kVA inverter, about 10 kWh), along with the POS, lights and Wi-Fi. The glasswasher is not listed, and nothing here runs on the ACs.'],
+ ['Water and drain','The plan sends the bar's grey water to the grey-water outlet, not the biodigester; cold water comes from the water cabinet on the right strip. The plumber and the vendors confirm the hot-water supply and the connection points for the sink, ice machine and glasswasher.'],
+ ['Gas safety','The 6 kg CO₂ cylinder stays chained in its cabinet with a low vent and a low CO₂ alarm, because CO₂ is heavier than air.']
+].map(([a,b])=>`<div class="fk"><b>${a}</b><span>${b}</span></div>`).join('');
+</script>
+</body></html>
