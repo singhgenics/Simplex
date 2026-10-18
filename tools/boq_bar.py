@@ -25,10 +25,9 @@ SECTIONS = [
  ('co2', 'CO₂ cylinder with regulator and chain', 'In the back-bar cabinet under the infusion jars (a different place from the kegs)', 'Ø 150 × 670', '6 kg, chained upright, with a low vent grille', 'nos', 1),
  ('co2alarm', 'Low CO₂ alarm', 'Low on the back-bar cabinet', '', 'CO₂ is heavier than air, so it sits near the floor', 'nos', 1),
 ]),
-('C', 'Bartender work area (sink, ice well, speed rail, ice machine)', 'The stainless area behind the counter at the far end, where the bartender washes, scoops ice and keeps the speed-rail bottles.', '#3f6a3a', [
- ('workunit', 'Stainless work unit', 'Behind the counter, bartender side, far end', '1,060 × 200 × 850', 'Holds the next three items; one continuous stainless unit', 'nos', 1),
- ('sink', 'Bar sink', 'Set into the work unit', '380 long', 'Hot and cold tap, drains to the grey-water line', 'nos', 1),
- ('icewell', 'Ice well', 'Set into the work unit, beside the sink', '380 long', 'Insulated, with a drain', 'nos', 1),
+('C', 'Bartender work area (sink and ice basin, speed rail, ice machine)', 'The stainless area behind the counter at the far end, where the bartender washes and scoops ice from the basin and keeps the speed-rail bottles.', '#3f6a3a', [
+ ('workunit', 'Stainless work unit', 'Behind the counter, bartender side, far end', '1,060 × 200 × 850', 'Holds the sink basin and the speed rail below; one continuous stainless unit', 'nos', 1),
+ ('sink', 'Bar sink / ice well basin', 'Set into the top of the work unit', '380 × 160 × 160', 'One basin used for washing and as the ice well; hot and cold tap, drains to the grey-water line. The vendor may propose a deeper basin (then the unit depth changes)', 'nos', 1),
  ('speedrail', 'Speed rail', 'Along the front of the work unit', '1,060 long', 'Holds the everyday spirit bottles within reach', 'nos', 1),
  ('ice', 'Ice machine, under-counter', 'Under the counter beside the work unit', '500 × 550 × 800', 'About 50 kg a day; filtered cold water and a drain', 'nos', 1),
  ('filter', 'Water filter for the ice machine and the glasswasher', 'Inside the cabinet next to the ice machine', '', 'Cartridge type; replace on schedule', 'set', 1),
@@ -60,7 +59,7 @@ SECTIONS = [
 ('H', 'Services and loose items', 'Not a place on the plan: the power, water and drains the bar needs, the lighting, and things the bartender brings.', '#6a5d4e', [
  ('power', 'Power points', 'Across the bar and the station', '', 'Ice machine, glasswasher, cooler, flash chiller, POS, TV, neon, LED strips, coffee brewer, water dispenser; the chillers and POS on the power backup', 'nos', 10),
  ('water', 'Water points with isolation valves', 'Bar sink, glasswasher, ice machine, coffee brewer', '', 'Hot and cold at the sink and glasswasher; filtered cold at the ice machine', 'nos', 4),
- ('drain', 'Drain points to the grey-water line', 'Bar sink, glasswasher, ice machine, ice well', '', 'Never to the biodigester', 'nos', 4),
+ ('drain', 'Drain points to the grey-water line', 'Bar sink and ice basin, glasswasher, ice machine', '', 'Never to the biodigester', 'nos', 4),
  ('led', 'Warm LED strips and downlights', 'Under both long sides of the counter; 4 over the marble', '', '2,200 K', 'lot', 1),
  ('smallware', 'Bar smallware', 'Bartender brings or buys', '', 'To the bar consultant\'s list: shakers, jiggers, strainers, muddlers, bar mats', 'lot', 1),
  ('glass', 'Glassware', 'Per the drinks menu', '', 'Pint, gose, whisky, highball, coupe, shot; see the crockery list (breweries often give branded pint glasses)', 'lot', 1),
@@ -165,7 +164,7 @@ def drawing_svg():
         a, b = s.P(x, z); s.add(f'<circle cx="{a:.2f}" cy="{b:.2f}" r="2.3" fill="#fff" stroke="{col}" stroke-width="0.3"/><text x="{a:.2f}" y="{b+0.9:.2f}" font-size="2.4" font-weight="700" fill="{col}" text-anchor="middle">{NUM[k]}</text>')
     placed = {'counter': (0.5, 3.0), 'stool': (0.13, 3.87), 'rack': (0.7, 5.1),
               'font': (0.86, 3.42), 'kegcab': (0.85, 3.95), 'keg': (0.77, 3.21), 'chiller': (0.92, 3.72), 'beerline': (0.72, 3.62), 'co2': (2.38, 3.6), 'co2alarm': (2.55, 3.65),
-              'workunit': (1.1, 4.3), 'sink': (1.1, 4.7), 'icewell': (1.1, 4.95), 'speedrail': (1.1, 5.15), 'ice': (0.85, 4.9),
+              'workunit': (1.1, 4.3), 'sink': (1.1, 4.75), 'speedrail': (1.1, 5.1), 'ice': (0.85, 4.9),
               'backbar': (2.25, 5.25), 'display': (2.55, 4.3), 'infusion': (2.15, 3.5), 'soju': (2.55, 5.1), 'tv': (2.55, 3.4), 'neon': (2.55, 3.0),
               'builtin': (1.97, 3.9), 'gw': (2.17, 4.8), 'cooler': (2.17, 4.17), 'pos': (2.35, 3.05), 'drawer': (2.15, 2.9),
               'station': (2.2, 6.1), 'stshelf': (2.55, 5.85), 'brewer': (2.3, 5.8), 'waterdisp': (2.05, 5.8), 'milk': (2.05, 5.6)}
