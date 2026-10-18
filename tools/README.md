@@ -22,3 +22,5 @@ Coordinates: x runs from the right wall (−2.45) to the left wall (2.45) as you
 `boq_drawing.py` writes `boq-drawing.html`: the 1:25 kitchen and exhaust plan with every item named on the drawing (every size in mm) above the equipment and exhaust BOQ in mm only. Print it from Chrome headless on A3 portrait (`--print-to-pdf=plans/kitchen-drawing-boq-mm.pdf`, no header or footer). The table below it uses plain running numbers 1 to 44 and the same item names as the drawing.
 
 `boq_bar.py` writes the bar vendor list from the model and plan (`boq-bar.html`, `plans/bar-boq.xlsx`, `.csv`); print `boq-bar.html` from Chrome headless on A3 portrait for `plans/bar-drawing-boq.pdf`. Positions come from `plan.py`, sizes from the model and the side panel.
+
+`boq_bar_equipment.py` writes the equipment-only bar list (`boq-bar-equipment.html`, `plans/bar-equipment.xlsx`, `.csv`; PDF from Chrome, A4 portrait), reading the sizes from `boq_bar.py`.
