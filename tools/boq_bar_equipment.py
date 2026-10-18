@@ -127,7 +127,8 @@ def drawing_svg():
             if k == 'keg': sz = '0.24 × 0.24 × 0.42'
             if k == 'co2': sz = '0.15 × 0.15 × 0.67'
             if k == 'font': sz = '0.09 × 0.09 × 0.42'
-            s.add(f'<text x="{col_x+1.5}" y="{ty:.1f}" font-size="2.6" fill="{INK}"><tspan font-weight="700">{NUMS[k]}</tspan>   {html.escape(item)}</text><text x="{col_x+1.5}" y="{ty+3.3:.1f}" font-size="2.4" fill="{MUT}">{html.escape(sz)}{'' if sz.startswith(('on ', 'fits', '1.06 long')) else ' m'}</text>'); ty += 8.2
+            sfx = '' if sz.startswith(('on ', 'fits', '1.06 long')) else ' m'
+            s.add(f'<text x="{col_x+1.5}" y="{ty:.1f}" font-size="2.6" fill="{INK}"><tspan font-weight="700">{NUMS[k]}</tspan>   {html.escape(item)}</text><text x="{col_x+1.5}" y="{ty+3.3:.1f}" font-size="2.4" fill="{MUT}">{html.escape(sz + sfx)}</text>'); ty += 8.2
         ty += 2
     bx_, by_ = 22.0, 208.0
     s.add(f'<rect x="{bx_}" y="{by_}" width="40" height="1.6" fill="{INK}"/><rect x="{bx_+40}" y="{by_}" width="40" height="1.6" fill="none" stroke="{INK}" stroke-width="0.2"/>'
