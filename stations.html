@@ -1,0 +1,278 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>What Cooks Where</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: two views of one menu. By station, in line order from the right wall; by dish, with the route each dish takes. */
+:root {
+  --bg: #f4f7f6; --surface: #ffffff; --fg: #14201d; --muted: #55645f; --line: #d3ddd9;
+  --accent: #0f6b5c; --accent-soft: #dcefe9; --warn: #a8480f; --warn-soft: #f9e6d9;
+  --font-body: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1715; --surface: #16231f; --fg: #e5eeea; --muted: #9bb0a9; --line: #2a3b36;
+    --accent: #4fc1a8; --accent-soft: #1b3a33; --warn: #f0a070; --warn-soft: #3a2518; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1715; --surface: #16231f; --fg: #e5eeea; --muted: #9bb0a9; --line: #2a3b36;
+  --accent: #4fc1a8; --accent-soft: #1b3a33; --warn: #f0a070; --warn-soft: #3a2518; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.5; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+.wrap { max-width: 980px; margin-inline: auto; }
+header { padding-block: 28px 8px; }
+.kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.1; margin: 0 0 10px; text-wrap: balance; letter-spacing: -.01em; }
+.sub { color: var(--muted); margin: 0; max-width: 66ch; }
+.key { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 16px 0 0; padding: 12px 0; border-block: 1px solid var(--line); font-size: 13.5px; color: var(--muted); }
+.key span { display: inline-flex; align-items: center; gap: 6px; }
+.tabs { display: flex; gap: 8px; margin: 18px 0 0; flex-wrap: wrap; }
+.tabs button { font: inherit; font-size: 13px; cursor: pointer; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; }
+.tabs button[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+section.stn { margin-top: 26px; }
+.sh { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.sh h2 { font-size: 18px; margin: 0; }
+.sh .no { font-family: var(--font-mono); font-size: 13px; color: var(--accent); }
+.sh .size { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.sh .count { margin-left: auto; font-family: var(--font-mono); font-size: 12px; color: var(--accent); background: var(--accent-soft); padding: 1px 9px; border-radius: 999px; white-space: nowrap; }
+.role { margin: 4px 0 8px; color: var(--muted); font-size: 14px; max-width: 74ch; }
+ul.rows { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; }
+ul.rows li { padding: 10px 14px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(130px, 210px) minmax(0, 1fr); gap: 2px 14px; }
+ul.rows li:first-child { border-top: 0; }
+ul.rows .d { font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
+ul.rows .w { color: var(--muted); font-size: 14px; min-width: 0; }
+.lk { display: inline-block; font-family: var(--font-mono); font-size: 10.5px; color: var(--warn); border: 1px solid var(--warn); border-radius: 4px; padding: 0 5px; margin-left: 6px; vertical-align: 1px; white-space: nowrap; }
+.sub2 { margin: 14px 0 6px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.callout { margin-top: 26px; background: var(--warn-soft); border-left: 3px solid var(--warn); padding: 12px 14px; border-radius: 0 6px 6px 0; font-size: 14px; }
+.callout strong { color: var(--warn); }
+.callout ul { margin: 6px 0 0; padding-left: 18px; }
+.dish { padding: 12px 14px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(150px, 230px) minmax(0, 1fr); gap: 6px 14px; }
+.dish:first-child { border-top: 0; }
+.dish .n { font-weight: 700; }
+.dish .n small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; }
+.route { display: flex; flex-wrap: wrap; gap: 6px 4px; align-items: center; min-width: 0; }
+.chip { font-size: 13px; background: var(--accent-soft); color: var(--fg); border-radius: 6px; padding: 2px 8px; }
+.chip b { font-weight: 700; color: var(--accent); }
+.chip.lk2 { background: var(--warn-soft); }
+.arrow { color: var(--muted); font-size: 12px; }
+.grp { margin: 22px 0 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+footer { margin-top: 26px; font-size: 13px; color: var(--muted); max-width: 74ch; }
+@media (max-width: 560px) { ul.rows li, .dish { grid-template-columns: 1fr; } .sh .count { margin-left: 0; } }
+@media print { .tabs { display: none; } body { background: #fff; color: #000; } #v-station, #v-dish { display: block !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="kicker">Kitchen briefing for the chef, helper and vendors</p>
+    <h1>What cooks where</h1>
+    <p class="sub">Every dish on the food menu, matched to the station that cooks it. The stations run in line order from the right wall: wok range, steamer, fryer, stock range, then prep, cold and the pass. 25 dishes, 40 choices, one chef and one helper.</p>
+    <div class="key">
+      <span>Plain: stated in the menu notes</span>
+      <span><span class="lk">likely</span> my pick where the notes do not say. Chef to confirm.</span>
+      <span><span class="lk">decide</span> a choice the menu has not made yet.</span>
+    </div>
+    <div class="tabs" role="tablist" aria-label="View">
+      <button type="button" role="tab" id="t-station" aria-selected="true" aria-controls="v-station">By station</button>
+      <button type="button" role="tab" id="t-dish" aria-selected="false" aria-controls="v-dish">By dish</button>
+    </div>
+  </header>
+
+  <main id="v-station" role="tabpanel" aria-labelledby="t-station"></main>
+  <main id="v-dish" role="tabpanel" aria-labelledby="t-dish" hidden></main>
+
+  <div class="callout">
+    <strong>Two things to settle before service</strong>
+    <ul>
+      <li><b>Wontons:</b> the menu says poached, but the kitchen notes put them on the steamer. Fire Starters and Wonton Kenobi both use them. Poaching needs a stock-range burner at service, and steaming needs a steamer hole.</li>
+      <li><b>Stock range size:</b> its two burners are asked to run soups, curry bases and noodle boiling at service, while the braise is a morning job. The vendor says 0.6 m is too small for two 20 L pots, so the burner and pot sizes are open.</li>
+    </ul>
+  </div>
+
+  <footer>Source: the food menu and its owner's notes, plus the kitchen drawings. Station sizes are from kitchen sheet 1. The steamer figure of 12 to 13 baskets an hour is a calculation (two holes at about 9 minutes each), not a measured one.</footer>
+</div>
+
+<script>
+var L = true;   // flag for "likely"
+var STATIONS = [
+  { k: "wok", n: "Wok range, 2 burners", size: "1.2 × 0.8 × 0.8 m", role: "One burner for proteins and sauces, the other for noodles and rice. The chef owns the wok and the fryer during service.", groups: [
+    ["Proteins and sauces burner", [
+      ["Cabin Fever", "Chilli, with paneer, chicken or pork. Fried first, then tossed on full flame."],
+      ["Honey Trap", "Potato or chicken, tossed in the honey-chilli glaze after frying."],
+      ["Salt & Pepa", "Mushroom, chonak or prawns, tossed dry with salt, pepper and fried garlic."],
+      ["Man, Churian!", "Fried crisp, then simmered briefly in the Manchurian sauce. Veg or chicken."],
+      ["Holy Basil, Batman!", "Minced chicken with basil and chilli, and the fried egg.", L],
+      ["Fever Pitch (bao)", "The Cabin Fever chicken that fills the bun."],
+      ["Seoul Mate (bao)", "The paneer, seared hard and glazed with gochujang.", L],
+      ["Bao Down", "The braised pork belly, seared to order.", L]]],
+    ["Noodles and rice burner", [
+      ["Noodle Around", "Hakka noodles, tossed dry on high heat. Veg, chicken or mixed."],
+      ["Rice Rice Baby", "Fried rice from day-old rice. Burnt-garlic veg, chicken or mixed."],
+      ["Suey Generis", "The egg noodles for the khao suey are finished here.", L],
+      ["Honey, I Shrunk the Noodles", "The fried darsaan, tossed in hot honey.", L],
+      ["Bowl game lunch bowls", "Any noodles or fried rice with Cabin Fever."]]]]},
+  { k: "steam", n: "Dim sum steamer, 2 holes", size: "0.6 × 0.7 × 0.8 m", role: "Everything is steamed from frozen in 8 to 10 minutes and times itself. It tops up its own water. Two holes give about 12 to 13 baskets an hour, so a rush of dim sum and bao together will queue.", groups: [
+    ["Dim sum, 4 to a basket", [
+      ["Crystal Clear", "Crystal veg dumplings."],
+      ["Fire Starters", "Chicken wontons, then tossed in chilli oil and black vinegar. Steamed or poached.", "decide"],
+      ["Siu Mai Goodness", "Chouriço and chicken siu mai."],
+      ["Prawn to Be Wild", "Prawn and chive dumplings."]]],
+    ["Bao and sets", [
+      ["Bao Down, Fever Pitch, Seoul Mate", "The three bao buns, bought in frozen, 2 to a plate."],
+      ["Wonton Kenobi", "The wontons for the soup. Steamed or poached.", "decide"],
+      ["Steamer for two", "Two baskets of dim sum and a plate of two bao, chef's pick."]]]]},
+  { k: "fry", n: "Twin-tank fryer", size: "0.6 × 0.7 × 0.9 m", role: "Two tanks keep veg and non-veg oil apart. Used oil goes into the lidded can on the dish-sink shelf.", groups: [
+    ["Veg tank", [
+      ["Cabin Fever, paneer", "First fry before the wok."],
+      ["Honey Trap, potato", "First fry before the glaze."],
+      ["Salt & Pepa, mushroom", "Light batter, then to the wok."],
+      ["Man, Churian!, veg", "The veg dumplings, fried crisp."],
+      ["Fry Hard", "Kimchi fries. The fries go from the freezer. The torch finishes them."],
+      ["Honey, I Shrunk the Noodles", "The darsaan noodles, fried crisp."]]],
+    ["Non-veg tank", [
+      ["Cabin Fever, chicken and pork", "First fry before the wok."],
+      ["Honey Trap, chicken", "First fry before the glaze."],
+      ["Salt & Pepa, chonak and prawns", "Light batter, then to the wok."],
+      ["Man, Churian!, chicken", "Fried crisp before the sauce."],
+      ["K-Pop Wings", "Fried twice for a glass-crisp shell. The sauce is brushed on after."]]]]},
+  { k: "stock", n: "Stock range, 2 burners", size: "0.6 × 0.7 × 0.85 m, being resized", role: "The slow, wet cooking. Soups and curry bases at service, the braise and the sauce bases on batch and prep mornings. A wall pot filler fills 20 L pots in place.", groups: [
+    ["At service", [
+      ["Hot & Bothered", "Hot and sour soup from the morning base. Veg or chicken."],
+      ["Coconut Cuddle", "Tom kha from the morning stock, poured over the protein."],
+      ["Wonton Kenobi", "The clear ginger-chicken broth, and the wontons if poached.", "decide"],
+      ["Green With Envy", "Green curry from the weekly paste in coconut milk. Veg, chicken or prawn."],
+      ["Suey Generis", "The coconut khao suey curry, with a plate of toppings."],
+      ["Noodle Around, Suey Generis", "Boiling the noodles before they go to the wok or the bowl."],
+      ["Sticky Situation", "Warming the salted coconut cream for the sticky rice.", L]]],
+    ["Prep", [
+      ["Pork-belly braise", "For Bao Down, on Monday and Thursday. Three hours in soy and star anise."],
+      ["Daily sauce bases", "Chilli, Manchurian and honey-chilli sauces, and the hot-and-sour and tom kha stocks, in the 1.5 hour morning prep."]]]]},
+  { k: "rice", n: "Rice cookers, 2", size: "5 L each, Ø 0.26 m", role: "At the end of the dumpling bench. One for jasmine, one for sticky rice.", groups: [
+    ["", [
+      ["Plain Jane", "Steamed jasmine rice, for the curries and gravies."],
+      ["Holy Basil, Batman!", "Jasmine rice under the basil chicken."],
+      ["Rice Rice Baby", "Rice cooked each morning to be used the next day as fried rice."],
+      ["Sticky Situation", "The sticky rice that is then soaked in warm coconut cream."]]]]},
+  { k: "prep", n: "Prep benches and tools", size: "two benches, each 0.8 × 0.65 m", role: "The non-veg bench has the red board and the chilled mise-en-place rail. The dumpling and veg bench has the stone mortar, mixer-grinder, torch and the under-counter freezer.", groups: [
+    ["Non-veg bench", [
+      ["Portioning and battering", "Chicken, pork belly, chonak and prawns arrive cleaned and portioned. The batter is made in the morning."],
+      ["Mise-en-place rail", "Five chilled pans of service prep within reach of the wok."]]],
+    ["Dumpling and veg bench", [
+      ["Dumpling folding", "On Monday and Thursday: Crystal Clear, the chicken wontons, siu mai and the prawn and chive dumplings, folded and frozen."],
+      ["Slap Happy", "Papaya salad, pounded to order in the stone mortar. No cooking."],
+      ["Curry pastes and gochujang sauce", "In the mixer-grinder on batch days. The green paste for Green With Envy is made weekly."],
+      ["Fry Hard", "Finished under the kitchen torch.", ],
+      ["Vegetable cutting", "All of it, with the herbs and rice washed in the separate veg sink."]]]]},
+  { k: "cold", n: "Cold storage", size: "reach-in 0.95 × 0.75 × 2.0 m, plus two under-counter units", role: "Where the batches wait. Ask each dealer for the litres on every side.", groups: [
+    ["", [
+      ["Reach-in, fridge door", "Cheese for Fry Hard, eggs, paneer, mushrooms, cut veg, kimchi, sauces. Raw proteins on the bottom shelf."],
+      ["Reach-in, freezer door", "Frozen bao buns, fries and wings, and the ice cream for both desserts."],
+      ["Under-counter freezer", "The dim sum trays from the batch days, at the bench where they are folded."],
+      ["Under-counter fridge at the pass", "The sauce bases and cut veg, within reach of the wok."]]]]},
+  { k: "pass", n: "Pass and heat lamps", size: "0.65 × 0.65 m, hatch 0.65 × 0.6 m", role: "Plating, holding and the ticket rail. The dip rail has five inserts.", groups: [
+    ["", [
+      ["Dips", "Kasundi mayo (Salt & Pepa), gochujang mayo (Fry Hard), chilli mayo (Fever Pitch), chilli-soy (Prawn to Be Wild)."],
+      ["Plating", "Every dish is finished here, then goes through the hatch."]]]]}
+];
+
+var DISHES = [
+  ["Soups", [
+    ["Wonton Kenobi", "Chicken wonton soup", [["cold", "wontons from the freezer"], ["steam", "or poach", "decide"], ["stock", "clear broth"]]],
+    ["Hot & Bothered", "Hot and sour, veg or chicken", [["stock", "heat the morning base"]]],
+    ["Coconut Cuddle", "Tom kha, veg or chicken", [["stock", "heat the stock, pour over the protein"]]]]],
+  ["Cabin starters", [
+    ["Cabin Fever", "Chilli: paneer, chicken or pork", [["nv", "batter the protein"], ["fry", "first fry"], ["wok", "toss on full flame"]]],
+    ["Honey Trap", "Potato or chicken", [["fry", "first fry"], ["wok", "honey-chilli glaze"]]],
+    ["Salt & Pepa", "Mushroom, chonak or prawns", [["nv", "light batter"], ["fry", "first fry"], ["wok", "salt, pepper, garlic toss"]]]]],
+  ["Dim sum", [
+    ["Crystal Clear", "Crystal veg dumplings", [["cold", "freezer tray"], ["steam", "8 to 10 min"]]],
+    ["Fire Starters", "Chicken wontons in chilli oil", [["cold", "freezer tray"], ["steam", "or poach", "decide"], ["pass", "chilli oil and vinegar"]]],
+    ["Siu Mai Goodness", "Chouriço and chicken siu mai", [["cold", "freezer tray"], ["steam", "8 to 10 min"]]],
+    ["Prawn to Be Wild", "Prawn and chive dumplings", [["cold", "freezer tray"], ["steam", "8 to 10 min"]]]]],
+  ["Bao", [
+    ["Bao Down", "Pork belly bao", [["stock", "braise on batch day"], ["wok", "sear to order", "likely"], ["steam", "the bun"]]],
+    ["Fever Pitch", "Chilli chicken bao", [["fry", "chicken first fry"], ["wok", "Cabin Fever toss"], ["steam", "the bun"]]],
+    ["Seoul Mate", "Gochujang paneer bao", [["wok", "sear and glaze", "likely"], ["steam", "the bun"]]]]],
+  ["Seoul to Bangkok", [
+    ["K-Pop Wings", "6 pieces, soy-garlic or sweet-spicy", [["cold", "freezer"], ["fry", "twice, non-veg tank"], ["pass", "brush with sauce"]]],
+    ["Fry Hard", "Kimchi fries", [["cold", "freezer"], ["fry", "veg tank"], ["veg", "torch to finish"]]],
+    ["Slap Happy", "Raw papaya salad, no cooking", [["veg", "pound in the mortar"]]]]],
+  ["Noodles and rice", [
+    ["Noodle Around", "Hakka noodles: veg, chicken or mixed", [["stock", "boil the noodles"], ["wok", "noodle burner"]]],
+    ["Rice Rice Baby", "Fried rice: veg, chicken or mixed", [["rice", "yesterday's rice"], ["wok", "rice burner"]]],
+    ["Holy Basil, Batman!", "Thai basil chicken rice bowl", [["rice", "jasmine"], ["wok", "chicken and egg", "likely"]]],
+    ["Plain Jane", "Steamed jasmine rice", [["rice", "jasmine"]]]]],
+  ["Gravies and curries", [
+    ["Man, Churian!", "Manchurian gravy: veg or chicken", [["fry", "fry the dumplings or chicken"], ["wok", "simmer in the sauce"]]],
+    ["Green With Envy", "Green curry: veg, chicken or prawn", [["stock", "paste in coconut milk"], ["rice", "with jasmine"]]],
+    ["Suey Generis", "Khao suey: veg or chicken", [["stock", "coconut curry and noodles"], ["wok", "finish the noodles", "likely"]]]]],
+  ["Sweet", [
+    ["Honey, I Shrunk the Noodles", "Darsaan with ice cream", [["fry", "darsaan, veg tank"], ["wok", "hot honey toss", "likely"], ["cold", "ice cream"]]],
+    ["Sticky Situation", "Coconut sticky rice with ice cream", [["rice", "sticky rice"], ["stock", "warm the coconut cream", "likely"], ["cold", "ice cream"]]]]]
+];
+var SHORT = { wok: "Wok", steam: "Steamer", fry: "Fryer", stock: "Stock range", rice: "Rice cooker", nv: "Non-veg bench", veg: "Veg bench", cold: "Cold", pass: "Pass" };
+var COOK = ["wok", "steam", "fry", "stock", "rice"];
+
+function el(t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; }
+function flag(f) { if (!f) return null; var s = el("span", "lk", f === true ? "likely" : f); return s; }
+
+var counts = {}, totalDishes = 0;
+DISHES.forEach(function (g) { g[1].forEach(function (d) { totalDishes += 1; var seen = {}; d[2].forEach(function (s) { if (!seen[s[0]]) { counts[s[0]] = (counts[s[0]] || 0) + 1; seen[s[0]] = 1; } }); }); });
+
+var vs = document.getElementById("v-station");
+STATIONS.forEach(function (s, i) {
+  var sec = el("section", "stn");
+  var h = el("div", "sh");
+  h.appendChild(el("span", "no", String(i + 1)));
+  h.appendChild(el("h2", null, s.n));
+  h.appendChild(el("span", "size", s.size));
+  if (COOK.indexOf(s.k) >= 0) h.appendChild(el("span", "count", "used by " + (counts[s.k] || 0) + " of " + totalDishes + " dishes"));
+  sec.appendChild(h);
+  sec.appendChild(el("p", "role", s.role));
+  s.groups.forEach(function (g) {
+    if (g[0]) sec.appendChild(el("p", "sub2", g[0]));
+    var ul = el("ul", "rows");
+    g[1].forEach(function (r) {
+      var li = el("li"); var d = el("div", "d", r[0]); var w = el("div", "w", r[1]);
+      var f = flag(r[2]); if (f) w.appendChild(f);
+      li.appendChild(d); li.appendChild(w); ul.appendChild(li);
+    });
+    sec.appendChild(ul);
+  });
+  vs.appendChild(sec);
+});
+
+var vd = document.getElementById("v-dish");
+DISHES.forEach(function (g) {
+  vd.appendChild(el("p", "grp", g[0]));
+  var ul = el("div", "rows"); ul.style.cssText = "border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden";
+  g[1].forEach(function (d) {
+    var row = el("div", "dish");
+    var n = el("div", "n", d[0]); n.appendChild(el("small", null, d[1]));
+    var r = el("div", "route");
+    d[2].forEach(function (st, j) {
+      if (j) r.appendChild(el("span", "arrow", "→"));
+      var chip = el("span", "chip" + (st[2] ? " lk2" : ""));
+      var b = el("b", null, SHORT[st[0]]); chip.appendChild(b); chip.appendChild(document.createTextNode(" " + st[1]));
+      if (st[2]) chip.appendChild(flag(st[2]));
+      r.appendChild(chip);
+    });
+    row.appendChild(n); row.appendChild(r); ul.appendChild(row);
+  });
+  vd.appendChild(ul);
+});
+
+function show(which) {
+  document.getElementById("v-station").hidden = which !== "station";
+  document.getElementById("v-dish").hidden = which !== "dish";
+  document.getElementById("t-station").setAttribute("aria-selected", String(which === "station"));
+  document.getElementById("t-dish").setAttribute("aria-selected", String(which === "dish"));
+}
+document.getElementById("t-station").addEventListener("click", function () { show("station"); });
+document.getElementById("t-dish").addEventListener("click", function () { show("dish"); });
+</script>
