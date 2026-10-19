@@ -548,7 +548,7 @@ const popTex=tex(600,1000,(g,w,h)=>{
 const menuTex=tex(1024,400,(g,w,h)=>{g.fillStyle='#24302a';g.fillRect(0,0,w,h);g.strokeStyle='#b07e4e';g.lineWidth=22;g.strokeRect(0,0,w,h);g.fillStyle='#f3ecdf';g.textAlign='left';
   g.font='64px Yellowtail, cursive';g.fillText('Dim sum',50,90);g.fillText('Bar bites',540,90);g.font='500 26px "IBM Plex Mono", monospace';
   ['crystal clear dumplings','fire starters wontons','siu mai goodness','prawn to be wild','bao down','seoul mate bao'].forEach((t,i)=>g.fillText(t,56,150+i*40));
-  ['k-pop wings','fry hard kimchi fries','salt & pepa chonak','cabin fever chilli','3 craft taps','happy hour 4–7 pm'].forEach((t,i)=>g.fillText(t,546,150+i*40));});
+  ['k-pop wings','fry hard kimchi fries','salt & pepa chonak','cabin fever chilli','3 craft taps','happy hour 4–8 pm'].forEach((t,i)=>g.fillText(t,546,150+i*40));});
 function neonTexture(text,font,glow,core,w,h){return tex(w,h,(g)=>{g.clearRect(0,0,w,h);g.font=font;g.textAlign='center';g.textBaseline='middle';g.shadowColor=glow;g.shadowBlur=26;g.fillStyle=core;g.fillText(text,w/2,h/2);g.shadowBlur=10;g.fillText(text,w/2,h/2);g.shadowBlur=0;g.fillStyle='#fff';g.globalAlpha=.5;g.fillText(text,w/2,h/2);});}
 
 function brandNeon(w,h,glow,core){return tex(w,h,(g)=>{g.clearRect(0,0,w,h);const word='Cabin East',tag='WOK | STEAM | DRAUGHT';let fp=100;g.font='600 '+fp+'px Fredoka, sans-serif';fp=Math.floor(fp*(w*0.8)/g.measureText(word).width);
@@ -618,7 +618,7 @@ const signs=[signTex(true,[['BEER',62,0.45],['COLD · ON TAP',18,0.66]],'#c8321e
   signTex(true,[['DIM',46,0.4],['SUM',46,0.62]],'#1f4f6e','#f6ecd6','#e9b54a'),signTex(false,[['DRAUGHT',34,0.45],['ICE COLD',16,0.72]],'#e9b54a','#2a1a10','#2a1a10')];
 const neonSign=brandNeon(1024,400,'#ff8a1f','#ffc27a');
 const tvTex=tex(256,144,(g,w,h)=>{g.fillStyle='#1d6b34';g.fillRect(0,0,w,h);for(let x=0;x<w;x+=32){g.fillStyle='rgba(255,255,255,.06)';g.fillRect(x,0,16,h);}g.strokeStyle='rgba(255,255,255,.8)';g.lineWidth=2;g.strokeRect(14,14,w-28,h-28);g.beginPath();g.moveTo(w/2,14);g.lineTo(w/2,h-14);g.stroke();g.beginPath();g.arc(w/2,h/2,22,0,7);g.stroke();g.fillStyle='rgba(10,10,20,.85)';g.fillRect(10,8,96,16);g.fillStyle='#fff';g.font='600 11px sans-serif';g.fillText('GOA 2 – 1 BLR',16,20);});
-const chalkTex=tex(256,320,(g,w,h)=>{g.fillStyle='#24302a';g.fillRect(0,0,w,h);g.strokeStyle='#b07e4e';g.lineWidth=14;g.strokeRect(0,0,w,h);g.fillStyle='#f3ecdf';g.textAlign='center';g.font='36px Yellowtail, cursive';g.fillText('Tonight',w/2,62);g.font='500 17px "IBM Plex Mono", monospace';['siu mai goodness','bao down','k-pop wings','green with envy','3 craft taps','happy hour 4–7'].forEach((t,i)=>g.fillText(t,w/2,110+i*32));});
+const chalkTex=tex(256,320,(g,w,h)=>{g.fillStyle='#24302a';g.fillRect(0,0,w,h);g.strokeStyle='#b07e4e';g.lineWidth=14;g.strokeRect(0,0,w,h);g.fillStyle='#f3ecdf';g.textAlign='center';g.font='36px Yellowtail, cursive';g.fillText('Tonight',w/2,62);g.font='500 17px "IBM Plex Mono", monospace';['siu mai goodness','bao down','k-pop wings','green with envy','3 craft taps','happy hour 4–8'].forEach((t,i)=>g.fillText(t,w/2,110+i*32));});
 
 // ---------- materials ----------
 const S=(o)=>new THREE.MeshStandardMaterial(o);
