@@ -37,13 +37,16 @@ GW=X1+T
 rect(-GW,GW,-2.0,-0.06,'#efe6d2','#b9a989',1)
 for x in (-(GW-0.1),GW-0.1): rect(x-0.08,x+0.08,-2.0,-1.84,'#8f5634','#8f5634',1)
 rect(-GW,GW,-0.26,-0.1,'none','#8f5634',1,'4 3'); rect(-GW,GW,-2.0,-1.84,'none','#8f5634',1,'4 3')
-for tx in (-1.5,1.5):
-    rect(tx-0.38,tx+0.38,-1.68,-0.48,'#e8d3b0'); text(tx,-1.08,'1.2×0.76',10,rot=90)
-    for s2 in (-1,1):
-        rect(tx+s2*0.62-0.18,tx+s2*0.62+0.18,-1.68,-0.48,'#f3e8d6'); rect(tx+s2*0.79-0.02,tx+s2*0.79+0.02,-1.68,-0.48,'#8f5634','#8f5634',1)
+# left half (x > 0): table for 6 on benches; right half: the table for 4 split into two tables for 2 with chairs
+tx=1.5; rect(tx-0.38,tx+0.38,-1.92,-0.22,'#e8d3b0'); text(tx,-1.07,'1.7×0.76',10,rot=90)
+for s2 in (-1,1):
+    rect(tx+s2*0.62-0.18,tx+s2*0.62+0.18,-1.92,-0.22,'#f3e8d6'); rect(tx+s2*0.79-0.02,tx+s2*0.79+0.02,-1.92,-0.22,'#8f5634','#8f5634',1)
+for ga,gb in ((-1.92,-1.32),(-0.87,-0.27)):
+    rect(-2.0,-1.3,ga,gb,'#e8d3b0'); text(-1.65,(ga+gb)/2,'0.7×0.6',8.5,rot=90)
+    for cx in (-2.22,-1.08): rect(cx-0.22,cx+0.22,(ga+gb)/2-0.22,(ga+gb)/2+0.22,'#f3e8d6')
 rect(-GW,-0.6,-2.2,-2.02,'#c97a5a','#8f4a32',1); rect(0.6,GW,-2.2,-2.02,'#c97a5a','#8f4a32',1)
 hdim(-0.69,0.69,-1.95,'path 1.38'); vdim(GW+0.3,-2.0,-0.06,'2.00',0)
-text(0,-2.45,'BEER GARDEN · 5.3 × 2.0 m · 8 covers · pergola on 2 posts + facade ledger · PVC curtains on 3 sides',12,'#6a5d4e')
+text(0,-2.45,'BEER GARDEN · 5.3 × 2.0 m · 10 covers · pergola on 2 posts + facade ledger · PVC curtains on 3 sides',12,'#6a5d4e')
 hdim(-GW,GW,-2.75,'5.30 (in line with the side walls)')
 # ---- shell
 rect(XS,X0,0,D+T,WALL,WALL,1); rect(X1,X1+T,0,D+T,WALL,WALL,1); rect(X0,0.95,D,D+T,WALL,WALL,1); rect(1.75,X1,D,D+T,WALL,WALL,1)
@@ -194,8 +197,8 @@ vdim(X1+T,0,D,'8.80 (inside)',-46)
 vdim(XS-3.45,0.15,3.4,'tables 3.25',0); vdim(XS-3.45,3.55,4.7,'hand-wash 1.00',0); vdim(XS-3.45,4.8,KZ,'WC 1.50',0); vdim(XS-3.45,KZ+0.1,D,'kitchen 2.40',0)
 vdim(X1+T,0.15,2.7,'sofa 2.55',-18); vdim(X1+T,2.72,5.37,'back bar 2.65',-18); vdim(X1+T,5.45,6.25,'0.80',-18)
 title='Ground floor plan · 4.9 × 8.8 m'
-sub='Cabin East · Concept 27 (mirrored: washroom right, bar left; sofa + tables for 2 on the left, tables for 4 end-on on the right) · from the shop drawing (47 m² super built-up) · 18 covers inside + 8 in the garden · 26 in all'
-rows=[('Bar stools','4'),('Sofa tables, left (2 + 2 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
+sub='Cabin East · Concept 27 (mirrored: washroom right, bar left; sofa + tables for 2 on the left, tables for 4 end-on on the right) · from the shop drawing (47 m² super built-up) · 18 covers inside + 10 in the garden · 28 in all'
+rows=[('Bar stools','4'),('Sofa tables, left (2 + 2 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m (6 + 2 + 2)','10'),('Total','28')]
 lx=W-330; ly=170
 NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','0.375 m between the sofa tables, 1.0 m between','the right tables; 2.1 m aisle, 0.3 m chair to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the Pan-Asian menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust, water and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: veg sink and two hand-washes (aprons','at the prep corner), 0.8 m double-acting door,','dual-temp reach-in, 35 L water heater, pot','filler, make-up air, cement-board ceiling,','goods hoist at the hatch, seasoning rail,','mise-en-place rail, pass fridge, rice cookers,','gas solenoid + leak detector, Class K at the','end of the hot line.','Water: 1,000 L sump under the left garden →','pump, filter, softener on the strip → kitchen.','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
