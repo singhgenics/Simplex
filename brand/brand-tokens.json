@@ -1,0 +1,16 @@
+{
+ "name": "Cabin East",
+ "tagline": "WOK | STEAM | DRAUGHT",
+ "colours": {
+  "cabin-red": "#C23B22",
+  "night-ink": "#1C1714",
+  "steam-cream": "#F2E8D2",
+  "draught-amber": "#E49B1D",
+  "bamboo-jade": "#2F6F57"
+ },
+ "fonts": {
+  "display": "Archivo Black",
+  "label": "IBM Plex Mono Medium",
+  "body": "IBM Plex Sans"
+ }
+}
