@@ -938,6 +938,20 @@ gr.children.slice(_bar0).forEach(o=>mirrorX(o,0.42));
 banquette(X1,X1-0.5,0.15,2.7,[[0.45,M.floral],[1.425,M.floral],[2.4,M.floral]],[0.45,1.425,2.4]);
 [[0.15,0.75],[1.125,1.725],[2.1,2.7]].forEach(([z0,z1])=>{cafeTable(1.4,2.0,z0,z1);chair(1.18,(z0+z1)/2,gr,-Math.PI/2);lantern(1.7,(z0+z1)/2,1);});
 
+// CEILING FANS (2 × BLDC 1200 mm, matte black, ash blades, 1.4 m downrod from the slab, blades at 2.75 m) in the aisle, clear of the pendants and the gantry
+function ceilingFan(x,z){const yb=2.75;
+  rod(V(x,yb+0.16,z),V(x,H-0.05,z),0.017,M.black,gr);cyl(0.07,0.07,0.05,x,H-0.05,z,M.black,gr,16);
+  cyl(0.09,0.1,0.13,x,yb+0.03,z,M.black,gr,20);cyl(0.07,0.07,0.04,x,yb-0.01,z,M.black,gr,20);
+  for(let i=0;i<5;i++){const a=i*Math.PI*2/5;const bl=new THREE.Mesh(new THREE.BoxGeometry(0.5,0.012,0.12),M.timber);bl.position.set(x+Math.cos(a)*0.34,yb+0.02,z+Math.sin(a)*0.34);bl.rotation.y=-a;bl.rotation.z=0.06;bl.castShadow=true;gr.add(bl);
+    bx(x+Math.cos(a)*0.08-0.03,x+Math.cos(a)*0.08+0.03,yb+0.01,yb+0.03,z+Math.sin(a)*0.08-0.03,z+Math.sin(a)*0.08+0.03,M.black,gr,false);}}
+[[-0.45,1.5],[-0.45,3.9]].forEach(([x,z])=>ceilingFan(x,z));
+// BRASS HANGING LANTERNS (5, hexagonal brass with ribbed amber glass, 4 W filament) over the entry path at three heights beside the fans' clear zone, on black rods from the slab
+const lanternAmber=S({color:'#ffcf8a',emissive:'#ffa040',emissiveIntensity:0.9,roughness:0.35,transparent:true,opacity:0.92});
+[[0.25,0.85,3.25],[0.85,1.45,2.9],[0.4,1.95,3.6],[1.0,0.6,3.5],[0.15,2.35,2.85]].forEach(([x,z,yc])=>{
+  const y0=yc-0.15;cyl(0.11,0.11,0.3,x,y0,z,lanternAmber,gr,6);cyl(0.12,0.1,0.03,x,y0+0.3,z,M.brass,gr,6);cyl(0.1,0.12,0.03,x,y0-0.03,z,M.brass,gr,6);cyl(0.035,0.06,0.05,x,y0+0.33,z,M.brass,gr,6);
+  for(let k=0;k<6;k++){const a=k*Math.PI/3;rod(V(x+Math.cos(a)*0.108,y0+0.01,z+Math.sin(a)*0.108),V(x+Math.cos(a)*0.108,y0+0.29,z+Math.sin(a)*0.108),0.006,M.brass,gr);}
+  rod(V(x-0.03,y0+0.38,z),V(x-0.03,H,z),0.005,M.black,gr);rod(V(x+0.03,y0+0.38,z),V(x+0.03,H,z),0.005,M.black,gr);});
+
 // HAND-WASH LOBBY (right wall, z 3.7–4.7): an open alcove 1.0 wide × 1.0 long off the aisle; a triangular basin fixed into its front corner (0.42 m along each wall, one tap),
 // and the WC door is in its back wall, so the WC is reached through the lobby, not straight off the aisle;
 // under the pop-art face with its LED ring-mirror glasses. Its drain goes straight out through the right wall
