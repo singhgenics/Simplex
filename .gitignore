@@ -1,2 +1,4 @@
 build/
 renders/tex-raw/
+__pycache__/
+*.pyc
