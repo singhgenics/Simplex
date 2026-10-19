@@ -51,12 +51,12 @@ line(1.75,D+T,1.75-0.62,D+T+0.5,'#2a2420',1,'3 3'); text(1.35,D+0.45,'rear exit'
 rect(X0,X1,-0.06,0,'#9fb4c2','#4a6070',1); rect(-X1-T,X1+T,-0.2,-0.12,'#6d7276','#4a4038',0.8); text(0,-0.37,'glazed shopfront · doors open outward · slot drain + 15 mm bevelled sill · garden falls 1 in 60 to the road',9,'#4a6070')
 for z,n in ((4.8,'P1'),(6.8,'P2')): rect(X0,X0+0.23,z-0.15,z+0.15,WALL,WALL,1)
 for xa,xb,za,zb in ((1.335,1.565,0,D),(X0,X1,4.675,4.925),(X0,1.335,6.675,6.925),(0.325,0.475,4.925,6.675)): rect(xa,xb,za,zb,'none','#8a7a62',1,'6 4')
-# ---- RIGHT: window tables, two tables for 4 set end-on to the wall, 0.9 m apart, cane chairs on the two long sides
-for ta,tb in ((0.65,1.35),(2.25,2.95)):
-    rect(X0,-1.25,ta,tb,'#c69c6d'); text(-1.85,(ta+tb)/2,'1.2×0.7',10)
+# ---- RIGHT: window tables, two tables for 4 set end-on to the wall, 1.0 m apart, cane chairs on the two long sides
+for ta,tb in ((0.65,1.30),(2.30,2.95)):
+    rect(X0,-1.25,ta,tb,'#c69c6d'); text(-1.85,(ta+tb)/2,'1.2×0.65',10)
     for x in (-2.15,-1.55):
         for zc in (ta-0.22,tb+0.22): rect(x-0.22,x+0.22,zc-0.22,zc+0.22,'#efe2c8')
-text(-0.62,1.2,'WINDOW TABLES · 4 + 4',10,weight=700,rot=90); vdim(-1.0,1.35,2.25,'0.90',0); vdim(-1.0,2.95,3.6,'0.65',0)
+text(-0.62,1.2,'WINDOW TABLES · 4 + 4',10,weight=700,rot=90); vdim(-1.0,1.30,2.30,'1.00',0); vdim(-1.0,2.95,3.6,'0.65',0)
 # ---- RIGHT: hand-wash alcove (one basin) + washroom (drain straight out through the right wall)
 rect(X0,-1.45,3.6,3.7,'#d8c6ac','#d8c6ac',1); rect(X0,-1.45,3.7,4.7,'#e9efe4','#8a9a7a',1); rect(-1.55,-1.45,3.7,4.7,'none','#8a9a7a',1,'4 3')
 def tri(x0,z0,l,k,fill,stroke):
@@ -197,7 +197,7 @@ title='Ground floor plan · 4.9 × 8.8 m'
 sub='Cabin East · Concept 27 (mirrored: washroom right, bar left; sofa + tables for 2 on the left, tables for 4 end-on on the right) · from the shop drawing (47 m² super built-up) · 18 covers inside + 8 in the garden · 26 in all'
 rows=[('Bar stools','4'),('Sofa tables, left (2 + 2 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','0.45 m between the sofa tables, 0.9 m between','the right tables; 2.2 m aisle, 0.3 m chair to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the Pan-Asian menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust, water and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: veg sink and two hand-washes (aprons','at the prep corner), 0.8 m double-acting door,','dual-temp reach-in, 35 L water heater, pot','filler, make-up air, cement-board ceiling,','goods hoist at the hatch, seasoning rail,','mise-en-place rail, pass fridge, rice cookers,','gas solenoid + leak detector, Class K at the','end of the hot line.','Water: 1,000 L sump under the left garden →','pump, filter, softener on the strip → kitchen.','Exhaust and drains shown dashed.']
+NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','0.45 m between the sofa tables, 1.0 m between','the right tables; 2.2 m aisle, 0.3 m chair to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the Pan-Asian menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust, water and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: veg sink and two hand-washes (aprons','at the prep corner), 0.8 m double-acting door,','dual-temp reach-in, 35 L water heater, pot','filler, make-up air, cement-board ceiling,','goods hoist at the hatch, seasoning rail,','mise-en-place rail, pass fridge, rice cookers,','gas solenoid + leak detector, Class K at the','end of the hot line.','Water: 1,000 L sump under the left garden →','pump, filter, softener on the strip → kitchen.','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''

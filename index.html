@@ -210,7 +210,7 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
     <header>
       <p class="eyebrow">Concept 27 · 4.9 × 8.8 m shell (47 m² super built-up) · 26 covers</p>
       <h1>Cabin East</h1>
-      <p class="lede"><b>Wok | Steam | Draught.</b> The pub redrawn on the shop's own drawing: 4.9 m wide and 8.8 m deep inside, one double-height room with no loft. A Pan-Asian menu: cabin-style Chinese, dim sum and bao, and a short Thai, Burmese and Korean run, with the same craft beer, cocktails and look. The kitchen is rebuilt around the Pan-Asian menu, run by one chef and one helper, with hot water, a veg sink, make-up air and a goods hoist. The chimney leaves through the back wall and turns to the right side, because there is an apartment above, and nothing is stored behind the building, because that is parking. The room is mirrored: the washroom and hand-wash sit on the right wall so they drain straight out to the side, and the bar moves to the left wall. Every walkway is laid out to standard clearances, with 0.45 m between the sofa tables and 0.9 m between the tables on the right. Left and right are as you walk in from the road.</p>
+      <p class="lede"><b>Wok | Steam | Draught.</b> The pub redrawn on the shop's own drawing: 4.9 m wide and 8.8 m deep inside, one double-height room with no loft. A Pan-Asian menu: cabin-style Chinese, dim sum and bao, and a short Thai, Burmese and Korean run, with the same craft beer, cocktails and look. The kitchen is rebuilt around the Pan-Asian menu, run by one chef and one helper, with hot water, a veg sink, make-up air and a goods hoist. The chimney leaves through the back wall and turns to the right side, because there is an apartment above, and nothing is stored behind the building, because that is parking. The room is mirrored: the washroom and hand-wash sit on the right wall so they drain straight out to the side, and the bar moves to the left wall. Every walkway is laid out to standard clearances, with 0.45 m between the sofa tables and 1.0 m between the tables on the right. Left and right are as you walk in from the road.</p>
     </header>
 
     <section>
@@ -218,11 +218,11 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
       <table>
         <tr class="g"><td>Ground</td><td>Velvet high-back bar chairs (bar on the left wall)</td><td class="n">4</td></tr>
         <tr class="g"><td>Ground</td><td>Left sofa with three tables for 2, 0.45 m apart</td><td class="n">6</td></tr>
-        <tr class="g"><td>Ground</td><td>Right window tables: two tables for 4, end-on to the wall, 0.9 m apart</td><td class="n">8</td></tr>
+        <tr class="g"><td>Ground</td><td>Right window tables: two tables for 4, end-on to the wall, 1.0 m apart</td><td class="n">8</td></tr>
         <tr class="o"><td>Garden</td><td>Two tables for 4 on benches with backrests</td><td class="n">8</td></tr>
         <tr class="total"><td></td><td>Total (18 inside + 8 outside)</td><td class="n">26</td></tr>
       </table>
-      <p style="margin:8px 0 0;font-size:12.5px;color:var(--muted)">Down from 28. The sofa side is a tight fit with no slack: confirm it after a site survey. The bench facing the bar and the table for 2 by the pass are gone: with the washroom block on the right, neither could keep a standard way in and out. Tables on the sofa side are 0.45 m apart; the two on the right are 0.9 m apart with chairs between. In the monsoon (June to September) plan on the 18 inside: the garden will be mostly empty even with its curtains.</p>
+      <p style="margin:8px 0 0;font-size:12.5px;color:var(--muted)">Down from 28. The sofa side is a tight fit with no slack: confirm it after a site survey. The bench facing the bar and the table for 2 by the pass are gone: with the washroom block on the right, neither could keep a standard way in and out. Tables on the sofa side are 0.45 m apart; the two on the right are 1.0 m apart with chairs between. In the monsoon (June to September) plan on the 18 inside: the garden will be mostly empty even with its curtains.</p>
     </section>
 
     <section>
@@ -274,9 +274,9 @@ details.dims td.d{font:500 12px/1.45 var(--mono);color:var(--muted);text-align:r
         <tr><td>Central aisle</td><td class="d">about 2.2 m clear between the right-hand tables and the left chairs</td></tr>
       </table></details>
       <details class="dims" id="sz-booth"><summary>Right window tables · 8 covers</summary><table>
-        <tr><td>Tables for 4 (2)</td><td class="d">1.2 × 0.7 m · h 0.76 · end-on to the wall</td></tr>
+        <tr><td>Tables for 4 (2)</td><td class="d">1.2 × 0.65 m · h 0.76 · end-on to the wall</td></tr>
         <tr><td>Cane chairs (8)</td><td class="d">0.44 × 0.44 m · seat 0.47 · back 0.92 H · 2 per long side of each table</td></tr>
-        <tr><td>Between the tables</td><td class="d">0.9 m (the chairs of both tables sit in it)</td></tr>
+        <tr><td>Between the tables</td><td class="d">1.0 m (the chairs of both tables sit in it)</td></tr>
         <tr><td>Far end</td><td class="d">0.6 m clear to the hand-wash wall</td></tr>
       </table></details>
       <details class="dims" id="sz-bar"><summary>Bar &amp; back bar · left wall</summary><table>
@@ -762,9 +762,9 @@ function jutePendant(x,y,z,top,parent){rod(V(x,top,z),V(x,y+JR,z),0.011,M.rope,p
     rod(V(sx,y0+0.25,sz),V(sx,y0-len,sz),0.0025,M.ivy,parent);for(let yy=y0+0.2;yy>y0-len;yy-=0.06)ivyAt(sx+(ivyR()-.5)*0.04,yy,sz+(ivyR()-.5)*0.04,parent);}}
 function lantern(x,z,n,top,parent,base){n=n||3;top=top||H;parent=parent||gr;base=base||0.76;const hs=[0.95,1.15,1.03];
   for(let i=0;i<n;i++){const dz=n===1?0:(i-(n-1)/2)*0.34,dx=n===1?0:(i%2?0.07:-0.07);jutePendant(x+dx,base+hs[i%3]+JR,z+dz,top,parent);}}
-// RIGHT FRONT. Window tables: two tables for 4 (1.2 × 0.7) set end-on to the wall, 0.9 m apart so the chairs of both tables fit between them,
+// RIGHT FRONT. Window tables: two tables for 4 (1.2 × 0.65) set end-on to the wall, 1.0 m apart so the chairs of both tables fit between them,
 // cane chairs on the two long sides (window side and aisle side); a 2.3 m clear aisle runs down the middle to the bar
-[[0.65,1.35],[2.25,2.95]].forEach(([z0,z1])=>{cafeTable(-2.45,-1.25,z0,z1);
+[[0.65,1.30],[2.30,2.95]].forEach(([z0,z1])=>{cafeTable(-2.45,-1.25,z0,z1);
   [-2.15,-1.55].forEach(x=>{chair(x,z0-0.22,gr,Math.PI);chair(x,z1+0.22,gr,0);});
   lantern(-2.0,(z0+z1)/2,1);lantern(-1.5,(z0+z1)/2,1);});
 plane(2.24,H-0.04,M.reclaim,X0+0.012,H/2,1.16,Math.PI/2,G.wallR);
@@ -1431,7 +1431,7 @@ const LBL=[
  ['Bar · 4 stools · 3 taps',0.2,1.45,4.22,'g'],['Backlit onyx bar · emerald tile',0.55,1.25,3.72,'g'],['Brass gantry, amber-lit',0.85,3.05,3.42,'g'],['TV',X1-0.1,3.6,3.37,'g'],['Square bar end · 0.6 m walkway to the window table',0.75,1.3,2.87,'g'],
  ['Keg cabinet under the bar · 3 × 20 L kegs + flash chiller',0.95,1.15,3.57,'g'],['CO₂ cylinder in the cabinet under the jars · low CO₂ alarm',2.1,0.75,3.54,'g'],['Built-in glasswasher · opposite the bar sink',1.92,1.15,4.8,'g'],['Built-in cooler: mixers, water, soft drinks',1.92,1.0,4.17,'g'],['Soju display + ON TAP board',2.15,2.45,5.12,'g'],['Ice machine · under-counter',1.15,0.95,4.89,'g'],['Bartender aisle 0.85 m',1.65,0.3,3.72,'g'],
  ['Server station · water, glasses, cutlery, coffee',2.2,1.75,5.85,'g'],
- ['Window tables · 2 × 4, end-on to the wall, 0.9 m apart',-1.85,1.3,1.58,'g'],['Salon gallery wall',X1-0.05,2.65,1.5,'g','L'],['BAO mural',-1.95,3.0,3.55,'g'],
+ ['Window tables · 2 × 4, end-on to the wall, 1.0 m apart',-1.85,1.3,1.58,'g'],['Salon gallery wall',X1-0.05,2.65,1.5,'g','L'],['BAO mural',-1.95,3.0,3.55,'g'],
  ['Hand-wash lobby 1.0 × 1.0 · triangular corner basin · WC door at the back',-1.95,2.45,4.15,'g'],['Washroom · unisex WC · entered through the hand-wash lobby · sliding door',-1.7,2.25,5.4,'g'],['WC · on the right wall, facing across',-2.08,1.2,5.75,'g'],['Small wash basin · mirror over',X0+0.15,1.05,5.13,'g'],
  ['Kitchen · click to explore',-0.6,1.9,7.4,'g cta'],['Kitchen wall up to the slab · neon + menu board',-0.55,4.15,KZ-0.05,'g'],['Storage deck over the kitchen · 1.7 m clear · fold-down ladder',-0.6,3.6,7.6,'g'],
  ['Split AC 2.0 TR (front)',X0+0.12,4.3,1.2,'g'],['Split AC 2.0 TR (back)',-1.0,3.45,KZ-0.15,'g'],['Double height · 4.5 m to the slab',0.2,4.25,5.6,'g'],['Acoustic clouds in every bay',-0.5,H-0.15,3.35,'g'],['Printed acoustic panels (50 mm fabric)',-1.1,3.4,5.6,'g'],
@@ -1468,12 +1468,12 @@ function tag(t,w,x,y,z,face,along){const [tx,ar]=tagTex(t);const m=new THREE.Mes
   m.rotation.set(R[0],R[1],R[2]);m.position.set(x,y,z);m.renderOrder=5;dimsG.add(m);if(face==='up')upTags.push(m);}
 const U=0.006;
 tag('INSIDE 4.9 × 8.8 m · 43.1 m² (47 m² super built-up)',1.8,0.2,U+0.002,3.0,'up');
-tag('1.2 × 0.7 · h 0.76',0.5,-1.85,0.76+U,1.0,'up'); tag('gap 0.9',0.35,-1.85,U,1.8,'up'); tag('0.6 × 0.55 · h 0.76',0.5,1.7,0.76+U,0.425,'up'); tag('gap 0.45',0.35,1.7,U,0.925,'up'); tag('chairs 0.44 × 0.44',0.45,1.18,0.47+U,1.425,'up','z');
+tag('0.6 × 0.55 · h 0.76',0.5,1.7,0.76+U,0.425,'up'); tag('gap 0.45',0.35,1.7,U,0.925,'up'); tag('chairs 0.44 × 0.44',0.45,1.18,0.47+U,1.425,'up','z');
 tag('aisle 2.2 m clear',0.7,-0.15,U,1.0,'up'); tag('0.3 to the bar',0.4,0.85,U,2.8,'up');
 tag('bar counter 2.2 × 0.75 · top 1.04',0.68,0.72,1.04+U,4.17,'up','z'); tag('bartender aisle 0.85',0.45,1.7,U,3.72,'up','z');
 tag('back bar 2.65 × 0.4 · h 0.96',0.8,X1-0.404,0.5,3.37,'-x'); tag('keg cabinet 1.1 × 0.63 · 3 kegs + chiller',0.85,1.235,0.5,3.59,'+x');
 tag('station 0.8 × 0.5 · top 0.94',0.5,X1-0.25,0.94+U,5.85,'up','z'); tag('1.1 clear at the kitchen door',0.6,0.45,U,5.75,'up'); tag('fridge doors swing clear: 0.47 m each',0.7,1.45,U,6.92,'up','z');
-tag('1.2 × 0.74 · h 0.76',0.5,-1.65,0.76+U,0.75,'up'); tag('1.2 × 0.74 · h 0.76',0.5,-1.65,0.76+U,2.4,'up'); tag('gap 0.45',0.35,-1.65,U,1.575,'up'); tag('end 0.6',0.35,-1.65,U,3.3,'up');
+tag('1.2 × 0.65 · h 0.76',0.5,-1.85,0.76+U,0.975,'up'); tag('1.2 × 0.65 · h 0.76',0.5,-1.85,0.76+U,2.625,'up'); tag('gap 1.0',0.35,-1.85,U,1.8,'up'); tag('end 0.65',0.35,-1.85,U,3.28,'up');
 tag('aisle 1.5 from the bar edge',0.6,-0.45,U,4.0,'up','z');
 tag('hand-wash 1.0 × 1.0 · corner basin 0.42',0.62,-1.75,U,4.2,'up','z'); tag('washroom 1.15 × 1.5 · ceiling 2.7',0.85,-1.6,U,5.35,'up','z');
 tag('KITCHEN 4.9 × 2.4 m · ceiling 2.7 · canopy hood',1.9,-0.4,U+0.002,7.55,'up'); tag('storage deck +2.70 · 11.8 m² · 1.7 clear',1.3,-0.6,KC+0.08+U,6.9,'up');
@@ -1503,8 +1503,8 @@ const ZONES={
   service:{box:[0.8,X1,0,2.2,5.37,KZ],ey:'Service corner · left wall by the kitchen door',t:'Server station',b:'Water, glasses, cutlery and a compact coffee brewer on a 0.8 m station against the left wall, just past the back bar. Servers reach it in two steps from the kitchen door; nothing else shares the corner.',
     l:['1.1 m clear in front of the kitchen door, between the bar end and the kitchen wall','The pass is for picking up food only; dirty plates go back through the kitchen door, so servers and guests heading to the WC do not crowd the same spot','The bartender leaves the bar this way','Electrical board and fire alarm panel on the kitchen wall beside the door, with a CO₂ extinguisher'],views:[['View','service']]},
   lounge:{box:[0.6,X1,0,1.4,0.1,2.45],ey:'Sofa and tables for 2 · left · 6 covers',t:'Left sofa tables',b:'A long sofa on the wall with three tables for 2 in front, 0.45 m apart: one seat on the sofa and one cane chair on the aisle side, under woven jute globe pendants with trailing ivy, below the salon gallery wall.',l:['Sofa 0.5 m deep and 2.55 m long, from the front pier to the end of the back bar: no slack, confirm after a site survey','Three tables 0.6 deep × 0.55 wide, 0.45 m apart so guests can slide in along the sofa','Cane chair 0.44 × 0.44 m on the aisle side of each table','Only 0.3 m from the last chair to the bar island; the two extinguishers now hang on the wall above the sofa end'],views:[['View','lounge'],['Gallery wall','gallery']]},
-  booth:{box:[X0,-0.85,0,1.6,0.1,3.05],ey:'Window tables · right · 8 covers',t:'Right window tables',b:'Two tables for 4 (1.2 × 0.7 m) set end-on to the wall, 0.9 m apart, with cane chairs on the two long sides, under clusters of woven jute globe pendants on rope with trailing ivy, against the reclaimed-wood wall with vintage beer signs.',
-    l:['Tables 1.2 × 0.7 m, deep enough for steamer baskets','0.9 m between the tables, so the chairs of both tables fit','A clear aisle of about 2.2 m runs from the door to the bar','The electricity meter is behind the hinged portrait above the first table; keep that end of the table clear when a reading is due'],views:[['View','booth'],['Hand-wash','niche']]},
+  booth:{box:[X0,-0.85,0,1.6,0.1,3.05],ey:'Window tables · right · 8 covers',t:'Right window tables',b:'Two tables for 4 (1.2 × 0.65 m) set end-on to the wall, 1.0 m apart, with cane chairs on the two long sides, under clusters of woven jute globe pendants on rope with trailing ivy, against the reclaimed-wood wall with vintage beer signs.',
+    l:['Tables 1.2 × 0.65 m, deep enough for steamer baskets','1.0 m between the tables, so the chairs of both tables fit','A clear aisle of about 2.2 m runs from the door to the bar','The electricity meter is behind the hinged portrait above the first table; keep that end of the table clear when a reading is due'],views:[['View','booth'],['Hand-wash','niche']]},
   washroom:{box:[X0,WX,0,KC,HW0-0.1,KZ],ey:'Washroom 1.15 × 1.5 m + hand-wash alcove · right wall',t:'Washroom and hand-wash',b:'Both on the right wall so the WC and the basins drain straight out to the side. The hand-wash space is a small lobby: step in from the aisle, wash at the basin in its corner, and go through the door in its back wall to the WC. Nothing opens straight onto the aisle or faces the bar stools.',l:['Ceilings 2.7 m; the walls run up to the slab','One compact drum basin Ø 0.36 m with one tap and a wall soap dispenser; pop-art face mural with LED ring-mirror glasses','WC and a small wall-hung wash basin with a mirror side by side on the right (outside) wall, so both drain straight out; two-panel sliding door, 0.7 m clear, so nothing swings into the WC; exhaust fan in the ceiling, ducted to the back wall','No urinal: there is no room for one now. Check that a single unisex WC is accepted locally'],views:[['From above','wash'],['WC','washWC'],['Hand-wash','niche']]},
   yard:{box:[XS-0.5,XS,0,3.2,1.5,D+T+0.6],ey:'Right side · services · nothing behind (parking)',t:'Gas, bins and the kitchen exhaust',b:'The apartment above rules out a roof stack and the parking behind rules out storage there, so every outdoor service sits along the right side wall.',
     l:['Kitchen exhaust leaves the back wall at 2.35–2.75 m, runs right along the back wall, turns the corner and runs forward along the right side','An electrostatic precipitator with a carbon odour filter and the fan clean the air before it leaves; discharge at about 2.6 m, pointing away from the building','Water cabinet (pump, filter, softener) at the front of the strip, fed from a 1,000 L sump under the left half of the garden','LPG bank: 5 × 19 kg (4 on line + 1 spare) in a locked, ventilated cage, over 2 m from the exhaust outlet; copper line along the wall into the kitchen behind the wok range','Bin store (wet / dry / glass) near the road end for collection','Drains: the WC pipe leaves the right wall into a sealed inspection chamber, runs forward along the strip at 1 in 40 to a second chamber at the front corner and into a 2,000 L biodigester under the garden. Hand-wash, bar and kitchen water (through the grease trap at the back corner) take a separate pipe that skips the tank','AC outdoor units (3) high on the side wall','Power backup cabinet (inverter + lithium battery) at the front end, 2.7 m from the gas','Everything fits a 0.5 m strip along the wall with slim kit (wall-mounted backup, single-row gas cage, slim bins); cars use the pathway beyond, so steel bollards guard it all. Changing gas and emptying bins means a minute on the pathway: do it when it is quiet'],views:[['From the side','yard'],['From the parking','yardBack']]},
