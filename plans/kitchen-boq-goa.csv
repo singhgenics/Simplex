@@ -1,5 +1,5 @@
 No.,Item / type,Size W × D × H (ft-in),Size (mm),"Gauge, capacity, specification",Unit,Qty,Per-foot basis qty,Basis unit,Rate per unit (₹),Rate per basis unit (₹),Amount (₹),Make / model / remarks,Main BOQ no.
-1,Stainless steel fabrication,,,"SS 304. Worktops 18 SWG (1.2 mm), bodies and shelves 19 SWG (1.0 mm), legs 1½"" (38 mm) tube, welded and polished joints, adjustable feet. Vendor confirms or corrects the gauge and states it on the quote.",,,,,,,,,
+,Stainless steel fabrication,,,"SS 304. Worktops 18 SWG (1.2 mm), bodies and shelves 19 SWG (1.0 mm), legs 1½"" (38 mm) tube, welded and polished joints, adjustable feet. Vendor confirms or corrects the gauge and states it on the quote.",,,,,,,,,
 1,Non-veg prep bench,"2'-7½"" × 2'-1½"" × 2'-11½""",800 × 650 × 900,"Open undershelf for the board rack, 100 mm back upstand",nos,1,2.6,run ft,,,,,A.01
 2,Dumpling and veg prep bench,"2'-7½"" × 2'-1½"" × 2'-11½""",800 × 650 × 900,Top over the under-counter freezer (B.07); two wall shelves over,nos,1,2.6,run ft,,,,,A.02
 3,Pass counter,"2'-1½"" × 2'-1½"" × 2'-11½""",650 × 650 × 900,Heat-lamp bracket; hatch ledge 700 mm through the wall,nos,1,2.1,run ft,,,,,A.03
@@ -17,7 +17,7 @@ No.,Item / type,Size W × D × H (ft-in),Size (mm),"Gauge, capacity, specificati
 15,Floor channel drain,"10'-4"" × 3""","3,150 × 80","SS grating, falls to the grease trap (3.15 m)",run ft,10.3,,,,,,,A.15
 16,Storage deck racking,"1'-5½"" × 6'-8½"" · 6'-3"" × 1'-5½"" · 2'-7½"" × 1'-5½""","450 × 2,050 · 1,900 × 450 · 800 × 450","SS or galvanised, 3 tiers, one rack of each size",nos,3,,,,,,,A.19
 17,Ceiling hatch frame with fold-down ladder,"1'-11½"" × 2'-7½"" opening",600 × 800 opening,For light goods; heavy stock goes on the hoist (B.21),nos,1,,,,,,,A.20
-2,"Cooking, cold and kitchen equipment (branded)",,,"State make and model, burner rating in kW (or kcal/hr), litres for each cold unit, and who services it in Goa. Sizes are the space available: do not quote a wider unit.",,,,,,,,,
+,"Cooking, cold and kitchen equipment (branded)",,,"State make and model, burner rating in kW (or kcal/hr), litres for each cold unit, and who services it in Goa. Sizes are the space available: do not quote a wider unit.",,,,,,,,,
 18,"Chinese wok range, 2 burners","3'-11"" × 2'-7½"" × 2'-7½""","1,200 × 800 × 800",LPG; state burner kW. 750 to 900 mm deep is acceptable (aisle is 0.95 m at the range),nos,1,,,,,,,B.01
 19,"Dim sum steamer, 2 holes","1'-11½"" × 2'-3½"" × 2'-7½""",600 × 700 × 800,LPG; with water top-up,nos,1,,,,,,,B.02
 20,Twin-tank fryer,"1'-11½"" × 2'-3½"" × 2'-11½""",600 × 700 × 900,LPG; two tanks (veg and non-veg oil),nos,1,,,,,,,B.03
@@ -36,7 +36,7 @@ No.,Item / type,Size W × D × H (ft-in),Size (mm),"Gauge, capacity, specificati
 33,Goods hoist,,,"Electric, 200 kg, over the ceiling hatch, with limit switch",nos,1,,,,,,,B.21
 34,Smallware,,,"To the chef's list: carbon-steel woks, ladle, spatula, spider, wok brush, pans, food pans, knives, boards, stone mortar",lot,1,,,,,,,B.22
 35,Bamboo steamer stack,"Ø 10""",Ø 260,"3 baskets and a lid, for the drying shelf (the steamer comes with its own baskets, B.02)",nos,3,,,,,,,B.23
-3,"Hood, exhaust and ventilation",,,"Exhaust about 2,400 to 3,000 CFM (4,000 to 5,000 m³/h) for the whole hood; make-up air about 80% of it. No roof stack: apartment above and parking behind, so the duct goes out through the back wall, along it and up the right side, with an ESP before the fan. Vendor states the static pressure the fan is selected for.",,,,,,,,,
+,"Hood, exhaust and ventilation",,,"Exhaust about 2,400 to 3,000 CFM (4,000 to 5,000 m³/h) for the whole hood; make-up air about 80% of it. No roof stack: apartment above and parking behind, so the duct goes out through the back wall, along it and up the right side, with an ESP before the fan. Vendor states the static pressure the fan is selected for.",,,,,,,,,
 36,"Canopy hood, wall type, with baffle filters","11'-0"" × 3'-1½"" × 1'-9½""","3,350 × 950 × 550","SS 304, 20 SWG (0.9 mm); SS baffle filters, grease cup, LED lights; bottom edge 6'-9"" (2.05 m) above the floor; overhang 8"" at the open end, 6"" over the wok range. Priced per running foot or per hood: state which",nos,1,11,run ft,,,,,A.16
 37,"Exhaust ducting, rectangular","16"" × 16"" section",400 × 400 section,"SS 304, 20 SWG (0.9 mm), at 7'-8"" to 9'-0"" above the floor: hood collar, wall opening, along the back wall, round the corner, to the ESP, fan and discharge; brackets, bends, access doors. Sheet area 86 sq ft (about 95 sq ft with bends)",run ft,16.4,95,sq ft,,,,,A.17
 38,Discharge elbow,"16"" × 16"" section",400 × 400 section,"About 8'-6"" above the floor, pointing away from the building; bird mesh and rain cowl",nos,1,,,,,,,A.18

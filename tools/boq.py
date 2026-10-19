@@ -137,7 +137,7 @@ def write_xlsx(path):
     thin = Side(style='thin', color='BBBBBB'); box = Border(left=thin, right=thin, top=thin, bottom=thin)
     head = PatternFill('solid', fgColor='2A2420'); band = PatternFill('solid', fgColor='EFE6D3'); inp = PatternFill('solid', fgColor='FFF9E0')
     NC = 10
-    ws['A1'] = 'Bill of quantities · kitchen · Betalbatim pub'; ws['A1'].font = Font(bold=True, size=14)
+    ws['A1'] = 'Bill of quantities · kitchen · Cabin East, Betalbatim'; ws['A1'].font = Font(bold=True, size=14)
     ws['A2'] = 'Shop 4, Tulip Residency, Gandaulim, Salcete, South Goa. Kitchen 4.9 × 2.4 m, one chef and one helper. Quantities and sizes come from the model and the two A3 sheets (kitchen.html); measure on site before ordering.'
     ws['A3'] = 'Fill the yellow cells (rate, make/model, remarks). Amounts and totals calculate. Rates ex-GST, itemised; freight, installation and the GST rate go in the lines at the bottom. Sizes are width × depth × height in mm, the space available.'
     for r in (2, 3): ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=NC); ws.cell(r, 1).alignment = Alignment(wrap_text=True, vertical='top'); ws.row_dimensions[r].height = 30
@@ -194,7 +194,7 @@ def page():
             body.append(f'<tr><td class="no">{r[1]}</td><td><b>{esc(r[2])}</b></td><td class="sz">{esc(r[3])}</td><td>{esc(r[4])}</td><td>{r[5]}</td><td class="n">{q}</td><td class="blank"></td><td class="blank"></td><td class="ref">{esc(r[7])}</td></tr>')
     n = counts()
     return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kitchen BOQ · Betalbatim Pub</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kitchen BOQ · Cabin East</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout: drafting-paper page; the table scrolls sideways on a phone and prints on A4 landscape with a repeating header */
@@ -216,7 +216,7 @@ td.blank{{background:#fffdf0;min-width:80px}}
 ul{{margin:0;padding-left:20px;font-size:14px}} li{{margin:3px 0}}
 @media print{{.bar,.hide-print{{display:none}} body{{background:#fff}} .wrap{{padding:0}} .tw{{border:0;overflow:visible}} table{{min-width:0;font-size:8.5pt}} th,td{{padding:3px 6px}} td.blank{{min-width:0;width:11%}} tr.sec small{{font-size:8pt}} td:nth-child(2){{width:22%}} td:nth-child(4){{width:30%}} thead{{display:table-header-group}} tr{{break-inside:avoid}}}}
 </style></head><body><div class="wrap">
-<header><p class="eyebrow">Simplex · Betalbatim pub · kitchen</p><h1>Bill of quantities (BOQ)</h1>
+<header><p class="eyebrow">Cabin East · Betalbatim · kitchen</p><h1>Bill of quantities (BOQ)</h1>
 <p class="lede">{n} priced lines in 8 trades, numbered A.01 to H.06, taken from the model and the two A3 sheets. Each line gives the item or appliance type, its size (W × D × H in mm), and its capacity or rating. Suppliers fill the rate, make and model; the Excel file multiplies and totals. Quantities marked “measure on site” are estimates for pricing. Concept drawings for briefing suppliers, not construction drawings.</p></header>
 <div class="bar"><a class="pri" href="plans/kitchen-boq.xlsx">Excel BOQ (rates and totals calculate)</a><a href="plans/kitchen-boq.pdf" target="_blank" rel="noopener">PDF, A4</a><a href="plans/kitchen-boq.csv">CSV</a><a href="boq-goa.html">Equipment and exhaust BOQ (feet, SWG, CFM)</a><a href="boq-drawing.html">Drawing + BOQ in mm (A3 PDF)</a><a href="kitchen.html">Kitchen sheets</a><a href="quotes.html">Quote comparison</a></div>
 <div class="tw"><table><thead><tr><th>Item</th><th>Item / type</th><th>Size W × D × H mm</th><th>Capacity, rating, specification</th><th>Unit</th><th>Qty</th><th>Rate ₹</th><th>Amount ₹</th><th>Drawing</th></tr></thead><tbody>{''.join(body)}</tbody></table></div>

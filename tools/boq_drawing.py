@@ -135,7 +135,7 @@ def page():
             q = f'{qty:,}' if isinstance(qty, int) else f'{qty:g}'
             body.append(f'<tr><td class="no">{sl}</td><td><b>{esc(item)}</b></td><td class="sz">{esc(size)}</td><td>{esc(spec)}</td><td>{unit}</td><td class="n">{q}</td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>')
     return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>Kitchen drawing and BOQ in mm · Betalbatim Pub</title>
+<html lang="en"><head><meta charset="utf-8"><title>Kitchen drawing and BOQ in mm · Cabin East</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout: A3 portrait. The 1:25 plan fills the top of page 1 at true scale; the BOQ table starts below it and continues on page 2 */
@@ -156,7 +156,7 @@ td.blank{{background:#fffdf0;width:11mm}} thead{{display:table-header-group}} tr
 .foot{{font-size:2.6mm;color:var(--muted);margin-top:2mm}}
 @media screen{{html{{background:#eee}} .sheet{{background:var(--paper);padding:4mm 3mm 6mm;width:297mm;margin:4mm auto;box-shadow:0 1px 8px rgba(0,0,0,.2)}}}}
 </style></head><body><div class="sheet">
-<div class="hd"><div><h1>Kitchen equipment and exhaust</h1><p>Drawing at 1:25 on A3 (print at 100%), then the BOQ. Every item is named on the drawing. All sizes in mm. For kitchen equipment and exhaust vendors · Shop 4, Tulip Residency, Gandaulim, South Goa</p></div><div class="r">Betalbatim pub · Simplex · Concept 27<br>singhgenics.github.io/Simplex/boq-drawing.html</div></div>
+<div class="hd"><div><h1>Kitchen equipment and exhaust</h1><p>Drawing at 1:25 on A3 (print at 100%), then the BOQ. Every item is named on the drawing. All sizes in mm. For kitchen equipment and exhaust vendors · Shop 4, Tulip Residency, Gandaulim, South Goa</p></div><div class="r">Cabin East · Wok | Steam | Draught · Concept 27<br>singhgenics.github.io/Simplex/boq-drawing.html</div></div>
 {drawing_svg()}
 <h2>BOQ: kitchen equipment and exhaust ({n} lines)</h2>
 <table><thead><tr><th>No.</th><th>Item / type</th><th>Size W × D × H (mm)</th><th>Capacity, rating, specification</th><th>Unit</th><th>Qty</th><th>Rate ₹</th><th>Amount ₹</th><th>Make / model</th></tr></thead><tbody>{''.join(body)}</tbody></table>

@@ -32,7 +32,7 @@ def vdim(x, za, zb, t, off=0):
     a, b = P(x, za); _, d = P(x, zb); a += off
     o.append(f'<g stroke="{RED}" stroke-width="1.2"><line x1="{a:.1f}" y1="{b:.1f}" x2="{a:.1f}" y2="{d:.1f}"/><line x1="{a-6:.1f}" y1="{b:.1f}" x2="{a+6:.1f}" y2="{b:.1f}"/><line x1="{a-6:.1f}" y1="{d:.1f}" x2="{a+6:.1f}" y2="{d:.1f}"/></g><text x="{a-8:.1f}" y="{(b+d)/2:.1f}" font-size="12" fill="{RED}" text-anchor="middle" font-weight="600" transform="rotate(-90 {a-8:.1f} {(b+d)/2:.1f})">{t}</text>')
 o.append(f'<text x="{LEFT}" y="40" font-size="26" font-weight="700" fill="#1B1714">Bar section · plan and equipment</text>')
-o.append(f'<text x="{LEFT}" y="64" font-size="13" fill="{MUT}">Betalbatim pub · Simplex concept 27 · metres · left wall on the left, door end at the bottom · numbers match the equipment list · scale 1:20 on A3 at 100%</text>')
+o.append(f'<text x="{LEFT}" y="64" font-size="13" fill="{MUT}">Cabin East · Simplex concept 27 · metres · left wall on the left, door end at the bottom · numbers match the equipment list · scale 1:20 on A3 at 100%</text>')
 # ---- shell: left wall, kitchen front wall ----
 rect(X1, X1 + 0.2, ZB - 0.2, ZT + 0.1, WALL, WALL, 1)
 rect(-0.4, X1, 6.3, 6.4, '#d8c6ac', '#d8c6ac', 1)

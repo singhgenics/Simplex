@@ -100,7 +100,7 @@ def write_xlsx(path):
     wb = Workbook(); ws = wb.active; ws.title = 'Bar BOQ'
     thin = Side(style='thin', color='BBBBBB'); box = Border(left=thin, right=thin, top=thin, bottom=thin)
     head = PatternFill('solid', fgColor='2A2420'); band = PatternFill('solid', fgColor='EFE6D3'); inp = PatternFill('solid', fgColor='FFF9E0'); NC = 10
-    ws['A1'] = 'Vendor list · bar and server station · Betalbatim pub'; ws['A1'].font = Font(bold=True, size=14)
+    ws['A1'] = 'Vendor list · bar and server station · Cabin East, Betalbatim'; ws['A1'].font = Font(bold=True, size=14)
     ws['A2'] = 'Shop 4, Tulip Residency, Gandaulim, Salcete, South Goa. Bar on the left wall as in the Simplex model. Grouped by area of the bar (A to H); the same letters and item numbers are on the A3 drawing. Sizes in metres (width × depth × height), the space available; measure on site.'
     ws['A3'] = 'Fill the yellow cells (rate, make/model, remarks). Amounts and totals calculate. Rates ex-GST; freight, installation and the GST rate go in the lines at the bottom.'
     for r in (2, 3): ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=NC); ws.cell(r, 1).alignment = Alignment(wrap_text=True, vertical='top'); ws.row_dimensions[r].height = 32
@@ -232,10 +232,10 @@ thead{display:table-header-group} tr{break-inside:avoid} .foot{font-size:2.6mm;c
 @media print{.bar{display:none} .sheet{padding:4mm 3mm} table{min-width:0}}
 @media (max-width:700px){.hd{flex-direction:column;align-items:flex-start} .hd h1{font-size:26px} .hd p,.hd .r{font-size:12px} table{font-size:13px} th,td{padding:6px 8px} h2{font-size:20px} td small,tr.sec small{font-size:12px}}
 """
-    return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bar vendor list · Betalbatim Pub</title>\n'
+    return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bar vendor list · Cabin East</title>\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">\n'
             f'<style>{css}</style></head><body><div class="sheet">\n'
-            '<div class="hd"><div><h1>Bar and server station: vendor list</h1><p>Grouped by area of the bar, A to H. Plan at 1:25 on A3 (print at 100%), sizes in metres. From the Simplex model. Shop 4, Tulip Residency, Gandaulim, South Goa</p></div><div class="r">Betalbatim pub · Simplex · Concept 27<br>singhgenics.github.io/Simplex/boq-bar.html</div></div>\n'
+            '<div class="hd"><div><h1>Bar and server station: vendor list</h1><p>Grouped by area of the bar, A to H. Plan at 1:25 on A3 (print at 100%), sizes in metres. From the Simplex model. Shop 4, Tulip Residency, Gandaulim, South Goa</p></div><div class="r">Cabin East · Wok | Steam | Draught · Concept 27<br>singhgenics.github.io/Simplex/boq-bar.html</div></div>\n'
             '<div class="bar"><a class="pri" href="plans/bar-drawing-boq.pdf" target="_blank" rel="noopener">A3 PDF: drawing + list</a><a href="plans/bar-boq.xlsx">Excel (rates and totals calculate)</a><a href="plans/bar-boq.csv">CSV</a><a href="boq-bar-equipment.html">Equipment only</a><a href="boq.html">Kitchen BOQ</a><a href="./">3D model</a></div>\n'
             f'{drawing_svg()}\n<h2>Vendor list ({len(ITEMS)} lines in {len(SECTIONS)} areas)</h2>\n'
             '<div class="tw"><table><thead><tr><th>Area</th><th>Item and where it is</th><th>Size W × D × H (m)</th><th>What it is / specification</th><th>Unit</th><th>Qty</th><th>Rate ₹</th><th>Amount ₹</th><th>Make / model</th></tr></thead>'

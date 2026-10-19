@@ -79,7 +79,7 @@ def frame(title, sub, sheet_no, body):
 <rect x="5" y="5" width="410" height="287" fill="none" stroke="{INK}" stroke-width="0.35"/>
 <text x="12" y="16" font-size="7" font-weight="700" fill="{INK}">{title}</text>
 <text x="12" y="22.5" font-size="{FT}" fill="{MUT}">{sub}</text>
-<text x="408" y="13" font-size="{FT}" fill="{MUT}" text-anchor="end">Betalbatim pub · Simplex · Concept 27</text>
+<text x="408" y="13" font-size="{FT}" fill="{MUT}" text-anchor="end">Cabin East · Wok | Steam | Draught · Concept 27</text>
 <text x="408" y="18" font-size="{FB}" font-weight="700" fill="{INK}" text-anchor="end">Sheet {sheet_no} of 2 · A3</text>
 <text x="408" y="22.5" font-size="{FS}" fill="{MUT}" text-anchor="end">singhgenics.github.io/Simplex/kitchen.html</text>
 <line x1="5" y1="26" x2="415" y2="26" stroke="{INK}" stroke-width="0.25"/>
@@ -346,7 +346,7 @@ s.add(nb)
 sheet2 = frame('Kitchen services and exhaust', 'For kitchen equipment, exhaust, gas, plumbing and electrical vendors · plan at 1:25 and elevation at 1:40 on A3', 2, ''.join(s.o))
 
 PAGE = """<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kitchen Sheets · Betalbatim Pub</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kitchen Sheets · Cabin East</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout: two drafting-paper sheets, each with its own downloads and zoom; paper look in both themes (drawings for vendors) */
@@ -369,7 +369,7 @@ h2{font:700 clamp(19px,2.6vw,24px)/1.15 var(--display);margin:18px 0 2px}
 </style></head><body>
 <div class="wrap">
 <header>
-<p class="eyebrow">Simplex · Betalbatim pub · for kitchen vendors</p>
+<p class="eyebrow">Cabin East · Betalbatim · for kitchen vendors</p>
 <h1>Kitchen drawings: equipment, services and exhaust</h1>
 <p class="lede">Two A3 sheets drawn to true scale: print at 100% (no “fit to page”) and the plans measure 1:25, the elevation 1:40. Sheet 1 is for the equipment fabricator; sheet 2 is for the exhaust, gas, plumbing and electrical vendors. Prices are asked against the <a href="boq.html">bill of quantities (BOQ)</a>, which numbers every line and gives its unit and quantity.</p>
 </header>

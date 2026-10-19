@@ -84,7 +84,7 @@ def write_xlsx(path):
     thin = Side(style='thin', color='BBBBBB'); box = Border(left=thin, right=thin, top=thin, bottom=thin)
     head = PatternFill('solid', fgColor='2A2420'); band = PatternFill('solid', fgColor='EFE6D3'); inp = PatternFill('solid', fgColor='FFF9E0')
     NC = len(HDR)
-    ws['A1'] = 'BOQ · kitchen equipment and exhaust · Betalbatim pub'; ws['A1'].font = Font(bold=True, size=14)
+    ws['A1'] = 'BOQ · kitchen equipment and exhaust · Cabin East, Betalbatim'; ws['A1'].font = Font(bold=True, size=14)
     ws['A2'] = 'Shop 4, Tulip Residency, Gandaulim, Salcete, South Goa. Sizes in feet and inches with mm alongside; sheet in SWG; airflow in CFM; cooling in TR. Gas, plumbing, electrical, civil and fire work are in the main BOQ.'
     ws['A3'] = 'Fill the yellow cells. Enter a rate per unit, OR a rate per running foot or per sq ft in the basis column: the amount takes whichever you fill (per unit first). Rates ex-GST; freight, installation and GST at the bottom.'
     for r in (2, 3): ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=NC); ws.cell(r, 1).alignment = Alignment(wrap_text=True, vertical='top'); ws.row_dimensions[r].height = 30
@@ -145,7 +145,7 @@ def page():
             b = f'{fmt(d["basis"])} {d["bunit"]}' if d['basis'] != '' else ''
             body.append(f'<tr><td class="no">{r[1]}</td><td><b>{esc(d["item"])}</b></td><td class="sz">{esc(d["ft"])}</td><td class="sz">{esc(d["mm"])}</td><td>{esc(d["spec"])}</td><td>{d["unit"]}</td><td class="n">{fmt(d["qty"])}</td><td class="n">{b}</td><td class="blank"></td><td class="ref">{d["no"]}</td></tr>')
     return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kitchen Equipment and Exhaust BOQ · Betalbatim Pub</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kitchen Equipment and Exhaust BOQ · Cabin East</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout: drafting-paper page; the table scrolls sideways on a phone and prints on A4 landscape with a repeating header */
@@ -167,7 +167,7 @@ td.blank{{background:#fffdf0;min-width:80px}}
 a{{color:var(--accent)}} ul{{margin:0;padding-left:20px;font-size:14px}} li{{margin:3px 0}}
 @media print{{.bar{{display:none}} body{{background:#fff}} .wrap{{padding:0}} .tw{{border:0;overflow:visible}} table{{min-width:0;font-size:8pt}} th,td{{padding:3px 5px}} td.blank{{min-width:0;width:9%}} td.sz{{white-space:normal}} td.n{{white-space:normal}} tr.sec small{{font-size:7.5pt}} thead{{display:table-header-group}} tr{{break-inside:avoid}}}}
 </style></head><body><div class="wrap">
-<header><p class="eyebrow">Simplex · Betalbatim pub · kitchen</p><h1>BOQ: kitchen equipment and exhaust</h1>
+<header><p class="eyebrow">Cabin East · Betalbatim · kitchen</p><h1>BOQ: kitchen equipment and exhaust</h1>
 <p class="lede">{n} lines in 3 sections: stainless steel fabrication, cooking and cold equipment, and the hood, exhaust and ventilation. Sizes are in feet and inches with millimetres alongside, sheet in SWG, hood and benches by the running foot, duct by the square foot, airflow in CFM, cooling in TR, cold units in litres. These are the units Indian commercial-kitchen quotes usually use; I could not confirm them with a Goa vendor, so the millimetre column is there if they prefer it. Gas, plumbing, electrical, civil and fire work are in the <a href="boq.html">main BOQ</a>. Concept drawings for briefing suppliers, not construction drawings.</p></header>
 <div class="bar"><a class="pri" href="plans/kitchen-boq-goa.xlsx">Excel (per unit, per foot or per sq ft)</a><a href="plans/kitchen-boq-goa.pdf" target="_blank" rel="noopener">PDF, A4</a><a href="plans/kitchen-boq-goa.csv">CSV</a><a href="boq.html">Main BOQ (metric)</a><a href="boq-drawing.html">Drawing + BOQ in mm (A3 PDF)</a><a href="kitchen.html">Kitchen sheets</a></div>
 <div class="tw"><table><thead><tr><th>No.</th><th>Item / type</th><th>Size W × D × H (ft-in)</th><th>Size (mm)</th><th>Gauge, capacity, specification</th><th>Unit</th><th>Qty</th><th>Per-foot basis</th><th>Rate ₹</th><th>Main BOQ</th></tr></thead><tbody>{''.join(body)}</tbody></table></div>

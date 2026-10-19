@@ -49,7 +49,7 @@ def write_xlsx(path):
     wb = Workbook(); ws = wb.active; ws.title = 'Bar equipment'
     thin = Side(style='thin', color='BBBBBB'); box = Border(left=thin, right=thin, top=thin, bottom=thin)
     head = PatternFill('solid', fgColor='2A2420'); band = PatternFill('solid', fgColor='EFE6D3'); inp = PatternFill('solid', fgColor='FFF9E0'); NC = 10
-    ws['A1'] = 'Bar equipment · Betalbatim pub'; ws['A1'].font = Font(bold=True, size=14)
+    ws['A1'] = 'Bar equipment · Cabin East, Betalbatim'; ws['A1'].font = Font(bold=True, size=14)
     ws['A2'] = 'Shop 4, Tulip Residency, Gandaulim, Salcete, South Goa. Equipment and stainless pieces only; the rest of the bar is in the full bar list. Sizes W × D × H in metres, the space available. Fill the yellow cells; amounts and totals calculate; rates ex-GST.'
     ws.merge_cells('A2:J2'); ws['A2'].alignment = Alignment(wrap_text=True, vertical='top'); ws.row_dimensions[2].height = 34
     for i, h in enumerate(['No.', 'Item', 'Where it goes', 'Size W × D × H (m)', 'Notes', 'Unit', 'Qty', 'Rate (₹)', 'Amount (₹)', 'Make / model'], 1):
@@ -159,9 +159,9 @@ td.no{font:600 12px var(--mono)} td.sz{font:500 13px var(--mono)} td.n{text-alig
 thead th{background:var(--ink);color:var(--paper);font:600 11.5px var(--mono);white-space:nowrap}
 @media print{.bar{display:none} body{background:var(--paper)} .wrap{padding:4mm 3mm} .tw{border:0;overflow:visible} table{min-width:0;font-size:10pt} td.blank{min-width:0;width:9%} th,td{padding:5px 8px} tr{break-inside:avoid}}
 """
-    return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bar equipment · Betalbatim Pub</title>\n'
+    return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bar equipment · Cabin East</title>\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">\n'
-            f'<style>{css}</style></head><body><div class="wrap">\n<h1>Bar equipment: layout and list</h1>\n'
+            f'<style>{css}</style></head><body><div class="wrap">\n<p style="margin:0 0 4px;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)">Cabin East · Wok | Steam | Draught · Betalbatim, South Goa</p>\n<h1>Bar equipment: layout and list</h1>\n'
             '<p class="lede">Equipment and stainless pieces for the bar, for the fabricator. Sizes are W × D × H in metres, the space available in the bar, from the Simplex model. The rest of the bar (counter, back bar, shelves, glass rack, stools, POS nook, lighting, services) is in the <a href="boq-bar.html">full bar list</a>. Shop 4, Tulip Residency, Gandaulim, South Goa.</p>\n'
             '<div class="bar"><a class="pri" href="plans/bar-equipment.pdf" target="_blank" rel="noopener">A3 PDF: layout + list</a><a href="plans/bar-equipment.xlsx">Excel (rates and totals calculate)</a><a href="plans/bar-equipment.csv">CSV</a><a href="boq-bar.html">Full bar list</a></div>\n'
             f'{drawing_svg()}\n<div class="tw"><table><thead><tr><th>No.</th><th>Item and where it goes</th><th>Size W × D × H (m)</th><th>Notes</th><th>Qty</th><th>Rate ₹</th><th>Make / model</th></tr></thead>'
