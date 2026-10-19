@@ -51,12 +51,12 @@ line(1.75,D+T,1.75-0.62,D+T+0.5,'#2a2420',1,'3 3'); text(1.35,D+0.45,'rear exit'
 rect(X0,X1,-0.06,0,'#9fb4c2','#4a6070',1); rect(-X1-T,X1+T,-0.2,-0.12,'#6d7276','#4a4038',0.8); text(0,-0.37,'glazed shopfront · doors open outward · slot drain + 15 mm bevelled sill · garden falls 1 in 60 to the road',9,'#4a6070')
 for z,n in ((4.8,'P1'),(6.8,'P2')): rect(X0,X0+0.23,z-0.15,z+0.15,WALL,WALL,1)
 for xa,xb,za,zb in ((1.335,1.565,0,D),(X0,X1,4.675,4.925),(X0,1.335,6.675,6.925),(0.325,0.475,4.925,6.675)): rect(xa,xb,za,zb,'none','#8a7a62',1,'6 4')
-# ---- RIGHT: window tables, two tables for 4, 0.45 m apart, cane chairs on both sides
-rect(-2.02,-1.28,0.15,1.35,'#c69c6d'); text(-1.65,0.75,'1.2×0.74',10,rot=90)
-rect(-2.02,-1.28,1.8,3.0,'#c69c6d'); text(-1.65,2.4,'1.2×0.74',10,rot=90)
-for z in (0.45,1.05,2.1,2.7):
-    for x in (-2.2,-1.12): rect(x-0.22,x+0.22,z-0.22,z+0.22,'#efe2c8')
-text(-0.62,1.2,'WINDOW TABLES · 4 + 4',10,weight=700,rot=90); vdim(-1.9,1.35,1.8,'0.45',0); vdim(-1.9,3.0,3.6,'0.60',0)
+# ---- RIGHT: window tables, two tables for 4 set end-on to the wall, 0.9 m apart, cane chairs on the two long sides
+for ta,tb in ((0.65,1.35),(2.25,2.95)):
+    rect(X0,-1.25,ta,tb,'#c69c6d'); text(-1.85,(ta+tb)/2,'1.2×0.7',10)
+    for x in (-2.15,-1.55):
+        for zc in (ta-0.22,tb+0.22): rect(x-0.22,x+0.22,zc-0.22,zc+0.22,'#efe2c8')
+text(-0.62,1.2,'WINDOW TABLES · 4 + 4',10,weight=700,rot=90); vdim(-1.0,1.35,2.25,'0.90',0); vdim(-1.0,2.95,3.6,'0.65',0)
 # ---- RIGHT: hand-wash alcove (one basin) + washroom (drain straight out through the right wall)
 rect(X0,-1.45,3.6,3.7,'#d8c6ac','#d8c6ac',1); rect(X0,-1.45,3.7,4.7,'#e9efe4','#8a9a7a',1); rect(-1.55,-1.45,3.7,4.7,'none','#8a9a7a',1,'4 3')
 def tri(x0,z0,l,k,fill,stroke):
@@ -73,13 +73,14 @@ line(-2.41,4.5,-1.6,4.5,'#2a2420',0.8,'3 2'); text(-1.72,4.4,'WC sliding door ·
 rect(X0,X0+0.25,4.97,5.3,'#ffffff'); text(X0+0.125,5.135,'basin',6,'#4a4038',rot=90)
 rect(1.0,1.42,KZ-0.15,KZ,'#6d7276'); text(1.21,5.98,'DB + fire panel',8.5,'#4a4038')
 for x in (X1-0.1,X1-0.3): circ(x,2.56,0.07,'#c8231b','#c8231b',1)
-# ---- LEFT: window table for 4
-rect(1.25,1.95,0.15,1.35,'#c69c6d'); text(1.6,0.75,'1.2×0.7',10,rot=90)
-rect(1.25,1.95,1.8,2.4,'#c69c6d'); text(1.6,2.1,'0.6×0.7',10,rot=90); vdim(1.4,1.35,1.8,'0.45',0)
-for z in (0.45,1.05,2.1):
-    for x in (0.92,2.2): rect(x-0.22,x+0.22,z-0.22,z+0.22,'#efe2c8')
-text(0.45,1.2,'WINDOW TABLES · 4 + 2',10,weight=700,rot=90)
-hdim(-0.9,0.7,2.1,'entry 1.60 clear')
+# ---- LEFT: long sofa on the wall (0.5 x 2.3) and two square tables for 2, one seat on the sofa and one chair on the aisle side
+rect(1.95,X1,0.1,2.4,'#b9886a','#8a5a3a',1); rect(X1-0.08,X1,0.1,2.4,'#8a5a3a','#8a5a3a',1); text(2.2,1.25,'SOFA 0.5 × 2.3',9,'#fff',weight=700,rot=90)
+for ta,tb in ((0.35,0.95),(1.4,2.0)):
+    rect(1.4,2.0,ta,tb,'#c69c6d'); text(1.7,(ta+tb)/2,'0.6',8.5,rot=90)
+    rect(1.18-0.22,1.18+0.22,(ta+tb)/2-0.22,(ta+tb)/2+0.22,'#efe2c8')
+vdim(1.0,0.95,1.4,'0.45',0)
+text(0.45,1.2,'SOFA + TABLES FOR 2',10,weight=700,rot=90)
+hdim(-1.25,0.96,1.15,'aisle 2.2 clear')
 # ---- LEFT: bar, mirrored from Concept 25 and moved 0.42 m back
 BBF,BDX=X1-0.4,X1-0.55
 rect(BBF,X1,2.72,5.37,'#cfd7b2'); rect(BDX,BBF,3.77,5.04,'#cfd7b2','#4a4038',1)
@@ -95,7 +96,7 @@ rect(1.0,1.2,4.16,5.22,'#c3c8cc'); rect(0.67,1.22,4.64,5.14,'none','#2a6f8f',1,'
 for z in (3.27,3.87,4.47,5.07): circ(0.13,z,0.21,'#efe2c8')
 text(1.5,3.59,'3 KEGS + CHILLER · LOUVRED',9,'#2a6f8f',weight=700,rot=90)
 hdim(1.22,BBF,5.3,'0.85'); text(-0.3,4.17,'4 stools · 0.6 apart',10,'#6a5d4e',rot=90)
-vdim(0.95,2.32,2.94,'0.62',0)
+vdim(0.95,1.92,2.94,'1.0',0)
 hdim(-1.2,0.35,4.77,'1.55 to the bar edge')
 # ---- LEFT: server station + landing at the kitchen door
 rect(X1-0.5,X1,5.45,6.25,'#cfd7b2'); text(2.12,5.85,'server stn',8.5,weight=700,rot=90); text(2.32,5.85,'0.80 × 0.50',7.5,'#4a4038',rot=90)
@@ -190,13 +191,13 @@ vdim(-1.45,7.05,8.1,'aisle 1.05',0); hdim(0.95,1.75,D-0.15,'rear door 0.80'); hd
 # ---- dimensions
 hdim(X1,X0,D+0.2,'4.90 (inside)')
 vdim(X1+T,0,D,'8.80 (inside)',-46)
-vdim(XS-3.45,0.15,3.0,'tables 2.85',0); vdim(XS-3.45,3.55,4.7,'hand-wash 1.00',0); vdim(XS-3.45,4.8,KZ,'WC 1.50',0); vdim(XS-3.45,KZ+0.1,D,'kitchen 2.40',0)
-vdim(X1+T,0.15,2.4,'2.25 tables',-18); vdim(X1+T,2.72,5.37,'back bar 2.65',-18); vdim(X1+T,5.45,6.25,'0.80',-18)
+vdim(XS-3.45,0.15,3.4,'tables 3.25',0); vdim(XS-3.45,3.55,4.7,'hand-wash 1.00',0); vdim(XS-3.45,4.8,KZ,'WC 1.50',0); vdim(XS-3.45,KZ+0.1,D,'kitchen 2.40',0)
+vdim(X1+T,0.1,2.4,'sofa 2.30',-18); vdim(X1+T,2.72,5.37,'back bar 2.65',-18); vdim(X1+T,5.45,6.25,'0.80',-18)
 title='Ground floor plan · 4.9 × 8.8 m'
-sub='Cabin East · Concept 27 (mirrored: washroom right, bar left; 0.45 m min between tables) · from the shop drawing (47 m² super built-up) · 18 covers inside + 8 in the garden · 26 in all'
-rows=[('Bar stools','4'),('Window tables, left (4 + 2)','6'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','26')]
+sub='Cabin East · Concept 27 (mirrored: washroom right, bar left; sofa + tables for 2 on the left, tables for 4 end-on on the right) · from the shop drawing (47 m² super built-up) · 16 covers inside + 8 in the garden · 24 in all'
+rows=[('Bar stools','4'),('Sofa tables, left (2 + 2)','4'),('Window tables, right (4 + 4)','8'),('Beer garden, 5.3 × 2.0 m','8'),('Total','24')]
 lx=W-330; ly=170
-NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','At least 0.45 m between any two tables.','1.6 m entry, 0.62 m window table to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the Pan-Asian menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust, water and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: veg sink and two hand-washes (aprons','at the prep corner), 0.8 m double-acting door,','dual-temp reach-in, 35 L water heater, pot','filler, make-up air, cement-board ceiling,','goods hoist at the hatch, seasoning rail,','mise-en-place rail, pass fridge, rice cookers,','gas solenoid + leak detector, Class K at the','end of the hot line.','Water: 1,000 L sump under the left garden →','pump, filter, softener on the strip → kitchen.','Exhaust and drains shown dashed.']
+NOTES=['One double-height room, no loft.','Mirrored: washroom + hand-wash on the','right wall drain straight out; bar on the left.','0.45 m between the sofa tables, 0.9 m between','the right tables; 2.2 m central aisle, 1.0 m window chair to bar,','1.1 m at the kitchen door, 1.55 m from','the bar edge to the washroom block.','Kitchen sized to the Pan-Asian menu.','Power backup cabinet (changeover inside);','meter stays inside behind a portrait.','Gas, bins, AC, exhaust, water and drains in a','0.5 m strip on the right, behind bollards;','car pathway beyond, parking behind.','WC drains along the strip to a 2,000 L','biodigester under the garden (dashed).','Kitchen: veg sink and two hand-washes (aprons','at the prep corner), 0.8 m double-acting door,','dual-temp reach-in, 35 L water heater, pot','filler, make-up air, cement-board ceiling,','goods hoist at the hatch, seasoning rail,','mise-en-place rail, pass fridge, rice cookers,','gas solenoid + leak detector, Class K at the','end of the hot line.','Water: 1,000 L sump under the left garden →','pump, filter, softener on the strip → kitchen.','Exhaust and drains shown dashed.']
 leg=[f'<rect x="{lx-18}" y="{ly-34}" width="310" height="{len(rows)*30+60+len(NOTES)*19}" fill="#fffdf8" stroke="#d9cbb3"/>',f'<text x="{lx}" y="{ly-8}" font-size="15" font-weight="700" fill="#2a2420">COVERS</text>']
 for k,(a2,b2) in enumerate(rows):
     y=ly+22+k*30; bold=' font-weight="700"' if a2=='Total' else ''
