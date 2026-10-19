@@ -1,7 +1,7 @@
 # Photoreal interior views: the photo-textured model (interior-3d.html) is rendered from a fixed camera (tools/interior-refs/<id>.jpg) and Google Flow turns it into a
 # photograph, with the Furnishings product images (tools/furnishing-refs/) as extra references so the furniture is the designed furniture.
 # id -> (extra reference images, prompt). The first reference is always the model render.
-PRE = ("Photorealistic interior photograph of dimo, a small Pan-Asian dim sum and craft-beer pub in Betalbatim, Goa, natural warm light, 24 mm lens, true colours, no people, no text. "
+PRE = ("Photorealistic interior photograph of Cabin East, a small Pan-Asian wok, steam and draught pub in Betalbatim, Goa, natural warm light, 24 mm lens, true colours, no people, no text. "
        "Reference image 1 is the exact layout: keep every wall, table, chair, stool, counter, light, window and door in the same position, size, proportion and count as in image 1; "
        "do not add, remove, move or resize anything. Reference image 2 is a sheet of product photographs showing the exact furniture and fittings to use: ")
 JOBS = {
@@ -11,6 +11,6 @@ JOBS = {
  "barback": (["stool", "barfront", "gantry"], PRE + "the sand velvet bar stools, the back-lit onyx and brass-mesh bar front with marble top and brass tap tower, and the floating brass glass rack with hanging stemware."),
  "backbar": (["backbar-detail", "gantry"], PRE + "the olive-green back bar with marble top, floating ash shelves with warm LED, emerald glass mosaic wall, tablet in a recessed POS nook, and the brass glass rack."),
  "garden": (["bench", "pendants"], PRE + "the teak garden table and backrest bench with olive cushion, and the woven jute globe pendants. Timber pergola, brick planters, warm festoon lights."),
- "street": (["facade"], "Photorealistic EXTERIOR photograph at dusk, shot from the road, of dimo, a small Pan-Asian pub in Betalbatim, Goa, 35 mm lens, true colours, no people, no text. Reference image 1 is the exact layout: keep the building, the glazed black-steel shopfront, the timber pergola beer garden in front, the two brick planters, the A-frame chalkboard, the palm trees and the path in the same position, size and proportion; do not add, remove or move anything. Reference image 2 is a product photograph of the same facade style: orange neon 'dimo' sign on the fascia, warm lit interior visible through the glass."),
+ "street": (["facade"], "Photorealistic EXTERIOR photograph at dusk, shot from the road, of Cabin East, a small Pan-Asian pub in Betalbatim, Goa, 35 mm lens, true colours, no people, no text. Reference image 1 is the exact layout: keep the building, the glazed black-steel shopfront, the timber pergola beer garden in front, the two brick planters, the A-frame chalkboard, the palm trees and the path in the same position, size and proportion; do not add, remove or move anything. Reference image 2 is a product photograph of the same facade style: orange neon 'Cabin East' sign with WOK | STEAM | DRAUGHT beneath it on the fascia, warm lit interior visible through the glass."),
  "washwc": (["washroom"], PRE + "the triangular white corner basin under the quirky pop-art face mirror with round LED ring eyes, white tile, and the timber sliding WC door."),
 }

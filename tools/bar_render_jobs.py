@@ -11,7 +11,7 @@ PRODUCTS = {
  "font": CAT + "A polished brass three-tap beer font (tower) about 0.42 m high on a white marble bar top, three craft beer taps with small enamel handles in orange, red and green, a stainless drip tray in front, a pint glass being filled with golden beer. Three-quarter view.",
  "sink": CAT + "A stainless steel bar sink unit about 0.50 m wide with a built-in ice well and a speed rail holding six upside-down spirit bottles with pour spouts, a swan-neck mixer tap, a drainboard, and a rubber bar mat. Three-quarter view.",
 }
-PRE = ("Photorealistic photograph of the bar section of dimo, a small Pan-Asian dim sum and craft-beer pub in Betalbatim, Goa, warm light, true colours, no people, no text. "
+PRE = ("Photorealistic photograph of the bar section of Cabin East, a small Pan-Asian wok, steam and draught pub in Betalbatim, Goa, warm light, true colours, no people, no text. "
        "Reference image 1 is the exact layout and camera: keep every counter, cabinet, stool, shelf, wall and door in the same position, size and proportion; do not add, remove, move or resize anything. "
        "Reference image 2 is a sheet of product photographs of the exact equipment to use: ")
 VIEWS = {
