@@ -3,7 +3,7 @@
 <title>Cabin East · Betalbatim Pub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Yellowtail&family=Fredoka:wght@500;600&family=Anton&family=Alfa+Slab+One&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Yellowtail&family=Alfa+Slab+One&display=swap">
 <style>
 /* Layout: full-bleed 3D stage with a docked spec sheet on the right; stacks (stage above, sheet below) on phones */
 :root{
@@ -1685,7 +1685,7 @@ function frame(now){
 }
 requestAnimationFrame(frame);
 }
-const fl=document.fonts&&document.fonts.load?Promise.race([Promise.all(['700 46px "Bricolage Grotesque"','500 26px "IBM Plex Mono"','110px Yellowtail','600 110px Fredoka','110px Anton','110px "Alfa Slab One"','500 40px "IBM Plex Mono"'].map(f=>document.fonts.load(f))),new Promise(r=>setTimeout(r,1800))]):Promise.resolve();
+const fl=document.fonts&&document.fonts.load?Promise.race([Promise.all(['700 46px "Bricolage Grotesque"','500 26px "IBM Plex Mono"','110px Yellowtail','110px "Alfa Slab One"','500 40px "IBM Plex Mono"'].map(f=>document.fonts.load(f))),new Promise(r=>setTimeout(r,1800))]):Promise.resolve();
 fl.catch(()=>{}).then(init);
 })();
 </script>

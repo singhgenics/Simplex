@@ -22,7 +22,7 @@ def line(xa, za, xb, zb, stroke=INK, sw=1.2, dash=None):
 def text(x, z, t, size=12, fill=INK, anchor='middle', weight=500, rot=0):
     a, b = P(x, z); tr = f' transform="rotate({rot} {a:.1f} {b:.1f})"' if rot else ''
     o.append(f'<text x="{a:.1f}" y="{b+size*0.35:.1f}" font-size="{size}" fill="{fill}" text-anchor="{anchor}" font-weight="{weight}"{tr}>{t}</text>')
-def num(x, z, n, fill='#D9531E'):
+def num(x, z, n, fill='#B5321C'):
     a, b = P(x, z); w = 8.4 * len(str(n)) + 10
     o.append(f'<rect x="{a-w/2:.1f}" y="{b-10:.1f}" width="{w:.1f}" height="20" rx="10" fill="{fill}"/><text x="{a:.1f}" y="{b+4.5:.1f}" font-size="12.5" fill="#fff" text-anchor="middle" font-weight="700">{n}</text>')
 def hdim(xa, xb, z, t, off=0):
@@ -96,7 +96,7 @@ import textwrap
 y = TOP + 8
 for n, name, spec in rows:
     w = 8.4 * len(str(n)) + 10
-    o.append(f'<rect x="{lx}" y="{y-11}" width="{w:.1f}" height="20" rx="10" fill="{"#2F7A5B" if n == 13 else "#8a6420" if n in (11,) else "#D9531E"}"/><text x="{lx+w/2:.1f}" y="{y+3.5}" font-size="12.5" fill="#fff" text-anchor="middle" font-weight="700">{n}</text>')
+    o.append(f'<rect x="{lx}" y="{y-11}" width="{w:.1f}" height="20" rx="10" fill="{"#2F7A5B" if n == 13 else "#8a6420" if n in (11,) else "#B5321C"}"/><text x="{lx+w/2:.1f}" y="{y+3.5}" font-size="12.5" fill="#fff" text-anchor="middle" font-weight="700">{n}</text>')
     o.append(f'<text x="{lx+34}" y="{y+4}" font-size="13" font-weight="700" fill="{INK}">{name}</text>')
     y += 20
     for ln in textwrap.wrap(spec, 62):
