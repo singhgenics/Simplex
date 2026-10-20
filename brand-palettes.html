@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cabin East · Colour try-on</title>
-<meta name="description" content="Six colour and type directions for Cabin East, applied live to the pint-stack logo, signboard, menu, pylon, coasters, bag and tap badges.">
+<meta name="description" content="Ten colour and type directions for Cabin East, applied live to the pint-stack logo, signboard, menu, pylon, coasters, bag and tap badges.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..150,500..900&family=DM+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&family=Alfa+Slab+One&family=Bowlby+One&family=Rubik:wght@400;500;600&family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800&family=Barlow:wght@400;500;600&family=Tilt+Neon&family=Lexend:wght@400;500;600&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..150,500..900&family=DM+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&family=Alfa+Slab+One&family=Bowlby+One&family=Rubik:wght@400;500;600&family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800&family=Barlow:wght@400;500;600&family=Tilt+Neon&family=Lexend:wght@400;500;600&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&family=Gloock&family=Figtree:wght@400;500;600&family=Bricolage+Grotesque:wght@700;800&family=Onest:wght@400;500;600&family=Rozha+One&family=Libre+Franklin:wght@400;500;600&family=Lilita+One&family=Nunito+Sans:wght@400;600&display=swap">
 <style>
 @property --ground{syntax:'<color>';inherits:true;initial-value:#f2e8d2}
 @property --ink{syntax:'<color>';inherits:true;initial-value:#1c1714}
@@ -51,12 +51,12 @@ p{margin:0}
 
 .tins{display:grid;margin:0;padding:0;list-style:none;border-top:1px solid var(--page-line)}
 .tin{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;border-bottom:1px solid var(--page-line)}
-.tin-main{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:center;padding:14px 4px;transition:transform .4s var(--ease)}
+.tin-main{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:center;padding:10px 4px;transition:transform .4s var(--ease)}
 .tin-main:hover{transform:translateX(6px)}
 .tin-main:active{transform:translateX(3px) scale(.99)}
 .tin-main:focus-visible{outline:3px solid #c23b22;outline-offset:2px}
 .tin[data-on="a"] .tin-main,.tin[data-on="b"] .tin-main{transform:translateX(14px)}
-.chipbar{display:grid;grid-template-rows:repeat(6,1fr);height:62px;width:46px;border-radius:5px;overflow:hidden;box-shadow:0 0 0 1px rgba(27,25,22,.22)}
+.chipbar{display:grid;grid-template-rows:repeat(6,1fr);height:54px;width:46px;border-radius:5px;overflow:hidden;box-shadow:0 0 0 1px rgba(27,25,22,.22)}
 .tin-name{display:block;font:700 1.06rem/1.1 var(--display);font-variation-settings:'wdth' 112;letter-spacing:-.005em}
 .tin[data-on=''] .tin-tag{display:none}
 .tin-tag{display:block;margin-top:3px;font-size:.84rem;line-height:1.35;color:var(--page-mute);max-width:30ch}
@@ -140,6 +140,36 @@ p{margin:0}
 .ratios .vd{grid-column:2 / 4;font-size:.78rem;opacity:.78;margin-top:-2px}
 .ratios .bad{opacity:1;font-weight:500}
 
+
+/* brand-kit blocks inside each stage */
+.block{display:grid;gap:14px}
+.block h3{margin:0;font-family:var(--pdisplay,var(--display));font-weight:var(--pdw,800);font-size:1.5rem;line-height:1;letter-spacing:-.005em}
+.specimen{display:grid;gap:22px 34px;grid-template-columns:minmax(0,1fr)}
+@container (min-width:640px){.specimen{grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr)}}
+.aa{font-family:var(--pdisplay,var(--display));font-weight:var(--pdw,800);font-size:clamp(5.5rem,22cqi,10rem);line-height:.82;letter-spacing:-.02em;color:var(--primary)}
+.aa.tint{color:var(--tint)}
+.fam{display:grid;gap:4px;font:400 .78rem/1.35 var(--mono);margin-top:12px}
+.fam b{font-weight:500}
+.glyphs{margin-top:14px;display:grid;gap:6px;word-break:break-all}
+.glyphs .gd{font-family:var(--pdisplay,var(--display));font-weight:var(--pdw,800);font-size:1.05rem;line-height:1.25;letter-spacing:.02em}
+.glyphs .gb{font-family:var(--pbody,var(--body));font-size:.95rem;line-height:1.3;opacity:.85}
+.hier{display:grid;gap:0;margin:0}
+.hier>div{display:grid;grid-template-columns:70px minmax(0,1fr);gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.hier>div:first-child{border-top:1px solid color-mix(in srgb,var(--ink) 25%,transparent)}
+.hier dt{font:400 .7rem/1.2 var(--mono);opacity:.65}
+.hier dd{margin:0}
+.h-1{font-family:var(--pdisplay,var(--display));font-weight:var(--pdw,800);font-size:clamp(1.7rem,6cqi,2.6rem);line-height:1;letter-spacing:-.01em}
+.h-2{font-family:var(--pbody,var(--body));font-weight:600;font-size:1.15rem;line-height:1.3}
+.h-3{font-family:var(--pbody,var(--body));font-size:1rem;line-height:1.55;max-width:56ch}
+.h-4{font:500 .76rem/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.h-5{font-family:var(--pdisplay,var(--display));font-weight:var(--pdw,800);font-size:1.5rem;line-height:1;color:var(--tint)}
+.lts{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@container (min-width:640px){.lts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.lt{margin:0;display:grid;gap:8px;align-content:start}
+.lt svg{display:block;width:100%;height:auto;padding:12%;border-radius:12px;box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 22%,transparent)}
+.lt-wall svg{background:color-mix(in srgb,var(--ground) 90%,var(--ink))}.lt-board svg{background:var(--primary)}.lt-one svg{background:var(--ground)}.lt-rev svg{background:var(--ink)}
+.lt figcaption{font:400 .72rem/1.3 var(--mono);opacity:.72}
+
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -165,6 +195,21 @@ p{margin:0}
     </header>
     <p class="fontline"></p>
     <div class="strip" role="group" aria-label="Colour roles. Press a colour to copy its hex"></div>
+    <section class="block"><h3>Type</h3>
+      <div class="specimen">
+        <div><div class="aa">Aa</div><div class="fam"><span><b>Display</b> <i class="fd"></i></span><span><b>Text</b> <i class="fb"></i></span></div>
+          <div class="glyphs"><div class="gd">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 ₹&amp;</div><div class="gb">abcdefghijklmnopqrstuvwxyz Abcdefghijklm</div></div></div>
+        <dl class="hier">
+          <div><dt>Headline</dt><dd class="h-1">Wok. Steam. Draught.</dd></div>
+          <div><dt>Subhead</dt><dd class="h-2">Kolkata cabin classics, hand-folded dim sum and craft beer on tap.</dd></div>
+          <div><dt>Text</dt><dd class="h-3">Cabin Fever is chilli chicken double-fried and tossed on full flame, the way the old cabins did it. Dim sum come four to a basket; bao come two to a plate.</dd></div>
+          <div><dt>Price</dt><dd class="h-5">Cabin Fever &#8377;280+</dd></div>
+          <div><dt>Label</dt><dd class="h-4">Open 12 noon &ndash; 11 pm &middot; closed Monday</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="block"><h3>Logo</h3><div class="lts"><figure class="lt lt-wall"><svg viewBox="0 0 320 440" role="img" aria-label="Cabin East logo"><g style="--lgInk:var(--ink);--lgRed:var(--tint);--lgAmb:var(--accent)"><use href="#ce-icon" x="82.0" y="4.0" width="155.1" height="282.0"/><use href="#ce-word" x="22.0" y="300.0" width="276.0" height="54.4"/><use href="#ce-tag" x="48.0" y="362.0" width="224.0" height="21.5"/></g></svg><figcaption>On the wall</figcaption></figure><figure class="lt lt-board"><svg viewBox="0 0 320 440" role="img" aria-label="Cabin East logo"><g style="--lgInk:var(--onPrimary);--lgRed:var(--onPrimary);--lgAmb:var(--accent)"><use href="#ce-icon" x="82.0" y="4.0" width="155.1" height="282.0"/><use href="#ce-word" x="22.0" y="300.0" width="276.0" height="54.4"/><use href="#ce-tag" x="48.0" y="362.0" width="224.0" height="21.5"/></g></svg><figcaption>On the signboard</figcaption></figure><figure class="lt lt-one"><svg viewBox="0 0 320 440" role="img" aria-label="Cabin East logo"><g style="--lgInk:var(--ink);--lgRed:var(--ink);--lgAmb:var(--ink)"><use href="#ce-icon" x="82.0" y="4.0" width="155.1" height="282.0"/><use href="#ce-word" x="22.0" y="300.0" width="276.0" height="54.4"/><use href="#ce-tag" x="48.0" y="362.0" width="224.0" height="21.5"/></g></svg><figcaption>One colour</figcaption></figure><figure class="lt lt-rev"><svg viewBox="0 0 320 440" role="img" aria-label="Cabin East logo"><g style="--lgInk:var(--ground);--lgRed:var(--ground);--lgAmb:var(--accent)"><use href="#ce-icon" x="82.0" y="4.0" width="155.1" height="282.0"/><use href="#ce-word" x="22.0" y="300.0" width="276.0" height="54.4"/><use href="#ce-tag" x="48.0" y="362.0" width="224.0" height="21.5"/></g></svg><figcaption>Reversed on ink</figcaption></figure></div></section>
+    <section class="block"><h3>In use</h3>
     <div class="collage">
       <figure class="logo"><svg viewBox="0 0 320 440" role="img" aria-label="Cabin East logo"><g style="--lgInk:var(--ink);--lgRed:var(--tint);--lgAmb:var(--accent)"><use href="#ce-icon" x="82.0" y="4.0" width="155.1" height="282.0"/><use href="#ce-word" x="22.0" y="300.0" width="276.0" height="54.4"/><use href="#ce-tag" x="48.0" y="362.0" width="224.0" height="21.5"/></g></svg><figcaption>The logo, recoloured</figcaption></figure>
       <figure class="sign"><svg viewBox="0 0 520 210" role="img" aria-label="Signboard"><path d="M40 8 H480" class="s-ink" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M110 8 V42 M410 8 V42" class="s-ink" stroke-width="3" fill="none"/><rect x="16" y="42" width="488" height="152" rx="10" class="f-primary"/><rect x="26" y="52" width="468" height="132" rx="5" fill="none" class="s-onp" stroke-width="2" opacity=".7"/><g style="--lgInk:var(--onPrimary);--lgRed:var(--onPrimary);--lgAmb:var(--accent)"><use href="#ce-icon" x="56.0" y="56.0" width="67.1" height="122.0"/><use href="#ce-word" x="148.0" y="70.0" width="318.0" height="62.7"/><use href="#ce-tag" x="168.0" y="134.0" width="270.0" height="25.9"/></g></svg><figcaption>Hanging signboard</figcaption></figure>
@@ -173,13 +218,13 @@ p{margin:0}
       <figure class="coast"><svg viewBox="0 0 340 210" role="img" aria-label="Beer coasters"><circle cx="100" cy="106" r="88" class="f-primary"/><circle cx="100" cy="106" r="80" fill="none" class="s-onp" stroke-width="2" opacity=".6"/><g style="--lgInk:var(--onPrimary);--lgRed:var(--onPrimary);--lgAmb:var(--accent)"><use href="#ce-icon" x="70.5" y="30.0" width="57.2" height="104.0"/><use href="#ce-word" x="48.0" y="142.0" width="104.0" height="20.5"/></g><g transform="rotate(14 258 118)"><circle cx="258" cy="118" r="68" class="f-ink"/><circle cx="258" cy="118" r="61" fill="none" class="s-accent" stroke-width="2"/><text x="258" y="112" text-anchor="middle" class="svgword f-accent" font-size="22" letter-spacing="1">WOK</text><text x="258" y="137" text-anchor="middle" class="svgword f-ground" font-size="20" letter-spacing=".6">STEAM</text></g></svg><figcaption>Beer coasters</figcaption></figure>
       <figure class="bag"><svg viewBox="0 0 260 300" role="img" aria-label="Takeaway bag"><path d="M92 62 C92 6 168 6 168 62" fill="none" stroke="#A9814F" stroke-width="5"/><path d="M26 62 H234 L248 286 H12 Z" fill="#C9A26B"/><path d="M26 62 H234 L238 108 H22 Z" fill="#000" opacity=".06"/><g style="--lgInk:#2a2118;--lgRed:#2a2118;--lgAmb:#2a2118"><use href="#ce-icon" x="100.0" y="100.0" width="59.4" height="108.0"/><use href="#ce-word" x="72.0" y="218.0" width="116.0" height="22.9"/><use href="#ce-tag" x="84.0" y="250.0" width="92.0" height="8.8"/></g></svg><figcaption>Takeaway bag (kraft stays kraft)</figcaption></figure>
       <figure class="taps"><svg viewBox="0 0 360 140" role="img" aria-label="Tap badges"><circle cx="62" cy="64" r="52" class="f-ink"/><circle cx="62" cy="64" r="47" class="f-primary"/><circle cx="62" cy="64" r="40" fill="none" class="s-onp" stroke-width="1.2" opacity=".55"/><text x="62" y="71.3" text-anchor="middle" class="svgword f-onp" font-size="21" letter-spacing=".6">WOK</text><circle cx="180" cy="64" r="52" class="f-ink"/><circle cx="180" cy="64" r="47" class="f-support"/><circle cx="180" cy="64" r="40" fill="none" class="s-ons" stroke-width="1.2" opacity=".55"/><text x="180" y="70.0" text-anchor="middle" class="svgword f-ons" font-size="17" letter-spacing=".6">STEAM</text><circle cx="298" cy="64" r="52" class="f-ink"/><circle cx="298" cy="64" r="47" class="f-accent"/><circle cx="298" cy="64" r="40" fill="none" class="s-ona" stroke-width="1.2" opacity=".55"/><text x="298" y="68.2" text-anchor="middle" class="svgword f-ona" font-size="12" letter-spacing=".6">DRAUGHT</text><rect x="38" y="118" width="48" height="6" rx="3" class="f-ink"/><rect x="156" y="118" width="48" height="6" rx="3" class="f-ink"/><rect x="274" y="118" width="48" height="6" rx="3" class="f-ink"/></svg><figcaption>Tap badges</figcaption></figure>
-    </div>
-    <dl class="ratios"></dl>
+    </div></section>
+    <section class="block"><h3>Contrast</h3><dl class="ratios"></dl></section>
   </section>
 </template>
 
 <script>
-const PALETTES = [{"id": "tangra", "name": "Tangra Red", "story": "The cabin kitchens of old Kolkata: chilli, wok fire, lacquer-red signboards. The palette you have now, tidied. Type: a slab sign-painter face.", "ground": "#F2E8D2", "ink": "#1C1714", "primary": "#C23B22", "onPrimary": "#F2E8D2", "accent": "#E49B1D", "support": "#2F6F57", "display": "'Alfa Slab One'", "dw": 400, "body": "'Schibsted Grotesk'", "fontName": "Alfa Slab One + Schibsted Grotesk"}, {"id": "taxi", "name": "Taxi Hour", "story": "A Howrah-yellow signboard with black lettering, Goa sea-teal for steam, kokum pink for the spark. Loud from a scooter, readable from the road. Type: a fat, friendly poster face.", "ground": "#FBF3E0", "ink": "#161412", "primary": "#F6C21A", "onPrimary": "#161412", "accent": "#E0527A", "support": "#0F5C5A", "display": "'Bowlby One'", "dw": 400, "body": "'Rubik'", "fontName": "Bowlby One + Rubik"}, {"id": "kokum", "name": "Kokum Gose", "story": "Built on the pink beer in your taps. Plum for night, butter-gold for the foam, a sunset room that is not red. Type: a warm high-contrast serif.", "ground": "#FBEFE3", "ink": "#2A1423", "primary": "#D6446B", "onPrimary": "#FFF4EA", "accent": "#F0A33A", "support": "#3A1A2E", "display": "'DM Serif Display'", "dw": 400, "body": "'DM Sans'", "fontName": "DM Serif Display + DM Sans"}, {"id": "monsoon", "name": "Monsoon Draught", "story": "Bottle-glass green with beer gold on top. Goa in July: wet laterite, palm shade, a cold lager on the table. Type: a tall, condensed label face.", "ground": "#EEE8D5", "ink": "#14201F", "primary": "#12403F", "onPrimary": "#F4EFE0", "accent": "#E8A92A", "support": "#B5502B", "display": "'Big Shoulders Display'", "dw": 800, "body": "'Barlow'", "fontName": "Big Shoulders Display + Barlow"}, {"id": "neon", "name": "Neon Cabin", "story": "For the night shift: a near-black wall, neon-red tubes, amber on the pipes. Made for the glass front and the Instagram story. Type: a neon-tube face.", "ground": "#14110F", "ink": "#F2E8D2", "primary": "#FF4A2E", "onPrimary": "#14110F", "accent": "#FFB020", "support": "#2B2420", "display": "'Tilt Neon'", "dw": 400, "body": "'Lexend'", "fontName": "Tilt Neon + Lexend"}, {"id": "slate", "name": "Steamer Slate", "story": "The quiet one. Bamboo and stone with a single chilli-orange spark. A pub that lets the food be the colour. Type: a sharp, modern grotesque.", "ground": "#E9ECE6", "ink": "#20282A", "primary": "#2B3436", "onPrimary": "#F2F4F1", "accent": "#F26B21", "support": "#C8B58A", "display": "'Syne'", "dw": 800, "body": "'Manrope'", "fontName": "Syne + Manrope"}];
+const PALETTES = [{"id": "tangra", "name": "Tangra Red", "story": "The cabin kitchens of old Kolkata: chilli, wok fire, lacquer-red signboards. The palette you have now, tidied. Type: a slab sign-painter face.", "ground": "#F2E8D2", "ink": "#1C1714", "primary": "#C23B22", "onPrimary": "#F2E8D2", "accent": "#E49B1D", "support": "#2F6F57", "display": "'Alfa Slab One'", "dw": 400, "body": "'Schibsted Grotesk'", "fontName": "Alfa Slab One + Schibsted Grotesk"}, {"id": "taxi", "name": "Taxi Hour", "story": "A Howrah-yellow signboard with black lettering, Goa sea-teal for steam, kokum pink for the spark. Loud from a scooter, readable from the road. Type: a fat, friendly poster face.", "ground": "#FBF3E0", "ink": "#161412", "primary": "#F6C21A", "onPrimary": "#161412", "accent": "#E0527A", "support": "#0F5C5A", "display": "'Bowlby One'", "dw": 400, "body": "'Rubik'", "fontName": "Bowlby One + Rubik"}, {"id": "kokum", "name": "Kokum Gose", "story": "Built on the pink beer in your taps. Plum for night, butter-gold for the foam, a sunset room that is not red. Type: a warm high-contrast serif.", "ground": "#FBEFE3", "ink": "#2A1423", "primary": "#D6446B", "onPrimary": "#FFF4EA", "accent": "#F0A33A", "support": "#3A1A2E", "display": "'DM Serif Display'", "dw": 400, "body": "'DM Sans'", "fontName": "DM Serif Display + DM Sans"}, {"id": "monsoon", "name": "Monsoon Draught", "story": "Bottle-glass green with beer gold on top. Goa in July: wet laterite, palm shade, a cold lager on the table. Type: a tall, condensed label face.", "ground": "#EEE8D5", "ink": "#14201F", "primary": "#12403F", "onPrimary": "#F4EFE0", "accent": "#E8A92A", "support": "#B5502B", "display": "'Big Shoulders Display'", "dw": 800, "body": "'Barlow'", "fontName": "Big Shoulders Display + Barlow"}, {"id": "neon", "name": "Neon Cabin", "story": "For the night shift: a near-black wall, neon-red tubes, amber on the pipes. Made for the glass front and the Instagram story. Type: a neon-tube face.", "ground": "#14110F", "ink": "#F2E8D2", "primary": "#FF4A2E", "onPrimary": "#14110F", "accent": "#FFB020", "support": "#2B2420", "display": "'Tilt Neon'", "dw": 400, "body": "'Lexend'", "fontName": "Tilt Neon + Lexend"}, {"id": "slate", "name": "Steamer Slate", "story": "The quiet one. Bamboo and stone with a single chilli-orange spark. A pub that lets the food be the colour. Type: a sharp, modern grotesque.", "ground": "#E9ECE6", "ink": "#20282A", "primary": "#2B3436", "onPrimary": "#F2F4F1", "accent": "#F26B21", "support": "#C8B58A", "display": "'Syne'", "dw": 800, "body": "'Manrope'", "fontName": "Syne + Manrope"}, {"id": "azulejo", "name": "Azulejo Blue", "story": "Portuguese-Goan tile blue on a white-washed wall, with gold for the foam and terracotta from the laterite. The old-Goa pub, not the beach shack. Type: a sharp editorial serif.", "ground": "#F4F1E8", "ink": "#12182B", "primary": "#1F3F8F", "onPrimary": "#F4F1E8", "accent": "#E9B949", "support": "#C75B3A", "display": "'Gloock'", "dw": 400, "body": "'Figtree'", "fontName": "Gloock + Figtree"}, {"id": "paan", "name": "Paan Green", "story": "Betel-leaf green with a lime spark and a chilli-red second voice. Fresh, sharp and a little cheeky, like the first bite of the Thai basil bowl. Type: a bold variable grotesque.", "ground": "#F6F4E4", "ink": "#10231A", "primary": "#1F6B3A", "onPrimary": "#F6F4E4", "accent": "#D7E34A", "support": "#E8532B", "display": "'Bricolage Grotesque'", "dw": 800, "body": "'Onest'", "fontName": "Bricolage Grotesque + Onest"}, {"id": "lacquer", "name": "Lacquer & Gold", "story": "Deep Chinese-lacquer red on a black wall with brushed gold and a jade second voice. For a late-night room with low light and dark wood. Type: a fat Didone display face.", "ground": "#1A1412", "ink": "#F1E6CF", "primary": "#8C1C13", "onPrimary": "#F1E6CF", "accent": "#D4A64A", "support": "#1F5C4A", "display": "'Rozha One'", "dw": 400, "body": "'Libre Franklin'", "fontName": "Rozha One + Libre Franklin"}, {"id": "cabana", "name": "Cabana Coral", "story": "A Betalbatim beach-shack palette: hibiscus coral, aqua water and sun-yellow, with navy for the words. Daytime, sandals, a cold pint. Type: a chunky, friendly display face.", "ground": "#FFF6EA", "ink": "#1D2B3A", "primary": "#FF6B4A", "onPrimary": "#1D2B3A", "accent": "#FFC93C", "support": "#2BB5B0", "display": "'Lilita One'", "dw": 400, "body": "'Nunito Sans'", "fontName": "Lilita One + Nunito Sans"}];
 const SHORT = {ground:'Wall',primary:'Board',ink:'Text',accent:'Spark',support:'Alt'};
 const ROLES = [['ground','Wall and paper'],['primary','Signboard'],['ink','Text'],['accent','Spark'],['support','Second voice']];
 const $ = (s, r=document) => r.querySelector(s);
@@ -211,7 +256,7 @@ function paint(stage, p){
     onSupport: best(p.support,p.ink,p.ground), onAccent: best(p.accent,p.ink,p.ground),
     tint: [p.primary,p.support,p.ink].find(c=>ratio(c,p.ground)>=3) || p.ink };
   for (const k in vars) stage.style.setProperty('--'+k, vars[k]);
-  stage.dataset.pid = p.id; stage.style.setProperty('--pdisplay', p.display+',sans-serif'); stage.style.setProperty('--pbody', p.body+',sans-serif'); stage.style.setProperty('--pdw', p.dw); $('.fontline',stage).textContent = 'Type: '+p.fontName;
+  stage.dataset.pid = p.id; stage.style.setProperty('--pdisplay', p.display+',sans-serif'); stage.style.setProperty('--pbody', p.body+',sans-serif'); stage.style.setProperty('--pdw', p.dw); $('.fontline',stage).textContent = 'Type: '+p.fontName; $('.fd',stage).textContent = p.display.replace(/'/g,''); $('.fb',stage).textContent = p.body.replace(/'/g,'');
   $('.pname',stage).textContent = p.name; $('.story',stage).textContent = p.story;
   /* strip: wall gets the most room, then signboard, text, spark, second voice */
   const strip = $('.strip',stage); const widths = [3.2,2.2,1.2,1,1.2];
