@@ -1,10 +1,10 @@
 :root{
-  --cabin-red: #C23B22;
+  --cabin-red: #B5321C;
   --night-ink: #1C1714;
   --steam-cream: #F2E8D2;
   --draught-amber: #E49B1D;
   --bamboo-jade: #2F6F57;
-  --font-display: 'Archivo Black', 'Arial Black', sans-serif;
+  --font-display: 'Alfa Slab One', 'Arial Black', sans-serif;
   --font-label: 'IBM Plex Mono', ui-monospace, monospace;
   --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
 }
