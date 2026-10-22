@@ -71,7 +71,7 @@ footer { margin-top: 26px; font-size: 13px; color: var(--muted); max-width: 74ch
   <header>
     <p class="kicker">Cabin East · kitchen briefing for the chef, helper and vendors</p>
     <h1>What cooks where</h1>
-    <p class="sub">Every dish on the food menu, matched to the station that cooks it. The stations run in line order from the right wall: wok range, steamer, fryer, stock range, then prep, cold and the pass. 25 dishes, 40 choices, one chef and one helper.</p>
+    <p class="sub">Every dish on the food menu, matched to the station that cooks it. The stations run in line order from the right wall: wok range, steamer, fryer, stock range, then prep, cold and the pass. 28 dishes, 44 choices, one chef and one helper.</p>
     <div class="key">
       <span>Plain: stated in the menu notes</span>
       <span><span class="lk">likely</span> my pick where the notes do not say. Chef to confirm.</span>
@@ -131,6 +131,7 @@ var STATIONS = [
       ["Cabin Fever, paneer", "First fry before the wok."],
       ["Honey Trap, potato", "First fry before the glaze."],
       ["Salt & Pepa, mushroom", "Light batter, then to the wok."],
+      ["Wonton More, veg", "Six veg wontons from the freezer, fried golden. Served with the sweet chilli dip."],
       ["Man, Churian!, veg", "The veg dumplings, fried crisp."],
       ["Fry Hard", "Kimchi fries. The fries go from the freezer. The torch finishes them."],
       ["Honey, I Shrunk the Noodles", "The darsaan noodles, fried crisp."]]],
@@ -138,6 +139,7 @@ var STATIONS = [
       ["Cabin Fever, chicken and pork", "First fry before the wok."],
       ["Honey Trap, chicken", "First fry before the glaze."],
       ["Salt & Pepa, chonak and prawns", "Light batter, then to the wok."],
+      ["Wonton More, chicken", "Six chicken wontons from the freezer, fried golden. Served with the sweet chilli dip."],
       ["Man, Churian!, chicken", "Fried crisp before the sauce."],
       ["K-Pop Wings", "Fried twice for a glass-crisp shell. The sauce is brushed on after."]]]]},
   { k: "stock", n: "Stock range, 2 burners", size: "0.6 × 0.7 × 0.85 m, being resized", role: "The slow, wet cooking. Soups and curry bases at service, the braise and the sauce bases on batch and prep mornings. A wall pot filler fills 20 L pots in place.", groups: [
@@ -163,20 +165,23 @@ var STATIONS = [
       ["Portioning and battering", "Chicken, pork belly, chonak and prawns arrive cleaned and portioned. The batter is made in the morning."],
       ["Mise-en-place rail", "Five chilled pans of service prep within reach of the wok."]]],
     ["Dumpling and veg bench", [
-      ["Dumpling folding", "On Monday and Thursday: Crystal Clear, the chicken wontons, siu mai and the prawn and chive dumplings, folded and frozen."],
+      ["Dumpling folding", "On Monday and Thursday: Crystal Clear, the chicken and veg wontons (the same batch serves Wonton More, Fire Starters and the soup), siu mai and the prawn and chive dumplings, folded and frozen."],
       ["Slap Happy", "Papaya salad, pounded to order in the stone mortar. No cooking."],
+      ["Smash Hit", "Cucumber smashed on the board, salted and drained, then tossed with garlic, black vinegar and the house chilli oil. No cooking."],
+      ["Sweet chilli dip", "Made in the morning batch from the honey-chilli glaze base. Kept at room temperature."],
       ["Curry pastes and gochujang sauce", "In the mixer-grinder on batch days. The green paste for Green With Envy is made weekly."],
       ["Fry Hard", "Finished under the kitchen torch.", ],
       ["Vegetable cutting", "All of it, with the herbs and rice washed in the separate veg sink."]]]]},
   { k: "cold", n: "Cold storage", size: "reach-in 0.95 × 0.75 × 2.0 m, plus two under-counter units", role: "Where the batches wait. Ask each dealer for the litres on every side.", groups: [
     ["", [
       ["Reach-in, fridge door", "Cheese for Fry Hard, eggs, paneer, mushrooms, cut veg, kimchi, sauces. Raw proteins on the bottom shelf."],
-      ["Reach-in, freezer door", "Frozen bao buns, fries and wings, and the ice cream for both desserts."],
-      ["Under-counter freezer", "The dim sum trays from the batch days, at the bench where they are folded."],
+      ["Reach-in, freezer door", "Frozen bao buns, fries and wings, and the ice cream: three flavours (vanilla, tender coconut, kokum) for the three ice cream desserts. Ask the dealer how many litres this side holds, or add a small chest freezer for the ice cream."],
+      ["Under-counter freezer", "The dim sum trays and the wonton trays (chicken and veg) from the batch days, at the bench where they are folded."],
       ["Under-counter fridge at the pass", "The sauce bases and cut veg, within reach of the wok."]]]]},
   { k: "pass", n: "Pass and heat lamps", size: "0.65 × 0.65 m, hatch 0.65 × 0.6 m", role: "Plating, holding and the ticket rail. The dip rail has five inserts.", groups: [
     ["", [
       ["Dips", "Kasundi mayo (Salt & Pepa), gochujang mayo (Fry Hard), chilli mayo (Fever Pitch), chilli-soy (Prawn to Be Wild)."],
+      ["Ice cream", "Scoop There It Is is built here: a scoop and a dipper well, plus three lidded pots of toppings (palm jaggery syrup, sesame-peanut crunch, chocolate sauce)."],
       ["Plating", "Every dish is finished here, then goes through the hatch."]]]]}
 ];
 
@@ -201,7 +206,8 @@ var DISHES = [
   ["Seoul to Bangkok", [
     ["K-Pop Wings", "6 pieces, soy-garlic or sweet-spicy", [["cold", "freezer"], ["fry", "twice, non-veg tank"], ["pass", "brush with sauce"]]],
     ["Fry Hard", "Kimchi fries", [["cold", "freezer"], ["fry", "veg tank"], ["veg", "torch to finish"]]],
-    ["Slap Happy", "Raw papaya salad, no cooking", [["veg", "pound in the mortar"]]]]],
+    ["Slap Happy", "Raw papaya salad, no cooking", [["veg", "pound in the mortar"]]],
+    ["Smash Hit", "Smashed cucumber salad, no cooking", [["veg", "smash, salt, drain and toss"]]]]],
   ["Noodles and rice", [
     ["Noodle Around", "Hakka noodles: veg, chicken or mixed", [["stock", "boil the noodles"], ["wok", "noodle burner"]]],
     ["Rice Rice Baby", "Fried rice: veg, chicken or mixed", [["rice", "yesterday's rice"], ["wok", "rice burner"]]],
@@ -213,7 +219,8 @@ var DISHES = [
     ["Suey Generis", "Khao suey: veg or chicken", [["stock", "coconut curry and noodles"], ["wok", "finish the noodles", "likely"]]]]],
   ["Sweet", [
     ["Honey, I Shrunk the Noodles", "Darsaan with ice cream", [["fry", "darsaan, veg tank"], ["wok", "hot honey toss", "likely"], ["cold", "ice cream"]]],
-    ["Sticky Situation", "Coconut sticky rice with ice cream", [["rice", "sticky rice"], ["stock", "warm the coconut cream", "likely"], ["cold", "ice cream"]]]]]
+    ["Sticky Situation", "Coconut sticky rice with ice cream", [["rice", "sticky rice"], ["stock", "warm the coconut cream", "likely"], ["cold", "ice cream"]]],
+    ["Scoop There It Is", "Ice cream: 2 scoops, 1 topping", [["cold", "scoop two flavours"], ["pass", "add the topping"]]]]]
 ];
 var SHORT = { wok: "Wok", steam: "Steamer", fry: "Fryer", stock: "Stock range", rice: "Rice cooker", nv: "Non-veg bench", veg: "Veg bench", cold: "Cold", pass: "Pass" };
 var COOK = ["wok", "steam", "fry", "stock", "rice"];
