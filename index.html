@@ -569,7 +569,7 @@ function brandNeon(w,h,glow,core){return tex(w,h,(g)=>{g.clearRect(0,0,w,h);
 function brandSignTex(label,face,txt,rim){const w=760,h=314;return tex(w,h,(g)=>{const rr=(x,y,ww,hh,r)=>{g.beginPath();g.moveTo(x+r,y);g.arcTo(x+ww,y,x+ww,y+hh,r);g.arcTo(x+ww,y+hh,x,y+hh,r);g.arcTo(x,y+hh,x,y,r);g.arcTo(x,y,x+ww,y,r);g.closePath();};
   g.fillStyle='#1c1714';rr(0,0,w,h,24);g.fill();g.fillStyle=face;rr(8,8,w-16,h-16,18);g.fill();g.strokeStyle=rim;g.lineWidth=5;g.globalAlpha=.75;rr(26,26,w-52,h-52,10);g.stroke();g.globalAlpha=1;
   g.fillStyle=txt;g.textAlign='center';g.textBaseline='alphabetic';let fp=150;const F='"Alfa Slab One", Georgia, serif';g.font='400 '+fp+'px '+F;if('letterSpacing' in g)g.letterSpacing='4px';const mw=g.measureText(label).width;if(mw>w-130)fp=Math.floor(fp*(w-130)/mw);g.font='400 '+fp+'px '+F;g.fillText(label,w/2,h*0.68);});}
-const BRAND_SIGNS=[['WOK','#b5321c','#f2e8d2','#f2e8d2'],['STEAM','#fbf6e8','#1c1714','#1c1714'],['DRAUGHT','#2f6f57','#f2e8d2','#f2e8d2']];
+const BRAND_SIGNS=[['WOK','#b5321c','#f2e8d2','#f2e8d2'],['STEAM','#f2e8d2','#1c1714','#1c1714'],['DRAUGHT','#2f6f57','#f2e8d2','#f2e8d2']];
 function brandHangSigns(cx,railY,z,parent,dir){const sw=0.38,sh=0.157,gap=0.05,drop=0.1,total=BRAND_SIGNS.length*sw+(BRAND_SIGNS.length-1)*gap;
   bx(cx-total/2-0.07,cx+total/2+0.07,railY,railY+0.022,z-0.014,z+0.014,M.brass,parent,false);
   BRAND_SIGNS.forEach(([l,f,t,r],i)=>{const x=dir>0?cx-total/2+sw/2+i*(sw+gap):cx+total/2-sw/2-i*(sw+gap);const tm=new THREE.MeshStandardMaterial({map:brandSignTex(l,f,t,r),roughness:0.4,metalness:0.05}),pl=S({color:f,roughness:0.5});
