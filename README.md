@@ -1,9 +1,8 @@
-# Cabin East brand
+# Moved
 
-Published brand files for Cabin East (Wok | Steam | Draught).
+The Cabin East brand kit and the brand and merch page now live in the Garden repo:
 
-- `brand-kit.html`: the brand kit page (logo, colour, type, voice, downloads).
-- Brand and merch page: moved to the Garden site, https://singhgenics.github.io/Garden/brand-merch.html
-- `brand/`: logos, hi-res files, fonts, tokens, direction board.
+- https://singhgenics.github.io/Garden/brand-kit.html
+- https://singhgenics.github.io/Garden/brand-merch.html
 
-The old Betalbatim pub project (3D model, plans, bills of quantities, licences, quotes) was removed on 2026-11-01. It stays in this repo's git history.
+This repo only redirects. The earlier files (old palette) are in the git history.
