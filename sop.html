@@ -1,0 +1,680 @@
+<title>Cabin East Service Playbook</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100,800..900&family=Schibsted+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: hoarding-style header, sticky section rail, one long reference page; the order flow is a swimlane that scrolls sideways on phones. */
+:root{
+  --bg:#F2E8D2; --paper:#FBF6E8; --ink:#1C1714; --muted:#5B4D40; --line:#D8C8A6;
+  --red:#B5321C; --amber:#E49B1D; --green:#2F6F57; --slate:#5B4D40; --rust:#C2571A; --teal:#3C6E78;
+  --on-red:#FBF6E8; --on-amber:#1C1714; --band:#1C1714; --on-band:#F2E8D2;
+  --f-display:"Anybody","Arial Black",Impact,sans-serif;
+  --f-body:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1C1714; --paper:#272019; --ink:#F2E8D2; --muted:#BDAE92; --line:#43382E;
+  --red:#E0553D; --amber:#E49B1D; --green:#4FA383; --slate:#9A8873; --rust:#E27A3A; --teal:#6FA8B3;
+  --on-red:#1C1714; --on-amber:#1C1714; --band:#0E0B09; --on-band:#F2E8D2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1C1714; --paper:#272019; --ink:#F2E8D2; --muted:#BDAE92; --line:#43382E;
+  --red:#E0553D; --amber:#E49B1D; --green:#4FA383; --slate:#9A8873; --rust:#E27A3A; --teal:#6FA8B3;
+  --on-red:#1C1714; --on-amber:#1C1714; --band:#0E0B09; --on-band:#F2E8D2; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:1180px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);font-weight:850;font-stretch:112%;line-height:1.02;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4.4vw,46px);text-transform:uppercase;letter-spacing:.01em}
+h3{font-size:19px;text-transform:uppercase;letter-spacing:.02em}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:var(--f-mono)}
+.label{font:500 12px/1.2 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+
+.site{display:flex;flex-wrap:wrap;gap:4px 18px;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-left,0px));background:var(--band);color:var(--on-band);font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid #43382E}
+.site a{color:var(--on-band);text-decoration:none;opacity:.85}.site a:hover,.site a:focus-visible{opacity:1;text-decoration:underline}.site b{color:var(--amber)}
+/* masthead */
+.mast{background:var(--band);color:var(--on-band);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:36px max(16px,env(safe-area-inset-left,0px)) 36px}
+.mast .wrap{display:grid;gap:22px}
+.mast .tag{font:500 13px var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.mast h1{font-size:clamp(40px,9vw,104px);text-transform:uppercase;color:var(--on-band)}
+.mast h1 em{font-style:normal;color:var(--amber)}
+.mast p{max-width:62ch;font-size:18px;color:#E3D6BA}
+.team{display:flex;flex-wrap:wrap;gap:8px}
+.team span{border:1.5px solid #6d5d4c;padding:6px 12px;font:500 13px var(--f-mono);color:#F2E8D2}
+
+/* section rail */
+.rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:2px solid var(--ink);
+  margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:0 max(16px,env(safe-area-inset-left,0px));overflow-x:auto}
+.rail .wrap{display:flex;gap:4px;white-space:nowrap}
+.rail a{padding:12px 12px;font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.rail a:hover{color:var(--ink);background:var(--paper)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+
+section{padding-block:56px 8px}
+.head{display:grid;gap:10px;margin-bottom:26px}
+.head p{max-width:68ch;color:var(--muted)}
+
+/* code of conduct */
+.code{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;border:2px solid var(--ink);counter-reset:c}
+.code li{list-style:none;padding:16px 18px 16px 62px;position:relative;border:1px solid var(--line);background:var(--paper);counter-increment:c;min-width:0}
+.code li::before{content:counter(c);position:absolute;left:14px;top:12px;width:34px;height:34px;display:grid;place-items:center;
+  background:var(--red);color:var(--on-red);font:850 18px var(--f-display);font-stretch:112%}
+.code b{display:block;font-weight:700}
+.code span{color:var(--muted);font-size:14.5px}
+ul.plain{margin:0;padding:0}
+
+/* clock */
+.scroll{overflow-x:auto;border:2px solid var(--ink);background:var(--paper)}
+.clock{position:relative;min-width:920px;height:230px;margin:0 70px}
+.clock .bar{position:absolute;left:0;right:0;top:106px;height:18px;background:var(--line)}
+.clock .zone{position:absolute;top:106px;height:18px}
+.clock .tick{position:absolute;top:128px;font:400 11px var(--f-mono);color:var(--muted);transform:translateX(-50%)}
+.m{position:absolute;width:88px;transform:translateX(-50%);font-size:12.5px;line-height:1.3}
+.m b{display:block;font:500 13px var(--f-mono);color:var(--red)}
+.m::after{content:"";position:absolute;left:50%;width:2px;background:var(--ink);transform:translateX(-50%)}
+.m.up{top:8px}.m.up::after{top:62px;height:44px}
+.m.dn{top:150px}.m.dn::after{top:-24px;height:24px}
+.m.dn::after{top:-44px;height:44px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-size:14px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:14px;margin-right:7px;vertical-align:-2px}
+
+/* swimlane */
+.lanes{display:grid;grid-template-columns:104px repeat(9,minmax(136px,1fr));min-width:1400px;position:relative}
+.colh{padding:10px 8px;border-bottom:2px solid var(--ink);background:var(--paper);position:relative;z-index:1}
+.colh b{display:block;font:850 14px var(--f-display);font-stretch:112%;text-transform:uppercase}
+.colh span{font:400 11.5px var(--f-mono);color:var(--muted)}
+.band{grid-column:1/-1;border-bottom:1px solid var(--line);min-height:112px}
+.band:nth-of-type(odd){background:color-mix(in srgb,var(--paper) 55%,var(--bg))}
+.lane{grid-column:1;padding:12px 10px;font:850 14px var(--f-display);font-stretch:112%;text-transform:uppercase;color:#FBF6E8;display:flex;align-items:center;z-index:1}
+.step{grid-column:var(--c);grid-row:var(--r);z-index:1;margin:8px;padding:10px 11px 10px 42px;position:relative;font-size:13.5px;line-height:1.35;
+  background:var(--paper);border:2px solid var(--k);min-width:0;align-self:stretch}
+.step i{position:absolute;left:0;top:0;bottom:0;width:32px;background:var(--kh);color:#FBF6E8;font:500 14px var(--f-mono);font-style:normal;display:grid;place-items:center}
+.step b{font-weight:700}
+.step .t{display:block;margin-top:4px;font:500 11.5px var(--f-mono);color:var(--red)}
+.k-g{--k:#9A6A0B;--kh:#9A6A0B}.k-s{--k:var(--red);--kh:#B5321C}.k-p{--k:var(--slate);--kh:#5B4D40}.k-b{--k:var(--green);--kh:#2F6F57}.k-k{--k:var(--rust);--kh:#C2571A}.k-c{--k:var(--teal);--kh:#3C6E78}
+.lane.k-g{background:#9A6A0B}.lane.k-s{background:#B5321C}.lane.k-p{background:#5B4D40}.lane.k-b{background:#2F6F57}.lane.k-k{background:#C2571A}.lane.k-c{background:#3C6E78}
+.send{--k:#1C1714;--kh:#1C1714;background:var(--amber);color:#1C1714;border-width:3px}
+.send i{background:#1C1714;color:#E49B1D}
+.send .t{color:#1C1714}
+.note{margin-top:12px;font-size:14px;color:var(--muted)}
+
+/* tickets */
+.tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;align-items:start}
+.slip{background:#FBF6E8;color:#1C1714;font:400 14px/1.45 var(--f-mono);padding:18px 20px 22px;border:1px solid #cdbd9a;
+  box-shadow:0 1px 0 #cdbd9a,0 6px 0 -3px #FBF6E8,0 7px 0 -3px #cdbd9a;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),96% 100%,92% calc(100% - 8px),88% 100%,84% calc(100% - 8px),80% 100%,76% calc(100% - 8px),72% 100%,68% calc(100% - 8px),64% 100%,60% calc(100% - 8px),56% 100%,52% calc(100% - 8px),48% 100%,44% calc(100% - 8px),40% 100%,36% calc(100% - 8px),32% 100%,28% calc(100% - 8px),24% 100%,20% calc(100% - 8px),16% 100%,12% calc(100% - 8px),8% 100%,4% calc(100% - 8px),0 100%)}
+.slip h3{font:500 15px var(--f-mono);letter-spacing:.14em;text-align:center;border-bottom:2px dashed #1C1714;padding-bottom:8px;margin-bottom:8px;text-transform:none}
+.slip .big{font-size:20px;font-weight:500}
+.slip hr{border:0;border-top:1px dashed #1C1714;margin:8px 0}
+.slip .al{background:#1C1714;color:#FBF6E8;padding:2px 6px;display:inline-block;margin-top:2px}
+.slip .stn{font-weight:500;letter-spacing:.1em}
+.rules{display:grid;gap:10px}
+.rules div{background:var(--paper);border:1.5px solid var(--line);padding:12px 14px}
+.rules b{display:block}
+.rules span{color:var(--muted);font-size:14.5px}
+
+/* tables */
+.tbl{overflow-x:auto;border:2px solid var(--ink)}
+table{border-collapse:collapse;width:100%;min-width:640px;background:var(--paper);font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
+th{font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:var(--band);color:var(--on-band);border-bottom:0}
+td:first-child{font-weight:700;white-space:nowrap}
+.mono-c{font-family:var(--f-mono);font-size:13.5px;white-space:nowrap}
+
+/* role cards */
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:24px}
+.role{background:var(--paper);border:2px solid var(--ink);min-width:0}
+.role>header{padding:16px 18px;color:#FBF6E8;background:var(--kh);display:grid;gap:4px}
+.role>header h3{font-size:26px}
+.role>header p{font-size:14.5px;opacity:.95}
+.role .body{padding:6px 18px 18px;display:grid;gap:16px}
+.role h4{margin:14px 0 6px;font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--k)}
+.role ul{margin:0;padding-left:20px;display:grid;gap:5px}
+.role li::marker{color:var(--k)}
+.script{background:var(--bg);border-left:4px solid var(--k);padding:8px 12px;font-style:italic;font-size:15px}
+.standard{display:flex;flex-wrap:wrap;gap:8px}
+.standard span{background:var(--bg);border:1.5px solid var(--k);padding:3px 10px;font:500 12.5px var(--f-mono)}
+.zone-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:24px}
+.zone-split div{border:2px solid var(--ink);padding:14px 16px;background:var(--paper)}
+.zone-split b{font:850 17px var(--f-display);font-stretch:112%;text-transform:uppercase;display:block;margin-bottom:4px}
+
+/* problems */
+.fix{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:16px}
+.fix article{background:var(--paper);border:1.5px solid var(--line);border-top:5px solid var(--red);padding:14px 16px;min-width:0}
+.fix h3{font-size:16px;margin-bottom:6px}
+.fix p,.fix li{font-size:14.5px}
+.fix ol{margin:0;padding-left:20px;display:grid;gap:3px}
+.sos{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 28px;padding:14px 18px;background:var(--red);color:var(--on-red);font:500 15px var(--f-mono)}
+
+/* checklists */
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:20px}
+.checks section{padding:0;background:var(--paper);border:2px solid var(--ink)}
+.checks h3{padding:12px 16px;background:var(--band);color:var(--on-band)}
+.checks label{display:flex;gap:10px;padding:9px 16px;border-bottom:1px solid var(--line);font-size:14.5px;align-items:flex-start;cursor:pointer}
+.checks input{margin-top:4px;width:18px;height:18px;accent-color:var(--green);flex:none}
+.checks h4{margin:0;padding:10px 16px 4px;font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+.promise{border:3px solid var(--ink);background:var(--amber);color:var(--on-amber);padding:22px 24px;display:grid;gap:8px;margin-top:8px}
+.promise h3{font-size:28px}
+.promise p{max-width:70ch}
+.verify{margin-top:40px;padding:16px 20px;border:2px dashed var(--muted);font-size:14.5px;color:var(--muted)}
+.verify b{color:var(--ink)}
+@media(max-width:560px){.step{margin:6px}.role>header h3{font-size:22px}}
+@media(prefers-reduced-motion:no-preference){.rail a{transition:background .15s}}
+</style>
+
+<nav class="site" aria-label="Cabin East site"><b>Cabin East</b><a href="./">3D model</a><a href="overview.html">All pages</a><a href="plan.html">Floor plan</a><a href="kitchen.html">Kitchen</a><a href="stations.html">Stations</a></nav>
+<header class="mast">
+  <div class="wrap">
+    <div class="tag">Cabin East · Wok | Steam | Draught</div>
+    <h1>Service <em>playbook</em></h1>
+    <p>The minimum every one of us follows, every shift. It covers how an order moves from the guest sitting down to the plate on the table, who does what, and what we do when something goes wrong.</p>
+    <div class="team">
+      <span>2 Servers (owners)</span><span>1 Bartender</span><span>1 Chef</span><span>1 Kitchen helper</span><span>1 Cleaner</span>
+    </div>
+  </div>
+</header>
+
+<nav class="rail" aria-label="Sections"><div class="wrap">
+  <a href="#code">The code</a><a href="#clock">The clock</a><a href="#flow">Order flow</a><a href="#tickets">KOT &amp; BOT</a><a href="#roles">Role SOPs</a><a href="#room">The room</a><a href="#wrong">When it goes wrong</a><a href="#lists">Checklists</a><a href="#test">Test it</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="code">
+  <div class="head">
+    <div class="label">Non-negotiable</div>
+    <h2>The Cabin Code</h2>
+    <p>Twelve rules. They apply to the owners as much as to anyone else. Break one and you fix it on the spot, then tell the owner.</p>
+  </div>
+  <ul class="plain code">
+    <li><b>Greet in 30 seconds</b><span>Eye contact, smile, "Welcome to Cabin East." Even if you are carrying plates.</span></li>
+    <li><b>Water and menus in 2 minutes</b><span>Every table, every time, before anything else.</span></li>
+    <li><b>No ticket, no cooking, no pouring</b><span>Nothing is made on a spoken order. Everything goes through the tablet.</span></li>
+    <li><b>Ask about allergies</b><span>On every table. Type it into the ticket and say it to the chef.</span></li>
+    <li><b>Repeat the order back</b><span>The server to the guest. The station calls "Heard" when the ticket prints.</span></li>
+    <li><b>Hot is hot, cold is cold</b><span>Clean rim, no chips, no cracks. A dish that fails the pass check is remade, not served.</span></li>
+    <li><b>Wash hands for 20 seconds</b><span>After the toilet, bins, phone, raw food, cash and any break.</span></li>
+    <li><b>Phones stay in pockets</b><span>On the floor, behind the bar and at the pass. Music and the tablet are the only screens.</span></li>
+    <li><b>Never argue with a guest</b><span>Listen, fix it, tell the owner. The guest does not leave unhappy without an owner knowing.</span></li>
+    <li><b>Alcohol is 21 and over, and sober</b><span>No one under 21. No one who is drunk gets another drink. No exceptions, even for regulars.</span></li>
+    <li><b>Clean as you go</b><span>Nothing dirty sits for more than 2 minutes. A spill is wiped in 60 seconds.</span></li>
+    <li><b>Thank every guest at the door</b><span>"Thank you, see you soon." By name if we know it.</span></li>
+  </ul>
+</section>
+
+<section id="clock">
+  <div class="head">
+    <div class="label">Speed</div>
+    <h2>The table clock</h2>
+    <p>The clock starts when the guest sits. The server's job is to get the order into the system by minute 5. After that the kitchen and bar have a fixed time to deliver. The big saving is taking drinks and food in one visit, so the kitchen starts while the guests are still on their first sip.</p>
+  </div>
+  <div class="scroll"><div class="clock" role="img" aria-label="Timeline from 0 to 25 minutes showing the service targets">
+    <div class="bar"></div>
+    <div class="zone" style="left:20%;width:16%;background:var(--green)"></div>
+    <div class="zone" style="left:36%;width:44%;background:var(--rust)"></div>
+    <div class="m up" style="left:2%"><b>0:30</b>Greeted and seated</div>
+    <div class="m dn" style="left:8%"><b>2:00</b>Water and menus on the table</div>
+    <div class="m up" style="left:16%"><b>4:00</b>Drinks and food taken in one visit</div>
+    <div class="m dn" style="left:20%"><b>5:00</b>SEND. KOT and BOT print</div>
+    <div class="m up" style="left:36%"><b>9:00</b>Drinks on the table (4 min after send)</div>
+    <div class="m dn" style="left:52%"><b>13:00</b>First dish down (8 min after send)</div>
+    <div class="m up" style="left:80%"><b>20:00</b>Whole order down (15 min after send)</div>
+    <div class="tick" style="left:0">0</div><div class="tick" style="left:20%">5</div><div class="tick" style="left:40%">10</div><div class="tick" style="left:60%">15</div><div class="tick" style="left:80%">20</div><div class="tick" style="left:100%">25 min</div>
+  </div></div>
+  <div class="legend">
+    <span><i style="background:var(--green)"></i>Bar window: BOT to drink on table, 4 min</span>
+    <span><i style="background:var(--rust)"></i>Kitchen window: KOT to last dish, 15 min</span>
+  </div>
+  <div class="tbl" style="margin-top:22px"><table>
+    <thead><tr><th>After</th><th>Standard</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr><td>Drinks sent</td><td class="mono-c">Beer and soft drinks ≤ 3 min · cocktails ≤ 5 min</td><td>Bartender</td></tr>
+      <tr><td>Food sent</td><td class="mono-c">Soup, dim sum, bao ≤ 8 min · wok dishes ≤ 12 min · whole table ≤ 15 min</td><td>Chef</td></tr>
+      <tr><td>Bell rings</td><td class="mono-c">Food leaves the pass within 90 seconds</td><td>Server</td></tr>
+      <tr><td>First bites</td><td class="mono-c">Check-back within 2 minutes</td><td>Server</td></tr>
+      <tr><td>Plate finished</td><td class="mono-c">Cleared within 2 minutes</td><td>Cleaner / server</td></tr>
+      <tr><td>Glass ¼ full</td><td class="mono-c">Offer the next drink</td><td>Server</td></tr>
+      <tr><td>Bill asked</td><td class="mono-c">On the table within 2 minutes</td><td>Server</td></tr>
+      <tr><td>Guest leaves</td><td class="mono-c">Table reset within 3 minutes</td><td>Cleaner</td></tr>
+      <tr><td>12 minutes after send</td><td class="mono-c">Yellow on the kitchen screen. Server tells the guest the true wait.</td><td>Server</td></tr>
+      <tr><td>15 minutes after send</td><td class="mono-c">Red. Chef answers to the owner. Guest gets an update before they ask.</td><td>Chef / owner</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="flow">
+  <div class="head">
+    <div class="label">The picture</div>
+    <h2>Order flow, seat to reset</h2>
+    <p>Read left to right. Each coloured row is one person or one system. The numbers are the order things happen in. The amber box is the one moment that starts the kitchen and the bar at the same time.</p>
+  </div>
+  <div class="scroll">
+    <div class="lanes">
+      <div class="colh" style="grid-column:1;grid-row:1"><b>Who</b></div>
+      <div class="colh" style="grid-column:2;grid-row:1"><b>Arrive</b><span>0:00</span></div>
+      <div class="colh" style="grid-column:3;grid-row:1"><b>Welcome</b><span>0:30–2:00</span></div>
+      <div class="colh" style="grid-column:4;grid-row:1"><b>Order</b><span>by 4:00</span></div>
+      <div class="colh" style="grid-column:5;grid-row:1"><b>Send</b><span>by 5:00</span></div>
+      <div class="colh" style="grid-column:6;grid-row:1"><b>Make</b><span>5:00–20:00</span></div>
+      <div class="colh" style="grid-column:7;grid-row:1"><b>Serve</b><span>bell + 90 s</span></div>
+      <div class="colh" style="grid-column:8;grid-row:1"><b>Dine</b><span>check-back 2 min</span></div>
+      <div class="colh" style="grid-column:9;grid-row:1"><b>Bill</b><span>asked + 2 min</span></div>
+      <div class="colh" style="grid-column:10;grid-row:1"><b>Reset</b><span>leave + 3 min</span></div>
+
+      <div class="band" style="grid-row:2"></div><div class="band" style="grid-row:3"></div><div class="band" style="grid-row:4"></div>
+      <div class="band" style="grid-row:5"></div><div class="band" style="grid-row:6"></div><div class="band" style="grid-row:7"></div>
+
+      <div class="lane k-g" style="grid-row:2">Guest</div>
+      <div class="lane k-s" style="grid-row:3">Server</div>
+      <div class="lane k-p" style="grid-row:4">Tablet POS</div>
+      <div class="lane k-b" style="grid-row:5">Bar</div>
+      <div class="lane k-k" style="grid-row:6">Kitchen</div>
+      <div class="lane k-c" style="grid-row:7">Cleaner</div>
+
+      <!-- guest -->
+      <div class="step k-g" style="--c:2;--r:2"><i>1</i><b>Arrives</b> and is seen from the door</div>
+      <div class="step k-g" style="--c:4;--r:2"><i>4</i><b>Orders</b> drinks and food together; names any allergy</div>
+      <div class="step k-g" style="--c:7;--r:2"><i>11</i><b>Gets</b> drinks first, then food together</div>
+      <div class="step k-g" style="--c:8;--r:2"><i>12</i><b>Eats.</b> Asked once if all is right</div>
+      <div class="step k-g" style="--c:9;--r:2"><i>15</i><b>Asks for the bill</b> and pays</div>
+      <!-- server -->
+      <div class="step k-s" style="--c:2;--r:3"><i>2</i><b>Greets, seats</b><span class="t">≤ 30 s</span></div>
+      <div class="step k-s" style="--c:3;--r:3"><i>3</i><b>Water, menus, specials</b>; asks "any allergies?"<span class="t">≤ 2 min</span></div>
+      <div class="step k-s" style="--c:4;--r:3"><i>5</i><b>Takes the order on the tablet.</b> Repeats it back<span class="t">by 4:00</span></div>
+      <div class="step k-s" style="--c:7;--r:3"><i>10</i><b>Hears the bell,</b> collects, serves. Drinks first<span class="t">≤ 90 s</span></div>
+      <div class="step k-s" style="--c:8;--r:3"><i>13</i><b>Checks back</b> at first bites. Offers next drink<span class="t">≤ 2 min</span></div>
+      <div class="step k-s" style="--c:9;--r:3"><i>16</i><b>Prints bill,</b> takes payment, thanks at the door<span class="t">≤ 2 min</span></div>
+      <!-- pos -->
+      <div class="step k-p" style="--c:4;--r:4"><i>5b</i>Table → items → notes ("Allergy: see server" for any allergy)</div>
+      <div class="step send" style="--c:5;--r:4"><i>6</i><b>SEND</b> One tap. Food splits to the kitchen, drinks to the bar<span class="t">by 5:00</span></div>
+      <div class="step k-p" style="--c:9;--r:4"><i>16b</i>Print bill → Pay → invoice. Cash, UPI or card</div>
+      <!-- bar -->
+      <div class="step k-b" style="--c:5;--r:5"><i>6a</i><b>BOT prints at the bar.</b> Bartender says "Heard"</div>
+      <div class="step k-b" style="--c:6;--r:5"><i>7</i><b>Pours and mixes</b> in ticket order. Drinks on the bar pass, bell<span class="t">≤ 4 min</span></div>
+      <!-- kitchen -->
+      <div class="step k-k" style="--c:5;--r:6"><i>6b</i><b>KOT prints in the kitchen.</b> Chef reads it aloud, helper says "Heard"</div>
+      <div class="step k-k" style="--c:6;--r:6"><i>8</i><b>Chef fires:</b> steam first, soup, wok last. Helper preps and plates<span class="t">≤ 15 min</span></div>
+      <div class="step k-k" style="--c:7;--r:6"><i>9</i><b>Pass check:</b> right dish, hot, clean rim. Tap Ready. Bell</div>
+      <!-- cleaner -->
+      <div class="step k-c" style="--c:2;--r:7"><i>0</i>Table was already reset and set</div>
+      <div class="step k-c" style="--c:8;--r:7"><i>14</i>Clears finished plates, empties bins, checks toilet every 30 min<span class="t">≤ 2 min</span></div>
+      <div class="step k-c" style="--c:10;--r:7"><i>17</i><b>Resets the table</b> with the 6-point set. Table is free again<span class="t">≤ 3 min</span></div>
+    </div>
+  </div>
+  <p class="note">Swipe sideways on a phone. Steps 1 to 17 are the whole journey. Steps 6, 6a and 6b happen at the same instant.</p>
+
+  <h3 style="margin-top:34px">Who covers which tables</h3>
+  <p class="note" style="margin:6px 0 16px">Floor tables are W1–W4 (window), B1–B4 (bar seats) and G1–G2 (garden), as set up in the POS.</p>
+  <div class="zone-split">
+    <div><b>Server 1 · Floor</b>W1–W4 and bar seats B1–B4. Greets the door. Owns the room mood: music, lights, temperature.</div>
+    <div><b>Server 2 · Garden and pass</b>G1–G2. Owns the pass: every bell, every plate that leaves the kitchen. Owns the bill desk.</div>
+    <div><b>Nobody owns a waiting table</b>If a guest has waited 30 seconds, the nearest server greets them. If a bell is ringing, whoever is free runs it.</div>
+  </div>
+</section>
+
+<section id="tickets">
+  <div class="head">
+    <div class="label">The system</div>
+    <h2>KOT and BOT</h2>
+    <p>The tablet is the only way an order reaches the kitchen or the bar. When the server taps Send, the POS splits the ticket by item. Food prints as a KOT in the kitchen. Drinks print as a BOT at the bar. Both appear on the kitchen screen with a timer. Nobody carries a paper order, and nobody shouts an order across the room.</p>
+  </div>
+  <div class="tickets">
+    <div class="slip">
+      <h3>CABIN EAST · KOT</h3>
+      <div class="big">TABLE W2 · 3 guests</div>
+      <div>Server: S1 · 19:42 · KOT 0142</div>
+      <hr>
+      <div class="stn">STEAM</div>
+      <div>2 × Chicken dim sum (6)</div>
+      <div class="stn" style="margin-top:6px">SOUP · SERVE FIRST</div>
+      <div>1 × Wonton Kenobi</div>
+      <div class="stn" style="margin-top:6px">WOK</div>
+      <div>1 × Chilli chicken</div>
+      <div class="al">ALLERGY: PEANUT · SEE SERVER</div>
+      <hr>
+      <div>Chef calls: "Heard W2, 142."</div>
+    </div>
+    <div class="slip">
+      <h3>CABIN EAST · BOT</h3>
+      <div class="big">TABLE W2 · 3 guests</div>
+      <div>Server: S1 · 19:42 · BOT 0143</div>
+      <hr>
+      <div>2 × Comrade Crisp (pint)</div>
+      <div>1 × Gose Bumps (half)</div>
+      <div>1 × Lime soda</div>
+      <hr>
+      <div>Bartender calls: "Heard W2."</div>
+      <div style="margin-top:6px">Beer first. Drinks go on the bar pass with table tag W2.</div>
+    </div>
+    <div class="rules">
+      <div><b>One ticket per Send</b><span>Add a dish later? Send again. Never tell the chef verbally.</span></div>
+      <div><b>Notes are written, not said</b><span>"Less spicy", "No onion", "Jain", "Allergy: see server", "Serve first". The server also walks to the pass and tells the chef about any allergy.</span></div>
+      <div><b>Oldest ticket first</b><span>Unless it says Serve first. The ticket stays on the rail until the dish is served.</span></div>
+      <div><b>Changes after Send need a void</b><span>The item voids, a void slip prints in the kitchen, and a manager PIN approves it. The server walks to the pass and says it out loud as well.</span></div>
+      <div><b>Out of stock is called early</b><span>The chef tells the servers when something is 86. The server marks it on the tablet.</span></div>
+      <div><b>If a printer fails</b><span>Use the kitchen screen. If both fail, write on the numbered pad (table, time, items, server), carry it to the station, and key it in when it is back.</span></div>
+    </div>
+  </div>
+
+  <h3 style="margin:34px 0 14px">How the kitchen fires a ticket</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Order</th><th>Station</th><th>Who</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Steam</td><td>Dim sum steamer</td><td>Helper</td><td>Frozen dim sum goes on the moment the ticket is read. It is the slowest item, so it starts first.</td></tr>
+      <tr><td>2 · Soup</td><td>Stock range</td><td>Helper, chef finishes</td><td>Portioned from the held pot. Single serve.</td></tr>
+      <tr><td>3 · Wok</td><td>Wok line</td><td>Chef</td><td>Fired so it finishes 1–2 minutes after the steam, so the whole table lands together.</td></tr>
+      <tr><td>4 · Plate and pass</td><td>Pass</td><td>Chef checks, helper plates</td><td>Right dish, temperature, clean rim, garnish. Tap Ready. Ring the bell once.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="roles">
+  <div class="head">
+    <div class="label">Who does what</div>
+    <h2>Role SOPs</h2>
+    <p>Each card is the bare minimum for one role. If you are unsure, do the card.</p>
+  </div>
+  <div class="roles">
+
+    <article class="role" style="--k:var(--red);--kh:#B5321C">
+      <header><h3>Servers · the two owners</h3><p>Run the room, the guest experience and the money.</p></header>
+      <div class="body">
+        <div>
+          <h4>60 minutes before opening</h4>
+          <ul>
+            <li>Clean uniform, hands washed, phone silent and in your pocket.</li>
+            <li>Tablet charged, logged in with your own PIN, clocked in.</li>
+            <li>Walk every table: cutlery, chopsticks, napkin, condiments, menu clean and unbent.</li>
+            <li>Music, lights and AC set. Garden fans checked.</li>
+            <li>Ask the chef for the 86 list and the special. Taste the special.</li>
+            <li>Two-minute huddle with everyone: bookings, specials, who is on which zone.</li>
+          </ul>
+          <h4>During service</h4>
+          <ul>
+            <li>Greet, seat, water and menus. Say the special and the one dish you recommend.</li>
+            <li>Take drinks and food in the same visit. Repeat the order back.</li>
+            <li>Ask "any allergies?" at every table, then type it into the ticket.</li>
+            <li>Tap Send before you leave the table. Check the printers fired.</li>
+            <li>Serve drinks first, then the full table's food together. Say what each dish is. Never reach across a guest.</li>
+            <li>Check back at first bites, not before and not later. Offer the next drink at a quarter glass.</li>
+            <li>Clear plates as each guest finishes. Wait for the whole table before taking the bill away.</li>
+            <li>Offer the bill when the table slows. Print it within 2 minutes of the ask.</li>
+          </ul>
+          <div class="script">"Welcome to Cabin East. Table for three? Please sit wherever you like, I'll bring water and menus right now."</div>
+          <h4>After closing</h4>
+          <ul>
+            <li>All open orders closed or voided with a reason. Day close done: cash counted, Z report printed.</li>
+            <li>Tomorrow's bookings and specials noted. Tablets on charge.</li>
+          </ul>
+        </div>
+        <div class="standard"><span>Greet ≤ 30 s</span><span>Water ≤ 2 min</span><span>Send ≤ 5 min</span><span>Serve ≤ 90 s</span><span>Bill ≤ 2 min</span></div>
+      </div>
+    </article>
+
+    <article class="role" style="--k:var(--green);--kh:#2F6F57">
+      <header><h3>Bartender</h3><p>Draught, spirits, coffee and zero-proof. The bar is also the room's heartbeat.</p></header>
+      <div class="body">
+        <div>
+          <h4>Before opening</h4>
+          <ul>
+            <li>Check the 3 kegs, CO₂ and the beer cooler temperature. Pull and discard the first pour. Clean the taps and drip tray.</li>
+            <li>Ice machine full, garnishes cut and covered, mixers and syrups labelled with date, glasses polished and on the rack.</li>
+            <li>BOT printer has paper. Jiggers, bar mats, bell, table tags in place.</li>
+            <li>Stock against the par list. Tell the owner what is low before opening.</li>
+          </ul>
+          <h4>During service</h4>
+          <ul>
+            <li>Make drinks in the order the BOTs print. Say "Heard" out loud.</li>
+            <li>Beer: clean glass, tilted 45°, about 2 cm of head, never topped with a finger. A chipped or marked glass goes to the sink, never to a guest.</li>
+            <li>Every spirit is measured with a jigger. The POS counts stock by the ml, so the pour must match the ticket.</li>
+            <li>Place finished drinks on the bar pass with the table tag, ring the bell once.</li>
+            <li>Stay at the bar. Wipe as you go, glasswasher loaded and run, nothing left dripping on the counter.</li>
+            <li>Alcohol only for guests aged 21 and over. If someone looks under 25, ask for ID. Stop serving anyone who is drunk and call the owner.</li>
+          </ul>
+          <h4>After closing</h4>
+          <ul>
+            <li>Flush the lines and clean the tap nozzles. Cap the kegs. Count spirits against the POS. Log waste.</li>
+            <li>Empty ice, wipe the bar and back bar, run the glasswasher last, mop.</li>
+          </ul>
+        </div>
+        <div class="standard"><span>Beer ≤ 3 min</span><span>Cocktail ≤ 5 min</span><span>Jigger always</span><span>21+ only</span></div>
+      </div>
+    </article>
+
+    <article class="role" style="--k:var(--rust);--kh:#C2571A">
+      <header><h3>Chef</h3><p>Owns every plate that leaves the pass, and the kitchen's rhythm.</p></header>
+      <div class="body">
+        <div>
+          <h4>Before opening</h4>
+          <ul>
+            <li>Gas on at the solenoid, leak detector green, extinguishers in place, exhaust and fresh-air fans running.</li>
+            <li>Check every fridge and freezer temperature and write it on the log: fridge 5 °C or below, freezer −18 °C or below.</li>
+            <li>Mise en place to the day's par: sauces mixed and labelled with the date, proteins portioned and covered, dim sum counted, rice cooked, garnish cut.</li>
+            <li>Stock check against the order list. Tell the servers what is 86 and what the special is.</li>
+            <li>Taste the soup and the main sauces. If a base is off, remake it now.</li>
+          </ul>
+          <h4>During service</h4>
+          <ul>
+            <li>Read each ticket aloud when it prints. The helper answers "Heard".</li>
+            <li>Fire in order: steam, soup, wok. The whole table lands together within 2 minutes.</li>
+            <li>Oldest ticket first unless it says Serve first. Say the table number when you fire.</li>
+            <li>Allergy ticket: clean board and utensils, helper wipes the wok station, the chef cooks and passes it personally and tells the server by name which table it is for.</li>
+            <li>Pass check on every plate. Chicken and pork reach 75 °C at the centre. Hot dishes go out hot, cold stays cold. Wipe the rim.</li>
+            <li>Tap Ready when plated. Ring the bell once. Nothing waits on the pass for more than 90 seconds. If it does, remake it.</li>
+            <li>At 12 minutes, call the table number to the server.</li>
+          </ul>
+          <h4>After closing</h4>
+          <ul>
+            <li>Label, date and cover everything saved. First in, first out. Discard anything past its date.</li>
+            <li>Gas off at the solenoid. Hood filters out for cleaning. Floors and drains clean. Waste logged and counted into the POS.</li>
+          </ul>
+        </div>
+        <div class="standard"><span>Steam ≤ 8 min</span><span>Wok ≤ 12 min</span><span>Table ≤ 15 min</span><span>Bell once</span></div>
+      </div>
+    </article>
+
+    <article class="role" style="--k:#9A6A0B;--kh:#9A6A0B">
+      <header><h3>Kitchen helper</h3><p>The chef's second pair of hands. Prep, steam, plate, keep the line stocked.</p></header>
+      <div class="body">
+        <div>
+          <h4>Before opening</h4>
+          <ul>
+            <li>Hands washed, apron clean, hair covered. Gloves on for ready-to-eat food.</li>
+            <li>Chop, portion and label to the chef's list. Steamers filled and heated. Plates warm, garnish ready.</li>
+            <li>Colour-coded boards in the right place: raw and cooked never share a board or a knife.</li>
+          </ul>
+          <h4>During service</h4>
+          <ul>
+            <li>Answer "Heard" to every ticket. Put dim sum into the steamer the moment the ticket is read.</li>
+            <li>Keep the line stocked: sauces topped up, rice ready, spare plates at the pass. Tell the chef when anything is down to a quarter.</li>
+            <li>Plate to the portion spec, wipe the rim, hand to the chef for the pass check.</li>
+            <li>Wipe your station every 15 minutes. Waste goes straight to the bin, not onto the counter.</li>
+          </ul>
+          <h4>After closing</h4>
+          <ul>
+            <li>Steamers emptied, descaled weekly, and left open to dry. Boards and knives washed and stored.</li>
+            <li>Prep list for tomorrow written for the chef.</li>
+          </ul>
+        </div>
+        <div class="standard"><span>Heard every ticket</span><span>Rim wiped</span><span>Station wiped / 15 min</span></div>
+      </div>
+    </article>
+
+    <article class="role" style="--k:var(--teal);--kh:#3C6E78">
+      <header><h3>Cleaner</h3><p>Guests judge a place by its toilet and its tables. This role is that promise.</p></header>
+      <div class="body">
+        <div>
+          <h4>Before opening</h4>
+          <ul>
+            <li>Floor mopped, tables wiped and dry, chairs squared, garden swept.</li>
+            <li>Toilet cleaned, soap full, paper full, bin empty, floor dry, no smell.</li>
+            <li>Dish station set: sink clean, sanitiser mixed, dishwasher ready.</li>
+          </ul>
+          <h4>During service</h4>
+          <ul>
+            <li>Toilet check every 30 minutes. Write the time and your initials on the sheet on the door.</li>
+            <li>Clear finished plates within 2 minutes and carry them to the dish station.</li>
+            <li>Reset each table within 3 minutes: wipe, set, check, set cutlery, napkin, condiments, clean menu.</li>
+            <li>Spill: put the sign down and wipe it within 60 seconds.</li>
+            <li>Dish station is yours. Plates, glasses and cutlery return clean and dry. Bins emptied when three quarters full, never overflowing.</li>
+            <li>No cleaning chemicals sprayed near food or guests.</li>
+          </ul>
+          <h4>After closing</h4>
+          <ul>
+            <li>Floors scrubbed and mopped, all bins emptied and washed, garden swept, drains cleared.</li>
+            <li>Cloths washed and hung to dry. Chemicals stored away from food.</li>
+          </ul>
+        </div>
+        <div class="standard"><span>Toilet / 30 min</span><span>Clear ≤ 2 min</span><span>Reset ≤ 3 min</span><span>Spill ≤ 60 s</span></div>
+      </div>
+    </article>
+
+    <article class="role" style="--k:var(--slate);--kh:#5B4D40">
+      <header><h3>Table reset · six points</h3><p>The cleaner's checklist, and the servers' when the cleaner is busy.</p></header>
+      <div class="body">
+        <ul>
+          <li><b>Wipe</b> the table and the edge, then dry it.</li>
+          <li><b>Chairs</b> squared and wiped. Floor under the table clear.</li>
+          <li><b>Set</b> cutlery, chopsticks, napkin for each seat.</li>
+          <li><b>Condiments</b> tray complete and clean.</li>
+          <li><b>Menu</b> clean and straight. Table number visible.</li>
+          <li><b>Look</b> from the guest's chair. If you would not sit there, fix it.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="room">
+  <div class="head">
+    <div class="label">Ambience</div>
+    <h2>The room</h2>
+    <p>Good music and good vibes are standards too. Someone owns them every minute: the floor server.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Part of the room</th><th>Standard</th><th>Checked</th></tr></thead>
+    <tbody>
+      <tr><td>Music volume</td><td>You can talk across a table without raising your voice. Lower it when the room is quiet, raise it a notch when it is full.</td><td>Every hour</td></tr>
+      <tr><td>Playlist</td><td>Daytime easy and bright. Evening warmer and slower. Same playlists every day, so the room has a sound. No sudden genre jumps, no ads, no explicit tracks.</td><td>Before opening</td></tr>
+      <tr><td>Amplified music cut-off</td><td>Switch to low background at the licensed hour, and keep it low late at night. There are apartments above us.</td><td>Daily</td></tr>
+      <tr><td>Lights</td><td>Full in the daytime. Dim to warm once the sun goes down. No bare bright bulbs after dark.</td><td>At sunset</td></tr>
+      <tr><td>Temperature</td><td>AC at 24 °C. Garden fans on when it is humid. No guest sits in a draught.</td><td>Every hour</td></tr>
+      <tr><td>Smell</td><td>Food and clean. No stale drains, no bin smell, no cigarette smoke indoors.</td><td>Every 30 min</td></tr>
+      <tr><td>Staff conduct</td><td>No shouting, no phones, no gossip in front of guests. The kitchen speaks quietly. Plates are set down, not dropped.</td><td>Always</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="promise" style="margin-top:28px">
+    <div class="label" style="color:var(--on-amber)">Your decision</div>
+    <h3>A promise nobody else in Goa makes</h3>
+    <p>Put the clock on the table. "Your food reaches you in 15 minutes from the moment we send it. If it doesn't, the first round of drinks is on us." Servers say it when they take the order. The kitchen screen already shows the timer, so a late order is visible to everyone. It only works if the soft-launch tests below show the kitchen hits 15 minutes on a full house. Decide after the tests, not before.</p>
+  </div>
+</section>
+
+<section id="wrong">
+  <div class="head">
+    <div class="label">Recovery</div>
+    <h2>When it goes wrong</h2>
+    <p>Mistakes are normal. How we handle them is what the guest remembers. Every fix starts the same way: listen, apologise once, solve, thank.</p>
+  </div>
+  <div class="fix">
+    <article><h3>Order is late (12+ min)</h3><ol><li>Server checks the pass before the guest asks.</li><li>Tell the guest the real time. "Two more minutes, I'm sorry."</li><li>Bring water or a small bite if more than 5 minutes.</li><li>At 20 minutes the owner visits the table and decides on a gesture.</li></ol></article>
+    <article><h3>Wrong or cold dish</h3><ol><li>Apologise once. Take the dish away at once.</li><li>Remake first and sort out the cause later.</li><li>Void with the reason on the tablet.</li><li>Chef is told the same minute.</li></ol></article>
+    <article><h3>Allergy concern</h3><ol><li>Stop. Do not serve the dish.</li><li>Chef remakes with clean tools. Owner checks the plate.</li><li>If a guest has a reaction: ask if they have medication, call 108, and tell an owner.</li></ol></article>
+    <article><h3>Guest complaint</h3><ol><li>Listen without interrupting. Do not defend.</li><li>Fix what you can inside your authority.</li><li>If it needs more, bring the owner. Do not argue with the guest.</li></ol></article>
+    <article><h3>Drunk or rowdy guest</h3><ol><li>Stop serving alcohol. Offer water and food.</li><li>An owner speaks to the guest calmly.</li><li>If they will not calm down, ask them to leave. Never touch a guest.</li></ol></article>
+    <article><h3>Rush: the rail is full</h3><ol><li>Six or more tickets on the rail means a rush.</li><li>Servers quote a longer wait up front: "about 20 minutes".</li><li>The helper does only plating. The cleaner takes the dish station only.</li></ol></article>
+    <article><h3>Power cut</h3><ol><li>Backup runs lights, POS, cold storage and exhaust. The ACs are off.</li><li>Open the garden doors. Tell guests ten seconds after.</li><li>Do not open fridges.</li></ol></article>
+    <article><h3>Printer, tablet or payment fails</h3><ol><li>Switch to the kitchen screen or the numbered pad.</li><li>UPI down: card or cash. Card down: UPI or cash.</li><li>Key everything in when it is back.</li></ol></article>
+    <article><h3>Fire or gas smell</h3><ol><li>Gas off at the solenoid. Fire blanket or Class K extinguisher for a wok fire.</li><li>Move guests out via the main door and the garden.</li><li>Call 101. Do not re-enter.</li></ol></article>
+  </div>
+  <div class="sos"><span>Emergency 112</span><span>Ambulance 108</span><span>Fire 101</span><span>Owner: ____________</span><span>Gas supplier: ____________</span></div>
+</section>
+
+<section id="safety">
+  <div class="head" style="padding-top:48px">
+    <div class="label">Food safety</div>
+    <h2>Hygiene minimums</h2>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>What</th><th>Limit</th><th>Log</th></tr></thead>
+    <tbody>
+      <tr><td>Fridge</td><td class="mono-c">5 °C or below</td><td>Open and close</td></tr>
+      <tr><td>Freezer</td><td class="mono-c">−18 °C or below</td><td>Open and close</td></tr>
+      <tr><td>Hot holding (stock, soup)</td><td class="mono-c">60 °C or above</td><td>Every 2 hours</td></tr>
+      <tr><td>Cooked chicken and pork</td><td class="mono-c">75 °C at the centre</td><td>Each batch</td></tr>
+      <tr><td>Hand-wash</td><td class="mono-c">20 seconds, soap and water</td><td>Sink never blocked</td></tr>
+      <tr><td>Food labels</td><td class="mono-c">Name, date made, use-by date</td><td>Every container</td></tr>
+      <tr><td>Boards and knives</td><td class="mono-c">Colour coded: raw and cooked kept apart</td><td>Always</td></tr>
+      <tr><td>Sick staff</td><td class="mono-c">Vomiting, diarrhoea or fever: do not come in</td><td>Tell the owner</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="lists">
+  <div class="head">
+    <div class="label">Every day</div>
+    <h2>Opening and closing</h2>
+    <p>Tick as you go. These boxes reset when you reload the page.</p>
+  </div>
+  <div class="checks">
+    <section>
+      <h3>Opening</h3>
+      <h4>Kitchen</h4>
+      <label><input type="checkbox">Gas on, leak detector green, extinguishers in place</label>
+      <label><input type="checkbox">Fridge and freezer temperatures logged</label>
+      <label><input type="checkbox">Mise en place to par, labelled and dated</label>
+      <label><input type="checkbox">86 list and special told to servers</label>
+      <h4>Bar</h4>
+      <label><input type="checkbox">Kegs, CO₂ and cooler checked; first pour discarded</label>
+      <label><input type="checkbox">Ice, garnish, glasses ready</label>
+      <h4>Floor</h4>
+      <label><input type="checkbox">Tables set, menus clean, floor dry</label>
+      <label><input type="checkbox">Toilet cleaned and logged</label>
+      <label><input type="checkbox">Music, lights, AC set</label>
+      <label><input type="checkbox">Tablets charged, everyone clocked in</label>
+      <label><input type="checkbox">Two-minute huddle done</label>
+    </section>
+    <section>
+      <h3>Closing</h3>
+      <h4>Kitchen</h4>
+      <label><input type="checkbox">Food covered, labelled, dated, fridge organised</label>
+      <label><input type="checkbox">Gas off at the solenoid</label>
+      <label><input type="checkbox">Hood filters, floor and drains cleaned</label>
+      <label><input type="checkbox">Waste logged in the POS</label>
+      <h4>Bar</h4>
+      <label><input type="checkbox">Lines flushed, kegs capped</label>
+      <label><input type="checkbox">Spirits counted, glasswasher run, bar mopped</label>
+      <h4>Floor and money</h4>
+      <label><input type="checkbox">All orders closed or voided with a reason</label>
+      <label><input type="checkbox">Day close: cash counted, Z report printed, backup made</label>
+      <label><input type="checkbox">Bins out, garden swept, toilet clean</label>
+      <label><input type="checkbox">Lights, fans, AC and music off. Doors and shutter locked</label>
+      <label><input type="checkbox">Tomorrow's bookings and prep list noted</label>
+    </section>
+  </div>
+</section>
+
+<section id="test">
+  <div class="head">
+    <div class="label">Before the doors open</div>
+    <h2>Test the clock</h2>
+    <p>Every number in this playbook is a target, not a measurement. Prove it in practice.</p>
+  </div>
+  <div class="rules">
+    <div><b>Run three full mock services with friends and family</b><span>Fill the room: 18 inside, then the garden. Someone with a stopwatch notes the five times in "The table clock": greet, send, drinks, first dish, whole order.</span></div>
+    <div><b>Read the real times from the POS</b><span>The kitchen screen timers and the order history show send and ready times. Use them in the first month to see where the minutes go.</span></div>
+    <div><b>Change the number, not the standard</b><span>If the kitchen cannot hit 15 minutes on a full house, change the process (fewer wok dishes at once, more pre-batched items) or say a longer wait honestly. Do not pretend.</span></div>
+  </div>
+  <div class="verify">
+    <b>Still to confirm.</b> The 21 and over drinking age is as printed on the drinks menu. Check it, the licensed closing hour and the late-night amplified music cut-off with the excise department and the panchayat. The FSSAI temperature limits are the common standard, and your food safety supervisor or auditor may ask for different logs. The time targets are my planning figures for a 28-cover room with one chef and one helper.
+  </div>
+</section>
+
+</main>
