@@ -1,6 +1,6 @@
 # Moved
 
-The Cabin East brand kit and the brand and merch page now live in the Garden repo:
+The Konso brand kit and the brand and merch page now live in the Garden repo:
 
 - https://singhgenics.github.io/Garden/brand-kit.html
 - https://singhgenics.github.io/Garden/brand-merch.html
